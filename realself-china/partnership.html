@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Partnership model for Real Self in China - revenue share structure, key terms, and implementation timeline.">
+    <title>Partnership Model | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        .split-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        .split-card__side {
+            padding: var(--spacing-2xl);
+            border: 1px solid var(--color-gray-800);
+        }
+
+        .split-card__side--partner {
+            background: var(--color-gray-900);
+        }
+
+        .split-card__side--realself {
+            background: var(--color-black);
+            border-color: var(--color-white);
+        }
+
+        .split-card__percentage {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .split-card__desc {
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .split-card__list {
+            list-style: none;
+        }
+
+        .split-card__list li {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+            color: var(--color-gray-300);
+            font-size: 0.875rem;
+        }
+
+        .split-card__list li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .split-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .term-card {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: flex-start;
+            padding: var(--spacing-xl);
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+        }
+
+        .term-card__icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            color: var(--color-white);
+        }
+
+        .term-card__content h3 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .term-card__content p {
+            color: var(--color-gray-400);
+            margin: 0;
+        }
+
+        .phase {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+            padding: var(--spacing-xl) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .phase:last-child {
+            border-bottom: none;
+        }
+
+        .phase__number {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .phase__content {
+            flex: 1;
+        }
+
+        .phase__duration {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .phase__title {
+            font-size: 1.125rem;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="home.html" class="logo"><img src="images/logo-rs-icon.png" alt="Real Self" class="logo__img"></a>
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="experience.html" class="nav__link">Experience</a></li>
+                        <li><a href="scenarios.html" class="nav__link">Scenarios</a></li>
+                        <li><a href="investment.html" class="nav__link">Breakdown</a></li>
+                        <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
+                    </ul>
+
+                    <div class="lang-toggle">
+                        <button class="lang-toggle__btn active" data-lang="en">EN</button>
+                        <button class="lang-toggle__btn" data-lang="zh">中文</button>
+                    </div>
+
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-xl);">
+        <div class="container">
+            <h1 class="mb-md" data-i18n="partnership.title">Partnership Model</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="partnership.subtitle">A proven structure for mutual success</p>
+        </div>
+    </section>
+
+    <!-- Revenue Share Structure -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="partnership.structure.title">Revenue Share Structure</h2>
+
+            <div class="split-card">
+                <div class="split-card__side split-card__side--partner">
+                    <h3 style="color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="partnership.structure.partner.title">Partner Receives</h3>
+                    <div class="split-card__percentage" data-i18n="partnership.structure.partner.percentage">70%</div>
+                    <p class="split-card__desc" data-i18n="partnership.structure.partner.desc">of gross profit (after operating costs)</p>
+
+                    <ul class="split-card__list">
+                        <li>Venue lease and operations</li>
+                        <li>Equipment purchase and maintenance</li>
+                        <li>Local staff hiring and management</li>
+                        <li>Marketing and ticket sales</li>
+                        <li>Daily operations</li>
+                    </ul>
+                </div>
+
+                <div class="split-card__side split-card__side--realself">
+                    <h3 style="color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="partnership.structure.realself.title">Real Self Receives</h3>
+                    <div class="split-card__percentage" data-i18n="partnership.structure.realself.percentage">30%</div>
+                    <p class="split-card__desc" data-i18n="partnership.structure.realself.desc">of gross ticket revenue</p>
+
+                    <ul class="split-card__list">
+                        <li>IP and content licensing</li>
+                        <li>Technical setup and calibration</li>
+                        <li>Staff training program</li>
+                        <li>Creative consultation</li>
+                        <li>Quality assurance visits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Terms -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="partnership.terms.title">Key Terms</h2>
+
+            <div class="grid grid--2">
+                <div class="term-card">
+                    <svg class="term-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <div class="term-card__content">
+                        <h3 data-i18n="partnership.terms.exclusivity.title">Territorial Exclusivity</h3>
+                        <p data-i18n="partnership.terms.exclusivity.desc">Mainland China exclusive rights</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <svg class="term-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    <div class="term-card__content">
+                        <h3 data-i18n="partnership.terms.duration.title">Agreement Duration</h3>
+                        <p data-i18n="partnership.terms.duration.desc">3-5 year initial term</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <svg class="term-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <div class="term-card__content">
+                        <h3 data-i18n="partnership.terms.minimum.title">Minimum Guarantee</h3>
+                        <p data-i18n="partnership.terms.minimum.desc">Monthly minimum payment ensures commitment</p>
+                    </div>
+                </div>
+
+                <div class="term-card">
+                    <svg class="term-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        <polyline points="17 6 23 6 23 12"/>
+                    </svg>
+                    <div class="term-card__content">
+                        <h3 data-i18n="partnership.terms.scaling.title">Scaling Incentive</h3>
+                        <p data-i18n="partnership.terms.scaling.desc">Revenue share increases with additional venues</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimum Guarantee -->
+    <section class="section">
+        <div class="container container--narrow">
+            <div class="card" style="padding: var(--spacing-2xl);">
+                <h2 class="mb-lg">Minimum Guarantee Structure</h2>
+                <p style="color: var(--color-gray-300); margin-bottom: var(--spacing-xl);">
+                    The minimum guarantee ensures commitment from both parties and provides baseline predictability.
+                </p>
+
+                <div class="table-wrapper" style="margin: 0;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Performance</th>
+                                <th>Monthly Minimum</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Year 1 (Ramp-up)</td>
+                                <td>$30,000 - $40,000</td>
+                            </tr>
+                            <tr>
+                                <td>Year 2+ (Stabilized)</td>
+                                <td>$40,000 - $50,000</td>
+                            </tr>
+                            <tr>
+                                <td>Multi-location (3+)</td>
+                                <td>$100,000+ combined</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="mt-lg" style="color: var(--color-gray-500); font-size: 0.875rem;">
+                    If 30% of gross exceeds minimum, actual revenue share applies. Minimum serves as floor, not ceiling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="partnership.timeline.title">Implementation Timeline</h2>
+
+            <div class="container--narrow" style="margin: 0 auto;">
+                <div class="phase">
+                    <div class="phase__number">1</div>
+                    <div class="phase__content">
+                        <div class="phase__duration" data-i18n="partnership.timeline.phases.negotiation.duration">Month 1-2</div>
+                        <h3 class="phase__title" data-i18n="partnership.timeline.phases.negotiation.title">Negotiation & Agreement</h3>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase__number">2</div>
+                    <div class="phase__content">
+                        <div class="phase__duration" data-i18n="partnership.timeline.phases.setup.duration">Month 3-4</div>
+                        <h3 class="phase__title" data-i18n="partnership.timeline.phases.setup.title">Venue Selection & Setup</h3>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase__number">3</div>
+                    <div class="phase__content">
+                        <div class="phase__duration" data-i18n="partnership.timeline.phases.training.duration">Month 5</div>
+                        <h3 class="phase__title" data-i18n="partnership.timeline.phases.training.title">Technical Installation & Training</h3>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase__number">4</div>
+                    <div class="phase__content">
+                        <div class="phase__duration" data-i18n="partnership.timeline.phases.soft.duration">Month 6</div>
+                        <h3 class="phase__title" data-i18n="partnership.timeline.phases.soft.title">Soft Launch</h3>
+                    </div>
+                </div>
+
+                <div class="phase">
+                    <div class="phase__number">5</div>
+                    <div class="phase__content">
+                        <div class="phase__duration" data-i18n="partnership.timeline.phases.grand.duration">Month 7</div>
+                        <h3 class="phase__title" data-i18n="partnership.timeline.phases.grand.title">Grand Opening</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Provide -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-2xl">What Real Self Provides</h2>
+
+            <div class="grid grid--3">
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    <h3 class="card__title">Technical Setup</h3>
+                    <p class="card__text">On-site installation, projector mapping, audio calibration, and system integration by our technical team.</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <h3 class="card__title">Staff Training</h3>
+                    <p class="card__text">Comprehensive training program for guides, technicians, and management to ensure authentic experience delivery.</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    <h3 class="card__title">Creative Content</h3>
+                    <p class="card__text">Full projection content, audio design, and narrative adapted for Chinese audience with cultural consultation.</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <h3 class="card__title">Quality Assurance</h3>
+                    <p class="card__text">Regular visits by our creative team to ensure experience quality and provide ongoing refinements.</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <h3 class="card__title">Brand Assets</h3>
+                    <p class="card__text">Full marketing toolkit including logos, photography, video assets, and brand guidelines for local campaigns.</p>
+                </div>
+
+                <div class="card">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <h3 class="card__title">Ongoing Support</h3>
+                    <p class="card__text">Direct communication channel for troubleshooting, updates, and expansion planning support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--dark">
+        <div class="container text-center">
+            <h2 class="mb-lg">Ready to Partner?</h2>
+            <p class="mb-xl" style="max-width: 600px; margin-left: auto; margin-right: auto; color: var(--color-gray-400);">
+                Let's discuss how we can bring Real Self to China together.
+            </p>
+            <a href="scenarios.html" class="btn btn--primary btn--large" data-i18n="nav.scenarios">Scenarios</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2024 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+                <div class="footer__links">
+                    <a href="#" class="footer__link" data-i18n="footer.links.privacy">Privacy Policy</a>
+                    <a href="#" class="footer__link" data-i18n="footer.links.terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

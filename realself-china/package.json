@@ -1,0 +1,13 @@
+{
+  "name": "realself-china-microsite",
+  "version": "1.0.0",
+  "description": "Real Self China Partnership Microsite",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000"
+  },
+  "keywords": ["realself", "immersive", "china", "partnership"],
+  "author": "Real Self Experience",
+  "license": "UNLICENSED",
+  "private": true
+}

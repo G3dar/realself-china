@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Self - An immersive theatrical experience seeking partnership opportunities in China. 80,000+ participants worldwide.">
+    <title>Real Self | China Partnership</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="home.html" class="logo">
+                    <img src="images/logo-black.jpg" alt="Real Self" class="logo__img" style="height: 28px;">
+                </a>
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="experience.html" class="nav__link">Experience</a></li>
+                        <li><a href="scenarios.html" class="nav__link">Scenarios</a></li>
+                        <li><a href="investment.html" class="nav__link">Breakdown</a></li>
+                        <li><a href="partnership.html" class="nav__link">Partnership</a></li>
+                    </ul>
+
+                    <div class="lang-toggle">
+                        <button class="lang-toggle__btn active" data-lang="en">EN</button>
+                        <button class="lang-toggle__btn" data-lang="zh">中文</button>
+                    </div>
+
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background -->
+        <div class="hero__bg">
+            <img src="images/hero-poster.jpg" alt="Real Self Experience - Person wearing geometric white mask">
+        </div>
+
+        <!-- Overlay -->
+        <div class="hero__overlay"></div>
+
+        <!-- Geometric Lines Animation -->
+        <div class="hero__lines">
+            <div class="hero__line hero__line--h" style="top: 20%;"></div>
+            <div class="hero__line hero__line--h" style="top: 50%; animation-delay: -3s;"></div>
+            <div class="hero__line hero__line--h" style="top: 80%; animation-delay: -6s;"></div>
+            <div class="hero__line hero__line--v" style="left: 15%; animation-delay: -2s;"></div>
+            <div class="hero__line hero__line--v" style="left: 50%; animation-delay: -5s;"></div>
+            <div class="hero__line hero__line--v" style="left: 85%; animation-delay: -8s;"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="hero__content">
+            <div class="hero__logo">
+                <img src="images/logo-black.jpg" alt="Real Self">
+                <p class="hero__logo-tagline">A Human Immersive Experience</p>
+            </div>
+
+            <div class="hero__stats">
+                <div class="stat">
+                    <div class="stat__number">80,000+</div>
+                    <div class="stat__label" data-i18n="hero.stats.participants">Participants</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">3</div>
+                    <div class="stat__label" data-i18n="hero.stats.cities">Cities</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">98%</div>
+                    <div class="stat__label" data-i18n="hero.stats.satisfaction">Satisfaction</div>
+                </div>
+            </div>
+
+            <p class="hero__tagline" data-i18n="hero.tagline">
+                A transformative journey where anonymity reveals authenticity
+            </p>
+
+            <a href="scenarios.html" class="btn btn--primary btn--large" data-i18n="hero.cta">
+                Explore Scenarios
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick Overview Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid--3">
+                <div class="card fade-on-scroll">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <h3 class="card__title" data-i18n="experience.features.duration.title">Duration</h3>
+                    <p class="card__text" data-i18n="experience.features.duration.desc">90 minutes total (60 min experience + 30 min transition)</p>
+                </div>
+
+                <div class="card fade-on-scroll" style="animation-delay: 0.1s;">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <h3 class="card__title" data-i18n="experience.features.capacity.title">Capacity</h3>
+                    <p class="card__text" data-i18n="experience.features.capacity.desc">80-500 participants per session</p>
+                </div>
+
+                <div class="card fade-on-scroll" style="animation-delay: 0.2s;">
+                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <h3 class="card__title" data-i18n="experience.features.phones.title">Digital Detox</h3>
+                    <p class="card__text" data-i18n="experience.features.phones.desc">No phones - private lockers provided</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="section section--dark">
+        <div class="container container--narrow">
+            <blockquote class="quote fade-on-scroll">
+                <p class="quote__text" data-i18n="experience.quote.text">"Be yourself; everyone else is already taken."</p>
+                <cite class="quote__author" data-i18n="experience.quote.author">Oscar Wilde</cite>
+            </blockquote>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2024 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+                <div class="footer__links">
+                    <a href="#" class="footer__link" data-i18n="footer.links.privacy">Privacy Policy</a>
+                    <a href="#" class="footer__link" data-i18n="footer.links.terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

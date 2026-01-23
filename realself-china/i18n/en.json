@@ -1,0 +1,350 @@
+{
+  "nav": {
+    "experience": "Experience",
+    "scenarios": "Calculator",
+    "investment": "Investment",
+    "partnership": "Partnership",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Immersive Experience",
+    "title": "Real Self",
+    "tagline": "A transformative journey where anonymity reveals authenticity",
+    "stats": {
+      "participants": "Participants",
+      "cities": "Cities",
+      "satisfaction": "Satisfaction"
+    },
+    "cta": "Explore Partnership"
+  },
+  "experience": {
+    "title": "The Experience",
+    "subtitle": "75 minutes of transformation",
+    "intro": "Real Self is an immersive theatrical experience created by Jabo Drucaroff that has captivated audiences in Buenos Aires and Barcelona. Participants wear identical white overalls, gloves, and masks, creating complete anonymity that liberates authentic human connection.",
+    "quote": {
+      "text": "Be yourself; everyone else is already taken.",
+      "author": "Oscar Wilde"
+    },
+    "features": {
+      "duration": {
+        "title": "Duration",
+        "desc": "75 minutes experience + 15 minutes transition"
+      },
+      "capacity": {
+        "title": "Capacity",
+        "desc": "150-350 participants per session"
+      },
+      "age": {
+        "title": "Age Requirement",
+        "desc": "16+ years old"
+      },
+      "phones": {
+        "title": "Digital Detox",
+        "desc": "No phones - private lockers provided"
+      }
+    },
+    "timeline": {
+      "title": "The Journey",
+      "arrival": {
+        "time": "0 min",
+        "title": "Arrival & Preparation",
+        "desc": "Guests store belongings in private lockers and receive their white costume"
+      },
+      "transformation": {
+        "time": "15 min",
+        "title": "Transformation",
+        "desc": "Participants dress in identical overalls, gloves, and masks"
+      },
+      "experience": {
+        "time": "20 min",
+        "title": "The Experience",
+        "desc": "Guided through immersive projections and interactive moments"
+      },
+      "revelation": {
+        "time": "75 min",
+        "title": "Revelation",
+        "desc": "The journey concludes with a powerful collective moment"
+      },
+      "return": {
+        "time": "90 min",
+        "title": "Return",
+        "desc": "Participants change and collect their belongings"
+      }
+    }
+  },
+  "scenarios": {
+    "title": "Venue Calculator",
+    "subtitle": "Customize your venue specifications and see projected returns",
+    "revenueSplit": "Revenue Split:",
+    "sections": {
+      "venue": "Venue Configuration",
+      "pricing": "Pricing",
+      "operating": "Operating Assumptions"
+    },
+    "inputs": {
+      "capacity": "Venue Capacity",
+      "capacityUnit": "people",
+      "daysPerWeek": "Days per Week",
+      "daysUnit": "days",
+      "ticketPrice": "Ticket Price",
+      "vipPrice": "VIP Upgrade Price",
+      "showsPerDay": "Shows per Day",
+      "occupancy": "Average Occupancy",
+      "costumeReplacement": "Costume Replacement/Week",
+      "maskReplacement": "Mask Replacement/Week",
+      "merchConversion": "Merch Purchase Rate",
+      "corporateEvents": "Corporate Events",
+      "corporateHint": "(200 pax/week @ $45)"
+    },
+    "results": {
+      "venueTitle": "Venue Requirements",
+      "areaNeeded": "Area Needed",
+      "projectors": "Projectors Required",
+      "partnerInvestment": "Partner Investment",
+      "weeklyRevenueTitle": "Weekly Revenue",
+      "ticketsPerWeek": "Tickets/Week",
+      "weeklyTickets": "Ticket Revenue",
+      "weeklyVip": "VIP Upgrades (10%)",
+      "additionalRevenue": "Additional Revenue",
+      "merch": "Merchandise",
+      "concessions": "Concessions",
+      "photobooth": "Photobooth",
+      "weeklyAdditional": "Additional Total",
+      "weeklyCorporate": "Corporate Events",
+      "weeklyTotal": "Weekly Total",
+      "costsTitle": "Weekly Costs",
+      "weeklyCosts": "Operating Costs",
+      "profitSplitTitle": "Monthly Profit Split",
+      "partnerShare": "Partner (70%)",
+      "realSelfShare": "Real Self (30%)",
+      "breakeven": "Breakeven Period",
+      "annualTitle": "Annual Projections",
+      "annualPartner": "Partner Annual",
+      "annualRealSelf": "Real Self Annual",
+      "months": "months"
+    },
+    "chart": {
+      "title": "12-Month Revenue Projection",
+      "gross": "Gross Revenue",
+      "partner": "Partner Revenue (70%)",
+      "realself": "Real Self Revenue (30%)"
+    },
+    "notes": {
+      "title": "Calculation Notes",
+      "costsTitle": "Operating Costs",
+      "mask": "Mask:",
+      "costume": "Costume replacement:",
+      "staff": "Staff:",
+      "management": "Management:",
+      "marketing": "Marketing:",
+      "insurance": "Insurance & Misc:",
+      "revenueTitle": "Revenue Sources",
+      "tickets": "Tickets:",
+      "vip": "VIP Upgrades:",
+      "merchNote": "Merchandise:",
+      "concessionsNote": "Concessions:",
+      "photoboothNote": "Photobooth:",
+      "corporateNote": "Corporate:",
+      "venueRent": "Venue Rent:",
+      "venueRentNote": "Not included - partner provides the space as part of their contribution."
+    },
+    "share": {
+      "title": "Revenue Share Structure",
+      "partner": "Partner Receives",
+      "partnerDesc": "70% of gross profit (revenue minus operating costs)",
+      "realself": "Real Self Receives",
+      "realselfDesc": "30% of gross revenue (before costs)"
+    },
+    "comparison": {
+      "title": "Quick Scenario Comparison",
+      "scenario": "Scenario",
+      "capacity": "Capacity",
+      "investment": "Investment",
+      "weeklyGross": "Weekly Gross",
+      "partnerAnnual": "Partner Annual (70%)",
+      "breakeven": "Breakeven",
+      "small": "Small Venue",
+      "medium": "Medium Venue",
+      "large": "Large Venue",
+      "note": "Based on $32 ticket price, 4 days/week, 3 shows/day, 70% occupancy. Includes all revenue streams."
+    },
+    "scale": {
+      "title": "Scaling Potential: Multiple Locations",
+      "oneVenue": "Partner annual revenue (30% to Real Self)",
+      "threeVenues": "Shanghai + Beijing + Shenzhen",
+      "fiveVenues": "Tier 1 cities coverage",
+      "note": "Revenue share terms may improve with 3+ locations"
+    }
+  },
+  "investment": {
+    "title": "Investment Overview",
+    "subtitle": "Clear breakdown of costs and expected returns",
+    "partnerCosts": {
+      "title": "Partner Investment",
+      "desc": "Equipment and setup costs covered by the local partner",
+      "items": {
+        "projectors": "Professional Projectors (8,000+ lumens)",
+        "sound": "Sound System",
+        "computers": "Media Servers",
+        "branding": "Branding & Signage",
+        "masks": "Initial Masks (1,000 units)",
+        "costumes": "Initial Costumes (1,000 units)",
+        "venue": "Venue Conditioning"
+      },
+      "total": "Total Investment Range"
+    },
+    "operatingCosts": {
+      "title": "Weekly Operating Costs",
+      "desc": "Ongoing costs for each week of operation",
+      "items": {
+        "mask": "Masks ($1.50/unit)",
+        "costume": "Costume Replacement ($4.50/unit)",
+        "staff": "Staff (1 per 25 @ $50/day)",
+        "management": "Management (producer + 2 techs)",
+        "marketing": "Marketing (10% of tickets)",
+        "insurance": "Insurance & Miscellaneous"
+      },
+      "total": "Total Weekly Costs"
+    },
+    "roi": {
+      "title": "Return on Investment",
+      "scenarios": "By Venue Capacity",
+      "headers": {
+        "capacity": "Capacity",
+        "investment": "Investment",
+        "monthlyGross": "Monthly Gross",
+        "monthlyNet": "Monthly Net",
+        "breakeven": "Breakeven"
+      }
+    },
+    "comparison": {
+      "title": "Market Comparison",
+      "desc": "How Real Self compares to other immersive experiences",
+      "headers": {
+        "experience": "Experience",
+        "ticketPrice": "Ticket Price",
+        "duration": "Duration",
+        "capacity": "Capacity"
+      },
+      "teamlab": "teamLab Shanghai",
+      "realself": "Real Self China"
+    }
+  },
+  "partnership": {
+    "title": "Partnership Model",
+    "subtitle": "A proven structure for mutual success",
+    "structure": {
+      "title": "Revenue Share Structure",
+      "partner": {
+        "title": "Partner Receives",
+        "percentage": "70%",
+        "desc": "of gross profit (after operating costs)",
+        "responsibilities": [
+          "Venue lease and operations",
+          "Equipment purchase and maintenance",
+          "Local staff hiring and management",
+          "Marketing and ticket sales",
+          "Daily operations"
+        ]
+      },
+      "realself": {
+        "title": "Real Self Receives",
+        "percentage": "30%",
+        "desc": "of gross ticket revenue",
+        "responsibilities": [
+          "IP and content licensing",
+          "Technical setup and calibration",
+          "Staff training program",
+          "Creative consultation",
+          "Quality assurance visits"
+        ]
+      }
+    },
+    "terms": {
+      "title": "Key Terms",
+      "exclusivity": {
+        "title": "Territorial Exclusivity",
+        "desc": "Mainland China exclusive rights"
+      },
+      "duration": {
+        "title": "Agreement Duration",
+        "desc": "3-5 year initial term"
+      },
+      "minimum": {
+        "title": "Minimum Guarantee",
+        "desc": "Monthly minimum payment ensures commitment"
+      },
+      "scaling": {
+        "title": "Scaling Incentive",
+        "desc": "Revenue share terms improve with additional venues"
+      }
+    },
+    "timeline": {
+      "title": "Implementation Timeline",
+      "phases": {
+        "negotiation": {
+          "title": "Negotiation & Agreement",
+          "duration": "Month 1-2"
+        },
+        "setup": {
+          "title": "Venue Selection & Setup",
+          "duration": "Month 3-4"
+        },
+        "training": {
+          "title": "Technical Installation & Training",
+          "duration": "Month 5"
+        },
+        "soft": {
+          "title": "Soft Launch",
+          "duration": "Month 6"
+        },
+        "grand": {
+          "title": "Grand Opening",
+          "duration": "Month 7"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Start the Conversation",
+    "subtitle": "Let's explore how Real Self can transform the immersive entertainment landscape in China",
+    "form": {
+      "name": "Full Name",
+      "company": "Company Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "city": "Target City",
+      "cityPlaceholder": "Select a city",
+      "cities": {
+        "shanghai": "Shanghai",
+        "beijing": "Beijing",
+        "shenzhen": "Shenzhen",
+        "guangzhou": "Guangzhou",
+        "chengdu": "Chengdu",
+        "other": "Other"
+      },
+      "message": "Tell us about your vision",
+      "messagePlaceholder": "Share your background, venue ideas, and questions...",
+      "submit": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "partnerships@realselfexperience.com",
+      "location": "Currently performing in Barcelona, Spain"
+    }
+  },
+  "footer": {
+    "copyright": "Real Self Experience. All rights reserved.",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "common": {
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "downloadPdf": "Download PDF",
+    "currency": "USD",
+    "area": "m²"
+  }
+}

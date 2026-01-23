@@ -1,0 +1,350 @@
+{
+  "nav": {
+    "experience": "体验",
+    "scenarios": "计算器",
+    "investment": "投资",
+    "partnership": "合作",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "subtitle": "沉浸式体验",
+    "title": "Real Self",
+    "tagline": "一场变革之旅，匿名中揭示真实自我",
+    "stats": {
+      "participants": "参与者",
+      "cities": "城市",
+      "satisfaction": "满意度"
+    },
+    "cta": "探索合作"
+  },
+  "experience": {
+    "title": "体验介绍",
+    "subtitle": "75分钟的蜕变之旅",
+    "intro": "Real Self是由Jabo Drucaroff创作的沉浸式戏剧体验，已在布宜诺斯艾利斯和巴塞罗那吸引了众多观众。参与者穿着相同的白色连体服、手套和面具，创造出完全的匿名感，从而释放真实的人际连接。",
+    "quote": {
+      "text": "做你自己，因为别人都有人做了。",
+      "author": "奥斯卡·王尔德"
+    },
+    "features": {
+      "duration": {
+        "title": "时长",
+        "desc": "75分钟体验 + 15分钟过渡"
+      },
+      "capacity": {
+        "title": "容量",
+        "desc": "每场150-350名参与者"
+      },
+      "age": {
+        "title": "年龄要求",
+        "desc": "16岁以上"
+      },
+      "phones": {
+        "title": "数字排毒",
+        "desc": "禁止使用手机 - 提供私人储物柜"
+      }
+    },
+    "timeline": {
+      "title": "体验流程",
+      "arrival": {
+        "time": "0分钟",
+        "title": "到达与准备",
+        "desc": "宾客将物品存入私人储物柜并领取白色服装"
+      },
+      "transformation": {
+        "time": "15分钟",
+        "title": "变身",
+        "desc": "参与者穿上相同的连体服、手套和面具"
+      },
+      "experience": {
+        "time": "20分钟",
+        "title": "沉浸体验",
+        "desc": "在沉浸式投影和互动时刻中接受引导"
+      },
+      "revelation": {
+        "time": "75分钟",
+        "title": "揭示",
+        "desc": "旅程在一个强大的集体时刻中结束"
+      },
+      "return": {
+        "time": "90分钟",
+        "title": "回归",
+        "desc": "参与者更衣并取回物品"
+      }
+    }
+  },
+  "scenarios": {
+    "title": "场地计算器",
+    "subtitle": "自定义您的场地规格并查看预期回报",
+    "revenueSplit": "收益分成：",
+    "sections": {
+      "venue": "场地配置",
+      "pricing": "定价",
+      "operating": "运营假设"
+    },
+    "inputs": {
+      "capacity": "场地容量",
+      "capacityUnit": "人",
+      "daysPerWeek": "每周营业天数",
+      "daysUnit": "天",
+      "ticketPrice": "票价",
+      "vipPrice": "VIP升级价格",
+      "showsPerDay": "每日场次",
+      "occupancy": "平均上座率",
+      "costumeReplacement": "服装每周更换率",
+      "maskReplacement": "面具每周更换率",
+      "merchConversion": "周边购买率",
+      "corporateEvents": "企业活动",
+      "corporateHint": "(每周200人 @ $45)"
+    },
+    "results": {
+      "venueTitle": "场地需求",
+      "areaNeeded": "所需面积",
+      "projectors": "所需投影仪",
+      "partnerInvestment": "合作方投资",
+      "weeklyRevenueTitle": "每周收入",
+      "ticketsPerWeek": "每周门票",
+      "weeklyTickets": "门票收入",
+      "weeklyVip": "VIP升级 (10%)",
+      "additionalRevenue": "附加收入",
+      "merch": "周边商品",
+      "concessions": "餐饮",
+      "photobooth": "照片亭",
+      "weeklyAdditional": "附加总计",
+      "weeklyCorporate": "企业活动",
+      "weeklyTotal": "每周总计",
+      "costsTitle": "每周成本",
+      "weeklyCosts": "运营成本",
+      "profitSplitTitle": "月度利润分成",
+      "partnerShare": "合作方 (70%)",
+      "realSelfShare": "Real Self (30%)",
+      "breakeven": "回本周期",
+      "annualTitle": "年度预测",
+      "annualPartner": "合作方年收入",
+      "annualRealSelf": "Real Self年收入",
+      "months": "个月"
+    },
+    "chart": {
+      "title": "12个月收入预测",
+      "gross": "总收入",
+      "partner": "合作方收入 (70%)",
+      "realself": "Real Self收入 (30%)"
+    },
+    "notes": {
+      "title": "计算说明",
+      "costsTitle": "运营成本",
+      "mask": "面具：",
+      "costume": "服装更换：",
+      "staff": "人员：",
+      "management": "管理层：",
+      "marketing": "市场营销：",
+      "insurance": "保险及杂项：",
+      "revenueTitle": "收入来源",
+      "tickets": "门票：",
+      "vip": "VIP升级：",
+      "merchNote": "周边商品：",
+      "concessionsNote": "餐饮：",
+      "photoboothNote": "照片亭：",
+      "corporateNote": "企业活动：",
+      "venueRent": "场地租金：",
+      "venueRentNote": "不包含在内 - 合作方提供场地作为其贡献的一部分。"
+    },
+    "share": {
+      "title": "收益分成结构",
+      "partner": "合作方获得",
+      "partnerDesc": "毛利润的70%（收入减去运营成本）",
+      "realself": "Real Self获得",
+      "realselfDesc": "总收入的30%（成本前）"
+    },
+    "comparison": {
+      "title": "快速场景对比",
+      "scenario": "场景",
+      "capacity": "容量",
+      "investment": "投资",
+      "weeklyGross": "每周总收入",
+      "partnerAnnual": "合作方年收入 (70%)",
+      "breakeven": "回本周期",
+      "small": "小型场地",
+      "medium": "中型场地",
+      "large": "大型场地",
+      "note": "基于$32票价，每周4天，每天3场，70%上座率。包含所有收入来源。"
+    },
+    "scale": {
+      "title": "扩展潜力：多场地运营",
+      "oneVenue": "合作方年收入（30%归Real Self）",
+      "threeVenues": "上海 + 北京 + 深圳",
+      "fiveVenues": "一线城市覆盖",
+      "note": "3个以上场地可获得更优惠的收益分成条款"
+    }
+  },
+  "investment": {
+    "title": "投资概览",
+    "subtitle": "成本和预期回报的清晰分解",
+    "partnerCosts": {
+      "title": "合作方投资",
+      "desc": "由当地合作方承担的设备和装修成本",
+      "items": {
+        "projectors": "专业投影仪（8,000+流明）",
+        "sound": "音响系统",
+        "computers": "媒体服务器",
+        "branding": "品牌与标识",
+        "masks": "初始面具（1,000个）",
+        "costumes": "初始服装（1,000套）",
+        "venue": "场地装修"
+      },
+      "total": "总投资范围"
+    },
+    "operatingCosts": {
+      "title": "每周运营成本",
+      "desc": "每周运营的持续成本",
+      "items": {
+        "mask": "面具（$1.50/个）",
+        "costume": "服装更换（$4.50/套）",
+        "staff": "人员（每25人1人 @ $50/天）",
+        "management": "管理层（制作人 + 2名技术人员）",
+        "marketing": "市场营销（门票收入的10%）",
+        "insurance": "保险及杂项"
+      },
+      "total": "每周总成本"
+    },
+    "roi": {
+      "title": "投资回报",
+      "scenarios": "按场地容量",
+      "headers": {
+        "capacity": "容量",
+        "investment": "投资",
+        "monthlyGross": "月度总收入",
+        "monthlyNet": "月度净收入",
+        "breakeven": "回本周期"
+      }
+    },
+    "comparison": {
+      "title": "市场对比",
+      "desc": "Real Self与其他沉浸式体验的比较",
+      "headers": {
+        "experience": "体验项目",
+        "ticketPrice": "票价",
+        "duration": "时长",
+        "capacity": "容量"
+      },
+      "teamlab": "teamLab上海",
+      "realself": "Real Self中国"
+    }
+  },
+  "partnership": {
+    "title": "合作模式",
+    "subtitle": "经过验证的互利共赢结构",
+    "structure": {
+      "title": "收入分成结构",
+      "partner": {
+        "title": "合作方获得",
+        "percentage": "70%",
+        "desc": "毛利润的（运营成本后）",
+        "responsibilities": [
+          "场地租赁和运营",
+          "设备采购和维护",
+          "当地员工招聘和管理",
+          "市场营销和票务销售",
+          "日常运营"
+        ]
+      },
+      "realself": {
+        "title": "Real Self获得",
+        "percentage": "30%",
+        "desc": "票务总收入的",
+        "responsibilities": [
+          "知识产权和内容授权",
+          "技术设置和校准",
+          "员工培训计划",
+          "创意咨询",
+          "质量保证访问"
+        ]
+      }
+    },
+    "terms": {
+      "title": "主要条款",
+      "exclusivity": {
+        "title": "区域独家",
+        "desc": "中国大陆独家权利"
+      },
+      "duration": {
+        "title": "协议期限",
+        "desc": "3-5年初始期限"
+      },
+      "minimum": {
+        "title": "最低保证",
+        "desc": "月度最低付款确保承诺"
+      },
+      "scaling": {
+        "title": "扩展激励",
+        "desc": "新增场地可获得更优惠的收益分成条款"
+      }
+    },
+    "timeline": {
+      "title": "实施时间表",
+      "phases": {
+        "negotiation": {
+          "title": "谈判与签约",
+          "duration": "第1-2个月"
+        },
+        "setup": {
+          "title": "场地选择与装修",
+          "duration": "第3-4个月"
+        },
+        "training": {
+          "title": "技术安装与培训",
+          "duration": "第5个月"
+        },
+        "soft": {
+          "title": "试运营",
+          "duration": "第6个月"
+        },
+        "grand": {
+          "title": "盛大开幕",
+          "duration": "第7个月"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "开启对话",
+    "subtitle": "让我们探讨Real Self如何改变中国的沉浸式娱乐格局",
+    "form": {
+      "name": "姓名",
+      "company": "公司名称",
+      "email": "电子邮箱",
+      "phone": "电话号码",
+      "city": "目标城市",
+      "cityPlaceholder": "选择城市",
+      "cities": {
+        "shanghai": "上海",
+        "beijing": "北京",
+        "shenzhen": "深圳",
+        "guangzhou": "广州",
+        "chengdu": "成都",
+        "other": "其他"
+      },
+      "message": "告诉我们您的愿景",
+      "messagePlaceholder": "分享您的背景、场地想法和问题...",
+      "submit": "发送消息"
+    },
+    "info": {
+      "title": "联系方式",
+      "email": "partnerships@realselfexperience.com",
+      "location": "目前在西班牙巴塞罗那演出"
+    }
+  },
+  "footer": {
+    "copyright": "Real Self Experience。保留所有权利。",
+    "links": {
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    }
+  },
+  "common": {
+    "learnMore": "了解更多",
+    "viewDetails": "查看详情",
+    "downloadPdf": "下载PDF",
+    "currency": "美元",
+    "area": "平方米"
+  }
+}

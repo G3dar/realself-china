@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed financial breakdown for Real Self partnership - customize scenarios and export projections.">
+    <title>Breakdown | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        /* Preset Selector */
+        .preset-selector {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .preset-btn {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            color: var(--color-white);
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 140px;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--color-gray-500);
+            background: var(--color-gray-800);
+        }
+
+        .preset-btn.active {
+            background: var(--color-white);
+            color: var(--color-black);
+            border-color: var(--color-white);
+        }
+
+        .preset-btn span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--color-gray-400);
+            margin-top: 0.25rem;
+        }
+
+        .preset-btn.active span {
+            color: var(--color-gray-600);
+        }
+
+        /* Breakdown Grid */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+        }
+
+        @media (max-width: 900px) {
+            .breakdown-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Breakdown Cards */
+        .breakdown-card {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-xl);
+        }
+
+        .breakdown-card__title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-700);
+        }
+
+        /* Editable Values */
+        .breakdown-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .breakdown-row:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-row__label {
+            font-size: 0.875rem;
+            color: var(--color-gray-300);
+        }
+
+        .breakdown-row__value {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        /* Editable value container */
+        .editable-value {
+            position: relative;
+            display: inline-block;
+        }
+
+        .editable-value__display {
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s ease;
+        }
+
+        .editable-value:hover .editable-value__display {
+            background: var(--color-gray-700);
+        }
+
+        .editable-value__slider {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--color-gray-800);
+            border: 1px solid var(--color-gray-600);
+            padding: var(--spacing-md);
+            z-index: 100;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .editable-value:hover .editable-value__slider,
+        .editable-value__slider:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(5px);
+        }
+
+        .editable-value__slider input[type="range"] {
+            width: 100%;
+            margin: 0;
+        }
+
+        /* Summary row (totals) */
+        .breakdown-row--total {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 2px solid var(--color-gray-600);
+            border-bottom: none;
+        }
+
+        .breakdown-row--total .breakdown-row__label {
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .breakdown-row--total .breakdown-row__value {
+            font-size: 1.25rem;
+            color: var(--color-white);
+        }
+
+        /* Highlight row */
+        .breakdown-row--highlight {
+            background: var(--color-gray-800);
+            margin: 0 calc(var(--spacing-xl) * -1);
+            padding: var(--spacing-md) var(--spacing-xl);
+        }
+
+        .breakdown-row--highlight .breakdown-row__value {
+            font-size: 1.5rem;
+        }
+
+        /* Results Summary */
+        .results-summary {
+            background: var(--color-gray-900);
+            border: 2px solid var(--color-white);
+            padding: var(--spacing-2xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .results-summary__grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-xl);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .results-summary__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .results-summary__item-label {
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .results-summary__item-value {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
+
+        /* Export button */
+        .export-section {
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+        }
+
+        /* Equipment table styling */
+        .equipment-table {
+            margin-top: var(--spacing-xl);
+        }
+
+        .equipment-table td:first-child {
+            color: var(--color-gray-300);
+        }
+
+        .equipment-table .highlight-col {
+            background: var(--color-gray-800);
+            font-weight: 600;
+        }
+
+        /* Chart container */
+        .chart-section {
+            margin-top: var(--spacing-3xl);
+        }
+
+        .chart-container {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-xl);
+        }
+
+        .chart-container__title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Variables Section */
+        .variables-section {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-xl) var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .variables-section__title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-2xl);
+        }
+
+        @media (max-width: 768px) {
+            .variables-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .variable-control {
+            text-align: center;
+        }
+
+        .variable-control__label {
+            font-size: 0.875rem;
+            color: var(--color-gray-300);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .variable-control__value {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .variable-control__value span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--color-gray-400);
+        }
+
+        .variable-control__slider {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            background: var(--color-gray-700);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .variable-control__slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--color-white);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .variable-control__slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+        }
+
+        .variable-control__slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--color-white);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .variable-control__range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+            margin-top: var(--spacing-xs);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="home.html" class="logo"><img src="images/logo-rs-icon.png" alt="Real Self" class="logo__img"></a>
+
+                <nav class="nav">
+                    <ul class="nav__list">
+                        <li><a href="experience.html" class="nav__link">Experience</a></li>
+                        <li><a href="scenarios.html" class="nav__link">Scenarios</a></li>
+                        <li><a href="investment.html" class="nav__link">Breakdown</a></li>
+                        <li><a href="partnership.html" class="nav__link">Partnership</a></li>
+                    </ul>
+
+                    <div class="lang-toggle">
+                        <button class="lang-toggle__btn active" data-lang="en">EN</button>
+                        <button class="lang-toggle__btn" data-lang="zh">中文</button>
+                    </div>
+
+                    <button class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-lg);">
+        <div class="container">
+            <h1 class="mb-md">Financial Breakdown</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;">Detailed costs and revenue projections</p>
+        </div>
+    </section>
+
+    <!-- Breakdown Calculator -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <!-- Variables Section -->
+            <div class="variables-section">
+                <div class="variables-section__title">Adjust Variables</div>
+                <div class="variables-grid">
+                    <div class="variable-control">
+                        <div class="variable-control__label">Days per Week</div>
+                        <div class="variable-control__value"><span id="daysValue">4</span> <span>days</span></div>
+                        <input type="range" class="variable-control__slider" id="daysSlider" min="4" max="7" value="4">
+                        <div class="variable-control__range">
+                            <span>4</span>
+                            <span>7</span>
+                        </div>
+                    </div>
+                    <div class="variable-control">
+                        <div class="variable-control__label">Shows per Day</div>
+                        <div class="variable-control__value"><span id="showsValue">3</span> <span>shows</span></div>
+                        <input type="range" class="variable-control__slider" id="showsSlider" min="2" max="5" value="3">
+                        <div class="variable-control__range">
+                            <span>2</span>
+                            <span>5</span>
+                        </div>
+                    </div>
+                    <div class="variable-control">
+                        <div class="variable-control__label">Projected Occupancy</div>
+                        <div class="variable-control__value"><span id="occupancyValue">70</span><span>%</span></div>
+                        <input type="range" class="variable-control__slider" id="occupancySlider" min="50" max="100" value="70" step="5">
+                        <div class="variable-control__range">
+                            <span>50%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preset Buttons -->
+            <div class="preset-selector">
+                <button class="preset-btn" data-capacity="150">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>150
+                    <span>Small</span>
+                </button>
+                <button class="preset-btn active" data-capacity="250">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>250
+                    <span>Medium</span>
+                </button>
+                <button class="preset-btn" data-capacity="350">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>350
+                    <span>Large</span>
+                </button>
+            </div>
+
+            <!-- Breakdown Grid -->
+            <div class="breakdown-grid">
+                <!-- Revenue Breakdown -->
+                <div class="breakdown-card">
+                    <div class="breakdown-card__title">Weekly Revenue</div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Tickets per week</span>
+                        <span class="breakdown-row__value" id="ticketsPerWeek">2,100</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Ticket price</span>
+                        <div class="breakdown-row__value">
+                            <div class="editable-value">
+                                <span class="editable-value__display" id="ticketPriceDisplay">$32</span>
+                                <div class="editable-value__slider">
+                                    <input type="range" id="ticketPriceSlider" min="25" max="50" value="32">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Ticket revenue</span>
+                        <span class="breakdown-row__value" id="ticketRevenue">$67,200</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">VIP upgrades (10%)</span>
+                        <span class="breakdown-row__value" id="vipRevenue">$9,450</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Merchandise</span>
+                        <span class="breakdown-row__value" id="merchRevenue">$8,820</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Concessions</span>
+                        <span class="breakdown-row__value" id="concessionsRevenue">$7,350</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Photobooth</span>
+                        <span class="breakdown-row__value" id="photoboothRevenue">$1,092</span>
+                    </div>
+
+                    <div class="breakdown-row breakdown-row--total">
+                        <span class="breakdown-row__label">Weekly Total</span>
+                        <span class="breakdown-row__value" id="weeklyRevenue">$93,912</span>
+                    </div>
+                </div>
+
+                <!-- Costs Breakdown -->
+                <div class="breakdown-card">
+                    <div class="breakdown-card__title">Weekly Costs</div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Masks</span>
+                        <div class="breakdown-row__value">
+                            <div class="editable-value">
+                                <span class="editable-value__display" id="maskCostDisplay">$3,150</span>
+                                <div class="editable-value__slider">
+                                    <label style="font-size: 0.75rem; color: var(--color-gray-400);">Replacement %</label>
+                                    <input type="range" id="maskReplacementSlider" min="25" max="100" value="100">
+                                    <span style="font-size: 0.75rem;" id="maskReplacementDisplay">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Costumes</span>
+                        <div class="breakdown-row__value">
+                            <div class="editable-value">
+                                <span class="editable-value__display" id="costumeCostDisplay">$2,363</span>
+                                <div class="editable-value__slider">
+                                    <label style="font-size: 0.75rem; color: var(--color-gray-400);">Replacement %</label>
+                                    <input type="range" id="costumeReplacementSlider" min="25" max="100" value="25">
+                                    <span style="font-size: 0.75rem;" id="costumeReplacementDisplay">25%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Staff</span>
+                        <span class="breakdown-row__value" id="staffCost">$6,000</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Management</span>
+                        <span class="breakdown-row__value">$4,800</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Marketing (10%)</span>
+                        <span class="breakdown-row__value" id="marketingCost">$6,720</span>
+                    </div>
+
+                    <div class="breakdown-row">
+                        <span class="breakdown-row__label">Insurance & Misc</span>
+                        <span class="breakdown-row__value">$3,000</span>
+                    </div>
+
+                    <div class="breakdown-row breakdown-row--total">
+                        <span class="breakdown-row__label">Weekly Total</span>
+                        <span class="breakdown-row__value" id="weeklyCosts">$26,033</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="results-summary">
+                <div class="results-summary__grid">
+                    <div>
+                        <div class="results-summary__item-label">Weekly Profit</div>
+                        <div class="results-summary__item-value" id="weeklyProfit">$67,879</div>
+                    </div>
+                    <div>
+                        <div class="results-summary__item-label">Monthly Profit</div>
+                        <div class="results-summary__item-value" id="monthlyProfit">$271,516</div>
+                    </div>
+                    <div>
+                        <div class="results-summary__item-label">Annual Profit</div>
+                        <div class="results-summary__item-value" id="annualProfit">$3.3M</div>
+                    </div>
+                    <div>
+                        <div class="results-summary__item-label">Breakeven</div>
+                        <div class="results-summary__item-value" id="breakevenPeriod">~2 mo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-section">
+                <div class="chart-container">
+                    <div class="chart-container__title">12-Month Projection</div>
+                    <div style="height: 300px;">
+                        <canvas id="projectionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export -->
+            <div class="export-section">
+                <button class="btn btn--outline" id="exportPdf">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Export PDF
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Costs Table -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="mb-md">Partner Investment Requirements</h2>
+            <p class="mb-xl" style="color: var(--color-gray-400);">Equipment and setup costs by venue capacity</p>
+
+            <div class="table-wrapper equipment-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>150 Cap</th>
+                            <th class="highlight-col">250 Cap</th>
+                            <th>350 Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Professional Projectors</td>
+                            <td>$128K - $270K</td>
+                            <td class="highlight-col">$208K - $450K</td>
+                            <td>$288K - $630K</td>
+                        </tr>
+                        <tr>
+                            <td>Sound System</td>
+                            <td>$40K - $60K</td>
+                            <td class="highlight-col">$50K - $70K</td>
+                            <td>$60K - $80K</td>
+                        </tr>
+                        <tr>
+                            <td>Media Servers</td>
+                            <td>$8K - $12K</td>
+                            <td class="highlight-col">$10K - $15K</td>
+                            <td>$12K - $18K</td>
+                        </tr>
+                        <tr>
+                            <td>Branding & Signage</td>
+                            <td>$20K - $35K</td>
+                            <td class="highlight-col">$25K - $45K</td>
+                            <td>$30K - $50K</td>
+                        </tr>
+                        <tr>
+                            <td>Initial Masks & Costumes</td>
+                            <td colspan="3" style="text-align: center;">$8K - $15K</td>
+                        </tr>
+                        <tr>
+                            <td>Venue Conditioning</td>
+                            <td>$30K - $60K</td>
+                            <td class="highlight-col">$50K - $80K</td>
+                            <td>$70K - $100K</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr style="border-top: 2px solid var(--color-white);">
+                            <td style="font-weight: 700;">Total Investment</td>
+                            <td style="font-weight: 700;">$236K - $400K</td>
+                            <td class="highlight-col" style="font-weight: 700;">$320K - $550K</td>
+                            <td style="font-weight: 700;">$420K - $750K</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="card mt-xl" style="background: var(--color-gray-800); border-color: var(--color-gray-600);">
+                <p style="color: var(--color-gray-300); margin: 0;">
+                    <strong style="color: var(--color-white);">Note:</strong>
+                    Venue rent not included - partner provides the space. All figures in USD.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Comparison -->
+    <section class="section">
+        <div class="container">
+            <h2 class="mb-md">Market Comparison</h2>
+            <p class="mb-xl" style="color: var(--color-gray-400);">How Real Self compares to other immersive experiences in China</p>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Experience</th>
+                            <th>Ticket Price</th>
+                            <th>Duration</th>
+                            <th>Market</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>teamLab Shanghai</td>
+                            <td>RMB 249 (~$35)</td>
+                            <td>Unlimited (avg 2-3 hrs)</td>
+                            <td>China</td>
+                        </tr>
+                        <tr>
+                            <td>Van Gogh Immersive</td>
+                            <td>$35 - $55</td>
+                            <td>60-90 minutes</td>
+                            <td>USA</td>
+                        </tr>
+                        <tr>
+                            <td>Sleep No More</td>
+                            <td>$100 - $300</td>
+                            <td>3 hours</td>
+                            <td>USA/China</td>
+                        </tr>
+                        <tr style="background: var(--color-gray-800);">
+                            <td style="font-weight: 700;">Real Self China</td>
+                            <td style="font-weight: 700;">RMB 250 (~$35)</td>
+                            <td style="font-weight: 700;">90 minutes</td>
+                            <td style="font-weight: 700;">China (proposed)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2024 <span>Real Self Experience. All rights reserved.</span>
+                </p>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">Privacy Policy</a>
+                    <a href="#" class="footer__link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Investment data by capacity
+        const investments = {
+            150: { min: 236000, max: 400000, mid: 318000 },
+            250: { min: 320000, max: 550000, mid: 435000 },
+            350: { min: 420000, max: 750000, mid: 585000 }
+        };
+
+        // Current state
+        let currentCapacity = 250;
+        let daysPerWeek = 4;
+        let showsPerDay = 3;
+        let occupancy = 70;
+        let ticketPrice = 32;
+        let maskReplacement = 100;
+        let costumeReplacement = 25;
+
+        // DOM elements
+        const presetBtns = document.querySelectorAll('.preset-btn');
+        const ticketPriceSlider = document.getElementById('ticketPriceSlider');
+        const maskReplacementSlider = document.getElementById('maskReplacementSlider');
+        const costumeReplacementSlider = document.getElementById('costumeReplacementSlider');
+        const daysSlider = document.getElementById('daysSlider');
+        const showsSlider = document.getElementById('showsSlider');
+        const occupancySlider = document.getElementById('occupancySlider');
+
+        // Format currency
+        function formatCurrency(num) {
+            if (num >= 1000000) {
+                return '$' + (num / 1000000).toFixed(1) + 'M';
+            }
+            return '$' + num.toLocaleString();
+        }
+
+        // Calculate and update display
+        function calculate() {
+            // Calculate tickets based on variables
+            const tickets = Math.round(currentCapacity * daysPerWeek * showsPerDay * (occupancy / 100));
+            const investment = investments[currentCapacity];
+
+            // Revenue
+            const ticketRev = tickets * ticketPrice;
+            const vipRev = tickets * 0.1 * 45;
+            const merchRev = tickets * 0.7 * 6;
+            const concessionsRev = tickets * 0.7 * 5;
+            const photoboothRev = tickets * 0.13 * 4;
+            const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
+
+            // Costs
+            const maskCost = tickets * (maskReplacement / 100) * 1.5;
+            const costumeCost = tickets * (costumeReplacement / 100) * 4.5;
+            const staffCount = Math.ceil(currentCapacity / 25);
+            const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
+            const managementCost = 4800;
+            const marketingCost = ticketRev * 0.1;
+            const insuranceCost = 3000;
+            const totalCosts = maskCost + costumeCost + staffCost + managementCost + marketingCost + insuranceCost;
+
+            // Profit
+            const weeklyProfit = totalRevenue - totalCosts;
+            const monthlyProfit = weeklyProfit * 4;
+            const annualProfit = monthlyProfit * 12;
+            const breakeven = monthlyProfit > 0 ? Math.ceil(investment.mid / monthlyProfit) : 99;
+
+            // Update display
+            document.getElementById('ticketsPerWeek').textContent = tickets.toLocaleString();
+            document.getElementById('ticketPriceDisplay').textContent = '$' + ticketPrice;
+            document.getElementById('ticketRevenue').textContent = formatCurrency(ticketRev);
+            document.getElementById('vipRevenue').textContent = formatCurrency(vipRev);
+            document.getElementById('merchRevenue').textContent = formatCurrency(merchRev);
+            document.getElementById('concessionsRevenue').textContent = formatCurrency(concessionsRev);
+            document.getElementById('photoboothRevenue').textContent = formatCurrency(photoboothRev);
+            document.getElementById('weeklyRevenue').textContent = formatCurrency(totalRevenue);
+
+            document.getElementById('maskCostDisplay').textContent = formatCurrency(maskCost);
+            document.getElementById('maskReplacementDisplay').textContent = maskReplacement + '%';
+            document.getElementById('costumeCostDisplay').textContent = formatCurrency(costumeCost);
+            document.getElementById('costumeReplacementDisplay').textContent = costumeReplacement + '%';
+            document.getElementById('staffCost').textContent = formatCurrency(staffCost);
+            document.getElementById('marketingCost').textContent = formatCurrency(marketingCost);
+            document.getElementById('weeklyCosts').textContent = formatCurrency(totalCosts);
+
+            document.getElementById('weeklyProfit').textContent = formatCurrency(weeklyProfit);
+            document.getElementById('monthlyProfit').textContent = formatCurrency(monthlyProfit);
+            document.getElementById('annualProfit').textContent = formatCurrency(annualProfit);
+            document.getElementById('breakevenPeriod').textContent = '~' + breakeven + ' mo';
+
+            // Update variable displays
+            document.getElementById('daysValue').textContent = daysPerWeek;
+            document.getElementById('showsValue').textContent = showsPerDay;
+            document.getElementById('occupancyValue').textContent = occupancy;
+
+            // Update chart
+            updateChart(monthlyProfit, investment.mid);
+
+            // Highlight correct column in equipment table
+            document.querySelectorAll('.highlight-col').forEach(el => el.classList.remove('highlight-col'));
+            const colIndex = currentCapacity === 150 ? 1 : currentCapacity === 250 ? 2 : 3;
+            document.querySelectorAll('.equipment-table tr').forEach(row => {
+                const cells = row.querySelectorAll('td, th');
+                if (cells[colIndex]) {
+                    cells[colIndex].classList.add('highlight-col');
+                }
+            });
+        }
+
+        // Chart
+        let chart;
+        function updateChart(monthlyProfit, investment) {
+            const ctx = document.getElementById('projectionChart').getContext('2d');
+
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const cumulativeProfit = months.map((_, i) => (i + 1) * monthlyProfit);
+
+            if (chart) {
+                chart.data.datasets[0].data = cumulativeProfit;
+                chart.data.datasets[1].data = months.map(() => investment);
+                chart.update();
+            } else {
+                chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: months,
+                        datasets: [
+                            {
+                                label: 'Cumulative Profit',
+                                data: cumulativeProfit,
+                                borderColor: '#ffffff',
+                                backgroundColor: 'rgba(255,255,255,0.1)',
+                                fill: true,
+                                tension: 0.3
+                            },
+                            {
+                                label: 'Investment',
+                                data: months.map(() => investment),
+                                borderColor: '#666666',
+                                borderDash: [5, 5],
+                                fill: false,
+                                pointRadius: 0
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#999' }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                ticks: {
+                                    color: '#999',
+                                    callback: value => '$' + (value/1000000).toFixed(1) + 'M'
+                                },
+                                grid: { color: '#333' }
+                            },
+                            x: {
+                                ticks: { color: '#999' },
+                                grid: { color: '#333' }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Event listeners
+        presetBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                presetBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCapacity = parseInt(btn.dataset.capacity);
+                calculate();
+            });
+        });
+
+        ticketPriceSlider.addEventListener('input', (e) => {
+            ticketPrice = parseInt(e.target.value);
+            calculate();
+        });
+
+        maskReplacementSlider.addEventListener('input', (e) => {
+            maskReplacement = parseInt(e.target.value);
+            calculate();
+        });
+
+        costumeReplacementSlider.addEventListener('input', (e) => {
+            costumeReplacement = parseInt(e.target.value);
+            calculate();
+        });
+
+        // Variable sliders
+        daysSlider.addEventListener('input', (e) => {
+            daysPerWeek = parseInt(e.target.value);
+            calculate();
+        });
+
+        showsSlider.addEventListener('input', (e) => {
+            showsPerDay = parseInt(e.target.value);
+            calculate();
+        });
+
+        occupancySlider.addEventListener('input', (e) => {
+            occupancy = parseInt(e.target.value);
+            calculate();
+        });
+
+        // Export PDF
+        document.getElementById('exportPdf').addEventListener('click', () => {
+            window.print();
+        });
+
+        // Initial calculation
+        calculate();
+    </script>
+</body>
+</html>
