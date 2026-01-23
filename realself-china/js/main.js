@@ -756,6 +756,23 @@ function initActiveNav() {
     });
 }
 
+// ========== Page Transitions ==========
+function initPageTransitions() {
+    document.querySelectorAll('a[href$=".html"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // Only apply transition to internal links (not external URLs)
+            if (href && !href.startsWith('http') && !href.startsWith('//')) {
+                e.preventDefault();
+                document.body.classList.add('page-transitioning');
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 400);
+            }
+        });
+    });
+}
+
 // ========== Initialize ==========
 document.addEventListener('DOMContentLoaded', async () => {
     // Initialize i18n first
@@ -768,6 +785,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initAnimations();
     initContactForm();
     initPdfExport();
+    initPageTransitions();
 
     // Initialize calculator if on scenarios page
     if (document.getElementById('calculator')) {

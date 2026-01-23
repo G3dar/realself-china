@@ -1183,6 +1183,33 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
+/* ========== Page Transitions ========== */
+/* Page entrance animation */
+body {
+    animation: pageEnter 0.5s ease;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Page exit animation */
+.page-transitioning {
+    animation: pageExit 0.4s ease forwards;
+}
+
+@keyframes pageExit {
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
 /* ========== Print Styles ========== */
 @media print {
     .header,
