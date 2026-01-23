@@ -378,11 +378,11 @@
 
                 <nav class="nav">
                     <ul class="nav__list">
-                        <li><a href="experience.html" class="nav__link">Experience</a></li>
-                        <li><a href="scenarios.html" class="nav__link">Scenarios</a></li>
-                        <li><a href="investment.html" class="nav__link">Breakdown</a></li>
-                        <li><a href="investment-requirements.html" class="nav__link">Investment</a></li>
-                        <li><a href="partnership.html" class="nav__link">Partnership</a></li>
+                        <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+                        <li><a href="scenarios.html" class="nav__link" data-i18n="nav.scenarios">Scenarios</a></li>
+                        <li><a href="investment.html" class="nav__link" data-i18n="nav.breakdown">Breakdown</a></li>
+                        <li><a href="investment-requirements.html" class="nav__link" data-i18n="nav.investment">Investment</a></li>
+                        <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
                     </ul>
 
                     <div class="lang-toggle">
@@ -403,8 +403,8 @@
     <!-- Page Header -->
     <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-lg);">
         <div class="container">
-            <h1 class="mb-md">Financial Breakdown</h1>
-            <p class="hero__tagline" style="font-size: 1.25rem;">Detailed costs and revenue projections</p>
+            <h1 class="mb-md" data-i18n="investment.title">Financial Breakdown</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="investment.subtitle">Detailed costs and revenue projections</p>
         </div>
     </section>
 
@@ -413,11 +413,11 @@
         <div class="container">
             <!-- Variables Section -->
             <div class="variables-section">
-                <div class="variables-section__title">Adjust Variables</div>
+                <div class="variables-section__title" data-i18n="investment.adjustVariables">Adjust Variables</div>
                 <div class="variables-grid">
                     <div class="variable-control">
-                        <div class="variable-control__label">Days per Week</div>
-                        <div class="variable-control__value"><span id="daysValue">4</span> <span>days</span></div>
+                        <div class="variable-control__label" data-i18n="investment.variables.daysPerWeek">Days per Week</div>
+                        <div class="variable-control__value"><span id="daysValue">4</span> <span data-i18n="investment.variables.days">days</span></div>
                         <input type="range" class="variable-control__slider" id="daysSlider" min="4" max="7" value="4">
                         <div class="variable-control__range">
                             <span>4</span>
@@ -425,8 +425,8 @@
                         </div>
                     </div>
                     <div class="variable-control">
-                        <div class="variable-control__label">Shows per Day</div>
-                        <div class="variable-control__value"><span id="showsValue">3</span> <span>shows</span></div>
+                        <div class="variable-control__label" data-i18n="investment.variables.showsPerDay">Shows per Day</div>
+                        <div class="variable-control__value"><span id="showsValue">3</span> <span data-i18n="investment.variables.shows">shows</span></div>
                         <input type="range" class="variable-control__slider" id="showsSlider" min="2" max="5" value="3">
                         <div class="variable-control__range">
                             <span>2</span>
@@ -434,7 +434,7 @@
                         </div>
                     </div>
                     <div class="variable-control">
-                        <div class="variable-control__label">Projected Occupancy</div>
+                        <div class="variable-control__label" data-i18n="investment.variables.occupancy">Projected Occupancy</div>
                         <div class="variable-control__value"><span id="occupancyValue">70</span><span>%</span></div>
                         <input type="range" class="variable-control__slider" id="occupancySlider" min="50" max="100" value="70" step="5">
                         <div class="variable-control__range">
@@ -449,15 +449,15 @@
             <div class="preset-selector">
                 <button class="preset-btn" data-capacity="150">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>150
-                    <span>Small</span>
+                    <span data-i18n="investment.presets.small">Small</span>
                 </button>
                 <button class="preset-btn active" data-capacity="250">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>250
-                    <span>Medium</span>
+                    <span data-i18n="investment.presets.medium">Medium</span>
                 </button>
                 <button class="preset-btn" data-capacity="350">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>350
-                    <span>Large</span>
+                    <span data-i18n="investment.presets.large">Large</span>
                 </button>
             </div>
 
@@ -465,15 +465,15 @@
             <div class="breakdown-grid">
                 <!-- Revenue Breakdown -->
                 <div class="breakdown-card">
-                    <div class="breakdown-card__title">Weekly Revenue</div>
+                    <div class="breakdown-card__title" data-i18n="investment.revenue.title">Weekly Revenue</div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Tickets per week</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketsPerWeek">Tickets per week</span>
                         <span class="breakdown-row__value" id="ticketsPerWeek">2,100</span>
                     </div>
 
                     <div class="breakdown-row breakdown-row--slider">
-                        <span class="breakdown-row__label">Ticket price</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketPrice">Ticket price</span>
                         <span class="breakdown-row__value" id="ticketPriceDisplay">$32</span>
                         <div class="breakdown-row__slider">
                             <input type="range" id="ticketPriceSlider" min="25" max="50" value="32">
@@ -482,42 +482,42 @@
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Ticket revenue</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketRevenue">Ticket revenue</span>
                         <span class="breakdown-row__value" id="ticketRevenue">$67,200</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">VIP upgrades (10%)</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.vipUpgrades">VIP upgrades (10%)</span>
                         <span class="breakdown-row__value" id="vipRevenue">$9,450</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Merchandise</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.merchandise">Merchandise</span>
                         <span class="breakdown-row__value" id="merchRevenue">$8,820</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Concessions</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.concessions">Concessions</span>
                         <span class="breakdown-row__value" id="concessionsRevenue">$7,350</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Photobooth</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.photobooth">Photobooth</span>
                         <span class="breakdown-row__value" id="photoboothRevenue">$1,092</span>
                     </div>
 
                     <div class="breakdown-row breakdown-row--total">
-                        <span class="breakdown-row__label">Weekly Total</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.weeklyTotal">Weekly Total</span>
                         <span class="breakdown-row__value" id="weeklyRevenue">$93,912</span>
                     </div>
                 </div>
 
                 <!-- Costs Breakdown -->
                 <div class="breakdown-card">
-                    <div class="breakdown-card__title">Weekly Costs</div>
+                    <div class="breakdown-card__title" data-i18n="investment.costs.title">Weekly Costs</div>
 
                     <div class="breakdown-row breakdown-row--slider">
-                        <span class="breakdown-row__label">Masks & Costumes</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.masksCostumes">Masks & Costumes</span>
                         <span class="breakdown-row__value" id="maskCostumeCostDisplay">$5,513</span>
                         <div class="breakdown-row__slider">
                             <input type="range" id="replacementSlider" min="25" max="100" value="50">
@@ -526,27 +526,27 @@
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Staff</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.staff">Staff</span>
                         <span class="breakdown-row__value" id="staffCost">$6,000</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Management</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.management">Management</span>
                         <span class="breakdown-row__value">$4,800</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Marketing (10%)</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.marketing">Marketing (10%)</span>
                         <span class="breakdown-row__value" id="marketingCost">$6,720</span>
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label">Insurance & Misc</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.insurance">Insurance & Misc</span>
                         <span class="breakdown-row__value">$3,000</span>
                     </div>
 
                     <div class="breakdown-row breakdown-row--total">
-                        <span class="breakdown-row__label">Weekly Total</span>
+                        <span class="breakdown-row__label" data-i18n="investment.costs.weeklyTotal">Weekly Total</span>
                         <span class="breakdown-row__value" id="weeklyCosts">$26,033</span>
                     </div>
                 </div>
@@ -556,19 +556,19 @@
             <div class="results-summary">
                 <div class="results-summary__grid">
                     <div>
-                        <div class="results-summary__item-label">Weekly Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.weeklyProfit">Weekly Profit</div>
                         <div class="results-summary__item-value" id="weeklyProfit">$67,879</div>
                     </div>
                     <div>
-                        <div class="results-summary__item-label">Monthly Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.monthlyProfit">Monthly Profit</div>
                         <div class="results-summary__item-value" id="monthlyProfit">$271,516</div>
                     </div>
                     <div>
-                        <div class="results-summary__item-label">Annual Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.annualProfit">Annual Profit</div>
                         <div class="results-summary__item-value" id="annualProfit">$3.3M</div>
                     </div>
                     <div>
-                        <div class="results-summary__item-label">Breakeven</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.breakeven">Breakeven</div>
                         <div class="results-summary__item-value" id="breakevenPeriod">~2 mo</div>
                     </div>
                 </div>
@@ -576,7 +576,7 @@
 
             <!-- CTA Section -->
             <div class="export-section">
-                <a href="partnership.html" class="btn btn--primary btn--large">
+                <a href="partnership.html" class="btn btn--primary btn--large" data-i18n="investment.cta">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                         <circle cx="9" cy="7" r="4"/>
@@ -594,7 +594,7 @@
         <div class="container">
             <div class="footer__inner">
                 <p class="footer__text">
-                    &copy; 2026 <span>Real Self Experience. All rights reserved.</span>
+                    &copy; 2026 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
                 </p>
             </div>
         </div>
