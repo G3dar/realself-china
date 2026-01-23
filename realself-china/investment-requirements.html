@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Self partner investment requirements - equipment and setup costs by venue capacity.">
+    <meta name="description" content="Real Self partnership investment - upfront production costs and licensing fees.">
     <title>Investment | Real Self</title>
 
     <!-- Fonts -->
@@ -18,13 +18,175 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        .equipment-table td:first-child {
+        .investment-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .investment-hero__total {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            margin: var(--spacing-lg) 0;
+        }
+
+        .investment-hero__note {
+            color: var(--color-gray-400);
+            font-size: 1rem;
+        }
+
+        .cost-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .cost-section__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-700);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cost-section__title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+        }
+
+        .cost-section__subtotal {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-item__info {
+            flex: 1;
+        }
+
+        .cost-item__name {
+            color: var(--color-white);
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .cost-item__detail {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+        }
+
+        .cost-item__amount {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-align: right;
+            min-width: 100px;
+        }
+
+        .summary-card {
+            background: var(--color-gray-900);
+            border: 2px solid var(--color-white);
+            padding: var(--spacing-2xl);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .summary-row--subtotal {
+            border-top: 1px solid var(--color-gray-700);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-md);
+        }
+
+        .summary-row--total {
+            border-top: 2px solid var(--color-white);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+        }
+
+        .summary-row__label {
             color: var(--color-gray-300);
         }
 
-        .equipment-table .highlight-col {
-            background: var(--color-gray-800);
+        .summary-row--total .summary-row__label {
             font-weight: 600;
+            color: var(--color-white);
+            font-size: 1.125rem;
+        }
+
+        .summary-row__value {
+            font-family: var(--font-display);
+            font-weight: 600;
+        }
+
+        .summary-row--total .summary-row__value {
+            font-size: 1.75rem;
+            color: var(--color-white);
+        }
+
+        .partner-provides {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-3xl);
+        }
+
+        .partner-provides__title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .partner-provides__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .partner-provides__item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-gray-300);
+        }
+
+        .partner-provides__item svg {
+            color: var(--color-gray-500);
+            flex-shrink: 0;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: var(--spacing-3xl);
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -60,125 +222,221 @@
     </header>
 
     <!-- Page Header -->
-    <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-lg);">
+    <section class="section" style="padding-top: 150px; padding-bottom: 0;">
         <div class="container">
-            <h1 class="mb-md">Partner Investment</h1>
-            <p class="hero__tagline" style="font-size: 1.25rem;">Equipment and setup costs by venue capacity</p>
-        </div>
-    </section>
-
-    <!-- Equipment Costs Table -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="table-wrapper equipment-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Item</th>
-                            <th>150 Cap</th>
-                            <th class="highlight-col">250 Cap</th>
-                            <th>350 Cap</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Professional Projectors</td>
-                            <td>$128K - $270K</td>
-                            <td class="highlight-col">$208K - $450K</td>
-                            <td>$288K - $630K</td>
-                        </tr>
-                        <tr>
-                            <td>Sound System</td>
-                            <td>$40K - $60K</td>
-                            <td class="highlight-col">$50K - $70K</td>
-                            <td>$60K - $80K</td>
-                        </tr>
-                        <tr>
-                            <td>Media Servers</td>
-                            <td>$8K - $12K</td>
-                            <td class="highlight-col">$10K - $15K</td>
-                            <td>$12K - $18K</td>
-                        </tr>
-                        <tr>
-                            <td>Branding & Signage</td>
-                            <td>$20K - $35K</td>
-                            <td class="highlight-col">$25K - $45K</td>
-                            <td>$30K - $50K</td>
-                        </tr>
-                        <tr>
-                            <td>Initial Masks & Costumes</td>
-                            <td colspan="3" style="text-align: center;">$8K - $15K</td>
-                        </tr>
-                        <tr>
-                            <td>Venue Conditioning</td>
-                            <td>$30K - $60K</td>
-                            <td class="highlight-col">$50K - $80K</td>
-                            <td>$70K - $100K</td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr style="border-top: 2px solid var(--color-white);">
-                            <td style="font-weight: 700;">Total Investment</td>
-                            <td style="font-weight: 700;">$236K - $400K</td>
-                            <td class="highlight-col" style="font-weight: 700;">$320K - $550K</td>
-                            <td style="font-weight: 700;">$420K - $750K</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-
-            <div class="card mt-xl" style="background: var(--color-gray-800); border-color: var(--color-gray-600);">
-                <p style="color: var(--color-gray-300); margin: 0;">
-                    <strong style="color: var(--color-white);">Note:</strong>
-                    Venue rent not included - partner provides the space. All figures in USD.
-                </p>
+            <div class="investment-hero">
+                <h1>Upfront Investment</h1>
+                <div class="investment-hero__total">$212,675</div>
+                <p class="investment-hero__note">Production costs, licensing & setup fees</p>
             </div>
         </div>
     </section>
 
-    <!-- Market Comparison -->
-    <section class="section section--dark">
+    <!-- Cost Breakdown -->
+    <section class="section" style="padding-top: var(--spacing-xl);">
         <div class="container">
-            <h2 class="mb-md">Market Comparison</h2>
-            <p class="mb-xl" style="color: var(--color-gray-400);">How Real Self compares to other immersive experiences in China</p>
+            <div class="two-col">
+                <div>
+                    <!-- Production -->
+                    <div class="cost-section">
+                        <div class="cost-section__header">
+                            <span class="cost-section__title">Production</span>
+                            <span class="cost-section__subtotal">$40,000</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Production & Direction</div>
+                                <div class="cost-item__detail">3 months - Remote & on-site direction, China adaptation oversight</div>
+                            </div>
+                            <div class="cost-item__amount">$30,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Executive Producing</div>
+                                <div class="cost-item__detail">Project oversight & coordination</div>
+                            </div>
+                            <div class="cost-item__amount">$10,000</div>
+                        </div>
+                    </div>
 
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Experience</th>
-                            <th>Ticket Price</th>
-                            <th>Duration</th>
-                            <th>Market</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>teamLab Shanghai</td>
-                            <td>RMB 249 (~$35)</td>
-                            <td>Unlimited (avg 2-3 hrs)</td>
-                            <td>China</td>
-                        </tr>
-                        <tr>
-                            <td>Van Gogh Immersive</td>
-                            <td>$35 - $55</td>
-                            <td>60-90 minutes</td>
-                            <td>USA</td>
-                        </tr>
-                        <tr>
-                            <td>Sleep No More</td>
-                            <td>$100 - $300</td>
-                            <td>3 hours</td>
-                            <td>USA/China</td>
-                        </tr>
-                        <tr style="background: var(--color-gray-800);">
-                            <td style="font-weight: 700;">Real Self China</td>
-                            <td style="font-weight: 700;">RMB 250 (~$35)</td>
-                            <td style="font-weight: 700;">90 minutes</td>
-                            <td style="font-weight: 700;">China (proposed)</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    <!-- Creative / IP -->
+                    <div class="cost-section">
+                        <div class="cost-section__header">
+                            <span class="cost-section__title">Creative & IP</span>
+                            <span class="cost-section__subtotal">$53,000</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Experience Design & Adaptation</div>
+                                <div class="cost-item__detail">Localization and cultural adaptation</div>
+                            </div>
+                            <div class="cost-item__amount">$30,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Sound Design Updates</div>
+                                <div class="cost-item__detail">Audio adaptation and mixing</div>
+                            </div>
+                            <div class="cost-item__amount">$15,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Rehearsals & Show Direction</div>
+                                <div class="cost-item__detail">Staff training and direction</div>
+                            </div>
+                            <div class="cost-item__amount">$8,000</div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Design -->
+                    <div class="cost-section">
+                        <div class="cost-section__header">
+                            <span class="cost-section__title">Technical Design</span>
+                            <span class="cost-section__subtotal">$50,000</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Projection Mapping Design</div>
+                                <div class="cost-item__detail">Custom venue mapping and content adaptation</div>
+                            </div>
+                            <div class="cost-item__amount">$25,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Show Control Programming</div>
+                                <div class="cost-item__detail">Automation and synchronization systems</div>
+                            </div>
+                            <div class="cost-item__amount">$15,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">System Testing & Calibration</div>
+                                <div class="cost-item__detail">Technical rehearsals and fine-tuning</div>
+                            </div>
+                            <div class="cost-item__amount">$10,000</div>
+                        </div>
+                    </div>
+
+                    <!-- Travel & Setup -->
+                    <div class="cost-section">
+                        <div class="cost-section__header">
+                            <span class="cost-section__title">Travel & Setup</span>
+                            <span class="cost-section__subtotal">$42,750</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Team Travel & Accommodation</div>
+                                <div class="cost-item__detail">4 people, 10 days setup period</div>
+                            </div>
+                            <div class="cost-item__amount">$14,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Lockers</div>
+                                <div class="cost-item__detail">350 units for participant storage</div>
+                            </div>
+                            <div class="cost-item__amount">$8,750</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Costumes</div>
+                                <div class="cost-item__detail">Initial costume inventory</div>
+                            </div>
+                            <div class="cost-item__amount">$20,000</div>
+                        </div>
+                    </div>
+
+                    <!-- Legal & Insurance -->
+                    <div class="cost-section">
+                        <div class="cost-section__header">
+                            <span class="cost-section__title">Legal & Insurance</span>
+                            <span class="cost-section__subtotal">$8,500</span>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Legal Contracts & Licensing</div>
+                                <div class="cost-item__detail">IP licensing and partnership agreements</div>
+                            </div>
+                            <div class="cost-item__amount">$7,000</div>
+                        </div>
+                        <div class="cost-item">
+                            <div class="cost-item__info">
+                                <div class="cost-item__name">Setup Insurance</div>
+                                <div class="cost-item__detail">Coverage for setup crew during installation</div>
+                            </div>
+                            <div class="cost-item__amount">$1,500</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div>
+                    <div class="summary-card">
+                        <div class="summary-row">
+                            <span class="summary-row__label">Production</span>
+                            <span class="summary-row__value">$40,000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-row__label">Creative & IP</span>
+                            <span class="summary-row__value">$53,000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-row__label">Technical Design</span>
+                            <span class="summary-row__value">$50,000</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-row__label">Travel & Setup</span>
+                            <span class="summary-row__value">$42,750</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-row__label">Legal & Insurance</span>
+                            <span class="summary-row__value">$8,500</span>
+                        </div>
+                        <div class="summary-row summary-row--subtotal">
+                            <span class="summary-row__label">Subtotal</span>
+                            <span class="summary-row__value">$194,250</span>
+                        </div>
+                        <div class="summary-row">
+                            <span class="summary-row__label">Contingency Reserve (10%)</span>
+                            <span class="summary-row__value">$18,425</span>
+                        </div>
+                        <div class="summary-row summary-row--total">
+                            <span class="summary-row__label">Total Investment</span>
+                            <span class="summary-row__value">$212,675</span>
+                        </div>
+                    </div>
+
+                    <!-- Partner Provides -->
+                    <div class="partner-provides">
+                        <div class="partner-provides__title">Provided by Partner</div>
+                        <div class="partner-provides__grid">
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                                <span>Projectors & AV Equipment</span>
+                            </div>
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                <span>Venue & Space</span>
+                            </div>
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                                <span>Media Servers</span>
+                            </div>
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                                <span>Sound System</span>
+                            </div>
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                                <span>Venue Conditioning</span>
+                            </div>
+                            <div class="partner-provides__item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                                <span>Branding & Signage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -195,12 +453,8 @@
         <div class="container">
             <div class="footer__inner">
                 <p class="footer__text">
-                    &copy; 2024 <span>Real Self Experience. All rights reserved.</span>
+                    &copy; 2026 <span>Real Self Experience. All rights reserved.</span>
                 </p>
-                <div class="footer__links">
-                    <a href="#" class="footer__link">Privacy Policy</a>
-                    <a href="#" class="footer__link">Terms of Service</a>
-                </div>
             </div>
         </div>
     </footer>

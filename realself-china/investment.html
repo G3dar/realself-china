@@ -115,51 +115,56 @@
             font-family: var(--font-display);
             font-weight: 600;
             font-size: 1rem;
-            position: relative;
+            text-align: right;
+            min-width: 100px;
         }
 
-        /* Editable value container */
-        .editable-value {
-            position: relative;
-            display: inline-block;
+        /* Slider row */
+        .breakdown-row--slider {
+            flex-wrap: wrap;
         }
 
-        .editable-value__display {
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            transition: background 0.2s ease;
+        .breakdown-row--slider .breakdown-row__label {
+            flex: 1;
         }
 
-        .editable-value:hover .editable-value__display {
-            background: var(--color-gray-700);
+        .breakdown-row--slider .breakdown-row__value {
+            min-width: 80px;
         }
 
-        .editable-value__slider {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: var(--color-gray-800);
-            border: 1px solid var(--color-gray-600);
-            padding: var(--spacing-md);
-            z-index: 100;
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.2s ease;
-        }
-
-        .editable-value:hover .editable-value__slider,
-        .editable-value__slider:hover {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(5px);
-        }
-
-        .editable-value__slider input[type="range"] {
+        .breakdown-row__slider {
             width: 100%;
-            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+            padding-top: var(--spacing-xs);
+        }
+
+        .breakdown-row__slider input[type="range"] {
+            flex: 1;
+            height: 4px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--color-gray-700);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .breakdown-row__slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            background: var(--color-white);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .breakdown-row__slider-label {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+            min-width: 45px;
+            text-align: right;
         }
 
         /* Summary row (totals) */
@@ -467,15 +472,12 @@
                         <span class="breakdown-row__value" id="ticketsPerWeek">2,100</span>
                     </div>
 
-                    <div class="breakdown-row">
+                    <div class="breakdown-row breakdown-row--slider">
                         <span class="breakdown-row__label">Ticket price</span>
-                        <div class="breakdown-row__value">
-                            <div class="editable-value">
-                                <span class="editable-value__display" id="ticketPriceDisplay">$32</span>
-                                <div class="editable-value__slider">
-                                    <input type="range" id="ticketPriceSlider" min="25" max="50" value="32">
-                                </div>
-                            </div>
+                        <span class="breakdown-row__value" id="ticketPriceDisplay">$32</span>
+                        <div class="breakdown-row__slider">
+                            <input type="range" id="ticketPriceSlider" min="25" max="50" value="32">
+                            <span class="breakdown-row__slider-label">$25-50</span>
                         </div>
                     </div>
 
@@ -514,31 +516,12 @@
                 <div class="breakdown-card">
                     <div class="breakdown-card__title">Weekly Costs</div>
 
-                    <div class="breakdown-row">
-                        <span class="breakdown-row__label">Masks</span>
-                        <div class="breakdown-row__value">
-                            <div class="editable-value">
-                                <span class="editable-value__display" id="maskCostDisplay">$3,150</span>
-                                <div class="editable-value__slider">
-                                    <label style="font-size: 0.75rem; color: var(--color-gray-400);">Replacement %</label>
-                                    <input type="range" id="maskReplacementSlider" min="25" max="100" value="100">
-                                    <span style="font-size: 0.75rem;" id="maskReplacementDisplay">100%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="breakdown-row">
-                        <span class="breakdown-row__label">Costumes</span>
-                        <div class="breakdown-row__value">
-                            <div class="editable-value">
-                                <span class="editable-value__display" id="costumeCostDisplay">$2,363</span>
-                                <div class="editable-value__slider">
-                                    <label style="font-size: 0.75rem; color: var(--color-gray-400);">Replacement %</label>
-                                    <input type="range" id="costumeReplacementSlider" min="25" max="100" value="25">
-                                    <span style="font-size: 0.75rem;" id="costumeReplacementDisplay">25%</span>
-                                </div>
-                            </div>
+                    <div class="breakdown-row breakdown-row--slider">
+                        <span class="breakdown-row__label">Masks & Costumes</span>
+                        <span class="breakdown-row__value" id="maskCostumeCostDisplay">$5,513</span>
+                        <div class="breakdown-row__slider">
+                            <input type="range" id="replacementSlider" min="25" max="100" value="50">
+                            <span class="breakdown-row__slider-label" id="replacementDisplay">50%</span>
                         </div>
                     </div>
 
@@ -610,12 +593,8 @@
         <div class="container">
             <div class="footer__inner">
                 <p class="footer__text">
-                    &copy; 2024 <span>Real Self Experience. All rights reserved.</span>
+                    &copy; 2026 <span>Real Self Experience. All rights reserved.</span>
                 </p>
-                <div class="footer__links">
-                    <a href="#" class="footer__link">Privacy Policy</a>
-                    <a href="#" class="footer__link">Terms of Service</a>
-                </div>
             </div>
         </div>
     </footer>
@@ -635,14 +614,12 @@
         let showsPerDay = 3;
         let occupancy = 70;
         let ticketPrice = 32;
-        let maskReplacement = 100;
-        let costumeReplacement = 25;
+        let replacementRate = 50;
 
         // DOM elements
         const presetBtns = document.querySelectorAll('.preset-btn');
         const ticketPriceSlider = document.getElementById('ticketPriceSlider');
-        const maskReplacementSlider = document.getElementById('maskReplacementSlider');
-        const costumeReplacementSlider = document.getElementById('costumeReplacementSlider');
+        const replacementSlider = document.getElementById('replacementSlider');
         const daysSlider = document.getElementById('daysSlider');
         const showsSlider = document.getElementById('showsSlider');
         const occupancySlider = document.getElementById('occupancySlider');
@@ -670,14 +647,13 @@
             const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
 
             // Costs
-            const maskCost = tickets * (maskReplacement / 100) * 1.5;
-            const costumeCost = tickets * (costumeReplacement / 100) * 4.5;
+            const maskCostumeCost = tickets * (replacementRate / 100) * 6; // $1.5 mask + $4.5 costume = $6
             const staffCount = Math.ceil(currentCapacity / 25);
             const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
             const managementCost = 4800;
             const marketingCost = ticketRev * 0.1;
             const insuranceCost = 3000;
-            const totalCosts = maskCost + costumeCost + staffCost + managementCost + marketingCost + insuranceCost;
+            const totalCosts = maskCostumeCost + staffCost + managementCost + marketingCost + insuranceCost;
 
             // Profit
             const weeklyProfit = totalRevenue - totalCosts;
@@ -695,10 +671,8 @@
             document.getElementById('photoboothRevenue').textContent = formatCurrency(photoboothRev);
             document.getElementById('weeklyRevenue').textContent = formatCurrency(totalRevenue);
 
-            document.getElementById('maskCostDisplay').textContent = formatCurrency(maskCost);
-            document.getElementById('maskReplacementDisplay').textContent = maskReplacement + '%';
-            document.getElementById('costumeCostDisplay').textContent = formatCurrency(costumeCost);
-            document.getElementById('costumeReplacementDisplay').textContent = costumeReplacement + '%';
+            document.getElementById('maskCostumeCostDisplay').textContent = formatCurrency(maskCostumeCost);
+            document.getElementById('replacementDisplay').textContent = replacementRate + '%';
             document.getElementById('staffCost').textContent = formatCurrency(staffCost);
             document.getElementById('marketingCost').textContent = formatCurrency(marketingCost);
             document.getElementById('weeklyCosts').textContent = formatCurrency(totalCosts);
@@ -729,13 +703,8 @@
             calculate();
         });
 
-        maskReplacementSlider.addEventListener('input', (e) => {
-            maskReplacement = parseInt(e.target.value);
-            calculate();
-        });
-
-        costumeReplacementSlider.addEventListener('input', (e) => {
-            costumeReplacement = parseInt(e.target.value);
+        replacementSlider.addEventListener('input', (e) => {
+            replacementRate = parseInt(e.target.value);
             calculate();
         });
 
