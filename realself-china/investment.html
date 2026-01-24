@@ -389,6 +389,8 @@
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);">Small</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">150</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
+                    <div style="font-size: 0.75rem; color: var(--color-gray-500);">Investment Required</div>
+                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$160K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
                     <div id="compare150Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$56,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
@@ -398,6 +400,8 @@
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);">Medium</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">250</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
+                    <div style="font-size: 0.75rem; color: var(--color-gray-500);">Investment Required</div>
+                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$210K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
                     <div id="compare250Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$94,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
@@ -407,12 +411,15 @@
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);">Large</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">350</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
+                    <div style="font-size: 0.75rem; color: var(--color-gray-500);">Investment Required</div>
+                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$250K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
                     <div id="compare350Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$131,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
                     <div id="compare350Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$272,000</div>
                 </div>
             </div>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-600); margin-bottom: var(--spacing-xs);">Investment excludes technology, equipment & projectors (provided by partner)</p>
             <p id="compareDescription" style="text-align: center; font-size: 0.875rem; color: var(--color-gray-500);">Based on 4 days/week, 3 shows/day, 70% occupancy, $32 ticket price</p>
         </div>
     </section>
@@ -605,11 +612,11 @@
 
     <!-- Scripts -->
     <script>
-        // Investment data by capacity
+        // Investment data by capacity (excludes technology/equipment/projectors)
         const investments = {
-            150: { min: 236000, max: 400000, mid: 318000 },
-            250: { min: 320000, max: 550000, mid: 435000 },
-            350: { min: 420000, max: 750000, mid: 585000 }
+            150: { value: 160000 },
+            250: { value: 210000 },
+            350: { value: 250000 }
         };
 
         // Current state
@@ -698,7 +705,7 @@
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
             const annualProfit = monthlyProfit * 12;
-            const breakeven = monthlyProfit > 0 ? Math.ceil(investment.mid / monthlyProfit) : 99;
+            const breakeven = monthlyProfit > 0 ? Math.ceil(investment.value / monthlyProfit) : 99;
 
             // Update display
             document.getElementById('ticketsPerWeek').textContent = tickets.toLocaleString();
