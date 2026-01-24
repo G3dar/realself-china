@@ -367,6 +367,24 @@
             color: var(--color-gray-500);
             margin-top: var(--spacing-xs);
         }
+
+        /* Compare cards */
+        .compare-card {
+            -webkit-tap-highlight-color: rgba(255,255,255,0.1);
+        }
+
+        .compare-card:hover {
+            background: var(--color-gray-800) !important;
+        }
+
+        .compare-card.active {
+            background: var(--color-gray-800) !important;
+            border: 2px solid var(--color-white) !important;
+        }
+
+        .compare-card:not(.active) {
+            border: 1px solid var(--color-gray-700) !important;
+        }
     </style>
 </head>
 <body>
@@ -385,34 +403,34 @@
     <section class="section" style="padding-top: 0; padding-bottom: var(--spacing-xl);">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg);">
-                <div style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center;">
+                <div class="compare-card" data-capacity="150" style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all 0.2s ease;">
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.small">Small</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">150</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="investment.comparison.capacity">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.investmentRequired">Investment Required</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$160K</div>
+                    <div id="compare150Investment" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$160K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.weeklyRevenue">Weekly Revenue</div>
                     <div id="compare150Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$56,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.partnerMonthly">Partner Monthly</div>
                     <div id="compare150Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$104,000</div>
                 </div>
-                <div style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center;">
+                <div class="compare-card" data-capacity="250" style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all 0.2s ease;">
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.medium">Medium</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">250</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="investment.comparison.capacity">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.investmentRequired">Investment Required</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$210K</div>
+                    <div id="compare250Investment" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$210K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.weeklyRevenue">Weekly Revenue</div>
                     <div id="compare250Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$94,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.partnerMonthly">Partner Monthly</div>
                     <div id="compare250Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$188,000</div>
                 </div>
-                <div style="background: var(--color-gray-800); border: 2px solid var(--color-white); padding: var(--spacing-lg); text-align: center;">
+                <div class="compare-card active" data-capacity="350" style="background: var(--color-gray-800); border: 2px solid var(--color-white); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all 0.2s ease;">
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.large">Large</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">350</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="investment.comparison.capacity">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.investmentRequired">Investment Required</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$240K</div>
+                    <div id="compare350Investment" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$240K</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.weeklyRevenue">Weekly Revenue</div>
                     <div id="compare350Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$131,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.partnerMonthly">Partner Monthly</div>
@@ -629,11 +647,30 @@
 
         // DOM elements
         const presetBtns = document.querySelectorAll('.preset-btn');
+        const compareCards = document.querySelectorAll('.compare-card');
         const ticketPriceSlider = document.getElementById('ticketPriceSlider');
         const replacementSlider = document.getElementById('replacementSlider');
         const daysSlider = document.getElementById('daysSlider');
         const showsSlider = document.getElementById('showsSlider');
         const occupancySlider = document.getElementById('occupancySlider');
+
+        // Select capacity and sync all UI elements
+        function selectCapacity(capacity) {
+            currentCapacity = capacity;
+
+            // Update preset buttons
+            presetBtns.forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.dataset.capacity) === capacity);
+            });
+
+            // Update compare cards
+            compareCards.forEach(card => {
+                const isActive = parseInt(card.dataset.capacity) === capacity;
+                card.classList.toggle('active', isActive);
+            });
+
+            calculate();
+        }
 
         // Format currency
         function formatCurrency(num) {
@@ -667,10 +704,19 @@
             return { weeklyRevenue: totalRevenue, monthlyProfit: monthlyProfit };
         }
 
+        // Format investment as shorthand (e.g., $160K)
+        function formatInvestment(num) {
+            return '$' + Math.round(num / 1000) + 'K';
+        }
+
         // Update comparison cards
         function updateComparison() {
             [150, 250, 350].forEach(cap => {
                 const result = calculateForCapacity(cap);
+                const investmentEl = document.getElementById(`compare${cap}Investment`);
+                if (investmentEl) {
+                    investmentEl.textContent = formatInvestment(investments[cap].value);
+                }
                 document.getElementById(`compare${cap}Weekly`).textContent = formatCurrency(result.weeklyRevenue);
                 document.getElementById(`compare${cap}Monthly`).textContent = formatCurrency(result.monthlyProfit);
             });
@@ -737,14 +783,27 @@
             updateComparison();
         }
 
-        // Event listeners
+        // Event listeners for preset buttons
         presetBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                presetBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                currentCapacity = parseInt(btn.dataset.capacity);
-                calculate();
+                selectCapacity(parseInt(btn.dataset.capacity));
             });
+        });
+
+        // Event listeners for compare cards (top section)
+        compareCards.forEach(card => {
+            card.addEventListener('click', () => {
+                selectCapacity(parseInt(card.dataset.capacity));
+            });
+
+            // Touch feedback for mobile
+            card.addEventListener('touchstart', () => {
+                card.style.transform = 'scale(0.98)';
+            }, { passive: true });
+
+            card.addEventListener('touchend', () => {
+                card.style.transform = '';
+            }, { passive: true });
         });
 
         ticketPriceSlider.addEventListener('input', (e) => {
