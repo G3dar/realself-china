@@ -390,30 +390,30 @@
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">150</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$56,000</div>
+                    <div id="compare150Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$56,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$104,000</div>
+                    <div id="compare150Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$104,000</div>
                 </div>
                 <div style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center;">
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);">Medium</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">250</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$94,000</div>
+                    <div id="compare250Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$94,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$188,000</div>
+                    <div id="compare250Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$188,000</div>
                 </div>
                 <div style="background: var(--color-gray-800); border: 2px solid var(--color-white); padding: var(--spacing-lg); text-align: center;">
                     <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);">Large</div>
                     <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">350</div>
                     <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);">capacity</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Weekly Revenue</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$131,000</div>
+                    <div id="compare350Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$131,000</div>
                     <div style="font-size: 0.75rem; color: var(--color-gray-500);">Partner Monthly</div>
-                    <div style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$272,000</div>
+                    <div id="compare350Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$272,000</div>
                 </div>
             </div>
-            <p style="text-align: center; font-size: 0.875rem; color: var(--color-gray-500);">Based on 4 days/week, 3 shows/day, 70% occupancy, $32 ticket price</p>
+            <p id="compareDescription" style="text-align: center; font-size: 0.875rem; color: var(--color-gray-500);">Based on 4 days/week, 3 shows/day, 70% occupancy, $32 ticket price</p>
         </div>
     </section>
 
@@ -636,6 +636,41 @@
             return '$' + num.toLocaleString();
         }
 
+        // Calculate values for a given capacity
+        function calculateForCapacity(capacity) {
+            const tickets = Math.round(capacity * daysPerWeek * showsPerDay * (occupancy / 100));
+            const ticketRev = tickets * ticketPrice;
+            const vipRev = tickets * 0.1 * 45;
+            const merchRev = tickets * 0.7 * 6;
+            const concessionsRev = tickets * 0.7 * 5;
+            const photoboothRev = tickets * 0.13 * 4;
+            const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
+
+            const maskCostumeCost = tickets * (replacementRate / 100) * 6;
+            const staffCount = Math.ceil(capacity / 25);
+            const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
+            const managementCost = 4800;
+            const marketingCost = ticketRev * 0.1;
+            const insuranceCost = 3000;
+            const totalCosts = maskCostumeCost + staffCost + managementCost + marketingCost + insuranceCost;
+
+            const weeklyProfit = totalRevenue - totalCosts;
+            const monthlyProfit = weeklyProfit * 4;
+
+            return { weeklyRevenue: totalRevenue, monthlyProfit: monthlyProfit };
+        }
+
+        // Update comparison cards
+        function updateComparison() {
+            [150, 250, 350].forEach(cap => {
+                const result = calculateForCapacity(cap);
+                document.getElementById(`compare${cap}Weekly`).textContent = formatCurrency(result.weeklyRevenue);
+                document.getElementById(`compare${cap}Monthly`).textContent = formatCurrency(result.monthlyProfit);
+            });
+            document.getElementById('compareDescription').textContent =
+                `Based on ${daysPerWeek} days/week, ${showsPerDay} shows/day, ${occupancy}% occupancy, $${ticketPrice} ticket price`;
+        }
+
         // Calculate and update display
         function calculate() {
             // Calculate tickets based on variables
@@ -690,6 +725,9 @@
             document.getElementById('daysValue').textContent = daysPerWeek;
             document.getElementById('showsValue').textContent = showsPerDay;
             document.getElementById('occupancyValue').textContent = occupancy;
+
+            // Update comparison cards
+            updateComparison();
         }
 
         // Event listeners
