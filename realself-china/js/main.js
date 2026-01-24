@@ -773,6 +773,43 @@ function initPageTransitions() {
     });
 }
 
+// ========== Page Prefetching ==========
+const prefetcher = {
+    pages: [
+        'home.html',
+        'experience.html',
+        'scenarios.html',
+        'investment.html',
+        'investment-requirements.html',
+        'partnership.html'
+    ],
+    prefetched: new Set(),
+
+    prefetchAll() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        this.pages.forEach(page => {
+            if (page !== currentPage && !this.prefetched.has(page)) {
+                this.prefetchPage(page);
+            }
+        });
+    },
+
+    prefetchPage(url) {
+        if (this.prefetched.has(url)) return;
+
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        link.as = 'document';
+        document.head.appendChild(link);
+        this.prefetched.add(url);
+    }
+};
+
+// Export for use in index.html
+window.prefetcher = prefetcher;
+
 // ========== Initialize ==========
 document.addEventListener('DOMContentLoaded', async () => {
     // Initialize i18n first
@@ -791,6 +828,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (document.getElementById('calculator')) {
         calculator.init();
     }
+
+    // Prefetch other pages after a short delay (don't block initial render)
+    setTimeout(() => {
+        prefetcher.prefetchAll();
+    }, 1000);
 });
 
 // Export for global access
