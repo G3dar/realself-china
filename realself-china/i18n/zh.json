@@ -133,7 +133,7 @@
     "cta": "查看详细财务明细"
   },
   "investment": {
-    "title": "财务明细",
+    "title": "收入与成本",
     "subtitle": "详细的成本和收入预测",
     "adjustVariables": "调整变量",
     "variables": {

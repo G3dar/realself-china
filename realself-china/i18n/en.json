@@ -133,7 +133,7 @@
     "cta": "View Detailed Breakdown"
   },
   "investment": {
-    "title": "Financial Breakdown",
+    "title": "Revenue and Cost",
     "subtitle": "Detailed costs and revenue projections",
     "adjustVariables": "Adjust Variables",
     "variables": {
