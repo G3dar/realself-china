@@ -36,7 +36,8 @@
       },
       "age": {
         "title": "Age Requirement",
-        "desc": "16+ years old"
+        "desc": "15+ years old",
+        "kidsNote": "Kids version available upon request"
       },
       "phones": {
         "title": "Digital Detox",
