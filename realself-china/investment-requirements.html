@@ -188,6 +188,28 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Venue option buttons */
+        .venue-option {
+            border: 2px solid transparent;
+            -webkit-tap-highlight-color: rgba(255,255,255,0.1);
+        }
+
+        .venue-option:hover {
+            background: var(--color-gray-800);
+        }
+
+        .venue-option.active {
+            border: 2px solid var(--color-white) !important;
+            background: var(--color-gray-800);
+        }
+
+        @media (max-width: 600px) {
+            .venue-option {
+                min-width: 80px !important;
+                padding: var(--spacing-md) var(--spacing-sm) !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -200,17 +222,17 @@
             <div class="investment-hero">
                 <h1 data-i18n="investmentRequirements.title">Upfront Investment</h1>
                 <div style="display: flex; justify-content: center; gap: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
-                    <div style="text-align: center;">
+                    <div class="venue-option" data-capacity="150" style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); cursor: pointer; transition: all 0.2s ease; min-width: 100px;">
                         <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase;" data-i18n="investmentRequirements.sizes.small">Small (150)</div>
-                        <div style="font-size: 1.5rem; font-weight: 700;">$160K</div>
+                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$160K</div>
                     </div>
-                    <div style="text-align: center;">
+                    <div class="venue-option" data-capacity="250" style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); cursor: pointer; transition: all 0.2s ease; min-width: 100px;">
                         <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase;" data-i18n="investmentRequirements.sizes.medium">Medium (250)</div>
-                        <div style="font-size: 1.5rem; font-weight: 700;">$210K</div>
+                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$210K</div>
                     </div>
-                    <div style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); border: 2px solid var(--color-white);">
+                    <div class="venue-option active" data-capacity="350" style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); border: 2px solid var(--color-white); cursor: pointer; transition: all 0.2s ease; min-width: 100px;">
                         <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase;" data-i18n="investmentRequirements.sizes.large">Large (350)</div>
-                        <div style="font-size: 1.5rem; font-weight: 700;">$240K</div>
+                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$240K</div>
                     </div>
                 </div>
                 <p class="investment-hero__note" data-i18n="investmentRequirements.subtitle">Production costs, licensing & setup fees</p>
@@ -459,5 +481,186 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script>
+        // Venue investment data
+        const venueData = {
+            150: {
+                total: '$160K',
+                production: { total: '$34,000', direction: '$24,000', executive: '$10,000' },
+                creative: { total: '$38,000', design: '$20,000', sound: '$10,000', rehearsals: '$8,000' },
+                technical: { total: '$37,000', projection: '$20,000', showControl: '$10,000', testing: '$7,000' },
+                travel: { total: '$30,455', team: '$8,750', lockers: '$3,750', costumes: '$17,955', detail: '150 units' },
+                legal: { total: '$6,000', contracts: '$5,000', insurance: '$1,000' },
+                subtotal: '$145,455',
+                contingency: '$14,545',
+                grandTotal: '$160,000'
+            },
+            250: {
+                total: '$210K',
+                production: { total: '$42,000', direction: '$29,000', executive: '$13,000' },
+                creative: { total: '$48,000', design: '$25,000', sound: '$13,000', rehearsals: '$10,000' },
+                technical: { total: '$46,000', projection: '$25,000', showControl: '$13,000', testing: '$8,000' },
+                travel: { total: '$38,910', team: '$13,125', lockers: '$6,250', costumes: '$19,535', detail: '250 units' },
+                legal: { total: '$8,000', contracts: '$6,500', insurance: '$1,500' },
+                subtotal: '$182,910',
+                contingency: '$18,291',
+                grandTotal: '$201,201'
+            },
+            350: {
+                total: '$240K',
+                production: { total: '$50,000', direction: '$35,000', executive: '$15,000' },
+                creative: { total: '$57,000', design: '$30,000', sound: '$15,000', rehearsals: '$12,000' },
+                technical: { total: '$55,000', projection: '$30,000', showControl: '$15,000', testing: '$10,000' },
+                travel: { total: '$46,250', team: '$17,500', lockers: '$8,750', costumes: '$20,000', detail: '350 units' },
+                legal: { total: '$10,000', contracts: '$8,000', insurance: '$2,000' },
+                subtotal: '$218,250',
+                contingency: '$21,825',
+                grandTotal: '$240,075'
+            }
+        };
+
+        // Current selected capacity (default: Large)
+        let currentCapacity = 350;
+
+        // DOM references
+        const venueOptions = document.querySelectorAll('.venue-option');
+        const costSections = document.querySelectorAll('.cost-section');
+        const summaryCard = document.querySelector('.summary-card');
+
+        // Get translation function
+        function getTranslation(key, fallback) {
+            if (window.translations && window.currentLang) {
+                const keys = key.split('.');
+                let value = window.translations[window.currentLang];
+                for (const k of keys) {
+                    value = value?.[k];
+                }
+                return value || fallback;
+            }
+            return fallback;
+        }
+
+        // Update the breakdown note text
+        function updateBreakdownNote(capacity) {
+            const breakdownNote = document.querySelector('[data-i18n="investmentRequirements.breakdownNote"]');
+            const summaryNote = document.querySelector('[data-i18n="investmentRequirements.summaryNote"]');
+            const lockerDetail = document.querySelector('[data-i18n="investmentRequirements.sections.travel.items.lockers.detail"]');
+
+            const sizeNames = { 150: 'Small', 250: 'Medium', 350: 'Large' };
+            const sizeNamesCn = { 150: '小型', 250: '中型', 350: '大型' };
+
+            const isZh = window.currentLang === 'zh';
+            const sizeName = isZh ? sizeNamesCn[capacity] : sizeNames[capacity];
+
+            if (breakdownNote) {
+                breakdownNote.textContent = isZh
+                    ? `以下为${sizeName}场地（${capacity}人容量）的详细分项`
+                    : `Breakdown shown for ${sizeName} venue (${capacity} capacity)`;
+            }
+            if (summaryNote) {
+                summaryNote.textContent = isZh
+                    ? `${sizeName}场地（${capacity}人）分项`
+                    : `${sizeName} venue (${capacity}) breakdown`;
+            }
+            if (lockerDetail) {
+                lockerDetail.textContent = isZh
+                    ? `${capacity}个单元供参与者存放物品`
+                    : `${capacity} units for participant storage`;
+            }
+        }
+
+        // Update all displayed values
+        function updateDisplay(capacity) {
+            const data = venueData[capacity];
+
+            // Update section subtotals
+            const sectionSubtotals = document.querySelectorAll('.cost-section__subtotal');
+            const sections = ['production', 'creative', 'technical', 'travel', 'legal'];
+            sectionSubtotals.forEach((el, i) => {
+                if (sections[i] && data[sections[i]]) {
+                    el.textContent = data[sections[i]].total;
+                }
+            });
+
+            // Update line items
+            const allAmounts = document.querySelectorAll('.cost-item__amount');
+            const values = [
+                // Production
+                data.production.direction, data.production.executive,
+                // Creative
+                data.creative.design, data.creative.sound, data.creative.rehearsals, 'Included',
+                // Technical
+                data.technical.projection, data.technical.showControl, data.technical.testing,
+                // Travel
+                data.travel.team, data.travel.lockers, data.travel.costumes,
+                // Legal
+                data.legal.contracts, data.legal.insurance
+            ];
+
+            allAmounts.forEach((el, i) => {
+                if (values[i]) {
+                    // Preserve "Included" translation
+                    if (values[i] === 'Included' && el.hasAttribute('data-i18n')) {
+                        return;
+                    }
+                    el.textContent = values[i];
+                }
+            });
+
+            // Update summary card
+            const summaryValues = summaryCard.querySelectorAll('.summary-row__value');
+            const summaryData = [
+                data.production.total,
+                data.creative.total,
+                data.technical.total,
+                data.travel.total,
+                data.legal.total,
+                data.subtotal,
+                data.contingency,
+                data.grandTotal
+            ];
+            summaryValues.forEach((el, i) => {
+                if (summaryData[i]) {
+                    el.textContent = summaryData[i];
+                }
+            });
+
+            // Update notes
+            updateBreakdownNote(capacity);
+        }
+
+        // Handle venue option clicks
+        venueOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove active class from all
+                venueOptions.forEach(opt => {
+                    opt.classList.remove('active');
+                    opt.style.border = '2px solid transparent';
+                });
+
+                // Add active class to clicked
+                option.classList.add('active');
+                option.style.border = '2px solid var(--color-white)';
+
+                // Update capacity and display
+                currentCapacity = parseInt(option.dataset.capacity);
+                updateDisplay(currentCapacity);
+            });
+
+            // Touch feedback for mobile
+            option.addEventListener('touchstart', () => {
+                option.style.background = 'var(--color-gray-700)';
+            }, { passive: true });
+
+            option.addEventListener('touchend', () => {
+                option.style.background = option.classList.contains('active') ? 'var(--color-gray-800)' : '';
+            }, { passive: true });
+        });
+
+        // Initialize with Large (350) as default
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDisplay(350);
+        });
+    </script>
 </body>
 </html>
