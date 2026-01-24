@@ -226,19 +226,36 @@ a:hover {
 .menu-toggle {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 6px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle span {
     display: block;
     width: 24px;
-    height: 1px;
+    height: 2px;
     background: var(--color-white);
     transition: all var(--transition-fast);
+    transform-origin: center;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ========== Hero Section ========== */
@@ -1141,6 +1158,11 @@ input[type="range"]::-moz-range-thumb {
         background: var(--color-black);
         padding: var(--spacing-lg);
         border-bottom: 1px solid var(--color-gray-800);
+        z-index: 999;
+    }
+
+    .header__inner {
+        position: relative;
     }
 
     .hero__stats {

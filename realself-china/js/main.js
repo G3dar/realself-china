@@ -3,6 +3,49 @@
  * Main JavaScript - i18n, Calculator, Charts
  */
 
+// ========== Header Component ==========
+const headerComponent = {
+    render() {
+        const placeholder = document.getElementById('header-placeholder');
+        if (!placeholder) return;
+
+        // Use different logo for home page vs inner pages
+        const isHomePage = window.location.pathname.endsWith('home.html') ||
+                          window.location.pathname.endsWith('/') ||
+                          window.location.pathname === '';
+        const logoImg = isHomePage
+            ? '<img src="images/logo-black.jpg" alt="Real Self" class="logo__img" style="height: 28px;">'
+            : '<img src="images/logo-rs-icon.png" alt="Real Self" class="logo__img">';
+
+        placeholder.outerHTML = `
+        <header class="header">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="home.html" class="logo">${logoImg}</a>
+                    <nav class="nav">
+                        <ul class="nav__list">
+                            <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+                            <li><a href="scenarios.html" class="nav__link" data-i18n="nav.scenarios">Scenarios</a></li>
+                            <li><a href="investment.html" class="nav__link" data-i18n="nav.breakdown">Breakdown</a></li>
+                            <li><a href="investment-requirements.html" class="nav__link" data-i18n="nav.investment">Investment</a></li>
+                            <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
+                        </ul>
+                        <div class="lang-toggle">
+                            <button class="lang-toggle__btn active" data-lang="en">EN</button>
+                            <button class="lang-toggle__btn" data-lang="zh">中文</button>
+                        </div>
+                        <button class="menu-toggle" aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </header>`;
+    }
+};
+
 // ========== i18n System ==========
 const i18n = {
     currentLang: 'en',
@@ -758,6 +801,16 @@ function initActiveNav() {
 
 // ========== Page Transitions ==========
 function initPageTransitions() {
+    // Remove transition class on page load (fixes back button blank screen)
+    document.body.classList.remove('page-transitioning');
+
+    // Handle bfcache (back-forward cache) - page restored from cache
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            document.body.classList.remove('page-transitioning');
+        }
+    });
+
     document.querySelectorAll('a[href$=".html"]').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -773,8 +826,48 @@ function initPageTransitions() {
     });
 }
 
+// ========== Page Prefetching ==========
+const prefetcher = {
+    pages: [
+        'home.html',
+        'experience.html',
+        'scenarios.html',
+        'investment.html',
+        'investment-requirements.html',
+        'partnership.html'
+    ],
+    prefetched: new Set(),
+
+    prefetchAll() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+        this.pages.forEach(page => {
+            if (page !== currentPage && !this.prefetched.has(page)) {
+                this.prefetchPage(page);
+            }
+        });
+    },
+
+    prefetchPage(url) {
+        if (this.prefetched.has(url)) return;
+
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = url;
+        link.as = 'document';
+        document.head.appendChild(link);
+        this.prefetched.add(url);
+    }
+};
+
+// Export for use in index.html
+window.prefetcher = prefetcher;
+
 // ========== Initialize ==========
 document.addEventListener('DOMContentLoaded', async () => {
+    // Render header component if placeholder exists
+    headerComponent.render();
+
     // Initialize i18n first
     await i18n.init();
 
@@ -791,6 +884,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (document.getElementById('calculator')) {
         calculator.init();
     }
+
+    // Prefetch other pages after a short delay (don't block initial render)
+    setTimeout(() => {
+        prefetcher.prefetchAll();
+    }, 1000);
 });
 
 // Export for global access

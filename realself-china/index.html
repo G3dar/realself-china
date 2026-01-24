@@ -310,6 +310,15 @@
                 // Store session
                 sessionStorage.setItem('rsAccess', 'granted');
 
+                // Start prefetching other pages during the transition
+                ['home.html', 'experience.html', 'scenarios.html', 'investment.html', 'investment-requirements.html', 'partnership.html'].forEach(page => {
+                    const link = document.createElement('link');
+                    link.rel = 'prefetch';
+                    link.href = page;
+                    link.as = 'document';
+                    document.head.appendChild(link);
+                });
+
                 setTimeout(() => {
                     window.location.href = 'home.html';
                 }, 500);
