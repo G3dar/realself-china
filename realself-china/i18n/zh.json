@@ -130,12 +130,23 @@
       "plusCities": "+ 北京、深圳",
       "plusMoreCities": "+ 广州、成都"
     },
-    "cta": "查看详细财务明细"
+    "cta": "查看详细财务明细",
+    "excludesNote": "投资不包含技术、设备和投影仪（由合作方提供）"
   },
   "investment": {
     "title": "收入与成本",
     "subtitle": "详细的成本和收入预测",
     "adjustVariables": "调整变量",
+    "comparison": {
+      "small": "小型",
+      "medium": "中型",
+      "large": "大型",
+      "capacity": "容量",
+      "investmentRequired": "所需投资",
+      "weeklyRevenue": "每周收入",
+      "partnerMonthly": "合作方月利润",
+      "excludesNote": "投资不包含技术、设备和投影仪（由合作方提供）"
+    },
     "variables": {
       "daysPerWeek": "每周营业天数",
       "days": "天",
@@ -180,13 +191,22 @@
     "title": "前期投资",
     "total": "$212,675",
     "subtitle": "制作成本、授权费及设置费用",
+    "sizes": {
+      "small": "小型 (150)",
+      "medium": "中型 (250)",
+      "large": "大型 (350)"
+    },
+    "scaleNote": "成本根据场地规模调整：准备时间、储物柜和服装相应变化",
+    "breakdownNote": "以下为大型场地（350人容量）的详细分项",
+    "summaryNote": "大型场地（350人）分项",
+    "included": "已包含",
     "sections": {
       "production": {
         "title": "制作",
         "items": {
           "direction": {
             "name": "制作与导演",
-            "detail": "3个月 - 远程及现场导演，中国本地化监督"
+            "detail": "20天现场指导与本地化监督"
           },
           "executive": {
             "name": "执行制作",
@@ -207,7 +227,11 @@
           },
           "rehearsals": {
             "name": "排练与演出指导",
-            "detail": "员工培训与指导"
+            "detail": "员工培训与指导（20天）"
+          },
+          "marketing": {
+            "name": "包含：营销资产与本地化",
+            "detail": "包含所有营销材料、宣传内容和本地化"
           }
         }
       },
@@ -216,7 +240,7 @@
         "items": {
           "projection": {
             "name": "投影映射设计",
-            "detail": "定制场地映射和内容适配"
+            "detail": "定制场地映射和内容适配（20天）"
           },
           "showControl": {
             "name": "演出控制编程",
@@ -233,7 +257,7 @@
         "items": {
           "team": {
             "name": "团队差旅与住宿",
-            "detail": "4人，10天设置期"
+            "detail": "4人，20天设置期"
           },
           "lockers": {
             "name": "储物柜",
@@ -266,6 +290,7 @@
     },
     "partnerProvides": {
       "title": "合作方提供",
+      "note": "以上投资不包含设备成本",
       "items": {
         "projectors": "投影仪及音视频设备",
         "venue": "场地空间",
