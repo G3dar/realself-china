@@ -803,21 +803,21 @@
                         <div class="staff-breakdown__header" data-i18n="investment.costs.floorStaff">Floor Staff (per show)</div>
                         <div class="staff-breakdown__row">
                             <span class="staff-breakdown__role" data-i18n="investment.costs.roles.guides">Experience Guides</span>
-                            <span class="staff-breakdown__count" id="guidesCount">5</span>
-                            <span class="staff-breakdown__rate">× $180</span>
+                            <span class="staff-breakdown__count" id="guidesCount">15</span>
+                            <span class="staff-breakdown__rate">× $60</span>
                             <span class="staff-breakdown__cost" id="guidesCost">$900</span>
                         </div>
                         <div class="staff-breakdown__row">
                             <span class="staff-breakdown__role" data-i18n="investment.costs.roles.changing">Changing Room</span>
                             <span class="staff-breakdown__count" id="changingCount">3</span>
-                            <span class="staff-breakdown__rate">× $180</span>
-                            <span class="staff-breakdown__cost" id="changingCost">$540</span>
+                            <span class="staff-breakdown__rate">× $40</span>
+                            <span class="staff-breakdown__cost" id="changingCost">$120</span>
                         </div>
                         <div class="staff-breakdown__row">
                             <span class="staff-breakdown__role" data-i18n="investment.costs.roles.reception">Foyer/Reception</span>
                             <span class="staff-breakdown__count" id="receptionCount">2</span>
-                            <span class="staff-breakdown__rate">× $180</span>
-                            <span class="staff-breakdown__cost" id="receptionCost">$360</span>
+                            <span class="staff-breakdown__rate">× $40</span>
+                            <span class="staff-breakdown__cost" id="receptionCost">$80</span>
                         </div>
                         <div class="staff-breakdown__row">
                             <span class="staff-breakdown__role" data-i18n="investment.costs.roles.technician">Show Technician</span>
@@ -1024,19 +1024,19 @@
         // Staff configuration by venue size
         const staffConfig = {
             150: {
-                guides: 3,
+                guides: 9,
                 changing: 2,
                 reception: 1
             },
             350: {
-                guides: 5,
+                guides: 15,
                 changing: 3,
                 reception: 2
             },
             rates: {
-                guides: 180,      // per show
-                changing: 180,    // per show
-                reception: 180,   // per show
+                guides: 60,       // per show
+                changing: 40,     // per show
+                reception: 40,    // per show
                 technician: 80,   // per show (1 per show always)
                 venueManager: 250, // per day
                 techLead: 200     // per day
