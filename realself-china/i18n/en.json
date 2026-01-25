@@ -359,6 +359,21 @@
         }
       }
     },
+    "revenueNotes": {
+      "title": "Revenue Split Details",
+      "tickets": {
+        "label": "Ticket Sales",
+        "desc": "70/30 split as described above. Partner receives 70% of gross profit after operating costs."
+      },
+      "food": {
+        "label": "Food & Drinks",
+        "desc": "Partner keeps 100% of all food and beverage revenue. This includes welcome drinks, snacks, and post-show bar sales."
+      },
+      "merch": {
+        "label": "Merchandise",
+        "desc": "Optional: Real Self can design and produce the merchandise line (mini masks, art prints, apparel). Partner covers production costs, then 70/30 revenue share applies. Alternatively, partner can manage merchandise independently and keep 100%."
+      }
+    },
     "provides": {
       "title": "What Real Self Provides",
       "items": {
