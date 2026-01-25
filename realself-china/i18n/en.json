@@ -154,15 +154,30 @@
       "large": "Large"
     },
     "revenue": {
-      "title": "Weekly Revenue",
+      "ticketTitle": "Ticket Revenue",
       "ticketsPerWeek": "Tickets per week",
       "ticketPrice": "Ticket price",
-      "ticketRevenue": "Ticket revenue",
+      "ticketRevenue": "Ticket sales",
       "vipUpgrades": "VIP upgrades (10%)",
+      "ticketSubtotal": "Ticket Subtotal",
+      "otherTitle": "Other Revenue",
       "merchandise": "Merchandise",
-      "concessions": "Concessions",
+      "merchandiseNote": "Mini masks, art prints, apparel, accessories",
+      "foodDrinks": "Food & Drinks",
+      "foodDrinksNote": "Welcome drinks, snacks, post-show bar",
       "photobooth": "Photobooth",
+      "photoboothNote": "Digital + printed photos, frames",
+      "otherSubtotal": "Other Subtotal",
       "weeklyTotal": "Weekly Total"
+    },
+    "references": {
+      "title": "Revenue Assumptions Based on Comparable Experiences",
+      "teamlab": "Tokyo/Shanghai • $30-40 tickets\nF&B: $12-18 avg spend\nMerch: $15-25 avg spend",
+      "meowwolf": "USA (4 locations) • $35-50 tickets\nF&B: $10-15 avg spend\nMerch: $20-30 avg spend",
+      "vangogh": "Global touring • $25-45 tickets\nF&B: $8-12 avg spend\nMerch: $18-35 avg spend",
+      "ourAssumptions": "Our Assumptions",
+      "realself": "Conservative estimates\nF&B: $8 avg (75% conv.)\nMerch: $8 avg (60% conv.)",
+      "note": "Note: Real Self includes welcome drinks in the foyer experience, which increases F&B engagement compared to typical immersive exhibits."
     },
     "costs": {
       "title": "Weekly Costs",

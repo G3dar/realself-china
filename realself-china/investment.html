@@ -259,6 +259,75 @@
             color: var(--color-white);
         }
 
+        /* Subtotal row */
+        .breakdown-row--subtotal {
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-gray-700);
+            border-bottom: none;
+        }
+
+        .breakdown-row--subtotal .breakdown-row__label {
+            font-weight: 500;
+            color: var(--color-gray-300);
+            font-size: 0.8125rem;
+        }
+
+        .breakdown-row--subtotal .breakdown-row__value {
+            font-size: 1rem;
+            color: var(--color-gray-300);
+        }
+
+        /* Note under revenue items */
+        .breakdown-row__note {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+            padding: 0 0 var(--spacing-sm) 0;
+            margin-top: -0.25rem;
+        }
+
+        /* References section */
+        .references-section {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-xl);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .references-section__title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .references-section__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .reference-item {
+            padding: var(--spacing-md);
+            background: var(--color-gray-800);
+            border-radius: 4px;
+        }
+
+        .reference-item__name {
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+            font-size: 0.875rem;
+        }
+
+        .reference-item__stats {
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+            line-height: 1.5;
+        }
+
         /* Highlight row */
         .breakdown-row--highlight {
             background: var(--color-gray-800);
@@ -576,7 +645,8 @@
             <div class="breakdown-grid">
                 <!-- Revenue Breakdown -->
                 <div class="breakdown-card">
-                    <div class="breakdown-card__title" data-i18n="investment.revenue.title">Weekly Revenue</div>
+                    <!-- Ticket Revenue Section -->
+                    <div class="breakdown-card__title" data-i18n="investment.revenue.ticketTitle">Ticket Revenue</div>
 
                     <div class="breakdown-row">
                         <span class="breakdown-row__label" data-i18n="investment.revenue.ticketsPerWeek">Tickets per week</span>
@@ -593,7 +663,7 @@
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketRevenue">Ticket revenue</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketRevenue">Ticket sales</span>
                         <span class="breakdown-row__value" id="ticketRevenue">$67,200</span>
                     </div>
 
@@ -602,19 +672,35 @@
                         <span class="breakdown-row__value" id="vipRevenue">$9,450</span>
                     </div>
 
+                    <div class="breakdown-row breakdown-row--subtotal">
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.ticketSubtotal">Ticket Subtotal</span>
+                        <span class="breakdown-row__value" id="ticketSubtotal">$76,650</span>
+                    </div>
+
+                    <!-- Other Revenue Section -->
+                    <div class="breakdown-card__title" style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-gray-700);" data-i18n="investment.revenue.otherTitle">Other Revenue</div>
+
                     <div class="breakdown-row">
                         <span class="breakdown-row__label" data-i18n="investment.revenue.merchandise">Merchandise</span>
                         <span class="breakdown-row__value" id="merchRevenue">$8,820</span>
                     </div>
+                    <div class="breakdown-row__note" data-i18n="investment.revenue.merchandiseNote">Mini masks, art prints, apparel, accessories</div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label" data-i18n="investment.revenue.concessions">Concessions</span>
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.foodDrinks">Food & Drinks</span>
                         <span class="breakdown-row__value" id="concessionsRevenue">$7,350</span>
                     </div>
+                    <div class="breakdown-row__note" data-i18n="investment.revenue.foodDrinksNote">Welcome drinks, snacks, post-show bar</div>
 
                     <div class="breakdown-row">
                         <span class="breakdown-row__label" data-i18n="investment.revenue.photobooth">Photobooth</span>
                         <span class="breakdown-row__value" id="photoboothRevenue">$1,092</span>
+                    </div>
+                    <div class="breakdown-row__note" data-i18n="investment.revenue.photoboothNote">Digital + printed photos, frames</div>
+
+                    <div class="breakdown-row breakdown-row--subtotal">
+                        <span class="breakdown-row__label" data-i18n="investment.revenue.otherSubtotal">Other Subtotal</span>
+                        <span class="breakdown-row__value" id="otherSubtotal">$17,262</span>
                     </div>
 
                     <div class="breakdown-row breakdown-row--total">
@@ -683,6 +769,48 @@
                         <div class="results-summary__item-value" id="breakevenPeriod">~2 mo</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- References Section -->
+            <div class="references-section">
+                <div class="references-section__title" data-i18n="investment.references.title">Revenue Assumptions Based on Comparable Experiences</div>
+                <div class="references-section__grid">
+                    <div class="reference-item">
+                        <div class="reference-item__name">TeamLab Borderless</div>
+                        <div class="reference-item__stats" data-i18n="investment.references.teamlab">
+                            Tokyo/Shanghai • $30-40 tickets<br>
+                            F&B: $12-18 avg spend<br>
+                            Merch: $15-25 avg spend
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-item__name">Meow Wolf</div>
+                        <div class="reference-item__stats" data-i18n="investment.references.meowwolf">
+                            USA (4 locations) • $35-50 tickets<br>
+                            F&B: $10-15 avg spend<br>
+                            Merch: $20-30 avg spend
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-item__name">Van Gogh Immersive</div>
+                        <div class="reference-item__stats" data-i18n="investment.references.vangogh">
+                            Global touring • $25-45 tickets<br>
+                            F&B: $8-12 avg spend<br>
+                            Merch: $18-35 avg spend
+                        </div>
+                    </div>
+                    <div class="reference-item">
+                        <div class="reference-item__name" data-i18n="investment.references.ourAssumptions">Our Assumptions</div>
+                        <div class="reference-item__stats" data-i18n="investment.references.realself">
+                            Conservative estimates<br>
+                            F&B: $8 avg (75% conv.)<br>
+                            Merch: $8 avg (60% conv.)
+                        </div>
+                    </div>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--color-gray-500); margin-top: var(--spacing-md); margin-bottom: 0;" data-i18n="investment.references.note">
+                    Note: Real Self includes welcome drinks in the foyer experience, which increases F&B engagement compared to typical immersive exhibits.
+                </p>
             </div>
 
             <!-- CTA Section -->
@@ -756,14 +884,26 @@
             return '$' + Math.round(num / 1000) + 'K';
         }
 
+        // Revenue assumptions (based on comparable experiences)
+        const revenueConfig = {
+            vipConversion: 0.10,      // 10% upgrade to VIP
+            vipPrice: 45,             // VIP upgrade price
+            merchConversion: 0.60,    // 60% buy merchandise
+            merchAvgSpend: 8,         // $8 average spend
+            foodConversion: 0.75,     // 75% buy food/drinks (higher due to welcome drinks)
+            foodAvgSpend: 8,          // $8 average spend
+            photoConversion: 0.15,    // 15% use photobooth
+            photoAvgSpend: 5          // $5 average spend
+        };
+
         // Calculate values for a given capacity and update its scenario card
         function calculateForCapacity(capacity) {
             const tickets = Math.round(capacity * daysPerWeek * showsPerDay * (occupancy / 100));
             const ticketRev = tickets * ticketPrice;
-            const vipRev = tickets * 0.1 * 45;
-            const merchRev = tickets * 0.7 * 6;
-            const concessionsRev = tickets * 0.7 * 5;
-            const photoboothRev = tickets * 0.13 * 4;
+            const vipRev = tickets * revenueConfig.vipConversion * revenueConfig.vipPrice;
+            const merchRev = tickets * revenueConfig.merchConversion * revenueConfig.merchAvgSpend;
+            const concessionsRev = tickets * revenueConfig.foodConversion * revenueConfig.foodAvgSpend;
+            const photoboothRev = tickets * revenueConfig.photoConversion * revenueConfig.photoAvgSpend;
             const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
 
             const maskCostumeCost = tickets * (replacementRate / 100) * 6;
@@ -812,13 +952,18 @@
             const tickets = Math.round(currentCapacity * daysPerWeek * showsPerDay * (occupancy / 100));
             const investment = investments[currentCapacity];
 
-            // Revenue
+            // Ticket Revenue
             const ticketRev = tickets * ticketPrice;
-            const vipRev = tickets * 0.1 * 45;
-            const merchRev = tickets * 0.7 * 6;
-            const concessionsRev = tickets * 0.7 * 5;
-            const photoboothRev = tickets * 0.13 * 4;
-            const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
+            const vipRev = tickets * revenueConfig.vipConversion * revenueConfig.vipPrice;
+            const ticketSubtotal = ticketRev + vipRev;
+
+            // Other Revenue
+            const merchRev = tickets * revenueConfig.merchConversion * revenueConfig.merchAvgSpend;
+            const concessionsRev = tickets * revenueConfig.foodConversion * revenueConfig.foodAvgSpend;
+            const photoboothRev = tickets * revenueConfig.photoConversion * revenueConfig.photoAvgSpend;
+            const otherSubtotal = merchRev + concessionsRev + photoboothRev;
+
+            const totalRevenue = ticketSubtotal + otherSubtotal;
 
             // Costs
             const maskCostumeCost = tickets * (replacementRate / 100) * 6;
@@ -835,22 +980,30 @@
             const annualProfit = monthlyProfit * 12;
             const breakeven = monthlyProfit > 0 ? Math.ceil(investment.value / monthlyProfit) : 99;
 
-            // Update display
+            // Update display - Ticket Revenue
             document.getElementById('ticketsPerWeek').textContent = tickets.toLocaleString();
             document.getElementById('ticketPriceDisplay').textContent = '$' + ticketPrice;
             document.getElementById('ticketRevenue').textContent = formatCurrency(ticketRev);
             document.getElementById('vipRevenue').textContent = formatCurrency(vipRev);
+            document.getElementById('ticketSubtotal').textContent = formatCurrency(ticketSubtotal);
+
+            // Update display - Other Revenue
             document.getElementById('merchRevenue').textContent = formatCurrency(merchRev);
             document.getElementById('concessionsRevenue').textContent = formatCurrency(concessionsRev);
             document.getElementById('photoboothRevenue').textContent = formatCurrency(photoboothRev);
+            document.getElementById('otherSubtotal').textContent = formatCurrency(otherSubtotal);
+
+            // Update display - Total
             document.getElementById('weeklyRevenue').textContent = formatCurrency(totalRevenue);
 
+            // Update display - Costs
             document.getElementById('maskCostumeCostDisplay').textContent = formatCurrency(maskCostumeCost);
             document.getElementById('replacementDisplay').textContent = replacementRate + '%';
             document.getElementById('staffCost').textContent = formatCurrency(staffCost);
             document.getElementById('marketingCost').textContent = formatCurrency(marketingCost);
             document.getElementById('weeklyCosts').textContent = formatCurrency(totalCosts);
 
+            // Update display - Results
             document.getElementById('weeklyProfit').textContent = formatCurrency(weeklyProfit);
             document.getElementById('monthlyProfit').textContent = formatCurrency(monthlyProfit);
             document.getElementById('annualProfit').textContent = formatCurrency(annualProfit);

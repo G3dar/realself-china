@@ -163,15 +163,30 @@
       "large": "大型"
     },
     "revenue": {
-      "title": "每周收入",
+      "ticketTitle": "门票收入",
       "ticketsPerWeek": "每周门票数",
       "ticketPrice": "票价",
-      "ticketRevenue": "门票收入",
+      "ticketRevenue": "门票销售",
       "vipUpgrades": "VIP升级 (10%)",
+      "ticketSubtotal": "门票小计",
+      "otherTitle": "其他收入",
       "merchandise": "周边商品",
-      "concessions": "餐饮",
+      "merchandiseNote": "迷你面具、艺术印刷品、服装、配饰",
+      "foodDrinks": "餐饮",
+      "foodDrinksNote": "欢迎饮品、小食、演后酒吧",
       "photobooth": "照片亭",
+      "photoboothNote": "数字+打印照片、相框",
+      "otherSubtotal": "其他小计",
       "weeklyTotal": "每周总计"
+    },
+    "references": {
+      "title": "基于同类体验的收入假设",
+      "teamlab": "东京/上海 • $30-40门票\n餐饮: $12-18平均消费\n周边: $15-25平均消费",
+      "meowwolf": "美国（4个场馆）• $35-50门票\n餐饮: $10-15平均消费\n周边: $20-30平均消费",
+      "vangogh": "全球巡展 • $25-45门票\n餐饮: $8-12平均消费\n周边: $18-35平均消费",
+      "ourAssumptions": "我们的假设",
+      "realself": "保守估计\n餐饮: $8平均 (75%转化率)\n周边: $8平均 (60%转化率)",
+      "note": "注：Real Self在前厅体验中包含欢迎饮品，相比典型沉浸式展览，这提高了餐饮参与度。"
     },
     "costs": {
       "title": "每周成本",
