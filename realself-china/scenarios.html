@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Self venue scenarios - Compare investment and returns across three venue configurations.">
+    <meta name="description" content="Real Self venue scenarios - Compare investment and returns across two venue configurations.">
     <title>Scenarios | Real Self</title>
 
     <!-- Fonts -->
@@ -20,9 +20,12 @@
     <style>
         .scenario-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: var(--spacing-xl);
             margin-top: var(--spacing-2xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         @media (max-width: 900px) {
@@ -260,7 +263,7 @@
     <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-lg);">
         <div class="container">
             <h1 class="mb-md" data-i18n="scenarios.title">Venue Scenarios</h1>
-            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="scenarios.subtitle">Investment overview for three venue configurations</p>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="scenarios.subtitle">Investment overview for two venue configurations</p>
         </div>
     </section>
 
@@ -281,7 +284,7 @@
 
                     <div class="scenario-card__metric">
                         <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
-                        <div class="scenario-card__value">$160K</div>
+                        <div class="scenario-card__value">$166K</div>
                     </div>
 
                     <div class="scenario-card__metric">
@@ -306,40 +309,6 @@
                     </div>
                 </div>
 
-                <!-- Medium Venue -->
-                <div class="scenario-card">
-                    <div class="scenario-card__header">
-                        <div class="scenario-card__size" data-i18n="scenarios.sizes.medium">Medium Venue</div>
-                        <div class="scenario-card__capacity">250 <span data-i18n="scenarios.people">people</span></div>
-                    </div>
-
-                    <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
-                        <div class="scenario-card__value">$210K</div>
-                    </div>
-
-                    <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue</div>
-                        <div class="scenario-card__value scenario-card__value--muted">$94,000</div>
-                    </div>
-
-                    <div class="scenario-card__divider"></div>
-
-                    <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerMonthlyProfit">Partner Monthly Profit</div>
-                        <div class="scenario-card__value scenario-card__value--highlight">$188,000</div>
-                    </div>
-
-                    <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerAnnual">Partner Annual</div>
-                        <div class="scenario-card__value">$2.3M</div>
-                    </div>
-
-                    <div class="scenario-card__footer">
-                        <div class="scenario-card__breakeven"><span data-i18n="scenarios.metrics.breakeven">Breakeven</span>: <strong>~1 <span data-i18n="scenarios.months">month</span></strong></div>
-                    </div>
-                </div>
-
                 <!-- Large Venue -->
                 <div class="scenario-card scenario-card--featured">
                     <div class="scenario-card__header">
@@ -349,7 +318,7 @@
 
                     <div class="scenario-card__metric">
                         <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
-                        <div class="scenario-card__value">$240K</div>
+                        <div class="scenario-card__value">$250K</div>
                     </div>
 
                     <div class="scenario-card__metric">
@@ -397,23 +366,23 @@
         <div class="container">
             <h2 class="text-center mb-xl" data-i18n="scenarios.scale.title">Multi-Location Potential</h2>
             <p class="text-center mb-2xl" style="color: var(--color-gray-400); max-width: 600px; margin-left: auto; margin-right: auto;" data-i18n="scenarios.scale.subtitle">
-                Partner annual profit projections based on medium venue (250 capacity) across multiple Tier 1 cities.
+                Partner annual profit projections based on large venue (350 capacity) across multiple Tier 1 cities.
             </p>
 
             <div class="scale-grid">
                 <div class="scale-card">
                     <div class="scale-card__venues" data-i18n="scenarios.scale.oneVenue">1 Venue</div>
-                    <div class="scale-card__revenue">$2.3M</div>
+                    <div class="scale-card__revenue">$3.3M</div>
                     <div class="scale-card__cities" data-i18n="scenarios.scale.shanghai">Shanghai</div>
                 </div>
                 <div class="scale-card">
                     <div class="scale-card__venues" data-i18n="scenarios.scale.threeVenues">3 Venues</div>
-                    <div class="scale-card__revenue">$6.9M</div>
+                    <div class="scale-card__revenue">$9.9M</div>
                     <div class="scale-card__cities" data-i18n="scenarios.scale.plusCities">+ Beijing, Shenzhen</div>
                 </div>
                 <div class="scale-card">
                     <div class="scale-card__venues" data-i18n="scenarios.scale.fiveVenues">5 Venues</div>
-                    <div class="scale-card__revenue">$11.5M</div>
+                    <div class="scale-card__revenue">$16.5M</div>
                     <div class="scale-card__cities" data-i18n="scenarios.scale.plusMoreCities">+ Guangzhou, Chengdu</div>
                 </div>
             </div>

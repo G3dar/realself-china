@@ -19,7 +19,7 @@
   },
   "experience": {
     "title": "The Experience",
-    "subtitle": "90 minutes of transformation",
+    "subtitle": "120 minutes of transformation",
     "intro": "Real Self is an immersive theatrical experience that has captivated audiences in Buenos Aires, Barcelona, and Santiago. Participants wear identical white overalls, gloves, and masks, creating complete anonymity that liberates authentic human connection. We're excited to bring this transformative experience to China and expand into new territories.",
     "quote": {
       "text": "\"Be yourself; everyone else is already taken.\"",
@@ -28,7 +28,7 @@
     "features": {
       "duration": {
         "title": "Duration",
-        "desc": "90 minutes total (60 min experience + 30 min transition)"
+        "desc": "120 minutes total (55 min experience + 65 min transitions)"
       },
       "capacity": {
         "title": "Capacity",
@@ -46,46 +46,51 @@
     },
     "timeline": {
       "title": "The Journey",
-      "arrival": {
+      "foyer": {
         "time": "0 min",
-        "title": "Arrival & Preparation",
-        "desc": "Guests store belongings in private lockers and receive their white costume"
+        "title": "Foyer",
+        "desc": "Welcome drinks and playful interactions while storing belongings in lockers"
       },
       "transformation": {
-        "time": "15 min",
+        "time": "30 min",
         "title": "Transformation",
         "desc": "Participants dress in identical overalls, gloves, and masks"
       },
       "experience": {
-        "time": "20 min",
+        "time": "45 min",
         "title": "The Experience",
         "desc": "Guided through immersive projections and interactive moments"
       },
       "revelation": {
-        "time": "75 min",
+        "time": "100 min",
         "title": "Revelation",
         "desc": "The journey concludes with a powerful collective moment"
       },
       "return": {
-        "time": "90 min",
+        "time": "110 min",
         "title": "Return",
         "desc": "Participants change and collect their belongings"
       }
     },
     "technical": {
       "title": "Technical Requirements for China",
+      "climate": {
+        "title": "Climate Control - Critical",
+        "desc": "Strong air conditioning required. Costumes are very warm - participants wear full overalls, gloves, and masks for 55+ minutes."
+      },
       "venue": {
         "title": "Venue Space",
-        "desc": "Minimum 180m² for 150 participants, up to 420m² for 350 participants. Open floor plan preferred."
+        "desc": "150 pax: Experience 210m² + Changing 160m². 350 pax: Experience 480m² + Changing 350m². Plus foyer, storage, and control areas."
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Minimum 5 meters for floor projection. Projectors mounted on ceiling with full floor coverage."
+        "desc": "Minimum 6 meters, ideal 9 meters for floor projection. Projectors mounted on ceiling with full floor coverage."
       },
-      "environment": {
-        "title": "Environment",
-        "desc": "Complete light control, professional sound system, climate control for participant comfort."
-      }
+      "blackout": {
+        "title": "Full Blackout",
+        "desc": "Complete light control required. No external light can enter the experience space during shows."
+      },
+      "coordination": "Technical specifications will be coordinated with your local AV production team during the setup phase."
     },
     "cta": {
       "title": "Ready to Explore the Possibilities?",
@@ -95,13 +100,12 @@
   },
   "scenarios": {
     "title": "Venue Scenarios",
-    "subtitle": "Investment overview for three venue configurations",
+    "subtitle": "Investment overview for two venue configurations",
     "intro": "Each scenario represents a different venue capacity, with corresponding investment requirements and projected returns. All figures based on standard operating assumptions.",
     "revenueSplit": "Revenue Split:",
     "recommended": "RECOMMENDED",
     "sizes": {
       "small": "Small Venue",
-      "medium": "Medium Venue",
       "large": "Large Venue"
     },
     "people": "people",
@@ -123,7 +127,7 @@
     },
     "scale": {
       "title": "Multi-Location Potential",
-      "subtitle": "Partner annual profit projections based on medium venue (250 capacity) across multiple Tier 1 cities.",
+      "subtitle": "Partner annual profit projections based on large venue (350 capacity) across multiple Tier 1 cities.",
       "oneVenue": "1 Venue",
       "threeVenues": "3 Venues",
       "fiveVenues": "5 Venues",
@@ -131,7 +135,8 @@
       "plusCities": "+ Beijing, Shenzhen",
       "plusMoreCities": "+ Guangzhou, Chengdu"
     },
-    "cta": "View Detailed Breakdown"
+    "cta": "View Detailed Breakdown",
+    "excludesNote": "Investment excludes technology, equipment & projectors (provided by partner)"
   },
   "investment": {
     "title": "Revenue and Cost",
@@ -146,7 +151,6 @@
     },
     "presets": {
       "small": "Small",
-      "medium": "Medium",
       "large": "Large"
     },
     "revenue": {
@@ -179,15 +183,23 @@
   },
   "investmentRequirements": {
     "title": "Upfront Investment",
-    "total": "$212,675",
+    "total": "$250,000",
     "subtitle": "Production costs, licensing & setup fees",
+    "sizes": {
+      "small": "Small (150)",
+      "large": "Large (350)"
+    },
+    "scaleNote": "Costs scale with venue size: prep time, lockers, and costumes adjust accordingly",
+    "breakdownNote": "Breakdown shown for Large venue (350 capacity)",
+    "summaryNote": "Large venue (350) breakdown",
+    "included": "Included",
     "sections": {
       "production": {
         "title": "Production",
         "items": {
           "direction": {
             "name": "Production & Direction",
-            "detail": "3 months - Remote & on-site direction, China adaptation oversight"
+            "detail": "20 days on-site direction & adaptation oversight"
           },
           "executive": {
             "name": "Executive Producing",
@@ -208,7 +220,11 @@
           },
           "rehearsals": {
             "name": "Rehearsals & Show Direction",
-            "detail": "Staff training and direction"
+            "detail": "Staff training and direction (20 days)"
+          },
+          "marketing": {
+            "name": "Includes: Marketing Assets & Localization",
+            "detail": "All marketing materials, promotional content, and localization included"
           }
         }
       },
@@ -217,7 +233,7 @@
         "items": {
           "projection": {
             "name": "Projection Mapping Design",
-            "detail": "Custom venue mapping and content adaptation"
+            "detail": "Custom venue mapping and content adaptation (20 days)"
           },
           "showControl": {
             "name": "Show Control Programming",
@@ -234,7 +250,7 @@
         "items": {
           "team": {
             "name": "Team Travel & Accommodation",
-            "detail": "4 people, 10 days setup period"
+            "detail": "4 people, 20 days setup period"
           },
           "lockers": {
             "name": "Lockers",
@@ -267,14 +283,22 @@
     },
     "partnerProvides": {
       "title": "Provided by Partner",
+      "note": "Equipment and operational costs not included in investment above",
       "items": {
         "projectors": "Projectors & AV Equipment",
         "venue": "Venue & Space",
-        "servers": "Media Servers",
+        "lighting": "Light System",
         "sound": "Sound System",
-        "conditioning": "Venue Conditioning",
-        "branding": "Branding & Signage"
-      }
+        "servers": "Media Servers",
+        "production": "Local Production Team",
+        "marketing": "Marketing Campaign",
+        "lockers": "Lockers (plans provided)",
+        "costumes": "Costumes (local suppliers)",
+        "masks": "Masks (local manufacturer)",
+        "branding": "Branding & Signage",
+        "conditioning": "Venue Conditioning"
+      },
+      "migration": "Migration support provided for venue relocations."
     },
     "cta": "View Partnership Model"
   },
