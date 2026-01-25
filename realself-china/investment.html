@@ -733,11 +733,6 @@
                     </div>
 
                     <div class="breakdown-row">
-                        <span class="breakdown-row__label" data-i18n="investment.costs.marketing">Marketing (10%)</span>
-                        <span class="breakdown-row__value" id="marketingCost">$6,720</span>
-                    </div>
-
-                    <div class="breakdown-row">
                         <span class="breakdown-row__label" data-i18n="investment.costs.insurance">Insurance & Misc</span>
                         <span class="breakdown-row__value">$3,000</span>
                     </div>
@@ -745,6 +740,10 @@
                     <div class="breakdown-row breakdown-row--total">
                         <span class="breakdown-row__label" data-i18n="investment.costs.weeklyTotal">Weekly Total</span>
                         <span class="breakdown-row__value" id="weeklyCosts">$26,033</span>
+                    </div>
+
+                    <div class="breakdown-row__note" style="margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--color-gray-800);" data-i18n="investment.costs.marketingNote">
+                        Marketing costs not included — managed separately by partner
                     </div>
                 </div>
             </div>
@@ -910,9 +909,9 @@
             const staffCount = Math.ceil(capacity / 25);
             const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
             const managementCost = 4800;
-            const marketingCost = ticketRev * 0.1;
             const insuranceCost = 3000;
-            const totalCosts = maskCostumeCost + staffCost + managementCost + marketingCost + insuranceCost;
+            // Marketing not included - managed separately by partner
+            const totalCosts = maskCostumeCost + staffCost + managementCost + insuranceCost;
 
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
@@ -970,9 +969,9 @@
             const staffCount = Math.ceil(currentCapacity / 25);
             const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
             const managementCost = 4800;
-            const marketingCost = ticketRev * 0.1;
             const insuranceCost = 3000;
-            const totalCosts = maskCostumeCost + staffCost + managementCost + marketingCost + insuranceCost;
+            // Marketing not included - managed separately by partner
+            const totalCosts = maskCostumeCost + staffCost + managementCost + insuranceCost;
 
             // Profit
             const weeklyProfit = totalRevenue - totalCosts;
@@ -1000,7 +999,6 @@
             document.getElementById('maskCostumeCostDisplay').textContent = formatCurrency(maskCostumeCost);
             document.getElementById('replacementDisplay').textContent = replacementRate + '%';
             document.getElementById('staffCost').textContent = formatCurrency(staffCost);
-            document.getElementById('marketingCost').textContent = formatCurrency(marketingCost);
             document.getElementById('weeklyCosts').textContent = formatCurrency(totalCosts);
 
             // Update display - Results

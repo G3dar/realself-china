@@ -184,9 +184,9 @@
       "masksCostumes": "Masks & Costumes",
       "staff": "Staff",
       "management": "Management",
-      "marketing": "Marketing (10%)",
       "insurance": "Insurance & Misc",
-      "weeklyTotal": "Weekly Total"
+      "weeklyTotal": "Weekly Total",
+      "marketingNote": "Marketing costs not included — managed separately by partner"
     },
     "results": {
       "weeklyProfit": "Weekly Profit",

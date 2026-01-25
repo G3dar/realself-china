@@ -193,9 +193,9 @@
       "masksCostumes": "面具与服装",
       "staff": "人员",
       "management": "管理层",
-      "marketing": "市场营销 (10%)",
       "insurance": "保险及杂项",
-      "weeklyTotal": "每周总计"
+      "weeklyTotal": "每周总计",
+      "marketingNote": "营销成本不包含在内 - 由合作方单独管理"
     },
     "results": {
       "weeklyProfit": "每周利润",
