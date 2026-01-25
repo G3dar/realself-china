@@ -25,6 +25,7 @@ const headerComponent = {
                     <nav class="nav">
                         <ul class="nav__list">
                             <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
+                            <li><a href="script.html" class="nav__link" data-i18n="nav.script">Script</a></li>
                             <li><a href="investment.html" class="nav__link" data-i18n="nav.scenarios">Scenarios</a></li>
                             <li><a href="investment-requirements.html" class="nav__link" data-i18n="nav.investment">Investment</a></li>
                             <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
@@ -830,6 +831,7 @@ const prefetcher = {
     pages: [
         'home.html',
         'experience.html',
+        'script.html',
         'investment.html',
         'investment-requirements.html',
         'partnership.html'

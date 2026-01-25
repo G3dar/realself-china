@@ -1,6 +1,7 @@
 {
   "nav": {
     "experience": "Experience",
+    "script": "Script",
     "scenarios": "Scenarios",
     "breakdown": "Breakdown",
     "investment": "Investment",
@@ -95,8 +96,67 @@
     "cta": {
       "title": "Ready to Explore the Possibilities?",
       "subtitle": "Discover our venue scenarios and financial projections",
-      "button": "Explore Venue Scenarios"
+      "button": "Explore Venue Scenarios",
+      "buttonScript": "Glimpse the Script"
     }
+  },
+  "script": {
+    "title": "The Script",
+    "tagline": "A glimpse into the voice that guides the journey",
+    "intro": {
+      "label": "Reduced Version",
+      "title": "Selected excerpts from the experience's voice-over script",
+      "desc": "Throughout the 55-minute immersive journey, a voice guides participants through questions, reflections, and invitations. The projections on the walls and floor respond to each moment, creating visual cues that participants follow. What follows is a curated selection that captures the tone, emotional arc, and philosophical depth of the Real Self experience."
+    },
+    "phases": {
+      "one": "Phase I",
+      "two": "Phase II",
+      "three": "Phase III",
+      "invitation": "THE INVITATION",
+      "descent": "THE DESCENT",
+      "return": "THE RETURN"
+    },
+    "items": {
+      "01": {
+        "text": "\"Do you accept to be honest during the entire experience?\"",
+        "context": "The first question. A contract with oneself. The journey begins with a choice."
+      },
+      "02": {
+        "text": "\"Give him a mask and he will tell you the truth.\"",
+        "attribution": "Oscar Wilde",
+        "context": "The philosophical foundation. Anonymity as liberation, not concealment."
+      },
+      "03": {
+        "text": "\"We live hiding, in the last attic, the part of us that we consider invalid. And we do not hide it because it is invalid, but it is invalid because we hide it.\"",
+        "context": "The core insight. What we suppress doesn't disappear - it waits."
+      },
+      "04": {
+        "text": "\"If you have ever felt a fear of dying, cross the white line.\"",
+        "context": "The projection creates a boundary on the floor. Those who resonate step forward. A visible act of shared truth."
+      },
+      "05": {
+        "text": "\"Are you truly willing to fall in love today?\"",
+        "context": "Not romantic love only - but the vulnerability of opening to another."
+      },
+      "06": {
+        "text": "\"Who wants to free themselves from shame?\"",
+        "context": "The weight we carry. The permission to release it, together."
+      },
+      "07": {
+        "text": "\"This experience is going to be our secret and magical cave, but this time, we will be able to share it.\"",
+        "context": "From isolation to communion. The safe space we create together."
+      },
+      "08": {
+        "text": "\"Can you dance without a mask?\"",
+        "context": "The physical invitation. Movement as truth."
+      },
+      "09": {
+        "text": "\"Can you live without a mask?\"",
+        "context": "The question that follows you home. The real journey begins."
+      }
+    },
+    "closing": "\"What would it be like to live like this?\"",
+    "cta": "Explore Venue Scenarios"
   },
   "scenarios": {
     "title": "Venue Scenarios",

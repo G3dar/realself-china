@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Self - A glimpse into the voice-over script that guides participants through the experience.">
+    <title>The Script | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Script-specific styles */
+        .script-intro {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        .script-intro__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .script-intro__title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: var(--spacing-lg);
+            color: var(--color-gray-200);
+            font-weight: 400;
+        }
+
+        .script-intro__desc {
+            color: var(--color-gray-400);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Script items */
+        .script-flow {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .script-item {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: var(--spacing-2xl);
+            align-items: center;
+            padding: var(--spacing-2xl) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .script-item:last-child {
+            border-bottom: none;
+        }
+
+        .script-item:nth-child(even) {
+            grid-template-columns: 280px 1fr;
+        }
+
+        .script-item:nth-child(even) .script-item__image {
+            order: -1;
+        }
+
+        .script-item__content {
+            padding: var(--spacing-lg);
+        }
+
+        .script-item__number {
+            font-family: var(--font-display);
+            font-size: 0.7rem;
+            color: var(--color-gray-600);
+            letter-spacing: 0.2em;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .script-item__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--color-white);
+            font-style: italic;
+        }
+
+        .script-item__text--large {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+        }
+
+        .script-item__context {
+            font-size: 0.8rem;
+            color: var(--color-gray-500);
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--color-gray-800);
+            line-height: 1.6;
+        }
+
+        .script-item__attribution {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+            margin-top: var(--spacing-sm);
+            letter-spacing: 0.05em;
+        }
+
+        .script-item__image {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--color-gray-900);
+        }
+
+        .script-item__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: filter var(--transition-normal), transform var(--transition-slow);
+        }
+
+        .script-item:hover .script-item__image img {
+            filter: grayscale(80%) contrast(1.05);
+            transform: scale(1.03);
+        }
+
+        /* Phase dividers */
+        .phase-divider {
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .phase-divider__label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .phase-divider__title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            color: var(--color-gray-400);
+            letter-spacing: 0.2em;
+        }
+
+        /* Closing section */
+        .script-closing {
+            text-align: center;
+            padding: var(--spacing-4xl) var(--spacing-lg);
+            background: var(--color-gray-900);
+        }
+
+        .script-closing__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--color-white);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-2xl);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Closing items without images */
+        .script-item--closing {
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .script-item--closing:last-child {
+            border-bottom: none;
+        }
+
+        .script-item--closing .script-item__text {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .script-item--closing .script-item__context {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .script-logo {
+            display: block;
+            max-width: 120px;
+            height: auto;
+            margin: var(--spacing-xl) auto 0;
+            opacity: 0.6;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .script-item {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+
+            .script-item:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .script-item__image {
+                order: -1;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .script-item:nth-child(even) .script-item__image {
+                order: -1;
+            }
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+</head>
+<body>
+    <!-- Header (rendered by main.js) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 150px; padding-bottom: 0;">
+        <div class="container">
+            <h1 class="mb-md" data-i18n="script.title">The Script</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="script.tagline">A glimpse into the voice that guides the journey</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section" style="padding-top: var(--spacing-xl);">
+        <div class="script-intro">
+            <p class="script-intro__label" data-i18n="script.intro.label">Reduced Version</p>
+            <h2 class="script-intro__title" data-i18n="script.intro.title">Selected excerpts from the experience's voice-over script</h2>
+            <p class="script-intro__desc" data-i18n="script.intro.desc">
+                Throughout the 55-minute immersive journey, a voice guides participants through questions,
+                reflections, and invitations. The projections on the walls and floor respond to each moment,
+                creating visual cues that participants follow. What follows is a curated selection that captures
+                the tone, emotional arc, and philosophical depth of the Real Self experience.
+            </p>
+        </div>
+    </section>
+
+    <!-- Phase 1: Opening -->
+    <div class="phase-divider">
+        <p class="phase-divider__label" data-i18n="script.phases.one">Phase I</p>
+        <p class="phase-divider__title" data-i18n="script.phases.invitation">THE INVITATION</p>
+    </div>
+
+    <section class="script-flow">
+        <!-- 1. Opening commitment -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">01</p>
+                <p class="script-item__text script-item__text--large" data-i18n="script.items.01.text">"Do you accept to be honest during the entire experience?"</p>
+                <p class="script-item__context" data-i18n="script.items.01.context">The first question. A contract with oneself. The journey begins with a choice.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/01-silhouettes-lines.jpg" alt="Silhouettes of participants standing in striped projection light">
+            </div>
+        </div>
+
+        <!-- 2. Oscar Wilde -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">02</p>
+                <p class="script-item__text" data-i18n="script.items.02.text">"Give him a mask and he will tell you the truth."</p>
+                <p class="script-item__attribution" data-i18n="script.items.02.attribution">Oscar Wilde</p>
+                <p class="script-item__context" data-i18n="script.items.02.context">The philosophical foundation. Anonymity as liberation, not concealment.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/08-masks-boxes.jpg" alt="White geometric masks arranged in black boxes">
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Descent -->
+    <div class="phase-divider">
+        <p class="phase-divider__label" data-i18n="script.phases.two">Phase II</p>
+        <p class="phase-divider__title" data-i18n="script.phases.descent">THE DESCENT</p>
+    </div>
+
+    <section class="script-flow">
+        <!-- 3. Hidden self -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">03</p>
+                <p class="script-item__text" data-i18n="script.items.03.text">"We live hiding, in the last attic, the part of us that we consider invalid. And we do not hide it because it is invalid, but it is invalid because we hide it."</p>
+                <p class="script-item__context" data-i18n="script.items.03.context">The core insight. What we suppress doesn't disappear - it waits.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/03-circle-huddle.jpg" alt="Participants huddled together in concentric projection circles">
+            </div>
+        </div>
+
+        <!-- 4. Fear of death - crossing lines -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">04</p>
+                <p class="script-item__text script-item__text--large" data-i18n="script.items.04.text">"If you have ever felt a fear of dying, cross the white line."</p>
+                <p class="script-item__context" data-i18n="script.items.04.context">The projection creates a boundary on the floor. Those who resonate step forward. A visible act of shared truth.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/04-crossing-lines.jpg" alt="Participants walking across striped light projections">
+            </div>
+        </div>
+
+        <!-- 5. Love -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">05</p>
+                <p class="script-item__text" data-i18n="script.items.05.text">"Are you truly willing to fall in love today?"</p>
+                <p class="script-item__context" data-i18n="script.items.05.context">Not romantic love only - but the vulnerability of opening to another.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/05-two-faces.jpg" alt="Two masked participants facing each other intimately">
+            </div>
+        </div>
+
+        <!-- 6. Shame -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">06</p>
+                <p class="script-item__text script-item__text--large" data-i18n="script.items.06.text">"Who wants to free themselves from shame?"</p>
+                <p class="script-item__context" data-i18n="script.items.06.context">The weight we carry. The permission to release it, together.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/06-crowd-line.jpg" alt="Line of masked participants in dramatic lighting">
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: Return -->
+    <div class="phase-divider">
+        <p class="phase-divider__label" data-i18n="script.phases.three">Phase III</p>
+        <p class="phase-divider__title" data-i18n="script.phases.return">THE RETURN</p>
+    </div>
+
+    <section class="script-flow">
+        <!-- 7. The cave metaphor -->
+        <div class="script-item fade-on-scroll">
+            <div class="script-item__content">
+                <p class="script-item__number">07</p>
+                <p class="script-item__text" data-i18n="script.items.07.text">"This experience is going to be our secret and magical cave, but this time, we will be able to share it."</p>
+                <p class="script-item__context" data-i18n="script.items.07.context">From isolation to communion. The safe space we create together.</p>
+            </div>
+            <div class="script-item__image">
+                <img src="images/script/07-group-waves.jpg" alt="Group of participants surrounded by wave-like projections">
+            </div>
+        </div>
+
+        <!-- 8 & 9. Closing questions with logo -->
+        <div class="script-item--closing fade-on-scroll">
+            <div class="script-item__content" style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p class="script-item__number">08</p>
+                <p class="script-item__text script-item__text--large" data-i18n="script.items.08.text">"Can you dance without a mask?"</p>
+                <p class="script-item__context" data-i18n="script.items.08.context">The physical invitation. Movement as truth.</p>
+
+                <div style="height: var(--spacing-2xl);"></div>
+
+                <p class="script-item__number">09</p>
+                <p class="script-item__text script-item__text--large" data-i18n="script.items.09.text">"Can you live without a mask?"</p>
+                <p class="script-item__context" data-i18n="script.items.09.context">The question that follows you home. The real journey begins.</p>
+
+                <img src="images/logo-tagline.jpg" alt="Real Self - A Human Immersive Experience" class="script-logo" style="max-width: 200px; margin-top: var(--spacing-2xl);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="script-closing">
+        <p class="script-closing__text" data-i18n="script.closing">"What would it be like to live like this?"</p>
+        <a href="investment.html" class="btn btn--outline" data-i18n="script.cta">Explore Venue Scenarios</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2026 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
