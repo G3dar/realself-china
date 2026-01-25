@@ -286,6 +286,82 @@
             margin-top: -0.25rem;
         }
 
+        /* Staff breakdown */
+        .staff-breakdown {
+            background: var(--color-gray-800);
+            margin: var(--spacing-sm) calc(var(--spacing-xl) * -1);
+            padding: var(--spacing-md) var(--spacing-xl);
+        }
+
+        .staff-breakdown__header {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .staff-breakdown__row {
+            display: grid;
+            grid-template-columns: 1fr 30px 60px 70px;
+            gap: var(--spacing-xs);
+            padding: 2px 0;
+            font-size: 0.8125rem;
+            align-items: center;
+        }
+
+        .staff-breakdown__role {
+            color: var(--color-gray-300);
+        }
+
+        .staff-breakdown__count {
+            text-align: center;
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .staff-breakdown__rate {
+            text-align: right;
+            color: var(--color-gray-500);
+            font-size: 0.75rem;
+        }
+
+        .staff-breakdown__cost {
+            text-align: right;
+            color: var(--color-gray-300);
+            font-family: var(--font-display);
+        }
+
+        .staff-breakdown__subtotal {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) 0;
+            margin-top: var(--spacing-xs);
+            border-top: 1px solid var(--color-gray-700);
+            font-size: 0.8125rem;
+            color: var(--color-gray-400);
+        }
+
+        .staff-breakdown__subtotal span:last-child {
+            font-family: var(--font-display);
+            color: var(--color-gray-300);
+        }
+
+        .staff-breakdown__weekly {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--spacing-xs) 0;
+            font-size: 0.8125rem;
+            color: var(--color-gray-400);
+        }
+
+        .staff-breakdown__weekly span:last-child {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
         /* References section */
         .references-section {
             background: var(--color-gray-900);
@@ -722,14 +798,64 @@
                         </div>
                     </div>
 
-                    <div class="breakdown-row">
-                        <span class="breakdown-row__label" data-i18n="investment.costs.staff">Staff</span>
-                        <span class="breakdown-row__value" id="staffCost">$6,000</span>
+                    <!-- Staff Breakdown -->
+                    <div class="staff-breakdown">
+                        <div class="staff-breakdown__header" data-i18n="investment.costs.floorStaff">Floor Staff (per show)</div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.guides">Experience Guides</span>
+                            <span class="staff-breakdown__count" id="guidesCount">5</span>
+                            <span class="staff-breakdown__rate">× $180</span>
+                            <span class="staff-breakdown__cost" id="guidesCost">$900</span>
+                        </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.changing">Changing Room</span>
+                            <span class="staff-breakdown__count" id="changingCount">3</span>
+                            <span class="staff-breakdown__rate">× $180</span>
+                            <span class="staff-breakdown__cost" id="changingCost">$540</span>
+                        </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.reception">Foyer/Reception</span>
+                            <span class="staff-breakdown__count" id="receptionCount">2</span>
+                            <span class="staff-breakdown__rate">× $180</span>
+                            <span class="staff-breakdown__cost" id="receptionCost">$360</span>
+                        </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.technician">Show Technician</span>
+                            <span class="staff-breakdown__count">1</span>
+                            <span class="staff-breakdown__rate">× $80</span>
+                            <span class="staff-breakdown__cost">$80</span>
+                        </div>
+                        <div class="staff-breakdown__subtotal">
+                            <span data-i18n="investment.costs.perShowTotal">Per show total</span>
+                            <span id="perShowStaffCost">$1,880</span>
+                        </div>
+                        <div class="staff-breakdown__weekly">
+                            <span>× <span id="totalShows">12</span> <span data-i18n="investment.costs.showsWeek">shows/week</span></span>
+                            <span id="floorStaffWeekly">$22,560</span>
+                        </div>
+
+                        <div class="staff-breakdown__header" style="margin-top: var(--spacing-md);" data-i18n="investment.costs.management">Management (per day)</div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.venueManager">Venue Manager</span>
+                            <span class="staff-breakdown__count">1</span>
+                            <span class="staff-breakdown__rate">× $250</span>
+                            <span class="staff-breakdown__cost">$250</span>
+                        </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.techLead">Technical Lead</span>
+                            <span class="staff-breakdown__count">1</span>
+                            <span class="staff-breakdown__rate">× $200</span>
+                            <span class="staff-breakdown__cost">$200</span>
+                        </div>
+                        <div class="staff-breakdown__weekly">
+                            <span>× <span id="totalDays">4</span> <span data-i18n="investment.costs.daysWeek">days/week</span></span>
+                            <span id="managementWeekly">$1,800</span>
+                        </div>
                     </div>
 
-                    <div class="breakdown-row">
-                        <span class="breakdown-row__label" data-i18n="investment.costs.management">Management</span>
-                        <span class="breakdown-row__value">$4,800</span>
+                    <div class="breakdown-row breakdown-row--subtotal">
+                        <span class="breakdown-row__label" data-i18n="investment.costs.staffTotal">Staff & Management</span>
+                        <span class="breakdown-row__value" id="staffCost">$24,360</span>
                     </div>
 
                     <div class="breakdown-row">
@@ -895,6 +1021,28 @@
             photoAvgSpend: 5          // $5 average spend
         };
 
+        // Staff configuration by venue size
+        const staffConfig = {
+            150: {
+                guides: 3,
+                changing: 2,
+                reception: 1
+            },
+            350: {
+                guides: 5,
+                changing: 3,
+                reception: 2
+            },
+            rates: {
+                guides: 180,      // per show
+                changing: 180,    // per show
+                reception: 180,   // per show
+                technician: 80,   // per show (1 per show always)
+                venueManager: 250, // per day
+                techLead: 200     // per day
+            }
+        };
+
         // Calculate values for a given capacity and update its scenario card
         function calculateForCapacity(capacity) {
             const tickets = Math.round(capacity * daysPerWeek * showsPerDay * (occupancy / 100));
@@ -905,13 +1053,23 @@
             const photoboothRev = tickets * revenueConfig.photoConversion * revenueConfig.photoAvgSpend;
             const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
 
+            // Staff costs - detailed breakdown
+            const staff = staffConfig[capacity] || staffConfig[350];
+            const rates = staffConfig.rates;
+            const totalShows = daysPerWeek * showsPerDay;
+
+            const perShowCost = (staff.guides * rates.guides) +
+                               (staff.changing * rates.changing) +
+                               (staff.reception * rates.reception) +
+                               rates.technician;
+            const floorStaffWeekly = perShowCost * totalShows;
+            const managementWeekly = (rates.venueManager + rates.techLead) * daysPerWeek;
+            const staffCost = floorStaffWeekly + managementWeekly;
+
             const maskCostumeCost = tickets * (replacementRate / 100) * 6;
-            const staffCount = Math.ceil(capacity / 25);
-            const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
-            const managementCost = 4800;
             const insuranceCost = 3000;
             // Marketing not included - managed separately by partner
-            const totalCosts = maskCostumeCost + staffCost + managementCost + insuranceCost;
+            const totalCosts = maskCostumeCost + staffCost + insuranceCost;
 
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
@@ -964,14 +1122,30 @@
 
             const totalRevenue = ticketSubtotal + otherSubtotal;
 
-            // Costs
+            // Costs - Masks & Costumes
             const maskCostumeCost = tickets * (replacementRate / 100) * 6;
-            const staffCount = Math.ceil(currentCapacity / 25);
-            const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
-            const managementCost = 4800;
+
+            // Staff costs - detailed breakdown
+            const staff = staffConfig[currentCapacity] || staffConfig[350];
+            const rates = staffConfig.rates;
+            const totalShows = daysPerWeek * showsPerDay;
+
+            // Floor staff (per show)
+            const guidesCost = staff.guides * rates.guides;
+            const changingCost = staff.changing * rates.changing;
+            const receptionCost = staff.reception * rates.reception;
+            const technicianCost = rates.technician;
+            const perShowCost = guidesCost + changingCost + receptionCost + technicianCost;
+            const floorStaffWeekly = perShowCost * totalShows;
+
+            // Management (per day)
+            const managementPerDay = rates.venueManager + rates.techLead;
+            const managementWeekly = managementPerDay * daysPerWeek;
+
+            const staffCost = floorStaffWeekly + managementWeekly;
             const insuranceCost = 3000;
             // Marketing not included - managed separately by partner
-            const totalCosts = maskCostumeCost + staffCost + managementCost + insuranceCost;
+            const totalCosts = maskCostumeCost + staffCost + insuranceCost;
 
             // Profit
             const weeklyProfit = totalRevenue - totalCosts;
@@ -998,7 +1172,21 @@
             // Update display - Costs
             document.getElementById('maskCostumeCostDisplay').textContent = formatCurrency(maskCostumeCost);
             document.getElementById('replacementDisplay').textContent = replacementRate + '%';
+
+            // Update staff breakdown display
+            document.getElementById('guidesCount').textContent = staff.guides;
+            document.getElementById('guidesCost').textContent = formatCurrency(guidesCost);
+            document.getElementById('changingCount').textContent = staff.changing;
+            document.getElementById('changingCost').textContent = formatCurrency(changingCost);
+            document.getElementById('receptionCount').textContent = staff.reception;
+            document.getElementById('receptionCost').textContent = formatCurrency(receptionCost);
+            document.getElementById('perShowStaffCost').textContent = formatCurrency(perShowCost);
+            document.getElementById('totalShows').textContent = totalShows;
+            document.getElementById('floorStaffWeekly').textContent = formatCurrency(floorStaffWeekly);
+            document.getElementById('totalDays').textContent = daysPerWeek;
+            document.getElementById('managementWeekly').textContent = formatCurrency(managementWeekly);
             document.getElementById('staffCost').textContent = formatCurrency(staffCost);
+
             document.getElementById('weeklyCosts').textContent = formatCurrency(totalCosts);
 
             // Update display - Results

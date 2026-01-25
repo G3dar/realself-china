@@ -182,8 +182,20 @@
     "costs": {
       "title": "Weekly Costs",
       "masksCostumes": "Masks & Costumes",
-      "staff": "Staff",
-      "management": "Management",
+      "floorStaff": "Floor Staff (per show)",
+      "management": "Management (per day)",
+      "staffTotal": "Staff & Management",
+      "perShowTotal": "Per show total",
+      "showsWeek": "shows/week",
+      "daysWeek": "days/week",
+      "roles": {
+        "guides": "Experience Guides",
+        "changing": "Changing Room",
+        "reception": "Foyer/Reception",
+        "technician": "Show Technician",
+        "venueManager": "Venue Manager",
+        "techLead": "Technical Lead"
+      },
       "insurance": "Insurance & Misc",
       "weeklyTotal": "Weekly Total",
       "marketingNote": "Marketing costs not included — managed separately by partner"

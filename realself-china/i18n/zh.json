@@ -191,8 +191,20 @@
     "costs": {
       "title": "每周成本",
       "masksCostumes": "面具与服装",
-      "staff": "人员",
-      "management": "管理层",
+      "floorStaff": "现场人员（每场）",
+      "management": "管理层（每天）",
+      "staffTotal": "人员与管理",
+      "perShowTotal": "每场合计",
+      "showsWeek": "场/周",
+      "daysWeek": "天/周",
+      "roles": {
+        "guides": "体验引导员",
+        "changing": "更衣室人员",
+        "reception": "前厅/接待",
+        "technician": "技术人员",
+        "venueManager": "场馆经理",
+        "techLead": "技术主管"
+      },
       "insurance": "保险及杂项",
       "weeklyTotal": "每周总计",
       "marketingNote": "营销成本不包含在内 - 由合作方单独管理"
