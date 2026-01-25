@@ -188,23 +188,48 @@
             </div>
 
             <!-- Revenue Clarification -->
-            <div class="revenue-notes" style="margin-top: var(--spacing-2xl); padding: var(--spacing-xl); background: var(--color-gray-900); border: 1px solid var(--color-gray-700);">
-                <h4 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gray-400); margin-bottom: var(--spacing-lg);" data-i18n="partnership.revenueNotes.title">Revenue Split Details</h4>
+            <div style="margin-top: var(--spacing-3xl);">
+                <h3 class="text-center mb-xl" style="font-size: 1.25rem;" data-i18n="partnership.revenueNotes.title">Revenue Split Details</h3>
 
-                <div style="display: grid; gap: var(--spacing-lg);">
-                    <div style="display: flex; gap: var(--spacing-md); align-items: flex-start;">
-                        <span style="color: var(--color-white); font-weight: 600; min-width: 90px;" data-i18n="partnership.revenueNotes.tickets.label">Ticket Sales</span>
-                        <span style="color: var(--color-gray-300);" data-i18n="partnership.revenueNotes.tickets.desc">70/30 split as described above. Partner receives 70% of gross profit after operating costs.</span>
+                <div class="grid grid--3" style="gap: var(--spacing-lg);">
+                    <!-- Ticket Sales Card -->
+                    <div class="card" style="text-align: center; padding: var(--spacing-xl);">
+                        <svg style="width: 40px; height: 40px; margin: 0 auto var(--spacing-md); color: var(--color-gray-400);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/>
+                            <path d="M13 5v2"/>
+                            <path d="M13 17v2"/>
+                            <path d="M13 11v2"/>
+                        </svg>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gray-500); margin-bottom: var(--spacing-xs);" data-i18n="partnership.revenueNotes.tickets.label">Ticket Sales</div>
+                        <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: var(--spacing-sm);">70/30</div>
+                        <p style="font-size: 0.875rem; color: var(--color-gray-400);" data-i18n="partnership.revenueNotes.tickets.desc2">Partner receives 70% of gross profit after operating costs</p>
                     </div>
 
-                    <div style="display: flex; gap: var(--spacing-md); align-items: flex-start;">
-                        <span style="color: var(--color-white); font-weight: 600; min-width: 90px;" data-i18n="partnership.revenueNotes.food.label">Food & Drinks</span>
-                        <span style="color: var(--color-gray-300);" data-i18n="partnership.revenueNotes.food.desc">Partner keeps 100% of all food and beverage revenue. This includes welcome drinks, snacks, and post-show bar sales.</span>
+                    <!-- Food & Drinks Card - Highlighted -->
+                    <div class="card" style="text-align: center; padding: var(--spacing-xl); border: 2px solid var(--color-white); position: relative;">
+                        <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--color-white); color: var(--color-black); font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px;" data-i18n="partnership.revenueNotes.food.badge">Partner Advantage</div>
+                        <svg style="width: 40px; height: 40px; margin: 0 auto var(--spacing-md); color: var(--color-white);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                            <line x1="6" x2="6" y1="2" y2="4"/>
+                            <line x1="10" x2="10" y1="2" y2="4"/>
+                            <line x1="14" x2="14" y1="2" y2="4"/>
+                        </svg>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gray-400); margin-bottom: var(--spacing-xs);" data-i18n="partnership.revenueNotes.food.label">Food & Drinks</div>
+                        <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-white); margin-bottom: var(--spacing-sm);">100%</div>
+                        <p style="font-size: 0.875rem; color: var(--color-gray-300);" data-i18n="partnership.revenueNotes.food.desc2">Partner keeps all F&B revenue — welcome drinks, snacks, post-show bar</p>
                     </div>
 
-                    <div style="display: flex; gap: var(--spacing-md); align-items: flex-start;">
-                        <span style="color: var(--color-white); font-weight: 600; min-width: 90px;" data-i18n="partnership.revenueNotes.merch.label">Merchandise</span>
-                        <span style="color: var(--color-gray-300);" data-i18n="partnership.revenueNotes.merch.desc">Optional: Real Self can design and produce the merchandise line (mini masks, art prints, apparel). Partner covers production costs, then 70/30 revenue share applies. Alternatively, partner can manage merchandise independently and keep 100%.</span>
+                    <!-- Merchandise Card -->
+                    <div class="card" style="text-align: center; padding: var(--spacing-xl);">
+                        <svg style="width: 40px; height: 40px; margin: 0 auto var(--spacing-md); color: var(--color-gray-400);" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
+                            <path d="M3 6h18"/>
+                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                        </svg>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gray-500); margin-bottom: var(--spacing-xs);" data-i18n="partnership.revenueNotes.merch.label">Merchandise</div>
+                        <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: var(--spacing-sm);" data-i18n="partnership.revenueNotes.merch.flexible">Flexible</div>
+                        <p style="font-size: 0.875rem; color: var(--color-gray-400);" data-i18n="partnership.revenueNotes.merch.desc2">Partner keeps 100% if self-managed, or 70/30 if Real Self designs & produces</p>
                     </div>
                 </div>
             </div>
