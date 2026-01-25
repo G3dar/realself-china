@@ -224,11 +224,11 @@
                 <div style="display: flex; justify-content: center; gap: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
                     <div class="venue-option" data-capacity="150" style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); cursor: pointer; transition: all 0.2s ease; min-width: 100px;">
                         <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase;" data-i18n="investmentRequirements.sizes.small">Small (150)</div>
-                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$166K</div>
+                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$185K</div>
                     </div>
                     <div class="venue-option active" data-capacity="350" style="text-align: center; padding: var(--spacing-sm) var(--spacing-lg); border: 2px solid var(--color-white); cursor: pointer; transition: all 0.2s ease; min-width: 100px;">
                         <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase;" data-i18n="investmentRequirements.sizes.large">Large (350)</div>
-                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$250K</div>
+                        <div class="venue-total" style="font-size: 1.5rem; font-weight: 700;">$240K</div>
                     </div>
                 </div>
                 <p class="investment-hero__note" data-i18n="investmentRequirements.subtitle">Production costs, licensing & setup fees</p>
@@ -507,29 +507,29 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Venue investment data (travel costs increased by 50%)
+        // Venue investment data
         const venueData = {
             150: {
-                total: '$160K',
-                production: { total: '$34,000', direction: '$24,000', executive: '$10,000' },
-                creative: { total: '$38,000', design: '$20,000', sound: '$10,000', rehearsals: '$8,000' },
-                technical: { total: '$37,000', projection: '$20,000', showControl: '$10,000', testing: '$7,000' },
-                travel: { total: '$35,625', team: '$13,125', lockers: '$3,750', costumes: '$18,750', detail: '150 units' },
-                legal: { total: '$6,000', contracts: '$5,000', insurance: '$1,000' },
-                subtotal: '$150,625',
-                contingency: '$15,063',
-                grandTotal: '$165,688'
+                total: '$185K',
+                production: { total: '$40,000', direction: '$28,000', executive: '$12,000' },
+                creative: { total: '$42,000', design: '$22,000', sound: '$12,000', rehearsals: '$8,000' },
+                technical: { total: '$40,000', projection: '$22,000', showControl: '$11,000', testing: '$7,000' },
+                travel: { total: '$35,000', team: '$15,000', lockers: '$5,000', costumes: '$15,000', detail: '150 units' },
+                legal: { total: '$8,000', contracts: '$6,500', insurance: '$1,500' },
+                subtotal: '$165,000',
+                contingency: '$16,500',
+                grandTotal: '$181,500'
             },
             350: {
-                total: '$250K',
+                total: '$240K',
                 production: { total: '$50,000', direction: '$35,000', executive: '$15,000' },
                 creative: { total: '$57,000', design: '$30,000', sound: '$15,000', rehearsals: '$12,000' },
                 technical: { total: '$55,000', projection: '$30,000', showControl: '$15,000', testing: '$10,000' },
-                travel: { total: '$55,000', team: '$26,250', lockers: '$8,750', costumes: '$20,000', detail: '350 units' },
+                travel: { total: '$40,000', team: '$18,000', lockers: '$8,000', costumes: '$14,000', detail: '350 units' },
                 legal: { total: '$10,000', contracts: '$8,000', insurance: '$2,000' },
-                subtotal: '$227,000',
-                contingency: '$22,700',
-                grandTotal: '$249,700'
+                subtotal: '$212,000',
+                contingency: '$21,200',
+                grandTotal: '$233,200'
             }
         };
 

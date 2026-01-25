@@ -18,48 +18,122 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        /* Preset Selector */
-        .preset-selector {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-3xl);
+        /* Scenario Cards */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .preset-btn {
+        @media (max-width: 700px) {
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scenario-card {
             background: var(--color-gray-900);
-            border: 1px solid var(--color-gray-700);
-            color: var(--color-white);
-            padding: var(--spacing-lg) var(--spacing-2xl);
-            font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 600;
+            border: 2px solid var(--color-gray-700);
+            padding: var(--spacing-2xl);
+            position: relative;
+            transition: all 0.3s ease;
             cursor: pointer;
-            transition: all 0.2s ease;
-            min-width: 140px;
         }
 
-        .preset-btn:hover {
+        .scenario-card:hover {
             border-color: var(--color-gray-500);
+            transform: translateY(-4px);
+        }
+
+        .scenario-card.active {
+            border-color: var(--color-white);
             background: var(--color-gray-800);
         }
 
-        .preset-btn.active {
-            background: var(--color-white);
-            color: var(--color-black);
-            border-color: var(--color-white);
+        .scenario-card__header {
+            text-align: center;
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--color-gray-700);
+            margin-bottom: var(--spacing-xl);
         }
 
-        .preset-btn span {
-            display: block;
+        .scenario-card__size {
             font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .scenario-card__capacity {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .scenario-card__capacity span {
+            font-size: 1.25rem;
             font-weight: 400;
             color: var(--color-gray-400);
-            margin-top: 0.25rem;
         }
 
-        .preset-btn.active span {
-            color: var(--color-gray-600);
+        .scenario-card__metric {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .scenario-card__metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .scenario-card__label {
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .scenario-card__value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .scenario-card__value--highlight {
+            color: var(--color-white);
+            font-size: 2rem;
+        }
+
+        .scenario-card__value--muted {
+            color: var(--color-gray-300);
+        }
+
+        .scenario-card__divider {
+            height: 1px;
+            background: var(--color-gray-700);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .scenario-card__footer {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-gray-700);
+            margin-top: var(--spacing-xl);
+        }
+
+        .scenario-card__breakeven {
+            font-size: 0.875rem;
+            color: var(--color-gray-300);
+        }
+
+        .scenario-card__breakeven strong {
+            color: var(--color-white);
         }
 
         /* Breakdown Grid */
@@ -368,23 +442,6 @@
             margin-top: var(--spacing-xs);
         }
 
-        /* Compare cards */
-        .compare-card {
-            -webkit-tap-highlight-color: rgba(255,255,255,0.1);
-        }
-
-        .compare-card:hover {
-            background: var(--color-gray-800) !important;
-        }
-
-        .compare-card.active {
-            background: var(--color-gray-800) !important;
-            border: 2px solid var(--color-white) !important;
-        }
-
-        .compare-card:not(.active) {
-            border: 1px solid var(--color-gray-700) !important;
-        }
     </style>
 </head>
 <body>
@@ -399,35 +456,82 @@
         </div>
     </section>
 
-    <!-- Quick Comparison -->
+    <!-- Venue Scenarios -->
     <section class="section" style="padding-top: 0; padding-bottom: var(--spacing-xl);">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--spacing-lg); margin-bottom: var(--spacing-lg); max-width: 600px; margin-left: auto; margin-right: auto;">
-                <div class="compare-card" data-capacity="150" style="background: var(--color-gray-900); border: 1px solid var(--color-gray-700); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all 0.2s ease;">
-                    <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.small">Small</div>
-                    <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">150</div>
-                    <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="investment.comparison.capacity">capacity</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.investmentRequired">Investment Required</div>
-                    <div id="compare150Investment" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$166K</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.weeklyRevenue">Weekly Revenue</div>
-                    <div id="compare150Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$56,000</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.partnerMonthly">Partner Monthly</div>
-                    <div id="compare150Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$104,000</div>
+            <p style="text-align: center; color: var(--color-gray-400); margin-bottom: var(--spacing-xl);" data-i18n="scenarios.intro">Each scenario represents a different venue capacity, with corresponding investment requirements and projected returns. All figures based on standard operating assumptions.</p>
+
+            <div class="scenario-grid">
+                <!-- Small Venue -->
+                <div class="scenario-card" data-capacity="150">
+                    <div class="scenario-card__header">
+                        <div class="scenario-card__size" data-i18n="scenarios.sizes.small">Small Venue</div>
+                        <div class="scenario-card__capacity">150 <span data-i18n="scenarios.people">people</span></div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
+                        <div class="scenario-card__value" id="scenario150Investment">$185K</div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue</div>
+                        <div class="scenario-card__value scenario-card__value--muted" id="scenario150Weekly">$56,000</div>
+                    </div>
+
+                    <div class="scenario-card__divider"></div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerMonthlyProfit">Partner Monthly Profit</div>
+                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario150Monthly">$104,000</div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerAnnual">Partner Annual</div>
+                        <div class="scenario-card__value" id="scenario150Annual">$1.2M</div>
+                    </div>
+
+                    <div class="scenario-card__footer">
+                        <div class="scenario-card__breakeven"><span data-i18n="scenarios.metrics.breakeven">Breakeven</span>: <strong id="scenario150Breakeven">~2 months</strong></div>
+                    </div>
                 </div>
-                <div class="compare-card active" data-capacity="350" style="background: var(--color-gray-800); border: 2px solid var(--color-white); padding: var(--spacing-lg); text-align: center; cursor: pointer; transition: all 0.2s ease;">
-                    <div style="font-size: 0.75rem; color: var(--color-gray-400); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.large">Large</div>
-                    <div style="font-family: var(--font-display); font-size: 2rem; font-weight: 700;">350</div>
-                    <div style="font-size: 0.875rem; color: var(--color-gray-400); margin-bottom: var(--spacing-md);" data-i18n="investment.comparison.capacity">capacity</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.investmentRequired">Investment Required</div>
-                    <div id="compare350Investment" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm); color: var(--color-white);">$250K</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.weeklyRevenue">Weekly Revenue</div>
-                    <div id="compare350Weekly" style="font-size: 1.25rem; font-weight: 600; margin-bottom: var(--spacing-sm);">$131,000</div>
-                    <div style="font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="investment.comparison.partnerMonthly">Partner Monthly</div>
-                    <div id="compare350Monthly" style="font-size: 1.25rem; font-weight: 600; color: var(--color-white);">$272,000</div>
+
+                <!-- Large Venue -->
+                <div class="scenario-card active" data-capacity="350">
+                    <div class="scenario-card__header">
+                        <div class="scenario-card__size" data-i18n="scenarios.sizes.large">Large Venue</div>
+                        <div class="scenario-card__capacity">350 <span data-i18n="scenarios.people">people</span></div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
+                        <div class="scenario-card__value" id="scenario350Investment">$240K</div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue</div>
+                        <div class="scenario-card__value scenario-card__value--muted" id="scenario350Weekly">$131,000</div>
+                    </div>
+
+                    <div class="scenario-card__divider"></div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerMonthlyProfit">Partner Monthly Profit</div>
+                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario350Monthly">$272,000</div>
+                    </div>
+
+                    <div class="scenario-card__metric">
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerAnnual">Partner Annual</div>
+                        <div class="scenario-card__value" id="scenario350Annual">$3.3M</div>
+                    </div>
+
+                    <div class="scenario-card__footer">
+                        <div class="scenario-card__breakeven"><span data-i18n="scenarios.metrics.breakeven">Breakeven</span>: <strong id="scenario350Breakeven">~1 month</strong></div>
+                    </div>
                 </div>
             </div>
-            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-600); margin-bottom: var(--spacing-xs);" data-i18n="investment.comparison.excludesNote">Investment excludes technology, equipment & projectors (provided by partner)</p>
-            <p id="compareDescription" style="text-align: center; font-size: 0.875rem; color: var(--color-gray-500);">Based on 4 days/week, 3 shows/day, 70% occupancy, $32 ticket price</p>
+
+            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="scenarios.excludesNote">Investment excludes technology, equipment & projectors (provided by partner)</p>
         </div>
     </section>
 
@@ -466,18 +570,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Preset Buttons -->
-            <div class="preset-selector">
-                <button class="preset-btn" data-capacity="150">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>150
-                    <span data-i18n="investment.presets.small">Small</span>
-                </button>
-                <button class="preset-btn active" data-capacity="350">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px; vertical-align: middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>350
-                    <span data-i18n="investment.presets.large">Large</span>
-                </button>
             </div>
 
             <!-- Breakdown Grid -->
@@ -617,8 +709,8 @@
     <script>
         // Investment data by capacity (excludes technology/equipment/projectors)
         const investments = {
-            150: { value: 166000 },
-            350: { value: 250000 }
+            150: { value: 185000 },
+            350: { value: 240000 }
         };
 
         // Current state
@@ -630,8 +722,7 @@
         let replacementRate = 50;
 
         // DOM elements
-        const presetBtns = document.querySelectorAll('.preset-btn');
-        const compareCards = document.querySelectorAll('.compare-card');
+        const scenarioCards = document.querySelectorAll('.scenario-card');
         const ticketPriceSlider = document.getElementById('ticketPriceSlider');
         const replacementSlider = document.getElementById('replacementSlider');
         const daysSlider = document.getElementById('daysSlider');
@@ -642,13 +733,8 @@
         function selectCapacity(capacity) {
             currentCapacity = capacity;
 
-            // Update preset buttons
-            presetBtns.forEach(btn => {
-                btn.classList.toggle('active', parseInt(btn.dataset.capacity) === capacity);
-            });
-
-            // Update compare cards
-            compareCards.forEach(card => {
+            // Update scenario cards
+            scenarioCards.forEach(card => {
                 const isActive = parseInt(card.dataset.capacity) === capacity;
                 card.classList.toggle('active', isActive);
             });
@@ -664,7 +750,12 @@
             return '$' + num.toLocaleString();
         }
 
-        // Calculate values for a given capacity
+        // Format investment as shorthand (e.g., $185K)
+        function formatInvestment(num) {
+            return '$' + Math.round(num / 1000) + 'K';
+        }
+
+        // Calculate values for a given capacity and update its scenario card
         function calculateForCapacity(capacity) {
             const tickets = Math.round(capacity * daysPerWeek * showsPerDay * (occupancy / 100));
             const ticketRev = tickets * ticketPrice;
@@ -684,30 +775,34 @@
 
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
+            const annualProfit = monthlyProfit * 12;
+            const breakeven = monthlyProfit > 0 ? Math.ceil(investments[capacity].value / monthlyProfit) : 99;
 
-            return { weeklyRevenue: totalRevenue, monthlyProfit: monthlyProfit };
+            return {
+                weeklyRevenue: totalRevenue,
+                monthlyProfit: monthlyProfit,
+                annualProfit: annualProfit,
+                breakeven: breakeven
+            };
         }
 
-        // Format investment as shorthand (e.g., $160K)
-        function formatInvestment(num) {
-            return '$' + Math.round(num / 1000) + 'K';
-        }
-
-        // Update comparison cards
-        function updateComparison() {
+        // Update scenario cards with calculated values
+        function updateScenarioCards() {
             [150, 350].forEach(cap => {
                 const result = calculateForCapacity(cap);
-                const investmentEl = document.getElementById(`compare${cap}Investment`);
-                if (investmentEl) {
-                    investmentEl.textContent = formatInvestment(investments[cap].value);
-                }
-                const weeklyEl = document.getElementById(`compare${cap}Weekly`);
-                const monthlyEl = document.getElementById(`compare${cap}Monthly`);
+
+                const investmentEl = document.getElementById(`scenario${cap}Investment`);
+                const weeklyEl = document.getElementById(`scenario${cap}Weekly`);
+                const monthlyEl = document.getElementById(`scenario${cap}Monthly`);
+                const annualEl = document.getElementById(`scenario${cap}Annual`);
+                const breakevenEl = document.getElementById(`scenario${cap}Breakeven`);
+
+                if (investmentEl) investmentEl.textContent = formatInvestment(investments[cap].value);
                 if (weeklyEl) weeklyEl.textContent = formatCurrency(result.weeklyRevenue);
                 if (monthlyEl) monthlyEl.textContent = formatCurrency(result.monthlyProfit);
+                if (annualEl) annualEl.textContent = formatCurrency(result.annualProfit);
+                if (breakevenEl) breakevenEl.textContent = `~${result.breakeven} months`;
             });
-            document.getElementById('compareDescription').textContent =
-                `Based on ${daysPerWeek} days/week, ${showsPerDay} shows/day, ${occupancy}% occupancy, $${ticketPrice} ticket price`;
         }
 
         // Calculate and update display
@@ -725,7 +820,7 @@
             const totalRevenue = ticketRev + vipRev + merchRev + concessionsRev + photoboothRev;
 
             // Costs
-            const maskCostumeCost = tickets * (replacementRate / 100) * 6; // $1.5 mask + $4.5 costume = $6
+            const maskCostumeCost = tickets * (replacementRate / 100) * 6;
             const staffCount = Math.ceil(currentCapacity / 25);
             const staffCost = staffCount * daysPerWeek * showsPerDay * 50;
             const managementCost = 4800;
@@ -765,19 +860,12 @@
             document.getElementById('showsValue').textContent = showsPerDay;
             document.getElementById('occupancyValue').textContent = occupancy;
 
-            // Update comparison cards
-            updateComparison();
+            // Update scenario cards
+            updateScenarioCards();
         }
 
-        // Event listeners for preset buttons
-        presetBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                selectCapacity(parseInt(btn.dataset.capacity));
-            });
-        });
-
-        // Event listeners for compare cards (top section)
-        compareCards.forEach(card => {
+        // Event listeners for scenario cards
+        scenarioCards.forEach(card => {
             card.addEventListener('click', () => {
                 selectCapacity(parseInt(card.dataset.capacity));
             });
@@ -816,11 +904,6 @@
         occupancySlider.addEventListener('input', (e) => {
             occupancy = parseInt(e.target.value);
             calculate();
-        });
-
-        // Export PDF
-        document.getElementById('exportPdf').addEventListener('click', () => {
-            window.print();
         });
 
         // Initial calculation
