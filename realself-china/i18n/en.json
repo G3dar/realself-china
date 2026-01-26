@@ -370,7 +370,7 @@
     },
     "partnerProvides": {
       "title": "Provided by Partner",
-      "note": "Equipment and operational costs not included in investment above",
+      "note": "The following equipment and operational costs are not included in the investment breakdown above. It is assumed that the venue has professional-grade lighting and sound systems in place, or that the partner will provide these.",
       "items": {
         "projectors": "Projectors & AV Equipment",
         "venue": "Venue & Space",
@@ -412,7 +412,7 @@
         "desc": "of gross ticket revenue",
         "responsibilities": {
           "ip": "IP and content licensing",
-          "technical": "Technical setup and calibration",
+          "technical": "Technical guidance and supervision",
           "training": "Staff training program",
           "creative": "Creative consultation",
           "qa": "Quality assurance visits"
@@ -440,8 +440,8 @@
       "title": "What Real Self Provides",
       "items": {
         "technical": {
-          "title": "Technical Setup",
-          "desc": "On-site installation, projector mapping, audio calibration, and system integration by our technical team."
+          "title": "Technical Supervision",
+          "desc": "On-site guidance and supervision for your AV team during installation, projector mapping, audio calibration, and system integration."
         },
         "training": {
           "title": "Staff Training",
