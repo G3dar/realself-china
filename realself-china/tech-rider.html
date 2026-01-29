@@ -394,8 +394,20 @@
         <div class="container">
             <div class="rider-intro">
                 <div class="rider-intro__note">
-                    <p data-i18n="techRider.intro">This rider summarizes Real Self's technical requirements. Our Production Manager will work directly with your local team to review all requirements and adapt to venue conditions. This rider applies to a standard show with capacity of 200 people, maximum 6 shows per day, 6 days per week.</p>
+                    <p data-i18n="techRider.intro">This rider summarizes Real Self's technical requirements. Our Production Manager will work directly with your local team to review all requirements and adapt to venue conditions. Select your venue size below to see specific requirements.</p>
                 </div>
+            </div>
+
+            <!-- Venue Size Toggle -->
+            <div class="venue-toggle">
+                <button class="venue-toggle__btn" data-venue="small">
+                    <span class="venue-toggle__capacity">150</span>
+                    <span class="venue-toggle__label" data-i18n="techRider.venueOptions.small">Small Venue</span>
+                </button>
+                <button class="venue-toggle__btn active" data-venue="large">
+                    <span class="venue-toggle__capacity">350</span>
+                    <span class="venue-toggle__label" data-i18n="techRider.venueOptions.large">Large Venue</span>
+                </button>
             </div>
         </div>
     </section>
@@ -418,13 +430,13 @@
                     <tbody>
                         <tr>
                             <td class="highlight" data-i18n="techRider.table.experience">Experience Space</td>
-                            <td>26m x 18m x 10-12m high</td>
+                            <td data-venue-spec="experienceSpace">26m x 18m</td>
                             <td class="detail" data-i18n="techRider.table.experienceReq">Rectangular, no columns, total blackout, dark gray perimeter frame 6m+ high</td>
                         </tr>
                         <tr>
                             <td class="highlight" data-i18n="techRider.table.changing">Changing Room</td>
-                            <td>350 m² minimum</td>
-                            <td class="detail" data-i18n="techRider.table.changingReq">Connected to experience space, individual lockers for 200+ people</td>
+                            <td data-venue-spec="changingRoom">350 m²</td>
+                            <td class="detail" data-venue-spec="changingReqText">Connected to experience space, individual lockers for 350 people</td>
                         </tr>
                         <tr>
                             <td class="highlight" data-i18n="techRider.table.lobby">Lobby</td>
@@ -449,7 +461,7 @@
             <div class="tech-grid">
                 <div class="tech-card">
                     <div class="tech-card__title" data-i18n="techRider.key.capacity">Capacity</div>
-                    <div class="tech-card__value">200</div>
+                    <div class="tech-card__value" data-venue-spec="capacity">350</div>
                     <div class="tech-card__desc" data-i18n="techRider.key.capacityDesc">People per show, up to 6 shows/day</div>
                 </div>
 
@@ -461,8 +473,8 @@
 
                 <div class="tech-card">
                     <div class="tech-card__title" data-i18n="techRider.key.ceiling">Ceiling Height</div>
-                    <div class="tech-card__value">10-12m</div>
-                    <div class="tech-card__desc" data-i18n="techRider.key.ceilingDesc">Optimal height, minimum 6m gray frame</div>
+                    <div class="tech-card__value" data-venue-spec="ceilingHeight">10-12m</div>
+                    <div class="tech-card__desc"><span data-i18n="techRider.key.ceilingOptimal">Optimal height.</span> <strong class="ceiling-min" data-i18n="techRider.key.ceilingMin">Minimum 5m required</strong></div>
                 </div>
 
                 <div class="tech-card">
@@ -480,19 +492,19 @@
                 <div class="tech-card">
                     <div class="tech-card__title" data-i18n="techRider.key.climate">Climate</div>
                     <div class="tech-card__value">21°C</div>
-                    <div class="tech-card__desc" data-i18n="techRider.key.climateDesc">Air renewal: 4000 m³/min (costumes)</div>
+                    <div class="tech-card__desc" data-venue-spec="airRenewal">Air renewal: 4000 m³/min (costumes)</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Interactive Floor Plan -->
-    <section class="section">
+    <section class="section" id="floor-plan">
         <div class="container">
             <div class="floor-plan-container">
                 <div class="floor-plan-title">
                     <h3 data-i18n="techRider.floorPlan.title">Floor Plan Layout</h3>
-                    <p data-i18n="techRider.floorPlan.subtitle">Standard 200-person venue configuration</p>
+                    <p data-venue-spec="floorPlanSubtitle">Large venue configuration (350 capacity)</p>
                 </div>
 
                 <div class="floor-plan">
@@ -502,6 +514,11 @@
                             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
                                 <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#333" stroke-width="0.5"/>
                             </pattern>
+                            <!-- Projector coverage gradient -->
+                            <radialGradient id="projectorCoverage">
+                                <stop offset="0%" style="stop-color:rgba(255,255,255,0.15)"/>
+                                <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+                            </radialGradient>
                         </defs>
                         <rect width="650" height="450" fill="url(#grid)"/>
 
@@ -516,8 +533,8 @@
                         <!-- Changing Room -->
                         <rect class="floor-plan__room" x="20" y="220" width="180" height="200"/>
                         <text class="floor-plan__label" x="110" y="310">CHANGING</text>
-                        <text class="floor-plan__sublabel" x="110" y="330">350 m²</text>
-                        <text class="floor-plan__dimension" x="110" y="350">200 lockers</text>
+                        <text class="floor-plan__sublabel" x="110" y="330" data-venue-spec="changingRoomSvg">350 m²</text>
+                        <text class="floor-plan__dimension" x="110" y="350" data-venue-spec="lockersSvg">350 lockers</text>
                         <!-- Changing room speakers -->
                         <circle class="floor-plan__speaker" cx="50" cy="250" r="5"/>
                         <circle class="floor-plan__speaker" cx="170" cy="250" r="5"/>
@@ -527,34 +544,61 @@
                         <!-- Experience Space (Main) -->
                         <rect class="floor-plan__room" x="220" y="20" width="400" height="400" style="fill: var(--color-gray-850);"/>
                         <text class="floor-plan__label" x="420" y="200">EXPERIENCE</text>
-                        <text class="floor-plan__sublabel" x="420" y="225">26m x 18m</text>
-                        <text class="floor-plan__dimension" x="420" y="250">10-12m ceiling</text>
+                        <text class="floor-plan__sublabel" x="420" y="225" data-venue-spec="experienceSpaceSvg">26m x 18m</text>
+                        <text class="floor-plan__dimension" x="420" y="250" data-venue-spec="ceilingHeightSvg">10-12m ceiling</text>
 
-                        <!-- Projector Grid (4x4 = 16 projectors) -->
-                        <g id="projector-grid">
-                            <!-- Row 1 -->
-                            <circle class="floor-plan__projector" cx="290" cy="80" r="5"/>
-                            <circle class="floor-plan__projector" cx="370" cy="80" r="5"/>
-                            <circle class="floor-plan__projector" cx="450" cy="80" r="5"/>
-                            <circle class="floor-plan__projector" cx="530" cy="80" r="5"/>
-                            <!-- Row 2 -->
-                            <circle class="floor-plan__projector" cx="290" cy="160" r="5"/>
-                            <circle class="floor-plan__projector" cx="370" cy="160" r="5"/>
-                            <circle class="floor-plan__projector" cx="450" cy="160" r="5"/>
-                            <circle class="floor-plan__projector" cx="530" cy="160" r="5"/>
-                            <!-- Row 3 -->
-                            <circle class="floor-plan__projector" cx="290" cy="280" r="5"/>
-                            <circle class="floor-plan__projector" cx="370" cy="280" r="5"/>
-                            <circle class="floor-plan__projector" cx="450" cy="280" r="5"/>
-                            <circle class="floor-plan__projector" cx="530" cy="280" r="5"/>
-                            <!-- Row 4 -->
-                            <circle class="floor-plan__projector" cx="290" cy="360" r="5"/>
-                            <circle class="floor-plan__projector" cx="370" cy="360" r="5"/>
-                            <circle class="floor-plan__projector" cx="450" cy="360" r="5"/>
-                            <circle class="floor-plan__projector" cx="530" cy="360" r="5"/>
+                        <!-- Projector Coverage Circles (Large venue: 6x6 grid) -->
+                        <g id="projector-coverage-grid" class="floor-plan__coverage-group">
+                            <!-- Coverage circles will be generated by JS based on venue size -->
                         </g>
 
-                        <!-- Speakers around experience (12 perimeter + 4 center "Voice of God") -->
+                        <!-- Projector Grid (Large venue: 6x6 = 36 projectors) -->
+                        <g id="projector-grid">
+                            <!-- Row 1 -->
+                            <circle class="floor-plan__projector" cx="270" cy="60" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="60" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="60" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="60" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="60" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="60" r="5"/>
+                            <!-- Row 2 -->
+                            <circle class="floor-plan__projector" cx="270" cy="120" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="120" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="120" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="120" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="120" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="120" r="5"/>
+                            <!-- Row 3 -->
+                            <circle class="floor-plan__projector" cx="270" cy="180" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="180" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="180" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="180" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="180" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="180" r="5"/>
+                            <!-- Row 4 -->
+                            <circle class="floor-plan__projector" cx="270" cy="260" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="260" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="260" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="260" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="260" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="260" r="5"/>
+                            <!-- Row 5 -->
+                            <circle class="floor-plan__projector" cx="270" cy="320" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="320" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="320" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="320" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="320" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="320" r="5"/>
+                            <!-- Row 6 -->
+                            <circle class="floor-plan__projector" cx="270" cy="380" r="5"/>
+                            <circle class="floor-plan__projector" cx="330" cy="380" r="5"/>
+                            <circle class="floor-plan__projector" cx="390" cy="380" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="380" r="5"/>
+                            <circle class="floor-plan__projector" cx="510" cy="380" r="5"/>
+                            <circle class="floor-plan__projector" cx="570" cy="380" r="5"/>
+                        </g>
+
+                        <!-- Speakers around experience (12 tripod + 4 VOG for large) -->
                         <g id="speaker-grid">
                             <!-- Perimeter speakers -->
                             <circle class="floor-plan__speaker" cx="250" cy="60" r="4"/>
@@ -570,10 +614,10 @@
                             <circle class="floor-plan__speaker" cx="520" cy="380" r="4"/>
                             <circle class="floor-plan__speaker" cx="250" cy="220" r="4"/>
                             <!-- Center Voice of God speakers (marked different) -->
-                            <circle cx="370" cy="120" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
-                            <circle cx="450" cy="120" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
-                            <circle cx="370" cy="320" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
-                            <circle cx="450" cy="320" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="370" cy="140" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="450" cy="140" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="370" cy="300" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="450" cy="300" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
                         </g>
 
                         <!-- Control Room -->
@@ -590,15 +634,19 @@
                 <div class="floor-plan-legend">
                     <div class="floor-plan-legend__item">
                         <span class="floor-plan-legend__dot floor-plan-legend__dot--projector"></span>
-                        <span data-i18n="techRider.floorPlan.projectors">16 Projectors (6,500-12,000 lumens)</span>
+                        <span data-venue-spec="projectorLegend">36 Projectors (6,500-12,000 lumens)</span>
                     </div>
                     <div class="floor-plan-legend__item">
                         <span class="floor-plan-legend__dot floor-plan-legend__dot--speaker"></span>
-                        <span data-i18n="techRider.floorPlan.speakers">20 Speakers (multichannel 10 outputs)</span>
+                        <span data-venue-spec="speakerLegend">16 Speakers (12 tripod + 4 VOG)</span>
                     </div>
                     <div class="floor-plan-legend__item">
                         <span style="width: 12px; height: 12px; border: 2px solid #4a9eff; border-radius: 50%;"></span>
                         <span data-i18n="techRider.floorPlan.vog">Voice of God (center array)</span>
+                    </div>
+                    <div class="floor-plan-legend__item">
+                        <span class="floor-plan-legend__dot floor-plan-legend__dot--coverage"></span>
+                        <span data-i18n="techRider.floorPlan.coverage">Projection coverage</span>
                     </div>
                 </div>
             </div>
@@ -615,10 +663,10 @@
                 <div class="equipment-grid">
                     <div class="equipment-card">
                         <div class="equipment-card__title" data-i18n="techRider.audio.experience">Experience Room</div>
-                        <ul class="equipment-card__list">
-                            <li><strong>12</strong> self-supporting speakers on tripods</li>
-                            <li><strong>4</strong> array centered speakers (Voice of God) - flown on truss, pointing downwards</li>
-                            <li><strong>4</strong> sub lows (cinema LFE type)</li>
+                        <ul class="equipment-card__list" id="audio-experience-list">
+                            <li><strong data-venue-spec="tripodSpeakers">12</strong> self-supporting speakers on tripods</li>
+                            <li><strong data-venue-spec="vogSpeakers">4</strong> array centered speakers (Voice of God) - flown on truss, pointing downwards</li>
+                            <li><strong data-venue-spec="subLows">4</strong> sub lows (cinema LFE type)</li>
                             <li><strong>2</strong> large diaphragm condenser microphones</li>
                         </ul>
                     </div>
@@ -664,9 +712,9 @@
                     <div class="equipment-card">
                         <div class="equipment-card__title" data-i18n="techRider.video.experience">Experience Room</div>
                         <ul class="equipment-card__list">
-                            <li><strong>16</strong> projectors (6,500 - 12,000 ANSI lumens)</li>
-                            <li><strong>16</strong> angular lenses</li>
-                            <li><strong>16</strong> outputs Disguise or Watchout video server</li>
+                            <li><strong data-venue-spec="projectors">36</strong> projectors (6,500 - 12,000 ANSI lumens)</li>
+                            <li><strong data-venue-spec="projectors">36</strong> angular lenses</li>
+                            <li><strong data-venue-spec="serverOutputs">36</strong> outputs Disguise or Watchout video server</li>
                         </ul>
                     </div>
 

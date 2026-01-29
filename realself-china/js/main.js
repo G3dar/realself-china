@@ -3,6 +3,172 @@
  * Main JavaScript - i18n, Calculator, Charts
  */
 
+// ========== Venue Specifications ==========
+const VENUE_SPECS = {
+    small: {
+        capacity: 150,
+        experienceSpace: '20m x 14m',
+        ceilingHeight: '8-10m',
+        changingRoom: '250 m²',
+        lockers: 150,
+        projectors: 18,
+        projectorGrid: { rows: 3, cols: 6 },
+        tripodSpeakers: 10,
+        vogSpeakers: 3,
+        subLows: 3,
+        serverOutputs: 18,
+        airRenewal: 'Air renewal: 2500 m³/min (costumes)',
+        // SVG text values
+        changingRoomSvg: '250 m²',
+        lockersSvg: '150 lockers',
+        experienceSpaceSvg: '20m x 14m',
+        ceilingHeightSvg: '8-10m ceiling',
+        floorPlanSubtitle: 'Small venue configuration (150 capacity)',
+        projectorLegend: '18 Projectors (6,500-12,000 lumens)',
+        speakerLegend: '13 Speakers (10 tripod + 3 VOG)',
+        changingReqText: 'Connected to experience space, individual lockers for 150 people'
+    },
+    large: {
+        capacity: 350,
+        experienceSpace: '26m x 18m',
+        ceilingHeight: '10-12m',
+        changingRoom: '350 m²',
+        lockers: 350,
+        projectors: 36,
+        projectorGrid: { rows: 6, cols: 6 },
+        tripodSpeakers: 12,
+        vogSpeakers: 4,
+        subLows: 4,
+        serverOutputs: 36,
+        airRenewal: 'Air renewal: 4000 m³/min (costumes)',
+        // SVG text values
+        changingRoomSvg: '350 m²',
+        lockersSvg: '350 lockers',
+        experienceSpaceSvg: '26m x 18m',
+        ceilingHeightSvg: '10-12m ceiling',
+        floorPlanSubtitle: 'Large venue configuration (350 capacity)',
+        projectorLegend: '36 Projectors (6,500-12,000 lumens)',
+        speakerLegend: '16 Speakers (12 tripod + 4 VOG)',
+        changingReqText: 'Connected to experience space, individual lockers for 350 people'
+    }
+};
+
+// ========== Venue Toggle Module ==========
+const venueToggle = {
+    currentVenue: 'large',
+
+    init() {
+        const toggleBtns = document.querySelectorAll('.venue-toggle__btn');
+        if (toggleBtns.length === 0) return;
+
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const venue = btn.dataset.venue;
+                this.setVenue(venue);
+            });
+        });
+
+        // Initialize with current venue
+        this.updateSpecs();
+        this.generateProjectorCoverage();
+    },
+
+    setVenue(venue) {
+        if (!['small', 'large'].includes(venue)) return;
+
+        this.currentVenue = venue;
+
+        // Update toggle buttons
+        document.querySelectorAll('.venue-toggle__btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.venue === venue);
+        });
+
+        // Update specs
+        this.updateSpecs();
+
+        // Update floor plan SVG
+        this.updateFloorPlan();
+    },
+
+    updateSpecs() {
+        const specs = VENUE_SPECS[this.currentVenue];
+        if (!specs) return;
+
+        // Update all elements with data-venue-spec attribute
+        document.querySelectorAll('[data-venue-spec]').forEach(el => {
+            const specKey = el.dataset.venueSpec;
+            if (specs[specKey] !== undefined) {
+                el.textContent = specs[specKey];
+            }
+        });
+    },
+
+    updateFloorPlan() {
+        const specs = VENUE_SPECS[this.currentVenue];
+        const projectorGrid = document.getElementById('projector-grid');
+
+        if (!projectorGrid) return;
+
+        // Clear existing projectors
+        projectorGrid.innerHTML = '';
+
+        // Generate new projector grid
+        const grid = specs.projectorGrid;
+        const startX = 270;
+        const startY = 60;
+        const spacingX = 60;
+        const spacingY = this.currentVenue === 'small' ? 120 : 64;
+
+        for (let row = 0; row < grid.rows; row++) {
+            for (let col = 0; col < grid.cols; col++) {
+                const cx = startX + (col * spacingX);
+                const cy = startY + (row * spacingY);
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('class', 'floor-plan__projector');
+                circle.setAttribute('cx', cx);
+                circle.setAttribute('cy', cy);
+                circle.setAttribute('r', 5);
+                projectorGrid.appendChild(circle);
+            }
+        }
+
+        // Update projector coverage
+        this.generateProjectorCoverage();
+    },
+
+    generateProjectorCoverage() {
+        const specs = VENUE_SPECS[this.currentVenue];
+        const coverageGroup = document.getElementById('projector-coverage-grid');
+
+        if (!coverageGroup) return;
+
+        // Clear existing coverage circles
+        coverageGroup.innerHTML = '';
+
+        // Generate coverage circles matching projector positions
+        const grid = specs.projectorGrid;
+        const startX = 270;
+        const startY = 60;
+        const spacingX = 60;
+        const spacingY = this.currentVenue === 'small' ? 120 : 64;
+        const coverageRadius = 35;
+
+        for (let row = 0; row < grid.rows; row++) {
+            for (let col = 0; col < grid.cols; col++) {
+                const cx = startX + (col * spacingX);
+                const cy = startY + (row * spacingY);
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('class', 'floor-plan__coverage');
+                circle.setAttribute('cx', cx);
+                circle.setAttribute('cy', cy);
+                circle.setAttribute('r', coverageRadius);
+                circle.setAttribute('fill', 'url(#projectorCoverage)');
+                coverageGroup.appendChild(circle);
+            }
+        }
+    }
+};
+
 // ========== Header Component ==========
 const headerComponent = {
     render() {
@@ -889,6 +1055,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         calculator.init();
     }
 
+    // Initialize venue toggle if on tech-rider page
+    if (document.querySelector('.venue-toggle')) {
+        venueToggle.init();
+    }
+
     // Prefetch other pages after a short delay (don't block initial render)
     setTimeout(() => {
         prefetcher.prefetchAll();
@@ -898,3 +1069,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Export for global access
 window.i18n = i18n;
 window.calculator = calculator;
+window.venueToggle = venueToggle;
+window.VENUE_SPECS = VENUE_SPECS;

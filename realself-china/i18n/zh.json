@@ -131,7 +131,8 @@
       },
       "space": {
         "title": "场地空间",
-        "desc": "体验区：26米 x 18米，更衣室：350平方米，加上前厅、控制室（15平方米）和储藏室。总面积：约800-1000平方米。"
+        "desc": "体验区：20-26米 x 14-18米（按容量），更衣室：250-350平方米，加上前厅、控制室（15平方米）和储藏室。总面积：约500-1000平方米。",
+        "floorPlanLink": "查看详细平面图 →"
       },
       "ceiling": {
         "title": "层高",
@@ -182,25 +183,55 @@
   "techRider": {
     "title": "技术清单",
     "subtitle": "场地设置的完整技术规格",
+    "intro": "本清单总结了Real Self的技术要求。我们的制作经理将与您的本地团队直接合作，审查所有要求并适应场地条件。请选择以下场地大小查看具体要求。",
     "venueOptions": {
       "small": "小型场地",
       "large": "大型场地"
     },
     "table": {
+      "space": "空间",
+      "dimensions": "尺寸",
+      "requirements": "要求",
       "area": "区域",
       "smallVenue": "小型（150人）",
       "largeVenue": "大型（350人）",
       "experience": "体验空间",
+      "experienceReq": "矩形，无立柱，全遮光，深灰色周边框架6米以上",
       "changing": "更衣室",
-      "foyer": "前厅",
+      "changingReq": "与体验空间相连，为参与者提供个人储物柜",
+      "lobby": "前厅",
+      "lobbyReq": "带卫生间的室内区域，餐饮设施，周边商品展示",
       "control": "控制室",
+      "controlReq": "在体验空间外，容纳灯光/音响/视频操作员",
+      "storage": "储藏室",
+      "storageReq": "安全的室内区域，用于存放航空箱、服装、面具、衣架",
+      "foyer": "前厅",
       "total": "总需求"
+    },
+    "key": {
+      "capacity": "容量",
+      "capacityDesc": "每场人数，每天最多6场",
+      "duration": "时长",
+      "durationDesc": "观众全程站立体验",
+      "ceiling": "层高",
+      "ceilingOptimal": "最佳高度。",
+      "ceilingMin": "最低5米要求",
+      "ceilingDesc": "最佳高度，最低5米要求",
+      "blackout": "遮光",
+      "blackoutDesc": "需要完全黑暗，黑色天鹅绒窗帘",
+      "floor": "地面",
+      "floorDesc": "深灰色地毯，支持剪式升降机",
+      "climate": "空调",
+      "climateDesc": "空气更新量因场地大小而异"
     },
     "floorPlan": {
       "title": "平面图布局",
       "subtitle": "大型场地配置 - 约1000平方米",
       "projectors": "36-42台投影仪",
-      "wallProjectors": "墙面投影仪"
+      "wallProjectors": "墙面投影仪",
+      "speakers": "音箱（多声道）",
+      "vog": "上帝之声（中央阵列）",
+      "coverage": "投影覆盖范围"
     },
     "requirements": {
       "title": "技术要求",
@@ -268,7 +299,7 @@
     "intro": {
       "label": "精选版本",
       "title": "体验配音剧本精选片段",
-      "desc": "在55分钟的沉浸式旅程中，一个声音引导参与者经历问题、反思和邀请。墙壁和地面的投影随每个时刻而变化，创造出参与者跟随的视觉引导。以下是精心挑选的片段，捕捉了Real Self体验的基调、情感弧线和哲学深度。"
+      "desc": "在75分钟的沉浸式旅程中，一个声音引导参与者经历问题、反思和邀请。墙壁和地面的投影随每个时刻而变化，创造出参与者跟随的视觉引导。以下是精心挑选的片段，捕捉了Real Self体验的基调、情感弧线和哲学深度。"
     },
     "phases": {
       "one": "第一阶段",

@@ -1232,6 +1232,112 @@ body {
     }
 }
 
+/* ========== Venue Toggle ========== */
+.venue-toggle {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.venue-toggle__btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-lg) var(--spacing-2xl);
+    background: var(--color-gray-900);
+    border: 2px solid var(--color-gray-700);
+    color: var(--color-gray-400);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    min-width: 160px;
+}
+
+.venue-toggle__btn:hover {
+    border-color: var(--color-gray-500);
+    color: var(--color-gray-200);
+}
+
+.venue-toggle__btn.active {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.venue-toggle__capacity {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.venue-toggle__label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Ceiling Minimum Bold Styling */
+.ceiling-min {
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+/* Floor Plan Perspective */
+.floor-plan svg {
+    transform: perspective(1000px) rotateX(8deg);
+    transform-origin: center bottom;
+}
+
+/* Projector Coverage Visualization */
+.floor-plan__coverage {
+    fill: url(#projectorCoverage);
+    pointer-events: none;
+}
+
+.floor-plan__coverage-group {
+    opacity: 0.6;
+}
+
+.floor-plan-legend__dot--coverage {
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+    width: 16px;
+    height: 16px;
+}
+
+/* Spec Link */
+.spec-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+    color: var(--color-white);
+    margin-top: var(--spacing-sm);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.spec-link:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .venue-toggle {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .venue-toggle__btn {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .floor-plan svg {
+        transform: none;
+    }
+}
+
 /* ========== Print Styles ========== */
 @media print {
     .header,

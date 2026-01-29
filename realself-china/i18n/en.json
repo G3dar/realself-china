@@ -131,7 +131,8 @@
       },
       "space": {
         "title": "Venue Space",
-        "desc": "Experience: 26m x 18m, Changing: 350m², plus lobby, control room (15m²), and storage. Total footprint: ~800-1000m²."
+        "desc": "Experience: 20-26m x 14-18m (by capacity), Changing: 250-350m², plus lobby, control room (15m²), and storage. Total footprint: ~500-1000m².",
+        "floorPlanLink": "View detailed floor plan →"
       },
       "ceiling": {
         "title": "Ceiling Height",
@@ -182,25 +183,55 @@
   "techRider": {
     "title": "Technical Rider",
     "subtitle": "Complete technical specifications for venue setup",
+    "intro": "This rider summarizes Real Self's technical requirements. Our Production Manager will work directly with your local team to review all requirements and adapt to venue conditions. Select your venue size below to see specific requirements.",
     "venueOptions": {
       "small": "Small Venue",
       "large": "Large Venue"
     },
     "table": {
+      "space": "Space",
+      "dimensions": "Dimensions",
+      "requirements": "Requirements",
       "area": "Area",
       "smallVenue": "Small (150)",
       "largeVenue": "Large (350)",
       "experience": "Experience Space",
+      "experienceReq": "Rectangular, no columns, total blackout, dark gray perimeter frame 6m+ high",
       "changing": "Changing Room",
-      "foyer": "Foyer",
+      "changingReq": "Connected to experience space, individual lockers for participants",
+      "lobby": "Lobby",
+      "lobbyReq": "Covered area with bathrooms, F&B facilities, merchandise display",
       "control": "Control Room",
+      "controlReq": "Outside experience space, houses lighting/sound/video operators",
+      "storage": "Storage Room",
+      "storageReq": "Secure indoor area for flight cases, costumes, masks, racks",
+      "foyer": "Foyer",
       "total": "Total Required"
+    },
+    "key": {
+      "capacity": "Capacity",
+      "capacityDesc": "People per show, up to 6 shows/day",
+      "duration": "Duration",
+      "durationDesc": "Audience standing for entire experience",
+      "ceiling": "Ceiling Height",
+      "ceilingOptimal": "Optimal height.",
+      "ceilingMin": "Minimum 5m required",
+      "ceilingDesc": "Optimal height, minimum 5m required",
+      "blackout": "Blackout",
+      "blackoutDesc": "Complete darkness required, black velour drapes",
+      "floor": "Floor",
+      "floorDesc": "Dark gray carpet, supports scissor lifts",
+      "climate": "Climate",
+      "climateDesc": "Air renewal varies by venue size"
     },
     "floorPlan": {
       "title": "Floor Plan Layout",
-      "subtitle": "Large venue configuration - approximately 1000 m total",
+      "subtitle": "Large venue configuration - approximately 1000 m² total",
       "projectors": "36-42 Projectors",
-      "wallProjectors": "Wall Projectors"
+      "wallProjectors": "Wall Projectors",
+      "speakers": "Speakers (multichannel)",
+      "vog": "Voice of God (center array)",
+      "coverage": "Projection coverage"
     },
     "requirements": {
       "title": "Technical Requirements",
@@ -268,7 +299,7 @@
     "intro": {
       "label": "Reduced Version",
       "title": "Selected excerpts from the experience's voice-over script",
-      "desc": "Throughout the 55-minute immersive journey, a voice guides participants through questions, reflections, and invitations. The projections on the walls and floor respond to each moment, creating visual cues that participants follow. What follows is a curated selection that captures the tone, emotional arc, and philosophical depth of the Real Self experience."
+      "desc": "Throughout the 75-minute immersive journey, a voice guides participants through questions, reflections, and invitations. The projections on the walls and floor respond to each moment, creating visual cues that participants follow. What follows is a curated selection that captures the tone, emotional arc, and philosophical depth of the Real Self experience."
     },
     "phases": {
       "one": "Phase I",
