@@ -108,11 +108,11 @@
     "subtitle": "Technical details for the Real Self experience",
     "duration": {
       "label": "Minutes",
-      "desc": "55 min experience + 65 min transitions"
+      "desc": "Audience standing for the entire experience"
     },
     "capacity": {
       "label": "Participants",
-      "desc": "Per session, scalable venue options"
+      "desc": "Per session, up to 6 shows per day"
     },
     "age": {
       "label": "Years Old",
@@ -127,15 +127,15 @@
       "title": "Venue Requirements",
       "climate": {
         "title": "Climate Control - Critical",
-        "desc": "Strong air conditioning is essential. Participants wear full overalls, gloves, and masks for 55+ minutes. The venue must maintain comfortable temperatures throughout the experience."
+        "desc": "Strong air conditioning is essential (21°C target, 4000 m³/min air renewal). Participants wear full overalls, gloves, and masks for 75 minutes. The venue must maintain comfortable temperatures throughout."
       },
       "space": {
         "title": "Venue Space",
-        "desc": "Small (150 pax): ~500m total. Large (350 pax): ~1000m total. Includes experience area, changing rooms, foyer, and control room."
+        "desc": "Experience: 26m x 18m, Changing: 350m², plus lobby, control room (15m²), and storage. Total footprint: ~800-1000m²."
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Minimum 6 meters, ideal 9 meters. Projectors mounted on ceiling for full floor coverage and immersive projections."
+        "desc": "Optimal 10-12 meters. Dark gray perimeter frame must be at least 6m high. Projectors mounted on trusses for 360° projection mapping."
       },
       "blackout": {
         "title": "Full Blackout",
@@ -159,17 +159,17 @@
         "desc": "Participants change into identical white overalls, gloves, and masks"
       },
       "experience": {
-        "time": "45-100 min",
+        "time": "45-120 min",
         "title": "The Experience",
-        "desc": "55-minute immersive journey with projections, voice guidance, and interaction"
+        "desc": "75-minute immersive journey with 360° projections, voice guidance, and interaction"
       },
       "revelation": {
-        "time": "100 min",
+        "time": "120 min",
         "title": "The Revelation",
         "desc": "Powerful collective moment, masks come off, celebration"
       },
       "return": {
-        "time": "100-120 min",
+        "time": "120-140 min",
         "title": "Return & Exit",
         "desc": "Participants change back, retrieve belongings, optional post-show bar"
       }

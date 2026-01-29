@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Self Technical Rider - Detailed venue requirements, projector specifications, and floor plan diagrams.">
+    <meta name="description" content="Real Self Technical Rider - Detailed venue requirements, audio/video specifications, and floor plan diagrams.">
     <title>Technical Rider | Real Self</title>
 
     <!-- Fonts -->
@@ -18,48 +18,19 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        .venue-selector {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            margin-bottom: var(--spacing-2xl);
-        }
-
-        .venue-btn {
-            padding: var(--spacing-lg) var(--spacing-2xl);
-            background: var(--color-gray-900);
-            border: 2px solid var(--color-gray-700);
-            color: var(--color-gray-400);
-            font-family: var(--font-display);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            min-width: 180px;
+        .rider-intro {
+            max-width: 800px;
+            margin: 0 auto var(--spacing-2xl);
             text-align: center;
         }
 
-        .venue-btn:hover {
-            border-color: var(--color-gray-500);
-            color: var(--color-white);
-        }
-
-        .venue-btn.active {
-            border-color: var(--color-white);
-            background: var(--color-gray-800);
-            color: var(--color-white);
-        }
-
-        .venue-btn__capacity {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .venue-btn__label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .rider-intro__note {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-lg);
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+            line-height: 1.7;
         }
 
         .specs-table {
@@ -84,13 +55,19 @@
 
         .specs-table td {
             font-family: var(--font-display);
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: var(--color-white);
         }
 
         .specs-table td.highlight {
             color: var(--color-white);
             font-weight: 600;
+        }
+
+        .specs-table td.detail {
+            color: var(--color-gray-400);
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
         }
 
         /* SVG Floor Plan */
@@ -165,16 +142,21 @@
             fill: var(--color-white);
         }
 
-        .projector-legend {
+        .floor-plan__speaker {
+            fill: #4a9eff;
+        }
+
+        .floor-plan-legend {
             display: flex;
             justify-content: center;
             gap: var(--spacing-xl);
             margin-top: var(--spacing-lg);
             padding-top: var(--spacing-lg);
             border-top: 1px solid var(--color-gray-800);
+            flex-wrap: wrap;
         }
 
-        .projector-legend__item {
+        .floor-plan-legend__item {
             display: flex;
             align-items: center;
             gap: var(--spacing-sm);
@@ -182,11 +164,75 @@
             color: var(--color-gray-400);
         }
 
-        .projector-legend__dot {
+        .floor-plan-legend__dot {
             width: 8px;
             height: 8px;
-            background: var(--color-white);
             border-radius: 50%;
+        }
+
+        .floor-plan-legend__dot--projector {
+            background: var(--color-white);
+        }
+
+        .floor-plan-legend__dot--speaker {
+            background: #4a9eff;
+        }
+
+        .floor-plan-legend__dot--camera {
+            background: #ff6b6b;
+        }
+
+        /* Equipment Sections */
+        .equipment-section {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .equipment-section__title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .equipment-card {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-xl);
+        }
+
+        .equipment-card__title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .equipment-card__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equipment-card__list li {
+            padding: var(--spacing-sm) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+            font-size: 0.95rem;
+            color: var(--color-gray-300);
+        }
+
+        .equipment-card__list li:last-child {
+            border-bottom: none;
+        }
+
+        .equipment-card__list li strong {
+            color: var(--color-white);
         }
 
         /* Tech Requirements Grid */
@@ -266,7 +312,7 @@
         }
 
         .faq-item.active .faq-answer {
-            max-height: 300px;
+            max-height: 500px;
         }
 
         .faq-answer__content {
@@ -276,19 +322,57 @@
             line-height: 1.7;
         }
 
+        /* Staff Section */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+        }
+
+        .staff-card {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-xl);
+        }
+
+        .staff-card__title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-white);
+        }
+
+        .staff-card__subtitle {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .staff-card__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .staff-card__list li {
+            padding: var(--spacing-xs) 0;
+            font-size: 0.9rem;
+            color: var(--color-gray-400);
+        }
+
         @media (max-width: 768px) {
-            .venue-selector {
+            .tech-grid,
+            .equipment-grid,
+            .staff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floor-plan-legend {
                 flex-direction: column;
                 align-items: center;
-            }
-
-            .venue-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .tech-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -305,199 +389,469 @@
         </div>
     </section>
 
-    <!-- Venue Selector -->
+    <!-- Introduction -->
     <section class="section" style="padding-top: 0;">
         <div class="container">
-            <div class="venue-selector">
-                <button class="venue-btn" data-venue="small">
-                    <span class="venue-btn__capacity">150</span>
-                    <span class="venue-btn__label" data-i18n="techRider.venueOptions.small">Small Venue</span>
-                </button>
-                <button class="venue-btn active" data-venue="large">
-                    <span class="venue-btn__capacity">350</span>
-                    <span class="venue-btn__label" data-i18n="techRider.venueOptions.large">Large Venue</span>
-                </button>
+            <div class="rider-intro">
+                <div class="rider-intro__note">
+                    <p data-i18n="techRider.intro">This rider summarizes Real Self's technical requirements. Our Production Manager will work directly with your local team to review all requirements and adapt to venue conditions. This rider applies to a standard show with capacity of 200 people, maximum 6 shows per day, 6 days per week.</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Venue Requirements -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="techRider.venueTitle">Venue Requirements</h2>
 
             <!-- Specifications Table -->
             <div class="table-wrapper">
                 <table class="specs-table">
                     <thead>
                         <tr>
-                            <th data-i18n="techRider.table.area">Area</th>
-                            <th data-i18n="techRider.table.smallVenue">Small (150)</th>
-                            <th data-i18n="techRider.table.largeVenue">Large (350)</th>
+                            <th data-i18n="techRider.table.space">Space</th>
+                            <th data-i18n="techRider.table.dimensions">Dimensions</th>
+                            <th data-i18n="techRider.table.requirements">Requirements</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td data-i18n="techRider.table.experience">Experience Space</td>
-                            <td>210 m</td>
-                            <td class="highlight">480 m</td>
+                            <td class="highlight" data-i18n="techRider.table.experience">Experience Space</td>
+                            <td>26m x 18m x 10-12m high</td>
+                            <td class="detail" data-i18n="techRider.table.experienceReq">Rectangular, no columns, total blackout, dark gray perimeter frame 6m+ high</td>
                         </tr>
                         <tr>
-                            <td data-i18n="techRider.table.changing">Changing Room</td>
-                            <td>160 m</td>
-                            <td class="highlight">350 m</td>
+                            <td class="highlight" data-i18n="techRider.table.changing">Changing Room</td>
+                            <td>350 m² minimum</td>
+                            <td class="detail" data-i18n="techRider.table.changingReq">Connected to experience space, individual lockers for 200+ people</td>
                         </tr>
                         <tr>
-                            <td data-i18n="techRider.table.foyer">Foyer</td>
-                            <td>80 m</td>
-                            <td class="highlight">120 m</td>
+                            <td class="highlight" data-i18n="techRider.table.lobby">Lobby</td>
+                            <td>Full audience capacity</td>
+                            <td class="detail" data-i18n="techRider.table.lobbyReq">Covered area with bathrooms, F&B facilities, merchandise display</td>
                         </tr>
                         <tr>
-                            <td data-i18n="techRider.table.control">Control Room</td>
-                            <td>15 m</td>
-                            <td class="highlight">25 m</td>
+                            <td class="highlight" data-i18n="techRider.table.control">Control Room</td>
+                            <td>15 m² / 3m height</td>
+                            <td class="detail" data-i18n="techRider.table.controlReq">Outside experience space, houses lighting/sound/video operators</td>
                         </tr>
-                        <tr style="border-top: 2px solid var(--color-gray-600);">
-                            <td style="font-weight: 600; color: var(--color-white);" data-i18n="techRider.table.total">Total Required</td>
-                            <td style="font-weight: 600;">~500 m</td>
-                            <td class="highlight" style="font-weight: 700;">~1000 m</td>
+                        <tr>
+                            <td class="highlight" data-i18n="techRider.table.storage">Storage Room</td>
+                            <td>40-foot container equivalent</td>
+                            <td class="detail" data-i18n="techRider.table.storageReq">Secure indoor area for flight cases, costumes, masks, racks</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- Key Requirements -->
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.capacity">Capacity</div>
+                    <div class="tech-card__value">200</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.capacityDesc">People per show, up to 6 shows/day</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.duration">Duration</div>
+                    <div class="tech-card__value">75 min</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.durationDesc">Audience standing for entire experience</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.ceiling">Ceiling Height</div>
+                    <div class="tech-card__value">10-12m</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.ceilingDesc">Optimal height, minimum 6m gray frame</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.blackout">Blackout</div>
+                    <div class="tech-card__value">100%</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.blackoutDesc">Complete darkness required, black velour drapes</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.floor">Floor</div>
+                    <div class="tech-card__value">Flat</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.floorDesc">Dark gray carpet, supports scissor lifts</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.key.climate">Climate</div>
+                    <div class="tech-card__value">21°C</div>
+                    <div class="tech-card__desc" data-i18n="techRider.key.climateDesc">Air renewal: 4000 m³/min (costumes)</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Interactive Floor Plan -->
-    <section class="section section--dark">
+    <section class="section">
         <div class="container">
             <div class="floor-plan-container">
                 <div class="floor-plan-title">
                     <h3 data-i18n="techRider.floorPlan.title">Floor Plan Layout</h3>
-                    <p id="floor-plan-dimensions" data-i18n="techRider.floorPlan.subtitle">Large venue configuration - approximately 1000 m total</p>
+                    <p data-i18n="techRider.floorPlan.subtitle">Standard 200-person venue configuration</p>
                 </div>
 
                 <div class="floor-plan">
-                    <svg id="floor-plan-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="floor-plan-svg" viewBox="0 0 650 450" xmlns="http://www.w3.org/2000/svg">
                         <!-- Background Grid -->
                         <defs>
                             <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
                                 <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#333" stroke-width="0.5"/>
                             </pattern>
                         </defs>
-                        <rect width="600" height="400" fill="url(#grid)"/>
+                        <rect width="650" height="450" fill="url(#grid)"/>
 
-                        <!-- Foyer -->
-                        <rect id="foyer" class="floor-plan__room" x="20" y="20" width="120" height="180"/>
-                        <text class="floor-plan__label" x="80" y="100">FOYER</text>
-                        <text id="foyer-size" class="floor-plan__sublabel" x="80" y="120">120 m</text>
+                        <!-- Lobby -->
+                        <rect class="floor-plan__room" x="20" y="20" width="130" height="180"/>
+                        <text class="floor-plan__label" x="85" y="100">LOBBY</text>
+                        <text class="floor-plan__sublabel" x="85" y="120">F&B / Merch</text>
+                        <!-- Lobby speakers -->
+                        <circle class="floor-plan__speaker" cx="50" cy="50" r="5"/>
+                        <circle class="floor-plan__speaker" cx="120" cy="50" r="5"/>
 
                         <!-- Changing Room -->
-                        <rect id="changing" class="floor-plan__room" x="20" y="220" width="180" height="160"/>
-                        <text class="floor-plan__label" x="110" y="295">CHANGING</text>
-                        <text id="changing-size" class="floor-plan__sublabel" x="110" y="315">350 m</text>
+                        <rect class="floor-plan__room" x="20" y="220" width="180" height="200"/>
+                        <text class="floor-plan__label" x="110" y="310">CHANGING</text>
+                        <text class="floor-plan__sublabel" x="110" y="330">350 m²</text>
+                        <text class="floor-plan__dimension" x="110" y="350">200 lockers</text>
+                        <!-- Changing room speakers -->
+                        <circle class="floor-plan__speaker" cx="50" cy="250" r="5"/>
+                        <circle class="floor-plan__speaker" cx="170" cy="250" r="5"/>
+                        <circle class="floor-plan__speaker" cx="50" cy="390" r="5"/>
+                        <circle class="floor-plan__speaker" cx="170" cy="390" r="5"/>
 
                         <!-- Experience Space (Main) -->
-                        <rect id="experience" class="floor-plan__room" x="160" y="20" width="400" height="360"/>
-                        <text class="floor-plan__label" x="360" y="190">EXPERIENCE</text>
-                        <text id="experience-size" class="floor-plan__sublabel" x="360" y="215">480 m</text>
-                        <text class="floor-plan__dimension" x="360" y="240">Ceiling: 6-9m</text>
+                        <rect class="floor-plan__room" x="220" y="20" width="400" height="400" style="fill: var(--color-gray-850);"/>
+                        <text class="floor-plan__label" x="420" y="200">EXPERIENCE</text>
+                        <text class="floor-plan__sublabel" x="420" y="225">26m x 18m</text>
+                        <text class="floor-plan__dimension" x="420" y="250">10-12m ceiling</text>
 
-                        <!-- Projector Grid (for Large venue) -->
+                        <!-- Projector Grid (4x4 = 16 projectors) -->
                         <g id="projector-grid">
                             <!-- Row 1 -->
-                            <circle class="floor-plan__projector" cx="220" cy="70" r="4"/>
-                            <circle class="floor-plan__projector" cx="290" cy="70" r="4"/>
-                            <circle class="floor-plan__projector" cx="360" cy="70" r="4"/>
-                            <circle class="floor-plan__projector" cx="430" cy="70" r="4"/>
-                            <circle class="floor-plan__projector" cx="500" cy="70" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="80" r="5"/>
+                            <circle class="floor-plan__projector" cx="370" cy="80" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="80" r="5"/>
+                            <circle class="floor-plan__projector" cx="530" cy="80" r="5"/>
                             <!-- Row 2 -->
-                            <circle class="floor-plan__projector" cx="220" cy="140" r="4"/>
-                            <circle class="floor-plan__projector" cx="290" cy="140" r="4"/>
-                            <circle class="floor-plan__projector" cx="360" cy="140" r="4"/>
-                            <circle class="floor-plan__projector" cx="430" cy="140" r="4"/>
-                            <circle class="floor-plan__projector" cx="500" cy="140" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="160" r="5"/>
+                            <circle class="floor-plan__projector" cx="370" cy="160" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="160" r="5"/>
+                            <circle class="floor-plan__projector" cx="530" cy="160" r="5"/>
                             <!-- Row 3 -->
-                            <circle class="floor-plan__projector" cx="220" cy="210" r="4"/>
-                            <circle class="floor-plan__projector" cx="290" cy="210" r="4"/>
-                            <circle class="floor-plan__projector" cx="360" cy="210" r="4"/>
-                            <circle class="floor-plan__projector" cx="430" cy="210" r="4"/>
-                            <circle class="floor-plan__projector" cx="500" cy="210" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="280" r="5"/>
+                            <circle class="floor-plan__projector" cx="370" cy="280" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="280" r="5"/>
+                            <circle class="floor-plan__projector" cx="530" cy="280" r="5"/>
                             <!-- Row 4 -->
-                            <circle class="floor-plan__projector" cx="220" cy="280" r="4"/>
-                            <circle class="floor-plan__projector" cx="290" cy="280" r="4"/>
-                            <circle class="floor-plan__projector" cx="360" cy="280" r="4"/>
-                            <circle class="floor-plan__projector" cx="430" cy="280" r="4"/>
-                            <circle class="floor-plan__projector" cx="500" cy="280" r="4"/>
-                            <!-- Row 5 -->
-                            <circle class="floor-plan__projector" cx="220" cy="330" r="4"/>
-                            <circle class="floor-plan__projector" cx="290" cy="330" r="4"/>
-                            <circle class="floor-plan__projector" cx="360" cy="330" r="4"/>
-                            <circle class="floor-plan__projector" cx="430" cy="330" r="4"/>
-                            <circle class="floor-plan__projector" cx="500" cy="330" r="4"/>
-                            <!-- Extra projectors for walls -->
-                            <circle class="floor-plan__projector" cx="185" cy="105" r="3"/>
-                            <circle class="floor-plan__projector" cx="185" cy="175" r="3"/>
-                            <circle class="floor-plan__projector" cx="185" cy="245" r="3"/>
-                            <circle class="floor-plan__projector" cx="535" cy="105" r="3"/>
-                            <circle class="floor-plan__projector" cx="535" cy="175" r="3"/>
-                            <circle class="floor-plan__projector" cx="535" cy="245" r="3"/>
+                            <circle class="floor-plan__projector" cx="290" cy="360" r="5"/>
+                            <circle class="floor-plan__projector" cx="370" cy="360" r="5"/>
+                            <circle class="floor-plan__projector" cx="450" cy="360" r="5"/>
+                            <circle class="floor-plan__projector" cx="530" cy="360" r="5"/>
+                        </g>
+
+                        <!-- Speakers around experience (12 perimeter + 4 center "Voice of God") -->
+                        <g id="speaker-grid">
+                            <!-- Perimeter speakers -->
+                            <circle class="floor-plan__speaker" cx="250" cy="60" r="4"/>
+                            <circle class="floor-plan__speaker" cx="340" cy="60" r="4"/>
+                            <circle class="floor-plan__speaker" cx="430" cy="60" r="4"/>
+                            <circle class="floor-plan__speaker" cx="520" cy="60" r="4"/>
+                            <circle class="floor-plan__speaker" cx="590" cy="60" r="4"/>
+                            <circle class="floor-plan__speaker" cx="590" cy="220" r="4"/>
+                            <circle class="floor-plan__speaker" cx="590" cy="380" r="4"/>
+                            <circle class="floor-plan__speaker" cx="250" cy="380" r="4"/>
+                            <circle class="floor-plan__speaker" cx="340" cy="380" r="4"/>
+                            <circle class="floor-plan__speaker" cx="430" cy="380" r="4"/>
+                            <circle class="floor-plan__speaker" cx="520" cy="380" r="4"/>
+                            <circle class="floor-plan__speaker" cx="250" cy="220" r="4"/>
+                            <!-- Center Voice of God speakers (marked different) -->
+                            <circle cx="370" cy="120" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="450" cy="120" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="370" cy="320" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
+                            <circle cx="450" cy="320" r="6" fill="none" stroke="#4a9eff" stroke-width="2"/>
                         </g>
 
                         <!-- Control Room -->
-                        <rect id="control" class="floor-plan__room" x="220" y="220" width="80" height="60" style="fill: var(--color-gray-700);"/>
+                        <rect class="floor-plan__room" x="220" y="220" width="80" height="60" style="fill: var(--color-gray-700);"/>
                         <text class="floor-plan__label" x="260" y="250" style="font-size: 10px;">CONTROL</text>
-                        <text id="control-size" class="floor-plan__sublabel" x="260" y="265" style="font-size: 9px;">25 m</text>
+                        <text class="floor-plan__sublabel" x="260" y="265" style="font-size: 9px;">15 m²</text>
+
+                        <!-- Storage indicator -->
+                        <rect class="floor-plan__room" x="220" y="300" width="80" height="40" style="fill: var(--color-gray-850); stroke-dasharray: 5,5;"/>
+                        <text class="floor-plan__sublabel" x="260" y="325" style="font-size: 9px;">STORAGE</text>
                     </svg>
                 </div>
 
-                <div class="projector-legend">
-                    <div class="projector-legend__item">
-                        <span class="projector-legend__dot"></span>
-                        <span id="projector-count" data-i18n="techRider.floorPlan.projectors">36-42 Projectors</span>
+                <div class="floor-plan-legend">
+                    <div class="floor-plan-legend__item">
+                        <span class="floor-plan-legend__dot floor-plan-legend__dot--projector"></span>
+                        <span data-i18n="techRider.floorPlan.projectors">16 Projectors (6,500-12,000 lumens)</span>
                     </div>
-                    <div class="projector-legend__item">
-                        <span class="projector-legend__dot" style="background: var(--color-gray-500);"></span>
-                        <span data-i18n="techRider.floorPlan.wallProjectors">Wall Projectors</span>
+                    <div class="floor-plan-legend__item">
+                        <span class="floor-plan-legend__dot floor-plan-legend__dot--speaker"></span>
+                        <span data-i18n="techRider.floorPlan.speakers">20 Speakers (multichannel 10 outputs)</span>
+                    </div>
+                    <div class="floor-plan-legend__item">
+                        <span style="width: 12px; height: 12px; border: 2px solid #4a9eff; border-radius: 50%;"></span>
+                        <span data-i18n="techRider.floorPlan.vog">Voice of God (center array)</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Requirements -->
+    <!-- Audio Equipment -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="equipment-section">
+                <h2 class="equipment-section__title" data-i18n="techRider.audio.title">Audio System</h2>
+                <p class="mb-xl" style="color: var(--color-gray-400);" data-i18n="techRider.audio.subtitle">Multichannel system with 10 outputs for immersive 360° sound</p>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.audio.experience">Experience Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>12</strong> self-supporting speakers on tripods</li>
+                            <li><strong>4</strong> array centered speakers (Voice of God) - flown on truss, pointing downwards</li>
+                            <li><strong>4</strong> sub lows (cinema LFE type)</li>
+                            <li><strong>2</strong> large diaphragm condenser microphones</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.audio.control">Control Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>1</strong> audio console 32 inputs / 16 outputs</li>
+                            <li><strong>2</strong> shelf speakers (room control)</li>
+                            <li><strong>1</strong> talkback microphone</li>
+                            <li><strong>1</strong> wireless microphone (direction/emergencies)</li>
+                            <li><strong>1</strong> stereo player (backup, rehearsals)</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.audio.changing">Changing Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>4</strong> self-powered speakers with rigging</li>
+                            <li><strong>2</strong> large diaphragm condenser microphones</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.audio.lobby">Lobby</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>2</strong> self-powered speakers with rigging</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Equipment -->
     <section class="section">
         <div class="container">
-            <h2 class="text-center mb-2xl" data-i18n="techRider.requirements.title">Technical Requirements</h2>
+            <div class="equipment-section">
+                <h2 class="equipment-section__title" data-i18n="techRider.video.title">Video System</h2>
+                <p class="mb-xl" style="color: var(--color-gray-400);" data-i18n="techRider.video.subtitle">360° projection mapping on all 4 walls and floor. Target: 100 ANSI lumens per m² on dark gray surface.</p>
 
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.projectors.title">Projectors</div>
-                    <div class="tech-card__value" id="tech-projectors">36-42</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.projectors.desc">High-lumen projectors (5,000+ ANSI) for floor and wall coverage</div>
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.video.experience">Experience Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>16</strong> projectors (6,500 - 12,000 ANSI lumens)</li>
+                            <li><strong>16</strong> angular lenses</li>
+                            <li><strong>16</strong> outputs Disguise or Watchout video server</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.video.changing">Changing Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>1</strong> projector (5,000 - 7,000 ANSI lumens)</li>
+                            <li><strong>1</strong> normal or angular lens</li>
+                            <li><strong>1</strong> projection screen 5m x 3m</li>
+                            <li><strong>1</strong> video server / 1 HD output / audio out</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.ceiling.title">Ceiling Height</div>
-                    <div class="tech-card__value">6-9m</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.ceiling.desc">Minimum 6m, ideal 9m for optimal projection distance</div>
+                <div class="rider-intro__note" style="margin-top: var(--spacing-xl);">
+                    <p data-i18n="techRider.video.note">The choice of projector power and lenses depends on venue conditions. We will work with your team to review your local equipment proposal and ensure the best possible experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lighting Equipment -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="equipment-section">
+                <h2 class="equipment-section__title" data-i18n="techRider.lighting.title">Lighting System</h2>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.lighting.experience">Experience Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>6</strong> mobile fixtures beam 5R</li>
+                            <li><strong>8</strong> Leekos</li>
+                            <li><strong>1</strong> mirror ball 80cm (automated up/down)</li>
+                            <li><strong>1</strong> MA2 console</li>
+                            <li><strong>4</strong> towers 0.50 x 0.50 x 2m (lined with box fabric)</li>
+                            <li><strong>1</strong> hazer machine</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.lighting.changing">Changing Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>11</strong> pin spot bar x6 dimmable</li>
+                            <li><strong>24</strong> spot LED bars (floor)</li>
+                            <li><strong>1</strong> hazer machine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CCTV & Communications -->
+    <section class="section">
+        <div class="container">
+            <div class="equipment-section">
+                <h2 class="equipment-section__title" data-i18n="techRider.cctv.title">CCTV & Communications</h2>
+                <p class="mb-xl" style="color: var(--color-gray-400);" data-i18n="techRider.cctv.subtitle">Essential for security and monitoring. Must see and hear in all areas.</p>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.cctv.cameras">Camera System</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>Lobby:</strong> 2 IP dome cameras (fixed)</li>
+                            <li><strong>Changing:</strong> 1-2 IP cameras, infrared night vision</li>
+                            <li><strong>Experience:</strong> 1 IP dome + 2 IP PTZ, infrared, 7m height</li>
+                            <li><strong>Control:</strong> 1 IP dome, infrared</li>
+                            <li><strong>1</strong> DVR multi-camera recorder (160 hours)</li>
+                            <li><strong>1</strong> LCD 55" multiview monitor</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.cctv.radios">Two-Way Radios</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>8</strong> EP450 portable radios (6 channel min)</li>
+                            <li><strong>18</strong> acoustic headset earpieces</li>
+                            <li><strong>8</strong> spare batteries</li>
+                            <li><strong>8</strong> quick chargers</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.cctv.internet">Internet</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>50 Mbps</strong> Wi-Fi minimum</li>
+                            <li>Exclusive for Real Self (not shared)</li>
+                            <li>Required from load-in through load-out</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.cctv.power">Power Quality</div>
+                        <ul class="equipment-card__list">
+                            <li>Max 2% power fall tolerance</li>
+                            <li>All circuits: 30 mA RCB protection</li>
+                            <li>Double insulated cables</li>
+                            <li>Proper grounding (certified)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rigging -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="equipment-section">
+                <h2 class="equipment-section__title" data-i18n="techRider.rigging.title">Rigging Requirements</h2>
+
+                <div class="equipment-grid">
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.rigging.experience">Experience Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>6</strong> corner blocks 40/40</li>
+                            <li><strong>9</strong> truss 40/40 x 3m</li>
+                            <li><strong>3</strong> truss 40/40 x 2m</li>
+                            <li><strong>4</strong> truss 40/40 x 50cm</li>
+                            <li><strong>4</strong> chain hoist 1 TN</li>
+                        </ul>
+                    </div>
+
+                    <div class="equipment-card">
+                        <div class="equipment-card__title" data-i18n="techRider.rigging.changing">Changing Room</div>
+                        <ul class="equipment-card__list">
+                            <li><strong>6</strong> truss 30/30 x 3m</li>
+                            <li><strong>4</strong> chain hoist 1/2 TN</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staff Requirements -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="techRider.staff.title">Staff & Timeline</h2>
+
+            <div class="staff-grid">
+                <div class="staff-card">
+                    <div class="staff-card__subtitle" data-i18n="techRider.staff.rsTeam">Real Self Team</div>
+                    <div class="staff-card__title" data-i18n="techRider.staff.loadIn">Load-in & Setup (1 week before premiere)</div>
+                    <ul class="staff-card__list">
+                        <li>1 Creator / Artistic Director</li>
+                        <li>1 Executive Producer</li>
+                        <li>1 Sound Engineer (Mix and mastering)</li>
+                    </ul>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.sound.title">Sound System</div>
-                    <div class="tech-card__value">360</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.sound.desc">Surround sound system (4.1 minimum) for immersive audio</div>
+                <div class="staff-card">
+                    <div class="staff-card__subtitle" data-i18n="techRider.staff.rsTeam">Real Self Team</div>
+                    <div class="staff-card__title" data-i18n="techRider.staff.training">Training (premiere + first week)</div>
+                    <ul class="staff-card__list">
+                        <li>1 Assistants Leader</li>
+                        <li>1 Creator / Artistic Director</li>
+                        <li>1 Executive Producer</li>
+                    </ul>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.servers.title">Media Servers</div>
-                    <div class="tech-card__value" id="tech-servers">4-6</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.servers.desc">High-performance media servers for synchronized playback</div>
+                <div class="staff-card">
+                    <div class="staff-card__subtitle" data-i18n="techRider.staff.localTeam">Local Team Required</div>
+                    <div class="staff-card__title" data-i18n="techRider.staff.showStaff">Show Staff</div>
+                    <ul class="staff-card__list">
+                        <li>7 assistants (1 coordinator) - helpful, attentive, proactive</li>
+                        <li>1 local production manager (Spanish or English)</li>
+                        <li>1 house electrician (24-hour availability)</li>
+                        <li>Security (24-hour)</li>
+                        <li>First aid / ambulance on-site</li>
+                        <li>Cleaners</li>
+                    </ul>
                 </div>
 
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.power.title">Power</div>
-                    <div class="tech-card__value" id="tech-power">80-120 kW</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.power.desc">Dedicated power circuits for AV equipment</div>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-card__title" data-i18n="techRider.requirements.climate.title">Climate Control</div>
-                    <div class="tech-card__value" data-i18n="techRider.requirements.climate.value">Strong AC</div>
-                    <div class="tech-card__desc" data-i18n="techRider.requirements.climate.desc">Participants wear full costumes for 55+ minutes</div>
+                <div class="staff-card">
+                    <div class="staff-card__subtitle" data-i18n="techRider.staff.timeline">Timeline</div>
+                    <div class="staff-card__title" data-i18n="techRider.staff.schedule">Schedule</div>
+                    <ul class="staff-card__list">
+                        <li><strong>Load-in:</strong> 5 days (12-hour working days)</li>
+                        <li><strong>Load-out:</strong> 1 day</li>
+                        <li><strong>Daily:</strong> 09:00-21:00 with breaks</li>
+                        <li><strong>Pre-production visit:</strong> Required before setup</li>
+                        <li><strong>Inspection visits:</strong> Every 8 weeks of running</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -515,7 +869,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q1.answer">For a small venue (150 capacity), you need approximately 500m total. For the recommended large venue (350 capacity), approximately 1000m is required. This includes the experience space, changing rooms, foyer, and control room.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q1.answer">The experience space should be 26m x 18m x 10-12m high (optimal). The changing room needs minimum 350 m². You also need a lobby, control room (15 m²), and storage equivalent to a 40-foot container. Total venue footprint is approximately 800-1000 m².</p>
                     </div>
                 </div>
 
@@ -525,7 +879,7 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q2.answer">Small venue requires 16-18 projectors, while large venue needs 36-42 projectors. These are ceiling-mounted, high-lumen projectors (5,000+ ANSI lumens) that provide full floor and wall coverage for the immersive projections.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q2.answer">16 projectors for the experience room (6,500-12,000 ANSI lumens each) plus 1 projector for the changing room (5,000-7,000 lumens). Target illumination is 100 ANSI lumens per square meter on dark gray surfaces. You'll need a Disguise or Watchout video server system with 16 outputs.</p>
                     </div>
                 </div>
 
@@ -535,37 +889,37 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q3.answer">Possibly! The key requirements are: sufficient floor area, minimum 6m ceiling height, ability to achieve complete blackout, and strong climate control. Warehouses, event halls, and theater spaces often work well. We evaluate each venue individually.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q3.answer">Possibly. Key requirements: rectangular space with no columns, 10-12m ceiling height (minimum 6m for the dark frame), complete blackout capability, strong climate control (4000 m³/min air renewal), and separate areas for changing room and lobby. We evaluate each venue with a pre-production site visit.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span data-i18n="techRider.faq.q4.question">What if my ceiling is less than 6m?</span>
+                        <span data-i18n="techRider.faq.q4.question">Who provides the equipment?</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q4.answer">Ceiling height below 6m significantly limits projection coverage and the immersive quality. We may be able to adapt with different projector configurations, but this requires individual assessment. The ideal is 9m for optimal floor projection distance.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q4.answer">The Presenter (local partner) provides all equipment: projectors, video servers, sound system, lighting, rigging, CCTV, radios, and venue infrastructure. Real Self provides the content, projection mapping, technical supervision, training, and artistic direction. We work with your local suppliers during setup.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span data-i18n="techRider.faq.q5.question">Who provides the equipment?</span>
+                        <span data-i18n="techRider.faq.q5.question">How long does setup take?</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q5.answer">The partner provides all AV equipment (projectors, media servers, sound system, lighting). Real Self provides technical supervision, content, projection mapping design, and show control programming. We work with your local AV team during installation.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q5.answer">Load-in takes 5 days of 12-hour working days. Our team (Creator, Executive Producer, Sound Engineer) will be on-site for setup, plus 1 week for premiere and staff training. We also provide artistic direction adjustments for the first 3 weeks of running, and inspection visits every 8 weeks thereafter.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        <span data-i18n="techRider.faq.q6.question">How long does installation take?</span>
+                        <span data-i18n="techRider.faq.q6.question">What local staff do I need?</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p class="faq-answer__content" data-i18n="techRider.faq.q6.answer">Full installation takes approximately 20 days. This includes equipment installation, projection mapping and calibration, sound setup, staff training, and technical rehearsals. Our team of 2-4 people will be on-site throughout.</p>
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q6.answer">You need: 7 show assistants (helpful, attentive, proactive people who can run, jump and dance), 1 local production manager (Spanish or English required), 1 house electrician (24-hour availability), security (24-hour), first aid/ambulance on-site during load-in/out and shows, and cleaners. The same assistants should be kept for the entire run after training.</p>
                     </div>
                 </div>
             </div>
@@ -594,105 +948,9 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Venue configuration data
-        const venueConfigs = {
-            small: {
-                experience: '210 m',
-                changing: '160 m',
-                foyer: '80 m',
-                control: '15 m',
-                total: '~500 m',
-                projectors: '16-18',
-                servers: '2-3',
-                power: '50-70 kW',
-                floorPlanText: 'Small venue configuration - approximately 500 m total'
-            },
-            large: {
-                experience: '480 m',
-                changing: '350 m',
-                foyer: '120 m',
-                control: '25 m',
-                total: '~1000 m',
-                projectors: '36-42',
-                servers: '4-6',
-                power: '80-120 kW',
-                floorPlanText: 'Large venue configuration - approximately 1000 m total'
-            }
-        };
-
-        // Current venue selection
-        let currentVenue = 'large';
-
-        // DOM elements
-        const venueBtns = document.querySelectorAll('.venue-btn');
+        // FAQ accordion
         const faqItems = document.querySelectorAll('.faq-item');
 
-        // Update the display based on venue selection
-        function updateVenueDisplay(venue) {
-            const config = venueConfigs[venue];
-
-            // Update SVG labels
-            document.getElementById('foyer-size').textContent = config.foyer;
-            document.getElementById('changing-size').textContent = config.changing;
-            document.getElementById('experience-size').textContent = config.experience;
-            document.getElementById('control-size').textContent = config.control;
-
-            // Update floor plan subtitle
-            document.getElementById('floor-plan-dimensions').textContent = config.floorPlanText;
-
-            // Update projector count
-            document.getElementById('projector-count').textContent = config.projectors + ' Projectors';
-
-            // Update tech cards
-            document.getElementById('tech-projectors').textContent = config.projectors;
-            document.getElementById('tech-servers').textContent = config.servers;
-            document.getElementById('tech-power').textContent = config.power;
-
-            // Update projector grid visibility
-            const projectorGrid = document.getElementById('projector-grid');
-            const projectors = projectorGrid.querySelectorAll('circle');
-
-            if (venue === 'small') {
-                // Show fewer projectors for small venue
-                projectors.forEach((p, i) => {
-                    p.style.opacity = i < 18 ? '1' : '0.2';
-                });
-            } else {
-                // Show all projectors for large venue
-                projectors.forEach(p => {
-                    p.style.opacity = '1';
-                });
-            }
-
-            // Update table highlighting
-            const tableCells = document.querySelectorAll('.specs-table td.highlight');
-            tableCells.forEach(cell => cell.classList.remove('highlight'));
-
-            const columnIndex = venue === 'small' ? 1 : 2;
-            document.querySelectorAll('.specs-table tbody tr').forEach(row => {
-                const cells = row.querySelectorAll('td');
-                if (cells[columnIndex]) {
-                    cells[columnIndex].classList.add('highlight');
-                }
-            });
-        }
-
-        // Venue button click handlers
-        venueBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const venue = btn.dataset.venue;
-
-                // Update active state
-                venueBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Update display
-                currentVenue = venue;
-                updateVenueDisplay(venue);
-            });
-        });
-
-        // FAQ accordion
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
@@ -707,9 +965,6 @@
                 item.classList.toggle('active');
             });
         });
-
-        // Initialize with large venue
-        updateVenueDisplay('large');
     </script>
 </body>
 </html>
