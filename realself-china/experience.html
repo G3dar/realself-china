@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover the Real Self experience - 120 minutes of transformation through anonymity and immersive projection.">
+    <meta name="description" content="Discover the Real Self experience - A journey from the unknown to reconnection with yourself and others.">
     <title>The Experience | Real Self</title>
 
     <!-- Fonts -->
@@ -16,145 +16,377 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        .poetic-section {
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .poetic-text {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .poetic-text p {
+            font-size: clamp(1.125rem, 2vw, 1.35rem);
+            line-height: 2;
+            color: var(--color-gray-300);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 300;
+        }
+
+        .poetic-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .poetic-text em {
+            color: var(--color-white);
+            font-style: italic;
+        }
+
+        .poetic-text strong {
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .phase-section {
+            padding: var(--spacing-4xl) 0;
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .phase-header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .phase-number {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .phase-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .phase-subtitle {
+            font-size: 1rem;
+            color: var(--color-gray-500);
+            font-style: italic;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: center;
+        }
+
+        .two-column--reverse {
+            direction: rtl;
+        }
+
+        .two-column--reverse > * {
+            direction: ltr;
+        }
+
+        .experience-image {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--color-gray-900);
+        }
+
+        .experience-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(80%) contrast(1.1);
+            transition: filter var(--transition-slow);
+        }
+
+        .experience-image:hover img {
+            filter: grayscale(40%) contrast(1.05);
+        }
+
+        .why-section {
+            background: var(--color-gray-900);
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-2xl);
+        }
+
+        .why-item {
+            padding: var(--spacing-xl);
+            border: 1px solid var(--color-gray-800);
+            transition: all var(--transition-normal);
+        }
+
+        .why-item:hover {
+            border-color: var(--color-gray-600);
+            background: var(--color-gray-800);
+        }
+
+        .why-item__title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .why-item__text {
+            font-size: 0.95rem;
+            color: var(--color-gray-400);
+            line-height: 1.7;
+        }
+
+        .blockquote-large {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--color-gray-200);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            line-height: 1.5;
+        }
+
+        .directors-note {
+            background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-900) 100%);
+            padding: var(--spacing-4xl) 0;
+            text-align: center;
+        }
+
+        .directors-note__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .directors-note__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-style: italic;
+            color: var(--color-gray-200);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl);
+            line-height: 1.7;
+        }
+
+        .directors-note__attribution {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .two-column--reverse {
+                direction: ltr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header (rendered by main.js) -->
     <div id="header-placeholder"></div>
 
     <!-- Page Header -->
-    <section class="section" style="padding-top: 150px;">
+    <section class="section" style="padding-top: 150px; padding-bottom: 0;">
         <div class="container">
             <h1 class="mb-md" data-i18n="experience.title">The Experience</h1>
-            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="experience.subtitle">120 minutes of transformation</p>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="experience.subtitle">A journey to the unknown within</p>
         </div>
     </section>
 
-    <!-- Introduction -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container container--narrow">
-            <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-gray-200);" data-i18n="experience.intro">
-                Real Self is an immersive theatrical experience that has captivated audiences in Buenos Aires, Barcelona, and Santiago. Participants wear identical white overalls, gloves, and masks, creating complete anonymity that liberates authentic human connection. We're excited to bring this transformative experience to China and expand into new territories.
-            </p>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="section section--dark" style="padding: 3rem 0;">
+    <!-- Opening Poetic Section -->
+    <section class="poetic-section">
         <div class="container">
-            <div class="grid grid--4">
-                <div class="card fade-on-scroll">
-                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                    <h3 class="card__title" data-i18n="experience.features.duration.title">Duration</h3>
-                    <p class="card__text" data-i18n="experience.features.duration.desc">120 minutes total (55 min experience + 65 min transitions)</p>
-                </div>
+            <div class="poetic-text">
+                <p data-i18n="experience.opening.p1">
+                    The world bombards us with stimuli constantly. Every notification, every image, every demand for our attention pulls us further from ourselves.
+                </p>
+                <p data-i18n="experience.opening.p2">
+                    <em>Real Self</em> is something that brings you closer to connect with the one who perceives those stimuli. Not the roles you play, not the masks you wear in daily life, but <strong>the one who watches, who feels, who simply is</strong>.
+                </p>
+                <p data-i18n="experience.opening.p3">
+                    The mind is like water that bubbles, constantly creating and emitting thoughts. This project is like a blank page where you simply pour out the sensations you have and can see them with more clarity.
+                </p>
+            </div>
+        </div>
+    </section>
 
-                <div class="card fade-on-scroll">
-                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                    <h3 class="card__title" data-i18n="experience.features.capacity.title">Capacity</h3>
-                    <p class="card__text" data-i18n="experience.features.capacity.desc">150-350 participants per session</p>
-                </div>
+    <!-- Phase 1: The Unknown -->
+    <section class="phase-section">
+        <div class="container">
+            <div class="phase-header">
+                <p class="phase-number" data-i18n="experience.phases.one.number">Phase I</p>
+                <h2 class="phase-title" data-i18n="experience.phases.one.title">The Unknown</h2>
+                <p class="phase-subtitle" data-i18n="experience.phases.one.subtitle">Entering an uncharted territory</p>
+            </div>
 
-                <div class="card fade-on-scroll">
-                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                        <circle cx="12" cy="7" r="4"/>
-                    </svg>
-                    <h3 class="card__title" data-i18n="experience.features.age.title">Age Requirement</h3>
-                    <p class="card__text" data-i18n="experience.features.age.desc">15+ years old</p>
-                    <p class="card__text" style="font-size: 0.75rem; color: var(--color-gray-500); margin-top: 0.5rem;" data-i18n="experience.features.age.kidsNote">Kids version available upon request</p>
+            <div class="two-column">
+                <div class="poetic-text" style="max-width: none;">
+                    <p data-i18n="experience.phases.one.p1">
+                        From the moment you abstract yourself from who you are, you enter an unknown space, an <em>uncharted territory</em>.
+                    </p>
+                    <p data-i18n="experience.phases.one.p2">
+                        You don't know what's going to happen. The voice guides you to places you don't usually visit. It feels like a journey to something unknown where you don't know what the voice will tell you next.
+                    </p>
+                    <p data-i18n="experience.phases.one.p3">
+                        Everyone wears the same. Everyone is anonymous. In this equality, something extraordinary becomes possible.
+                    </p>
                 </div>
-
-                <div class="card fade-on-scroll">
-                    <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                        <line x1="12" y1="18" x2="12" y2="18"/>
-                        <line x1="9" y1="2" x2="9" y2="4" stroke-width="3"/>
-                        <line x1="15" y1="2" x2="15" y2="4" stroke-width="3"/>
-                    </svg>
-                    <h3 class="card__title" data-i18n="experience.features.phones.title">Digital Detox</h3>
-                    <p class="card__text" data-i18n="experience.features.phones.desc">No phones - private lockers provided</p>
+                <div class="experience-image">
+                    <img src="images/script/01-silhouettes-lines.jpg" alt="Silhouettes of participants in striped projection light">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quote -->
-    <section class="section" style="padding: 3rem 0;">
-        <div class="container container--narrow">
-            <blockquote class="quote fade-on-scroll">
-                <p class="quote__text" data-i18n="experience.quote.text">"Be yourself; everyone else is already taken."</p>
-                <cite class="quote__author" data-i18n="experience.quote.author">Oscar Wilde</cite>
+    <!-- Phase 2: Reconnection with Self -->
+    <section class="phase-section section--dark">
+        <div class="container">
+            <div class="phase-header">
+                <p class="phase-number" data-i18n="experience.phases.two.number">Phase II</p>
+                <h2 class="phase-title" data-i18n="experience.phases.two.title">Reconnection with Self</h2>
+                <p class="phase-subtitle" data-i18n="experience.phases.two.subtitle">The questions that reveal</p>
+            </div>
+
+            <div class="two-column two-column--reverse">
+                <div class="poetic-text" style="max-width: none;">
+                    <p data-i18n="experience.phases.two.p1">
+                        We live hiding, in the last attic, the part of us that we consider invalid. And we do not hide it because it is invalid, but <em>it is invalid because we hide it</em>.
+                    </p>
+                    <p data-i18n="experience.phases.two.p2">
+                        The experience asks questions. Real questions. Questions that invite you to step forward, to acknowledge truths you've kept private. And in the anonymity of the masks, you find permission.
+                    </p>
+                    <p data-i18n="experience.phases.two.p3">
+                        <strong>Who wants to free themselves from shame?</strong> The weight we carry. The permission to release it, together.
+                    </p>
+                </div>
+                <div class="experience-image">
+                    <img src="images/script/05-two-faces.jpg" alt="Two masked participants facing each other">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Central Quote -->
+    <section class="section" style="padding: var(--spacing-4xl) 0;">
+        <div class="container">
+            <blockquote class="blockquote-large" data-i18n="experience.centerQuote">
+                "This experience is going to be our secret and magical cave, but this time, we will be able to share it."
             </blockquote>
         </div>
     </section>
 
-    <!-- Timeline -->
-    <section class="section section--dark" style="padding: 3rem 0;">
+    <!-- Phase 3: Reconnection with Others -->
+    <section class="phase-section section--dark">
         <div class="container">
-            <h2 class="text-center mb-lg" data-i18n="experience.timeline.title">The Journey</h2>
+            <div class="phase-header">
+                <p class="phase-number" data-i18n="experience.phases.three.number">Phase III</p>
+                <h2 class="phase-title" data-i18n="experience.phases.three.title">Reconnection with Others</h2>
+                <p class="phase-subtitle" data-i18n="experience.phases.three.subtitle">The revelation, the celebration</p>
+            </div>
 
-            <div class="container--narrow" style="margin: 0 auto;">
-                <div class="timeline">
-                    <div class="timeline__item fade-on-scroll">
-                        <div class="timeline__time" data-i18n="experience.timeline.foyer.time">0 min</div>
-                        <h3 class="timeline__title" data-i18n="experience.timeline.foyer.title">Foyer</h3>
-                        <p class="timeline__text" data-i18n="experience.timeline.foyer.desc">Welcome drinks and playful interactions while storing belongings in lockers</p>
-                    </div>
-
-                    <div class="timeline__item fade-on-scroll">
-                        <div class="timeline__time" data-i18n="experience.timeline.transformation.time">30 min</div>
-                        <h3 class="timeline__title" data-i18n="experience.timeline.transformation.title">Transformation</h3>
-                        <p class="timeline__text" data-i18n="experience.timeline.transformation.desc">Participants dress in identical overalls, gloves, and masks</p>
-                    </div>
-
-                    <div class="timeline__item fade-on-scroll">
-                        <div class="timeline__time" data-i18n="experience.timeline.experience.time">45 min</div>
-                        <h3 class="timeline__title" data-i18n="experience.timeline.experience.title">The Experience</h3>
-                        <p class="timeline__text" data-i18n="experience.timeline.experience.desc">Guided through immersive projections and interactive moments</p>
-                    </div>
-
-                    <div class="timeline__item fade-on-scroll">
-                        <div class="timeline__time" data-i18n="experience.timeline.revelation.time">100 min</div>
-                        <h3 class="timeline__title" data-i18n="experience.timeline.revelation.title">Revelation</h3>
-                        <p class="timeline__text" data-i18n="experience.timeline.revelation.desc">The journey concludes with a powerful collective moment</p>
-                    </div>
-
-                    <div class="timeline__item fade-on-scroll">
-                        <div class="timeline__time" data-i18n="experience.timeline.return.time">110 min</div>
-                        <h3 class="timeline__title" data-i18n="experience.timeline.return.title">Return</h3>
-                        <p class="timeline__text" data-i18n="experience.timeline.return.desc">Participants change and collect their belongings</p>
-                    </div>
+            <div class="two-column">
+                <div class="poetic-text" style="max-width: none;">
+                    <p data-i18n="experience.phases.three.p1">
+                        A journey that rescues energy, and that energy then <em>explodes</em> in the moment of happiness, in the moment of the party, in the moment of the revelation.
+                    </p>
+                    <p data-i18n="experience.phases.three.p2">
+                        A journey that goes from the unknown to a reconnection with oneself and then a reconnection with the other.
+                    </p>
+                    <p data-i18n="experience.phases.three.p3">
+                        The masks come off. You see faces for the first time. And you realize you've shared something profound with strangers who are no longer strangers.
+                    </p>
+                </div>
+                <div class="experience-image">
+                    <img src="images/script/07-group-waves.jpg" alt="Group of participants surrounded by wave-like projections">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery (decorative) -->
-    <section class="section" style="padding-top: 0;">
+    <!-- Why People Come -->
+    <section class="why-section">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="experience.why.title">Why People Come</h2>
+
+            <div class="why-grid">
+                <div class="why-item fade-on-scroll">
+                    <h3 class="why-item__title" data-i18n="experience.why.unknown.title">You don't know what will happen</h3>
+                    <p class="why-item__text" data-i18n="experience.why.unknown.desc">In a world where everything is previewed and spoiled, Real Self offers genuine surprise. Each moment unfolds without expectation.</p>
+                </div>
+
+                <div class="why-item fade-on-scroll">
+                    <h3 class="why-item__title" data-i18n="experience.why.voice.title">A voice guides you deeper</h3>
+                    <p class="why-item__text" data-i18n="experience.why.voice.desc">The narration takes you to points you don't usually visit. Questions that matter. Invitations to be present.</p>
+                </div>
+
+                <div class="why-item fade-on-scroll">
+                    <h3 class="why-item__title" data-i18n="experience.why.anonymity.title">Freedom in anonymity</h3>
+                    <p class="why-item__text" data-i18n="experience.why.anonymity.desc">Behind the mask, social roles dissolve. You're not your job, your status, your appearance. You're simply human among humans.</p>
+                </div>
+
+                <div class="why-item fade-on-scroll">
+                    <h3 class="why-item__title" data-i18n="experience.why.revelation.title">The moment of revelation</h3>
+                    <p class="why-item__text" data-i18n="experience.why.revelation.desc">After the journey inward, the collective celebration. Energy that builds and releases. Connection that surprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directors Note -->
+    <section class="directors-note">
+        <div class="container">
+            <p class="directors-note__label" data-i18n="experience.directors.label">From the Creators</p>
+            <p class="directors-note__text" data-i18n="experience.directors.text">
+                "This experience is unlike anything else. Because from the moment you abstract yourself from who you are, you enter an unknown space and an unwalked path. That's where something different can happen."
+            </p>
+            <p class="directors-note__attribution" data-i18n="experience.directors.attribution">The Directors of Real Self</p>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section">
         <div class="container">
             <div class="gallery">
                 <div class="gallery__item">
-                    <img src="images/hero-poster.jpg" alt="Real Self - Person with geometric mask in leather jacket">
+                    <img src="images/hero-poster.jpg" alt="Real Self - Person with geometric mask">
                 </div>
                 <div class="gallery__item">
-                    <img src="images/promo-bus-stop.jpg" alt="Real Self - Bus stop advertisement in Buenos Aires">
+                    <img src="images/promo-bus-stop.jpg" alt="Real Self - Bus stop advertisement">
                 </div>
                 <div class="gallery__item">
-                    <img src="images/promo-wall-posters.jpg" alt="Real Self - Wall posters showing mask variations">
+                    <img src="images/promo-wall-posters.jpg" alt="Real Self - Wall posters">
                 </div>
                 <div class="gallery__item">
-                    <img src="images/promo-building-corner.jpg" alt="Real Self - Building corner branding">
+                    <img src="images/promo-building-corner.jpg" alt="Real Self - Building branding">
                 </div>
                 <div class="gallery__item">
-                    <img src="images/promo-street-posters.jpg" alt="Real Self - Street poster campaign">
+                    <img src="images/promo-street-posters.jpg" alt="Real Self - Street posters">
                 </div>
                 <div class="gallery__item">
                     <img src="images/promo-flyers.jpg" alt="Real Self - Promotional flyers">
@@ -163,56 +395,16 @@
         </div>
     </section>
 
-    <!-- Technical Requirements -->
-    <section class="section section--dark">
-        <div class="container">
-            <h2 class="text-center mb-2xl" data-i18n="experience.technical.title">Technical Requirements for China</h2>
-
-            <!-- Climate Control - Critical Requirement -->
-            <div class="card" style="border: 2px solid var(--color-white); background: var(--color-gray-800); margin-bottom: var(--spacing-2xl); padding: var(--spacing-xl);">
-                <div style="display: flex; align-items: center; gap: var(--spacing-md);">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;">
-                        <path d="M12 2v20M17 7l-5-5-5 5M17 17l-5 5-5-5M2 12h20M7 7L2 12l5 5M17 7l5 5-5 5"/>
-                    </svg>
-                    <div>
-                        <h3 class="card__title" style="margin-bottom: var(--spacing-xs);" data-i18n="experience.technical.climate.title">Climate Control - Important</h3>
-                        <p class="card__text" style="margin-bottom: 0;" data-i18n="experience.technical.climate.desc">Strong air conditioning required. Costumes are very warm - participants wear full overalls, gloves, and masks for 55+ minutes.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid--3">
-                <div class="card">
-                    <h3 class="card__title" data-i18n="experience.technical.venue.title">Venue Space</h3>
-                    <p class="card__text" data-i18n="experience.technical.venue.desc">150 pax: Experience 210m² + Changing 160m². 350 pax: Experience 480m² + Changing 350m². Plus foyer, storage, and control areas.</p>
-                </div>
-                <div class="card">
-                    <h3 class="card__title" data-i18n="experience.technical.ceiling.title">Ceiling Height</h3>
-                    <p class="card__text" data-i18n="experience.technical.ceiling.desc">Minimum 6 meters, ideal 9 meters for floor projection. Projectors mounted on ceiling with full floor coverage.</p>
-                </div>
-                <div class="card">
-                    <h3 class="card__title" data-i18n="experience.technical.blackout.title">Full Blackout</h3>
-                    <p class="card__text" data-i18n="experience.technical.blackout.desc">Complete light control required. No external light can enter the experience space during shows.</p>
-                </div>
-            </div>
-
-            <!-- Technical Coordination Note -->
-            <div style="text-align: center; margin-top: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-900); border: 1px solid var(--color-gray-700);">
-                <p style="color: var(--color-gray-400); font-size: 0.875rem; margin: 0;" data-i18n="experience.technical.coordination">Technical specifications will be coordinated with your local AV production team during the setup phase.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA Section -->
-    <section class="section" style="padding: var(--spacing-3xl) 0;">
+    <section class="section section--dark" style="padding: var(--spacing-3xl) 0;">
         <div class="container text-center">
-            <p class="hero__tagline mb-xl" style="font-size: 1.125rem;" data-i18n="experience.cta.subtitle">Discover our venue scenarios and financial projections</p>
+            <p class="hero__tagline mb-xl" style="font-size: 1.125rem;" data-i18n="experience.cta.subtitle">Continue exploring</p>
             <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
-                <a href="investment.html" class="btn btn--primary btn--large" data-i18n="experience.cta.button">
-                    Explore Venue Scenarios
-                </a>
-                <a href="script.html" class="btn btn--outline btn--large" data-i18n="experience.cta.buttonScript">
+                <a href="script.html" class="btn btn--primary btn--large" data-i18n="experience.cta.buttonScript">
                     Glimpse the Script
+                </a>
+                <a href="specifications.html" class="btn btn--outline btn--large" data-i18n="experience.cta.buttonSpecs">
+                    View Specifications
                 </a>
             </div>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real Self - An immersive theatrical experience seeking partnership opportunities in China. 80,000+ participants worldwide.">
+    <meta name="description" content="Real Self - A Human Immersive Experience. A transformative journey where anonymity reveals authenticity.">
     <title>Real Self | China Partnership</title>
 
     <!-- Fonts -->
@@ -16,13 +16,97 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        .creator-statement {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: var(--spacing-2xl) var(--spacing-lg);
+        }
+
+        .creator-statement__text {
+            font-size: clamp(1.125rem, 2vw, 1.35rem);
+            line-height: 1.9;
+            color: var(--color-gray-300);
+            font-weight: 300;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .creator-statement__text em {
+            color: var(--color-white);
+            font-style: italic;
+        }
+
+        .creator-statement__signature {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .hero--home {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero--home .hero__content {
+            max-width: 800px;
+        }
+
+        .hero__quote {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            font-style: italic;
+            color: var(--color-gray-400);
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .hero__quote cite {
+            display: block;
+            font-style: normal;
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            margin-top: var(--spacing-sm);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--spacing-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--color-gray-500);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .scroll-indicator svg {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+    </style>
 </head>
 <body>
     <!-- Header (rendered by main.js) -->
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero hero--home">
         <!-- Background -->
         <div class="hero__bg">
             <img src="images/hero-poster.jpg" alt="Real Self Experience - Person wearing geometric white mask">
@@ -48,28 +132,61 @@
                 <p class="hero__logo-tagline">A Human Immersive Experience</p>
             </div>
 
-            <div class="hero__stats">
-                <div class="stat">
-                    <div class="stat__number">80,000+</div>
-                    <div class="stat__label" data-i18n="hero.stats.participants">Participants</div>
-                </div>
-                <div class="stat">
-                    <div class="stat__number">3</div>
-                    <div class="stat__label" data-i18n="hero.stats.cities">Cities</div>
-                </div>
-                <div class="stat">
-                    <div class="stat__number">98%</div>
-                    <div class="stat__label" data-i18n="hero.stats.satisfaction">Satisfaction</div>
-                </div>
+            <div class="creator-statement" style="animation: fadeInUp 1s ease 0.3s both;">
+                <p class="creator-statement__text" data-i18n="home.creatorStatement.p1">
+                    An experience unlike anything else. From the moment you abstract yourself from who you are, you enter an unknown space, an uncharted territory.
+                </p>
+                <p class="creator-statement__text" data-i18n="home.creatorStatement.p2">
+                    The world bombards us with stimuli constantly. <em>Real Self</em> brings you closer to the one who perceives those stimuli.
+                </p>
             </div>
 
-            <p class="hero__tagline" data-i18n="hero.tagline">
-                A transformative journey where anonymity reveals authenticity
-            </p>
-
-            <a href="experience.html" class="btn btn--primary btn--large" data-i18n="hero.cta">
-                Let's Dive In
+            <a href="experience.html" class="btn btn--primary btn--large" style="animation: fadeInUp 1s ease 0.5s both;" data-i18n="home.cta">
+                Discover the Experience
             </a>
+
+            <div class="hero__quote" style="animation: fadeInUp 1s ease 0.7s both;">
+                <span data-i18n="home.quote.text">"Give him a mask and he will tell you the truth."</span>
+                <cite data-i18n="home.quote.author">Oscar Wilde</cite>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span data-i18n="home.scroll">Scroll</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Brief Context Section -->
+    <section class="section">
+        <div class="container">
+            <div class="container--narrow" style="margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.125rem; line-height: 1.8; color: var(--color-gray-300); margin-bottom: var(--spacing-2xl);" data-i18n="home.context.intro">
+                    Real Self has captivated over 80,000 participants across Buenos Aires, Barcelona, and Santiago. Now we're seeking partners to bring this transformative experience to China.
+                </p>
+
+                <div style="display: flex; justify-content: center; gap: var(--spacing-3xl); flex-wrap: wrap; margin-bottom: var(--spacing-2xl);">
+                    <div style="text-align: center;">
+                        <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-white);">80,000+</div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gray-500);" data-i18n="home.context.participants">Participants</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-white);">3</div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gray-500);" data-i18n="home.context.cities">Cities</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-white);">98%</div>
+                        <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--color-gray-500);" data-i18n="home.context.satisfaction">Satisfaction</div>
+                    </div>
+                </div>
+
+                <a href="experience.html" class="btn btn--outline" data-i18n="home.context.cta">
+                    Learn More
+                </a>
+            </div>
         </div>
     </section>
 

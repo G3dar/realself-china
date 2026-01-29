@@ -2,10 +2,30 @@
   "nav": {
     "experience": "Experience",
     "script": "Script",
+    "specs": "Specs",
+    "techRider": "Tech Rider",
     "scenarios": "Scenarios",
-    "breakdown": "Breakdown",
-    "investment": "Investment",
+    "setup": "Setup",
     "partnership": "Partnership"
+  },
+  "home": {
+    "creatorStatement": {
+      "p1": "An experience unlike anything else. From the moment you abstract yourself from who you are, you enter an unknown space, an uncharted territory.",
+      "p2": "The world bombards us with stimuli constantly. Real Self brings you closer to the one who perceives those stimuli."
+    },
+    "cta": "Discover the Experience",
+    "quote": {
+      "text": "\"Give him a mask and he will tell you the truth.\"",
+      "author": "Oscar Wilde"
+    },
+    "scroll": "Scroll",
+    "context": {
+      "intro": "Real Self has captivated over 80,000 participants across Buenos Aires, Barcelona, and Santiago. Now we're seeking partners to bring this transformative experience to China.",
+      "participants": "Participants",
+      "cities": "Cities",
+      "satisfaction": "Satisfaction",
+      "cta": "Learn More"
+    }
   },
   "hero": {
     "subtitle": "Immersive Experience",
@@ -20,84 +40,226 @@
   },
   "experience": {
     "title": "The Experience",
-    "subtitle": "120 minutes of transformation",
-    "intro": "Real Self is an immersive theatrical experience that has captivated audiences in Buenos Aires, Barcelona, and Santiago. Participants wear identical white overalls, gloves, and masks, creating complete anonymity that liberates authentic human connection. We're excited to bring this transformative experience to China and expand into new territories.",
-    "quote": {
-      "text": "\"Be yourself; everyone else is already taken.\"",
-      "author": "Oscar Wilde"
+    "subtitle": "A journey to the unknown within",
+    "opening": {
+      "p1": "The world bombards us with stimuli constantly. Every notification, every image, every demand for our attention pulls us further from ourselves.",
+      "p2": "Real Self is something that brings you closer to connect with the one who perceives those stimuli. Not the roles you play, not the masks you wear in daily life, but the one who watches, who feels, who simply is.",
+      "p3": "The mind is like water that bubbles, constantly creating and emitting thoughts. This project is like a blank page where you simply pour out the sensations you have and can see them with more clarity."
     },
-    "features": {
-      "duration": {
-        "title": "Duration",
-        "desc": "120 minutes total (55 min experience + 65 min transitions)"
+    "phases": {
+      "one": {
+        "number": "Phase I",
+        "title": "The Unknown",
+        "subtitle": "Entering an uncharted territory",
+        "p1": "From the moment you abstract yourself from who you are, you enter an unknown space, an uncharted territory.",
+        "p2": "You don't know what's going to happen. The voice guides you to places you don't usually visit. It feels like a journey to something unknown where you don't know what the voice will tell you next.",
+        "p3": "Everyone wears the same. Everyone is anonymous. In this equality, something extraordinary becomes possible."
       },
-      "capacity": {
-        "title": "Capacity",
-        "desc": "150-350 participants per session"
+      "two": {
+        "number": "Phase II",
+        "title": "Reconnection with Self",
+        "subtitle": "The questions that reveal",
+        "p1": "We live hiding, in the last attic, the part of us that we consider invalid. And we do not hide it because it is invalid, but it is invalid because we hide it.",
+        "p2": "The experience asks questions. Real questions. Questions that invite you to step forward, to acknowledge truths you've kept private. And in the anonymity of the masks, you find permission.",
+        "p3": "Who wants to free themselves from shame? The weight we carry. The permission to release it, together."
       },
-      "age": {
-        "title": "Age Requirement",
-        "desc": "15+ years old",
-        "kidsNote": "Kids version available upon request"
-      },
-      "phones": {
-        "title": "Digital Detox",
-        "desc": "No phones - private lockers provided"
+      "three": {
+        "number": "Phase III",
+        "title": "Reconnection with Others",
+        "subtitle": "The revelation, the celebration",
+        "p1": "A journey that rescues energy, and that energy then explodes in the moment of happiness, in the moment of the party, in the moment of the revelation.",
+        "p2": "A journey that goes from the unknown to a reconnection with oneself and then a reconnection with the other.",
+        "p3": "The masks come off. You see faces for the first time. And you realize you've shared something profound with strangers who are no longer strangers."
       }
     },
-    "timeline": {
-      "title": "The Journey",
-      "foyer": {
-        "time": "0 min",
-        "title": "Foyer",
-        "desc": "Welcome drinks and playful interactions while storing belongings in lockers"
+    "centerQuote": "\"This experience is going to be our secret and magical cave, but this time, we will be able to share it.\"",
+    "why": {
+      "title": "Why People Come",
+      "unknown": {
+        "title": "You don't know what will happen",
+        "desc": "In a world where everything is previewed and spoiled, Real Self offers genuine surprise. Each moment unfolds without expectation."
       },
-      "transformation": {
-        "time": "30 min",
-        "title": "Transformation",
-        "desc": "Participants dress in identical overalls, gloves, and masks"
+      "voice": {
+        "title": "A voice guides you deeper",
+        "desc": "The narration takes you to points you don't usually visit. Questions that matter. Invitations to be present."
       },
-      "experience": {
-        "time": "45 min",
-        "title": "The Experience",
-        "desc": "Guided through immersive projections and interactive moments"
+      "anonymity": {
+        "title": "Freedom in anonymity",
+        "desc": "Behind the mask, social roles dissolve. You're not your job, your status, your appearance. You're simply human among humans."
       },
       "revelation": {
-        "time": "100 min",
-        "title": "Revelation",
-        "desc": "The journey concludes with a powerful collective moment"
-      },
-      "return": {
-        "time": "110 min",
-        "title": "Return",
-        "desc": "Participants change and collect their belongings"
+        "title": "The moment of revelation",
+        "desc": "After the journey inward, the collective celebration. Energy that builds and releases. Connection that surprises."
       }
     },
-    "technical": {
-      "title": "Technical Requirements for China",
+    "directors": {
+      "label": "From the Creators",
+      "text": "\"This experience is unlike anything else. Because from the moment you abstract yourself from who you are, you enter an unknown space and an unwalked path. That's where something different can happen.\"",
+      "attribution": "The Directors of Real Self"
+    },
+    "cta": {
+      "subtitle": "Continue exploring",
+      "buttonScript": "Glimpse the Script",
+      "buttonSpecs": "View Specifications"
+    }
+  },
+  "specifications": {
+    "title": "Specifications",
+    "subtitle": "Technical details for the Real Self experience",
+    "duration": {
+      "label": "Minutes",
+      "desc": "55 min experience + 65 min transitions"
+    },
+    "capacity": {
+      "label": "Participants",
+      "desc": "Per session, scalable venue options"
+    },
+    "age": {
+      "label": "Years Old",
+      "desc": "Kids version available upon request"
+    },
+    "detox": {
+      "value": "Digital Detox",
+      "label": "No Phones",
+      "desc": "Private lockers provided for all belongings"
+    },
+    "requirements": {
+      "title": "Venue Requirements",
       "climate": {
-        "title": "Climate Control - Important",
-        "desc": "Strong air conditioning required. Costumes are very warm - participants wear full overalls, gloves, and masks for 55+ minutes."
+        "title": "Climate Control - Critical",
+        "desc": "Strong air conditioning is essential. Participants wear full overalls, gloves, and masks for 55+ minutes. The venue must maintain comfortable temperatures throughout the experience."
       },
-      "venue": {
+      "space": {
         "title": "Venue Space",
-        "desc": "150 pax: Experience 210m² + Changing 160m². 350 pax: Experience 480m² + Changing 350m². Plus foyer, storage, and control areas."
+        "desc": "Small (150 pax): ~500m total. Large (350 pax): ~1000m total. Includes experience area, changing rooms, foyer, and control room."
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Minimum 6 meters, ideal 9 meters for floor projection. Projectors mounted on ceiling with full floor coverage."
+        "desc": "Minimum 6 meters, ideal 9 meters. Projectors mounted on ceiling for full floor coverage and immersive projections."
       },
       "blackout": {
         "title": "Full Blackout",
-        "desc": "Complete light control required. No external light can enter the experience space during shows."
+        "desc": "Complete light control required. No external light can enter the experience space during shows. Essential for projection quality."
       },
-      "coordination": "Technical specifications will be coordinated with your local AV production team during the setup phase."
+      "sound": {
+        "title": "Sound System",
+        "desc": "360-degree surround sound system (4.1 or 2.1 minimum). Clear voice narration and immersive audio are central to the experience."
+      }
+    },
+    "schedule": {
+      "title": "Typical Session Schedule",
+      "foyer": {
+        "time": "0-30 min",
+        "title": "Foyer & Check-in",
+        "desc": "Welcome drinks, storing belongings in lockers, playful interactions"
+      },
+      "changing": {
+        "time": "30-45 min",
+        "title": "Transformation",
+        "desc": "Participants change into identical white overalls, gloves, and masks"
+      },
+      "experience": {
+        "time": "45-100 min",
+        "title": "The Experience",
+        "desc": "55-minute immersive journey with projections, voice guidance, and interaction"
+      },
+      "revelation": {
+        "time": "100 min",
+        "title": "The Revelation",
+        "desc": "Powerful collective moment, masks come off, celebration"
+      },
+      "return": {
+        "time": "100-120 min",
+        "title": "Return & Exit",
+        "desc": "Participants change back, retrieve belongings, optional post-show bar"
+      }
     },
     "cta": {
-      "title": "Ready to Explore the Possibilities?",
-      "subtitle": "Discover our venue scenarios and financial projections",
-      "button": "Explore Venue Scenarios",
-      "buttonScript": "Glimpse the Script"
+      "subtitle": "See the detailed technical requirements for installation",
+      "button": "View Technical Rider"
+    }
+  },
+  "techRider": {
+    "title": "Technical Rider",
+    "subtitle": "Complete technical specifications for venue setup",
+    "venueOptions": {
+      "small": "Small Venue",
+      "large": "Large Venue"
+    },
+    "table": {
+      "area": "Area",
+      "smallVenue": "Small (150)",
+      "largeVenue": "Large (350)",
+      "experience": "Experience Space",
+      "changing": "Changing Room",
+      "foyer": "Foyer",
+      "control": "Control Room",
+      "total": "Total Required"
+    },
+    "floorPlan": {
+      "title": "Floor Plan Layout",
+      "subtitle": "Large venue configuration - approximately 1000 m total",
+      "projectors": "36-42 Projectors",
+      "wallProjectors": "Wall Projectors"
+    },
+    "requirements": {
+      "title": "Technical Requirements",
+      "projectors": {
+        "title": "Projectors",
+        "desc": "High-lumen projectors (5,000+ ANSI) for floor and wall coverage"
+      },
+      "ceiling": {
+        "title": "Ceiling Height",
+        "desc": "Minimum 6m, ideal 9m for optimal projection distance"
+      },
+      "sound": {
+        "title": "Sound System",
+        "desc": "Surround sound system (4.1 minimum) for immersive audio"
+      },
+      "servers": {
+        "title": "Media Servers",
+        "desc": "High-performance media servers for synchronized playback"
+      },
+      "power": {
+        "title": "Power",
+        "desc": "Dedicated power circuits for AV equipment"
+      },
+      "climate": {
+        "title": "Climate Control",
+        "value": "Strong AC",
+        "desc": "Participants wear full costumes for 55+ minutes"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "What is the minimum space required?",
+        "answer": "For a small venue (150 capacity), you need approximately 500m total. For the recommended large venue (350 capacity), approximately 1000m is required. This includes the experience space, changing rooms, foyer, and control room."
+      },
+      "q2": {
+        "question": "How many projectors are needed?",
+        "answer": "Small venue requires 16-18 projectors, while large venue needs 36-42 projectors. These are ceiling-mounted, high-lumen projectors (5,000+ ANSI lumens) that provide full floor and wall coverage for the immersive projections."
+      },
+      "q3": {
+        "question": "Can I use my existing venue?",
+        "answer": "Possibly! The key requirements are: sufficient floor area, minimum 6m ceiling height, ability to achieve complete blackout, and strong climate control. Warehouses, event halls, and theater spaces often work well. We evaluate each venue individually."
+      },
+      "q4": {
+        "question": "What if my ceiling is less than 6m?",
+        "answer": "Ceiling height below 6m significantly limits projection coverage and the immersive quality. We may be able to adapt with different projector configurations, but this requires individual assessment. The ideal is 9m for optimal floor projection distance."
+      },
+      "q5": {
+        "question": "Who provides the equipment?",
+        "answer": "The partner provides all AV equipment (projectors, media servers, sound system, lighting). Real Self provides technical supervision, content, projection mapping design, and show control programming. We work with your local AV team during installation."
+      },
+      "q6": {
+        "question": "How long does installation take?",
+        "answer": "Full installation takes approximately 20 days. This includes equipment installation, projection mapping and calibration, sound setup, staff training, and technical rehearsals. Our team of 2-4 people will be on-site throughout."
+      }
+    },
+    "cta": {
+      "subtitle": "Explore the financial scenarios for your venue",
+      "button": "View Scenarios"
     }
   },
   "script": {
@@ -198,196 +360,80 @@
     "cta": "View Detailed Breakdown",
     "excludesNote": "Investment excludes technology, equipment & projectors (provided by partner)"
   },
-  "investment": {
-    "title": "Revenue and Cost",
-    "subtitle": "Detailed costs and revenue projections",
-    "adjustVariables": "Adjust Variables",
-    "variables": {
-      "daysPerWeek": "Days per Week",
-      "days": "days",
-      "showsPerDay": "Shows per Day",
-      "shows": "shows",
-      "occupancy": "Projected Occupancy"
+  "setup": {
+    "title": "Setup & Implementation",
+    "subtitle": "How we bring Real Self to your venue",
+    "intro": "We travel to your location with the content, know-how, and expertise to transform your venue into a Real Self experience. Working alongside your local team, we supervise every detail from costume fabrication to projector calibration.",
+    "model": {
+      "title": "The Implementation Model",
+      "text": "We send 2-4 people with the digital content and know-how to coordinate the local fabrication of costumes, supervise AV installation, train your staff, and ensure the experience meets our quality standards."
     },
-    "presets": {
-      "small": "Small",
-      "large": "Large"
-    },
-    "revenue": {
-      "ticketTitle": "Ticket Revenue",
-      "ticketsPerWeek": "Tickets per week",
-      "ticketPrice": "Ticket price",
-      "ticketRevenue": "Ticket sales",
-      "vipUpgrades": "VIP upgrades (10%)",
-      "ticketSubtotal": "Ticket Subtotal",
-      "otherTitle": "Other Revenue",
-      "merchandise": "Merchandise",
-      "merchandiseNote": "Mini masks, art prints, apparel, accessories",
-      "foodDrinks": "Food & Drinks",
-      "foodDrinksNote": "Welcome drinks, snacks, post-show bar",
-      "photobooth": "Photobooth",
-      "photoboothNote": "Digital + printed photos, frames",
-      "otherSubtotal": "Other Subtotal",
-      "weeklyTotal": "Weekly Total"
-    },
-    "references": {
-      "title": "Revenue Assumptions Based on Comparable Experiences",
-      "teamlab": "Tokyo/Shanghai • $30-40 tickets\nF&B: $12-18 avg spend\nMerch: $15-25 avg spend",
-      "meowwolf": "USA (4 locations) • $35-50 tickets\nF&B: $10-15 avg spend\nMerch: $20-30 avg spend",
-      "vangogh": "Global touring • $25-45 tickets\nF&B: $8-12 avg spend\nMerch: $18-35 avg spend",
-      "ourAssumptions": "Our Assumptions",
-      "realself": "Conservative estimates\nF&B: $8 avg (75% conv.)\nMerch: $8 avg (60% conv.)",
-      "note": "Note: Real Self includes welcome drinks in the foyer experience, which increases F&B engagement compared to typical immersive exhibits."
-    },
-    "costs": {
-      "title": "Weekly Costs",
-      "masksCostumes": "Masks & Costumes",
-      "floorStaff": "Floor Staff (per show)",
-      "management": "Management (per day)",
-      "staffTotal": "Staff & Management",
-      "perShowTotal": "Per show total",
-      "showsWeek": "shows/week",
-      "daysWeek": "days/week",
-      "roles": {
-        "guides": "Experience Guides",
-        "changing": "Changing Room",
-        "reception": "Foyer/Reception",
-        "technician": "Show Technician",
-        "venueManager": "Venue Manager",
-        "techLead": "Technical Lead"
+    "includes": {
+      "title": "What's Included",
+      "team": {
+        "title": "On-Site Team",
+        "desc": "2-4 experts travel to your venue for 20 days of setup, including directors, technical leads, and production coordinators"
       },
-      "insurance": "Insurance & Misc",
-      "weeklyTotal": "Weekly Total",
-      "marketingNote": "Marketing costs not included — managed separately by partner"
-    },
-    "results": {
-      "weeklyProfit": "Weekly Profit",
-      "monthlyProfit": "Monthly Profit",
-      "annualProfit": "Annual Profit",
-      "breakeven": "Breakeven"
-    },
-    "cta": "View Partnership Model"
-  },
-  "investmentRequirements": {
-    "title": "Upfront Investment",
-    "total": "$250,000",
-    "subtitle": "Production costs, licensing & setup fees",
-    "sizes": {
-      "small": "Small (150)",
-      "large": "Large (350)"
-    },
-    "scaleNote": "Costs scale with venue size: prep time, lockers, and costumes adjust accordingly",
-    "breakdownNote": "Breakdown shown for Large venue (350 capacity)",
-    "summaryNote": "Large venue (350) breakdown",
-    "included": "Included",
-    "sections": {
-      "production": {
-        "title": "Production",
-        "items": {
-          "direction": {
-            "name": "Production & Direction",
-            "detail": "20 days on-site direction & adaptation oversight"
-          },
-          "executive": {
-            "name": "Executive Producing",
-            "detail": "Project oversight & coordination"
-          }
-        }
-      },
-      "creative": {
-        "title": "Creative & IP Adaptation",
-        "items": {
-          "design": {
-            "name": "Experience Design & Adaptation",
-            "detail": "Localization and cultural adaptation"
-          },
-          "sound": {
-            "name": "Sound Design Updates",
-            "detail": "Audio adaptation and mixing"
-          },
-          "rehearsals": {
-            "name": "Rehearsals & Show Direction",
-            "detail": "Staff training and direction (20 days)"
-          },
-          "marketing": {
-            "name": "Includes: Marketing Assets & Localization",
-            "detail": "All marketing materials, promotional content, and localization included"
-          }
-        }
+      "content": {
+        "title": "Digital Content",
+        "desc": "Complete projection content, audio design, and show control programming adapted for your venue dimensions"
       },
       "technical": {
-        "title": "Technical Design",
-        "items": {
-          "projection": {
-            "name": "Projection Mapping Design",
-            "detail": "Custom venue mapping and content adaptation (20 days)"
-          },
-          "showControl": {
-            "name": "Show Control Programming",
-            "detail": "Automation and synchronization systems"
-          },
-          "testing": {
-            "name": "System Testing & Calibration",
-            "detail": "Technical rehearsals and fine-tuning"
-          }
-        }
+        "title": "Technical Supervision",
+        "desc": "Guidance for your AV team on projector mounting, calibration, sound setup, and show control integration"
       },
-      "travel": {
-        "title": "Travel & Setup",
-        "items": {
-          "team": {
-            "name": "Team Travel & Accommodation",
-            "detail": "4 people, 20 days setup period"
-          },
-          "lockers": {
-            "name": "Lockers",
-            "detail": "350 units for participant storage"
-          },
-          "costumes": {
-            "name": "Costumes",
-            "detail": "Initial costume inventory"
-          }
-        }
+      "costumes": {
+        "title": "Costume Coordination",
+        "desc": "Patterns, specifications, and quality oversight for local fabrication of overalls, gloves, and masks"
       },
-      "legal": {
-        "title": "Legal & Insurance",
-        "items": {
-          "contracts": {
-            "name": "Legal Contracts & Licensing",
-            "detail": "IP licensing and partnership agreements"
-          },
-          "insurance": {
-            "name": "Setup Insurance",
-            "detail": "Coverage for setup crew during installation"
-          }
-        }
+      "training": {
+        "title": "Staff Training",
+        "desc": "Comprehensive training program for guides, technicians, and management to deliver an authentic experience"
+      },
+      "brand": {
+        "title": "Brand & Marketing",
+        "desc": "Complete marketing toolkit with logos, photography, video assets, and brand guidelines for local campaigns"
       }
     },
-    "summary": {
-      "subtotal": "Subtotal",
-      "contingency": "Contingency Reserve (10%)",
+    "investment": {
+      "title": "Upfront Investment",
+      "small": {
+        "size": "Small Venue",
+        "desc": "Production, content, training, and setup for 150-person capacity"
+      },
+      "large": {
+        "size": "Large Venue",
+        "desc": "Production, content, training, and setup for 350-person capacity"
+      }
+    },
+    "breakdown": {
+      "title": "Investment Breakdown (Large Venue)",
+      "production": "Production & Direction",
+      "creative": "Creative & IP Adaptation",
+      "technical": "Technical Design & Programming",
+      "travel": "Travel, Setup & Initial Materials",
+      "legal": "Legal & Insurance",
+      "contingency": "Contingency (10%)",
       "total": "Total Investment"
     },
-    "partnerProvides": {
+    "partner": {
       "title": "Provided by Partner",
-      "note": "The following equipment and operational costs are not included in the investment breakdown above. It is assumed that the venue has professional-grade lighting and sound systems in place, or that the partner will provide these.",
+      "desc": "The following are not included in the investment and should be sourced locally by the partner:",
       "items": {
-        "projectors": "Projectors & AV Equipment",
+        "projectors": "Projectors & AV",
         "venue": "Venue & Space",
-        "lighting": "Light System",
         "sound": "Sound System",
         "servers": "Media Servers",
-        "production": "Local Production Team",
-        "marketing": "Marketing Campaign",
-        "lockers": "Lockers (plans provided)",
-        "costumes": "Costumes (local suppliers)",
-        "masks": "Masks (local manufacturer)",
-        "branding": "Branding & Signage",
-        "conditioning": "Venue Conditioning"
-      },
-      "migration": "Migration support provided for venue relocations."
+        "lockers": "Lockers",
+        "costumes": "Local Costumes",
+        "masks": "Local Masks",
+        "marketing": "Marketing"
+      }
     },
-    "cta": "View Partnership Model"
+    "cta": {
+      "subtitle": "Ready to discuss partnership terms?",
+      "button": "View Partnership Model"
+    }
   },
   "partnership": {
     "title": "Partnership Model",
@@ -428,7 +474,7 @@
       "food": {
         "label": "Food & Drinks",
         "badge": "Partner Advantage",
-        "desc2": "Partner keeps all F&B revenue — welcome drinks, snacks, post-show bar"
+        "desc2": "Partner keeps all F&B revenue - welcome drinks, snacks, post-show bar"
       },
       "merch": {
         "label": "Merchandise",
@@ -490,6 +536,6 @@
     "viewDetails": "View Details",
     "downloadPdf": "Download PDF",
     "currency": "USD",
-    "area": "m²"
+    "area": "m"
   }
 }

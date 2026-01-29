@@ -292,10 +292,10 @@
         const error = document.getElementById('errorMsg');
         const landing = document.getElementById('landing');
 
-        // Password check - accepts variations of "thank you"
+        // Password check - accepts "realself"
         function isValidPassword(input) {
             const normalized = input.toLowerCase().replace(/\s+/g, '');
-            return normalized === 'thankyou';
+            return normalized === 'realself';
         }
 
         form.addEventListener('submit', function(e) {
@@ -311,7 +311,7 @@
                 sessionStorage.setItem('rsAccess', 'granted');
 
                 // Start prefetching other pages during the transition
-                ['home.html', 'experience.html', 'investment.html', 'investment-requirements.html', 'partnership.html'].forEach(page => {
+                ['home.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html'].forEach(page => {
                     const link = document.createElement('link');
                     link.rel = 'prefetch';
                     link.href = page;

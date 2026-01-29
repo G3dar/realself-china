@@ -26,8 +26,10 @@ const headerComponent = {
                         <ul class="nav__list">
                             <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
                             <li><a href="script.html" class="nav__link" data-i18n="nav.script">Script</a></li>
+                            <li><a href="specifications.html" class="nav__link" data-i18n="nav.specs">Specs</a></li>
+                            <li><a href="tech-rider.html" class="nav__link" data-i18n="nav.techRider">Tech Rider</a></li>
                             <li><a href="investment.html" class="nav__link" data-i18n="nav.scenarios">Scenarios</a></li>
-                            <li><a href="investment-requirements.html" class="nav__link" data-i18n="nav.investment">Investment</a></li>
+                            <li><a href="setup.html" class="nav__link" data-i18n="nav.setup">Setup</a></li>
                             <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
                         </ul>
                         <div class="lang-toggle">
@@ -832,8 +834,10 @@ const prefetcher = {
         'home.html',
         'experience.html',
         'script.html',
+        'specifications.html',
+        'tech-rider.html',
         'investment.html',
-        'investment-requirements.html',
+        'setup.html',
         'partnership.html'
     ],
     prefetched: new Set(),

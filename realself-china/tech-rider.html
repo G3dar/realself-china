@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Self Technical Rider - Detailed venue requirements, projector specifications, and floor plan diagrams.">
+    <title>Technical Rider | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        .venue-selector {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .venue-btn {
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            background: var(--color-gray-900);
+            border: 2px solid var(--color-gray-700);
+            color: var(--color-gray-400);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .venue-btn:hover {
+            border-color: var(--color-gray-500);
+            color: var(--color-white);
+        }
+
+        .venue-btn.active {
+            border-color: var(--color-white);
+            background: var(--color-gray-800);
+            color: var(--color-white);
+        }
+
+        .venue-btn__capacity {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .venue-btn__label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .specs-table {
+            width: 100%;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .specs-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            font-weight: 500;
+        }
+
+        .specs-table td {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            color: var(--color-white);
+        }
+
+        .specs-table td.highlight {
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        /* SVG Floor Plan */
+        .floor-plan-container {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .floor-plan-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .floor-plan-title h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .floor-plan-title p {
+            color: var(--color-gray-500);
+            font-size: 0.875rem;
+        }
+
+        .floor-plan {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .floor-plan svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .floor-plan__room {
+            fill: var(--color-gray-800);
+            stroke: var(--color-gray-600);
+            stroke-width: 2;
+            transition: all var(--transition-normal);
+        }
+
+        .floor-plan__room:hover {
+            fill: var(--color-gray-700);
+            stroke: var(--color-white);
+        }
+
+        .floor-plan__label {
+            fill: var(--color-white);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            text-anchor: middle;
+        }
+
+        .floor-plan__sublabel {
+            fill: var(--color-gray-400);
+            font-family: var(--font-primary);
+            font-size: 11px;
+            text-anchor: middle;
+        }
+
+        .floor-plan__dimension {
+            fill: var(--color-gray-500);
+            font-family: var(--font-primary);
+            font-size: 10px;
+            text-anchor: middle;
+        }
+
+        .floor-plan__projector {
+            fill: var(--color-white);
+        }
+
+        .projector-legend {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .projector-legend__item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+        }
+
+        .projector-legend__dot {
+            width: 8px;
+            height: 8px;
+            background: var(--color-white);
+            border-radius: 50%;
+        }
+
+        /* Tech Requirements Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .tech-card {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-xl);
+        }
+
+        .tech-card__title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tech-card__value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .tech-card__desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            border-bottom: 1px solid var(--color-gray-800);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .faq-question svg {
+            flex-shrink: 0;
+            transition: transform var(--transition-normal);
+            color: var(--color-gray-500);
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-normal);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer__content {
+            padding: var(--spacing-md) 0;
+            color: var(--color-gray-400);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .venue-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .venue-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (rendered by main.js) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 150px; padding-bottom: var(--spacing-xl);">
+        <div class="container">
+            <h1 class="mb-md" data-i18n="techRider.title">Technical Rider</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="techRider.subtitle">Complete technical specifications for venue setup</p>
+        </div>
+    </section>
+
+    <!-- Venue Selector -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="venue-selector">
+                <button class="venue-btn" data-venue="small">
+                    <span class="venue-btn__capacity">150</span>
+                    <span class="venue-btn__label" data-i18n="techRider.venueOptions.small">Small Venue</span>
+                </button>
+                <button class="venue-btn active" data-venue="large">
+                    <span class="venue-btn__capacity">350</span>
+                    <span class="venue-btn__label" data-i18n="techRider.venueOptions.large">Large Venue</span>
+                </button>
+            </div>
+
+            <!-- Specifications Table -->
+            <div class="table-wrapper">
+                <table class="specs-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="techRider.table.area">Area</th>
+                            <th data-i18n="techRider.table.smallVenue">Small (150)</th>
+                            <th data-i18n="techRider.table.largeVenue">Large (350)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="techRider.table.experience">Experience Space</td>
+                            <td>210 m</td>
+                            <td class="highlight">480 m</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="techRider.table.changing">Changing Room</td>
+                            <td>160 m</td>
+                            <td class="highlight">350 m</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="techRider.table.foyer">Foyer</td>
+                            <td>80 m</td>
+                            <td class="highlight">120 m</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="techRider.table.control">Control Room</td>
+                            <td>15 m</td>
+                            <td class="highlight">25 m</td>
+                        </tr>
+                        <tr style="border-top: 2px solid var(--color-gray-600);">
+                            <td style="font-weight: 600; color: var(--color-white);" data-i18n="techRider.table.total">Total Required</td>
+                            <td style="font-weight: 600;">~500 m</td>
+                            <td class="highlight" style="font-weight: 700;">~1000 m</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Floor Plan -->
+    <section class="section section--dark">
+        <div class="container">
+            <div class="floor-plan-container">
+                <div class="floor-plan-title">
+                    <h3 data-i18n="techRider.floorPlan.title">Floor Plan Layout</h3>
+                    <p id="floor-plan-dimensions" data-i18n="techRider.floorPlan.subtitle">Large venue configuration - approximately 1000 m total</p>
+                </div>
+
+                <div class="floor-plan">
+                    <svg id="floor-plan-svg" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Grid -->
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#333" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect width="600" height="400" fill="url(#grid)"/>
+
+                        <!-- Foyer -->
+                        <rect id="foyer" class="floor-plan__room" x="20" y="20" width="120" height="180"/>
+                        <text class="floor-plan__label" x="80" y="100">FOYER</text>
+                        <text id="foyer-size" class="floor-plan__sublabel" x="80" y="120">120 m</text>
+
+                        <!-- Changing Room -->
+                        <rect id="changing" class="floor-plan__room" x="20" y="220" width="180" height="160"/>
+                        <text class="floor-plan__label" x="110" y="295">CHANGING</text>
+                        <text id="changing-size" class="floor-plan__sublabel" x="110" y="315">350 m</text>
+
+                        <!-- Experience Space (Main) -->
+                        <rect id="experience" class="floor-plan__room" x="160" y="20" width="400" height="360"/>
+                        <text class="floor-plan__label" x="360" y="190">EXPERIENCE</text>
+                        <text id="experience-size" class="floor-plan__sublabel" x="360" y="215">480 m</text>
+                        <text class="floor-plan__dimension" x="360" y="240">Ceiling: 6-9m</text>
+
+                        <!-- Projector Grid (for Large venue) -->
+                        <g id="projector-grid">
+                            <!-- Row 1 -->
+                            <circle class="floor-plan__projector" cx="220" cy="70" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="70" r="4"/>
+                            <circle class="floor-plan__projector" cx="360" cy="70" r="4"/>
+                            <circle class="floor-plan__projector" cx="430" cy="70" r="4"/>
+                            <circle class="floor-plan__projector" cx="500" cy="70" r="4"/>
+                            <!-- Row 2 -->
+                            <circle class="floor-plan__projector" cx="220" cy="140" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="140" r="4"/>
+                            <circle class="floor-plan__projector" cx="360" cy="140" r="4"/>
+                            <circle class="floor-plan__projector" cx="430" cy="140" r="4"/>
+                            <circle class="floor-plan__projector" cx="500" cy="140" r="4"/>
+                            <!-- Row 3 -->
+                            <circle class="floor-plan__projector" cx="220" cy="210" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="210" r="4"/>
+                            <circle class="floor-plan__projector" cx="360" cy="210" r="4"/>
+                            <circle class="floor-plan__projector" cx="430" cy="210" r="4"/>
+                            <circle class="floor-plan__projector" cx="500" cy="210" r="4"/>
+                            <!-- Row 4 -->
+                            <circle class="floor-plan__projector" cx="220" cy="280" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="280" r="4"/>
+                            <circle class="floor-plan__projector" cx="360" cy="280" r="4"/>
+                            <circle class="floor-plan__projector" cx="430" cy="280" r="4"/>
+                            <circle class="floor-plan__projector" cx="500" cy="280" r="4"/>
+                            <!-- Row 5 -->
+                            <circle class="floor-plan__projector" cx="220" cy="330" r="4"/>
+                            <circle class="floor-plan__projector" cx="290" cy="330" r="4"/>
+                            <circle class="floor-plan__projector" cx="360" cy="330" r="4"/>
+                            <circle class="floor-plan__projector" cx="430" cy="330" r="4"/>
+                            <circle class="floor-plan__projector" cx="500" cy="330" r="4"/>
+                            <!-- Extra projectors for walls -->
+                            <circle class="floor-plan__projector" cx="185" cy="105" r="3"/>
+                            <circle class="floor-plan__projector" cx="185" cy="175" r="3"/>
+                            <circle class="floor-plan__projector" cx="185" cy="245" r="3"/>
+                            <circle class="floor-plan__projector" cx="535" cy="105" r="3"/>
+                            <circle class="floor-plan__projector" cx="535" cy="175" r="3"/>
+                            <circle class="floor-plan__projector" cx="535" cy="245" r="3"/>
+                        </g>
+
+                        <!-- Control Room -->
+                        <rect id="control" class="floor-plan__room" x="220" y="220" width="80" height="60" style="fill: var(--color-gray-700);"/>
+                        <text class="floor-plan__label" x="260" y="250" style="font-size: 10px;">CONTROL</text>
+                        <text id="control-size" class="floor-plan__sublabel" x="260" y="265" style="font-size: 9px;">25 m</text>
+                    </svg>
+                </div>
+
+                <div class="projector-legend">
+                    <div class="projector-legend__item">
+                        <span class="projector-legend__dot"></span>
+                        <span id="projector-count" data-i18n="techRider.floorPlan.projectors">36-42 Projectors</span>
+                    </div>
+                    <div class="projector-legend__item">
+                        <span class="projector-legend__dot" style="background: var(--color-gray-500);"></span>
+                        <span data-i18n="techRider.floorPlan.wallProjectors">Wall Projectors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Requirements -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="techRider.requirements.title">Technical Requirements</h2>
+
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.projectors.title">Projectors</div>
+                    <div class="tech-card__value" id="tech-projectors">36-42</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.projectors.desc">High-lumen projectors (5,000+ ANSI) for floor and wall coverage</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.ceiling.title">Ceiling Height</div>
+                    <div class="tech-card__value">6-9m</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.ceiling.desc">Minimum 6m, ideal 9m for optimal projection distance</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.sound.title">Sound System</div>
+                    <div class="tech-card__value">360</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.sound.desc">Surround sound system (4.1 minimum) for immersive audio</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.servers.title">Media Servers</div>
+                    <div class="tech-card__value" id="tech-servers">4-6</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.servers.desc">High-performance media servers for synchronized playback</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.power.title">Power</div>
+                    <div class="tech-card__value" id="tech-power">80-120 kW</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.power.desc">Dedicated power circuits for AV equipment</div>
+                </div>
+
+                <div class="tech-card">
+                    <div class="tech-card__title" data-i18n="techRider.requirements.climate.title">Climate Control</div>
+                    <div class="tech-card__value" data-i18n="techRider.requirements.climate.value">Strong AC</div>
+                    <div class="tech-card__desc" data-i18n="techRider.requirements.climate.desc">Participants wear full costumes for 55+ minutes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="text-center mb-2xl" data-i18n="techRider.faq.title">Frequently Asked Questions</h2>
+
+            <div class="container--narrow" style="margin: 0 auto;">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q1.question">What is the minimum space required?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q1.answer">For a small venue (150 capacity), you need approximately 500m total. For the recommended large venue (350 capacity), approximately 1000m is required. This includes the experience space, changing rooms, foyer, and control room.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q2.question">How many projectors are needed?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q2.answer">Small venue requires 16-18 projectors, while large venue needs 36-42 projectors. These are ceiling-mounted, high-lumen projectors (5,000+ ANSI lumens) that provide full floor and wall coverage for the immersive projections.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q3.question">Can I use my existing venue?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q3.answer">Possibly! The key requirements are: sufficient floor area, minimum 6m ceiling height, ability to achieve complete blackout, and strong climate control. Warehouses, event halls, and theater spaces often work well. We evaluate each venue individually.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q4.question">What if my ceiling is less than 6m?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q4.answer">Ceiling height below 6m significantly limits projection coverage and the immersive quality. We may be able to adapt with different projector configurations, but this requires individual assessment. The ideal is 9m for optimal floor projection distance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q5.question">Who provides the equipment?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q5.answer">The partner provides all AV equipment (projectors, media servers, sound system, lighting). Real Self provides technical supervision, content, projection mapping design, and show control programming. We work with your local AV team during installation.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="techRider.faq.q6.question">How long does installation take?</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer__content" data-i18n="techRider.faq.q6.answer">Full installation takes approximately 20 days. This includes equipment installation, projection mapping and calibration, sound setup, staff training, and technical rehearsals. Our team of 2-4 people will be on-site throughout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container text-center">
+            <p class="hero__tagline mb-xl" style="font-size: 1.125rem;" data-i18n="techRider.cta.subtitle">Explore the financial scenarios for your venue</p>
+            <a href="investment.html" class="btn btn--primary btn--large" data-i18n="techRider.cta.button">View Scenarios</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2026 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Venue configuration data
+        const venueConfigs = {
+            small: {
+                experience: '210 m',
+                changing: '160 m',
+                foyer: '80 m',
+                control: '15 m',
+                total: '~500 m',
+                projectors: '16-18',
+                servers: '2-3',
+                power: '50-70 kW',
+                floorPlanText: 'Small venue configuration - approximately 500 m total'
+            },
+            large: {
+                experience: '480 m',
+                changing: '350 m',
+                foyer: '120 m',
+                control: '25 m',
+                total: '~1000 m',
+                projectors: '36-42',
+                servers: '4-6',
+                power: '80-120 kW',
+                floorPlanText: 'Large venue configuration - approximately 1000 m total'
+            }
+        };
+
+        // Current venue selection
+        let currentVenue = 'large';
+
+        // DOM elements
+        const venueBtns = document.querySelectorAll('.venue-btn');
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        // Update the display based on venue selection
+        function updateVenueDisplay(venue) {
+            const config = venueConfigs[venue];
+
+            // Update SVG labels
+            document.getElementById('foyer-size').textContent = config.foyer;
+            document.getElementById('changing-size').textContent = config.changing;
+            document.getElementById('experience-size').textContent = config.experience;
+            document.getElementById('control-size').textContent = config.control;
+
+            // Update floor plan subtitle
+            document.getElementById('floor-plan-dimensions').textContent = config.floorPlanText;
+
+            // Update projector count
+            document.getElementById('projector-count').textContent = config.projectors + ' Projectors';
+
+            // Update tech cards
+            document.getElementById('tech-projectors').textContent = config.projectors;
+            document.getElementById('tech-servers').textContent = config.servers;
+            document.getElementById('tech-power').textContent = config.power;
+
+            // Update projector grid visibility
+            const projectorGrid = document.getElementById('projector-grid');
+            const projectors = projectorGrid.querySelectorAll('circle');
+
+            if (venue === 'small') {
+                // Show fewer projectors for small venue
+                projectors.forEach((p, i) => {
+                    p.style.opacity = i < 18 ? '1' : '0.2';
+                });
+            } else {
+                // Show all projectors for large venue
+                projectors.forEach(p => {
+                    p.style.opacity = '1';
+                });
+            }
+
+            // Update table highlighting
+            const tableCells = document.querySelectorAll('.specs-table td.highlight');
+            tableCells.forEach(cell => cell.classList.remove('highlight'));
+
+            const columnIndex = venue === 'small' ? 1 : 2;
+            document.querySelectorAll('.specs-table tbody tr').forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells[columnIndex]) {
+                    cells[columnIndex].classList.add('highlight');
+                }
+            });
+        }
+
+        // Venue button click handlers
+        venueBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const venue = btn.dataset.venue;
+
+                // Update active state
+                venueBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update display
+                currentVenue = venue;
+                updateVenueDisplay(venue);
+            });
+        });
+
+        // FAQ accordion
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Initialize with large venue
+        updateVenueDisplay('large');
+    </script>
+</body>
+</html>

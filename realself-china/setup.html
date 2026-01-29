@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real Self Setup - How we implement the experience with your local team.">
+    <title>Setup | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        .setup-hero {
+            text-align: center;
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .setup-hero__intro {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-gray-300);
+        }
+
+        .model-card {
+            background: linear-gradient(180deg, var(--color-gray-800) 0%, var(--color-gray-900) 100%);
+            border: 2px solid var(--color-white);
+            padding: var(--spacing-3xl);
+            margin: var(--spacing-3xl) 0;
+            text-align: center;
+        }
+
+        .model-card__title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .model-card__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            color: var(--color-white);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .includes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-2xl);
+        }
+
+        .includes-item {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-xl);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .includes-item:hover {
+            border-color: var(--color-gray-600);
+        }
+
+        .includes-item__icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-md);
+            color: var(--color-white);
+        }
+
+        .includes-item__title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .includes-item__desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+            line-height: 1.6;
+        }
+
+        .investment-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin: var(--spacing-3xl) 0;
+        }
+
+        .investment-option {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-2xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .investment-option:hover {
+            border-color: var(--color-gray-600);
+        }
+
+        .investment-option.active {
+            border: 2px solid var(--color-white);
+        }
+
+        .investment-option__size {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .investment-option__capacity {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .investment-option__price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .investment-option__desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+        }
+
+        .breakdown-section {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: var(--spacing-2xl);
+        }
+
+        .breakdown-section__title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-item__name {
+            color: var(--color-gray-300);
+        }
+
+        .breakdown-item__value {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-white);
+        }
+
+        .breakdown-item--total {
+            margin-top: var(--spacing-md);
+            padding-top: var(--spacing-lg);
+            border-top: 2px solid var(--color-white);
+        }
+
+        .breakdown-item--total .breakdown-item__name,
+        .breakdown-item--total .breakdown-item__value {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .partner-section {
+            margin-top: var(--spacing-3xl);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--spacing-md);
+        }
+
+        .partner-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md);
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            font-size: 0.875rem;
+            color: var(--color-gray-300);
+        }
+
+        .partner-item svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-gray-500);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .includes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partner-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .investment-summary {
+                grid-template-columns: 1fr;
+            }
+
+            .includes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (rendered by main.js) -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header -->
+    <section class="section" style="padding-top: 150px; padding-bottom: 0;">
+        <div class="container">
+            <h1 class="mb-md" data-i18n="setup.title">Setup & Implementation</h1>
+            <p class="hero__tagline" style="font-size: 1.25rem;" data-i18n="setup.subtitle">How we bring Real Self to your venue</p>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section" style="padding-top: var(--spacing-xl);">
+        <div class="container">
+            <div class="setup-hero">
+                <p class="setup-hero__intro" data-i18n="setup.intro">
+                    We travel to your location with the content, know-how, and expertise to transform your venue into a Real Self experience. Working alongside your local team, we supervise every detail from costume fabrication to projector calibration.
+                </p>
+            </div>
+
+            <!-- Implementation Model Card -->
+            <div class="model-card">
+                <p class="model-card__title" data-i18n="setup.model.title">The Implementation Model</p>
+                <p class="model-card__text" data-i18n="setup.model.text">
+                    We send 2-4 people with the digital content and know-how to coordinate the local fabrication of costumes, supervise AV installation, train your staff, and ensure the experience meets our quality standards.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included -->
+    <section class="section section--dark">
+        <div class="container">
+            <h2 class="text-center mb-xl" data-i18n="setup.includes.title">What's Included</h2>
+
+            <div class="includes-grid">
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.team.title">On-Site Team</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.team.desc">2-4 experts travel to your venue for 20 days of setup, including directors, technical leads, and production coordinators</p>
+                </div>
+
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.content.title">Digital Content</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.content.desc">Complete projection content, audio design, and show control programming adapted for your venue dimensions</p>
+                </div>
+
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.technical.title">Technical Supervision</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.technical.desc">Guidance for your AV team on projector mounting, calibration, sound setup, and show control integration</p>
+                </div>
+
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.costumes.title">Costume Coordination</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.costumes.desc">Patterns, specifications, and quality oversight for local fabrication of overalls, gloves, and masks</p>
+                </div>
+
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 20h9"/>
+                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.training.title">Staff Training</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.training.desc">Comprehensive training program for guides, technicians, and management to deliver an authentic experience</p>
+                </div>
+
+                <div class="includes-item">
+                    <svg class="includes-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <h3 class="includes-item__title" data-i18n="setup.includes.brand.title">Brand & Marketing</h3>
+                    <p class="includes-item__desc" data-i18n="setup.includes.brand.desc">Complete marketing toolkit with logos, photography, video assets, and brand guidelines for local campaigns</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Summary -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-xl" data-i18n="setup.investment.title">Upfront Investment</h2>
+
+            <div class="investment-summary">
+                <div class="investment-option" data-venue="small">
+                    <div class="investment-option__size" data-i18n="setup.investment.small.size">Small Venue</div>
+                    <div class="investment-option__capacity">150</div>
+                    <div class="investment-option__price">$190,000</div>
+                    <div class="investment-option__desc" data-i18n="setup.investment.small.desc">Production, content, training, and setup for 150-person capacity</div>
+                </div>
+
+                <div class="investment-option active" data-venue="large">
+                    <div class="investment-option__size" data-i18n="setup.investment.large.size">Large Venue</div>
+                    <div class="investment-option__capacity">350</div>
+                    <div class="investment-option__price">$250,000</div>
+                    <div class="investment-option__desc" data-i18n="setup.investment.large.desc">Production, content, training, and setup for 350-person capacity</div>
+                </div>
+            </div>
+
+            <!-- Simplified Breakdown -->
+            <div class="breakdown-section">
+                <h3 class="breakdown-section__title" data-i18n="setup.breakdown.title">Investment Breakdown (Large Venue)</h3>
+
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.production">Production & Direction</span>
+                    <span class="breakdown-item__value">$50,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.creative">Creative & IP Adaptation</span>
+                    <span class="breakdown-item__value">$57,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.technical">Technical Design & Programming</span>
+                    <span class="breakdown-item__value">$55,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.travel">Travel, Setup & Initial Materials</span>
+                    <span class="breakdown-item__value">$55,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.legal">Legal & Insurance</span>
+                    <span class="breakdown-item__value">$10,000</span>
+                </div>
+                <div class="breakdown-item">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.contingency">Contingency (10%)</span>
+                    <span class="breakdown-item__value">$23,000</span>
+                </div>
+                <div class="breakdown-item breakdown-item--total">
+                    <span class="breakdown-item__name" data-i18n="setup.breakdown.total">Total Investment</span>
+                    <span class="breakdown-item__value">$250,000</span>
+                </div>
+            </div>
+
+            <!-- Partner Provides -->
+            <div class="partner-section">
+                <h3 class="mb-lg" data-i18n="setup.partner.title">Provided by Partner</h3>
+                <p style="color: var(--color-gray-400); margin-bottom: var(--spacing-xl);" data-i18n="setup.partner.desc">
+                    The following are not included in the investment and should be sourced locally by the partner:
+                </p>
+
+                <div class="partner-grid">
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                        <span data-i18n="setup.partner.items.projectors">Projectors & AV</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span data-i18n="setup.partner.items.venue">Venue & Space</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                        <span data-i18n="setup.partner.items.sound">Sound System</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        <span data-i18n="setup.partner.items.servers">Media Servers</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span data-i18n="setup.partner.items.lockers">Lockers</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+                        <span data-i18n="setup.partner.items.costumes">Local Costumes</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        <span data-i18n="setup.partner.items.masks">Local Masks</span>
+                    </div>
+                    <div class="partner-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                        <span data-i18n="setup.partner.items.marketing">Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--dark">
+        <div class="container text-center">
+            <p class="hero__tagline mb-xl" style="font-size: 1.125rem;" data-i18n="setup.cta.subtitle">Ready to discuss partnership terms?</p>
+            <a href="partnership.html" class="btn btn--primary btn--large" data-i18n="setup.cta.button">View Partnership Model</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2026 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Investment option selection
+        const investmentOptions = document.querySelectorAll('.investment-option');
+        investmentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                investmentOptions.forEach(o => o.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
