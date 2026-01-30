@@ -18,7 +18,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        /* ========== Subtle Background ========== */
+        /* ========== Perspective Lines Background ========== */
         .experience-bg {
             position: fixed;
             top: 0;
@@ -30,74 +30,96 @@
             overflow: hidden;
         }
 
-        .experience-bg__lines {
+        /* Vanishing point lines - radial burst */
+        .perspective-lines {
             position: absolute;
-            width: 200%;
-            height: 200%;
-            top: -50%;
+            top: 30%;
+            left: 50%;
+            width: 200vmax;
+            height: 200vmax;
+            transform: translate(-50%, -50%);
+        }
+
+        .perspective-lines svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+            animation: linePulse 8s ease-in-out infinite;
+        }
+
+        @keyframes linePulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Horizontal perspective grid */
+        .perspective-grid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            transform-style: preserve-3d;
+            perspective: 500px;
+        }
+
+        .perspective-grid__inner {
+            position: absolute;
+            bottom: 0;
             left: -50%;
+            width: 200%;
+            height: 100%;
+            transform: rotateX(75deg);
+            transform-origin: bottom center;
             background:
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 150px,
-                    rgba(255,255,255,0.01) 150px,
-                    rgba(255,255,255,0.01) 151px
+                    transparent 80px,
+                    rgba(255,255,255,0.03) 80px,
+                    rgba(255,255,255,0.03) 81px
                 ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
-                    transparent 150px,
-                    rgba(255,255,255,0.01) 150px,
-                    rgba(255,255,255,0.01) 151px
+                    transparent 40px,
+                    rgba(255,255,255,0.02) 40px,
+                    rgba(255,255,255,0.02) 41px
                 );
-            animation: gridDrift 90s linear infinite;
+            animation: gridMove 20s linear infinite;
+            mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
         }
 
-        @keyframes gridDrift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(75px, 75px); }
+        @keyframes gridMove {
+            0% { transform: rotateX(75deg) translateY(0); }
+            100% { transform: rotateX(75deg) translateY(40px); }
         }
 
-        .floating-shape {
+        /* Glow at vanishing point */
+        .vanishing-glow {
             position: absolute;
-            border: 1px solid rgba(255,255,255,0.03);
-            pointer-events: none;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+            animation: glowPulse 6s ease-in-out infinite;
         }
 
-        .floating-shape--1 {
-            width: 250px;
-            height: 250px;
-            top: 15%;
-            right: 8%;
-            animation: floatRotate 40s ease-in-out infinite;
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
         }
 
-        .floating-shape--2 {
-            width: 180px;
-            height: 180px;
-            top: 50%;
-            left: 5%;
-            animation: floatRotate 50s ease-in-out infinite reverse;
-        }
-
-        .floating-shape--3 {
-            width: 120px;
-            height: 120px;
-            bottom: 25%;
-            right: 12%;
-            border-radius: 50%;
-            animation: floatPulse 30s ease-in-out infinite;
-        }
-
-        @keyframes floatRotate {
-            0%, 100% { transform: rotate(0deg) translateY(0); opacity: 0.2; }
-            50% { transform: rotate(180deg) translateY(-20px); opacity: 0.4; }
-        }
-
-        @keyframes floatPulse {
-            0%, 100% { transform: scale(1); opacity: 0.15; }
-            50% { transform: scale(1.05); opacity: 0.3; }
+        @media (max-width: 768px) {
+            .perspective-grid {
+                display: none;
+            }
+            .perspective-lines svg {
+                opacity: 0.25;
+            }
         }
 
         /* ========== Hero Section ========== */
@@ -507,12 +529,54 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Perspective Lines Background -->
     <div class="experience-bg">
-        <div class="experience-bg__lines"></div>
-        <div class="floating-shape floating-shape--1"></div>
-        <div class="floating-shape floating-shape--2"></div>
-        <div class="floating-shape floating-shape--3"></div>
+        <!-- Radial lines from vanishing point -->
+        <div class="perspective-lines">
+            <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+                <g stroke="rgba(255,255,255,0.08)" stroke-width="0.5" fill="none">
+                    <!-- Radial lines emanating from center -->
+                    <line x1="500" y1="500" x2="0" y2="0"/>
+                    <line x1="500" y1="500" x2="125" y2="0"/>
+                    <line x1="500" y1="500" x2="250" y2="0"/>
+                    <line x1="500" y1="500" x2="375" y2="0"/>
+                    <line x1="500" y1="500" x2="500" y2="0"/>
+                    <line x1="500" y1="500" x2="625" y2="0"/>
+                    <line x1="500" y1="500" x2="750" y2="0"/>
+                    <line x1="500" y1="500" x2="875" y2="0"/>
+                    <line x1="500" y1="500" x2="1000" y2="0"/>
+                    <line x1="500" y1="500" x2="1000" y2="125"/>
+                    <line x1="500" y1="500" x2="1000" y2="250"/>
+                    <line x1="500" y1="500" x2="1000" y2="375"/>
+                    <line x1="500" y1="500" x2="1000" y2="500"/>
+                    <line x1="500" y1="500" x2="1000" y2="625"/>
+                    <line x1="500" y1="500" x2="1000" y2="750"/>
+                    <line x1="500" y1="500" x2="1000" y2="875"/>
+                    <line x1="500" y1="500" x2="1000" y2="1000"/>
+                    <line x1="500" y1="500" x2="875" y2="1000"/>
+                    <line x1="500" y1="500" x2="750" y2="1000"/>
+                    <line x1="500" y1="500" x2="625" y2="1000"/>
+                    <line x1="500" y1="500" x2="500" y2="1000"/>
+                    <line x1="500" y1="500" x2="375" y2="1000"/>
+                    <line x1="500" y1="500" x2="250" y2="1000"/>
+                    <line x1="500" y1="500" x2="125" y2="1000"/>
+                    <line x1="500" y1="500" x2="0" y2="1000"/>
+                    <line x1="500" y1="500" x2="0" y2="875"/>
+                    <line x1="500" y1="500" x2="0" y2="750"/>
+                    <line x1="500" y1="500" x2="0" y2="625"/>
+                    <line x1="500" y1="500" x2="0" y2="500"/>
+                    <line x1="500" y1="500" x2="0" y2="375"/>
+                    <line x1="500" y1="500" x2="0" y2="250"/>
+                    <line x1="500" y1="500" x2="0" y2="125"/>
+                </g>
+            </svg>
+        </div>
+        <!-- Glow at vanishing point -->
+        <div class="vanishing-glow"></div>
+        <!-- Perspective grid floor -->
+        <div class="perspective-grid">
+            <div class="perspective-grid__inner"></div>
+        </div>
     </div>
 
     <!-- Header (rendered by main.js) -->
