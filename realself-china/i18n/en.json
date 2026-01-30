@@ -262,11 +262,11 @@
       "title": "Frequently Asked Questions",
       "q1": {
         "question": "What is the minimum space required?",
-        "answer": "For a small venue (150 capacity), you need approximately 500m total. For the recommended large venue (350 capacity), approximately 1000m is required. This includes the experience space, changing rooms, foyer, and control room."
+        "answer": "For a small venue (150 capacity), you need approximately 500m² total with experience space of 20m x 14m and 250m² changing room. For the recommended large venue (350 capacity), approximately 1000m² is required with experience space of 26m x 18m and 350m² changing room. Both include foyer, control room (15m²), and storage."
       },
       "q2": {
         "question": "How many projectors are needed?",
-        "answer": "Small venue requires 16-18 projectors, while large venue needs 36-42 projectors. These are ceiling-mounted, high-lumen projectors (5,000+ ANSI lumens) that provide full floor and wall coverage for the immersive projections."
+        "answer": "Small venue (150 capacity) requires 18 projectors, while large venue (350 capacity) needs 36 projectors. These are ceiling-mounted, high-lumen projectors (6,500-12,000 ANSI lumens) that provide full floor and wall coverage for the immersive projections. You'll need a Disguise or Watchout video server system with 18 or 36 outputs respectively."
       },
       "q3": {
         "question": "Can I use my existing venue?",

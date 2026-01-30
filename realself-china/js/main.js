@@ -362,7 +362,7 @@ const calculator = {
         realSelfSharePercent: 0.30,
 
         // Pricing (USD)
-        ticketPriceUSD: 32, // Base ticket price
+        ticketPriceUSD: 22, // Base ticket price
         vipUpgradePrice: 45, // VIP upgrade price
         merchAvgPrice: 6, // Average merchandise price
         concessionsPrice: 5, // Food/drinks average
@@ -371,7 +371,7 @@ const calculator = {
 
         // Conversion rates
         vipConversionRate: 0.10, // 10% of audience upgrades to VIP
-        merchConversionRate: 0.70, // 70% buy merch
+        merchConversionRate: 0.60, // 60% buy merch
         concessionsConversionRate: 0.70, // 70% buy food/drinks
         photoboothConversionRate: 0.13, // 13% use photobooth
         corporateWeeklyPax: 200, // 200 people/week for corporate events

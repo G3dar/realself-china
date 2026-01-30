@@ -374,6 +374,204 @@
             color: var(--color-gray-400);
         }
 
+        /* Cost Breakdown Tables */
+        .cost-breakdown {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .cost-breakdown__title {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-700);
+        }
+
+        .cost-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cost-table th,
+        .cost-table td {
+            padding: var(--spacing-md) var(--spacing-lg);
+            text-align: left;
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .cost-table th {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-gray-500);
+            font-weight: 500;
+            background: var(--color-gray-800);
+        }
+
+        .cost-table td {
+            font-size: 0.9375rem;
+            color: var(--color-gray-300);
+        }
+
+        .cost-table td strong {
+            color: var(--color-white);
+        }
+
+        .cost-table__amount {
+            text-align: right !important;
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--color-white) !important;
+            white-space: nowrap;
+        }
+
+        .cost-table__section-header td {
+            background: var(--color-gray-800);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-gray-400);
+            font-weight: 600;
+            padding: var(--spacing-sm) var(--spacing-lg);
+        }
+
+        .cost-table__row--optional {
+            background: var(--color-gray-800);
+            opacity: 0.85;
+        }
+
+        .cost-table__row--optional td {
+            font-style: italic;
+        }
+
+        .optional-badge {
+            display: inline-block;
+            font-size: 0.625rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-gray-400);
+            background: var(--color-gray-700);
+            padding: 2px 6px;
+            margin-left: var(--spacing-xs);
+            font-style: normal;
+            vertical-align: middle;
+        }
+
+        .cost-table tfoot tr {
+            background: var(--color-gray-800);
+        }
+
+        .cost-table__subtotal td {
+            font-weight: 600;
+            color: var(--color-white);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: none;
+        }
+
+        .cost-table__subtotal-alt td {
+            font-weight: 500;
+            color: var(--color-gray-400);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 0.875rem;
+            border-bottom: none;
+        }
+
+        /* Total Summary */
+        .total-summary {
+            background: var(--color-gray-900);
+            border: 2px solid var(--color-white);
+            padding: var(--spacing-2xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .total-summary__title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-white);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .total-summary__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        @media (max-width: 600px) {
+            .total-summary__grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .total-summary__option {
+            background: var(--color-gray-800);
+            padding: var(--spacing-xl);
+            text-align: center;
+            border: 1px solid var(--color-gray-700);
+        }
+
+        .total-summary__option--featured {
+            border-color: var(--color-white);
+            position: relative;
+        }
+
+        .total-summary__option--featured::before {
+            content: 'RECOMMENDED';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.625rem;
+            letter-spacing: 0.1em;
+            background: var(--color-white);
+            color: var(--color-gray-900);
+            padding: 4px 12px;
+            font-weight: 600;
+        }
+
+        .total-summary__label {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .total-summary__desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-400);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .total-summary__amount {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .total-summary__breakdown {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+        }
+
+        .total-summary__note {
+            font-size: 0.75rem;
+            color: var(--color-gray-500);
+            text-align: center;
+            margin-top: var(--spacing-xl);
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
         /* Travel Requirements */
         .travel-note {
             background: var(--color-gray-800);
@@ -472,46 +670,121 @@
         <div class="container">
             <h2 class="text-center mb-xl" data-i18n="setup.investment.title">Investment</h2>
 
-            <div class="investment-hero">
-                <div class="investment-card">
-                    <div class="investment-card__label" data-i18n="setup.investment.directorFee">Director Fee</div>
-                    <div class="investment-card__price">$15<span>K</span></div>
-                    <div class="investment-card__note" data-i18n="setup.investment.feeNote">Includes all materials, manuals, guides, and training</div>
-                </div>
-
-                <div class="investment-details">
-                    <h3 class="investment-details__title" data-i18n="setup.investment.travelTitle">Travel Expenses (Additional)</h3>
-
-                    <div class="detail-row">
-                        <span class="detail-row__label" data-i18n="setup.investment.flights">Flights</span>
-                        <span class="detail-row__value" data-i18n="setup.investment.flightsValue">Based on origin</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-row__label" data-i18n="setup.investment.accommodation">Accommodation</span>
-                        <span class="detail-row__value" data-i18n="setup.investment.accommodationValue">2 weeks</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-row__label" data-i18n="setup.investment.transport">Local Transport</span>
-                        <span class="detail-row__value" data-i18n="setup.investment.transportValue">Included</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-row__label" data-i18n="setup.investment.meals">Meals</span>
-                        <span class="detail-row__value" data-i18n="setup.investment.mealsValue">Per diem</span>
-                    </div>
-
-                    <div class="detail-row detail-row--highlight">
-                        <span class="detail-row__label" data-i18n="setup.investment.businessClass">Flights over 6 hours</span>
-                        <span class="detail-row__value" data-i18n="setup.investment.businessClassValue">Business class required</span>
-                    </div>
-                </div>
+            <!-- Team Fees Table -->
+            <div class="cost-breakdown">
+                <h3 class="cost-breakdown__title">Team Fees</h3>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Description</th>
+                            <th class="cost-table__amount">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Franchise Director</strong></td>
+                            <td>Lead trainer, quality auditor, brand supervision</td>
+                            <td class="cost-table__amount">$15,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Executive Producer</strong></td>
+                            <td>Technical coordination, vendor liaison, setup management</td>
+                            <td class="cost-table__amount">$5,000</td>
+                        </tr>
+                        <tr class="cost-table__row--optional">
+                            <td><strong>Assistant Director</strong> <span class="optional-badge">Optional</span></td>
+                            <td>Additional support for complex venues or larger teams</td>
+                            <td class="cost-table__amount">$5,000</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="cost-table__subtotal">
+                            <td colspan="2">Team Fees Subtotal</td>
+                            <td class="cost-table__amount">$20,000 - $25,000</td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
 
-            <!-- Travel Note -->
-            <div class="travel-note">
-                <div class="travel-note__title" data-i18n="setup.travel.title">Travel Requirements</div>
-                <p class="travel-note__text" data-i18n="setup.travel.text">
-                    Travel expenses include round-trip flights, hotel accommodation for the on-site period, local transportation, and meals. For flights exceeding 6 hours, business class is required to ensure the director arrives ready to work.
-                </p>
+            <!-- Travel Expenses Table -->
+            <div class="cost-breakdown">
+                <h3 class="cost-breakdown__title">Travel Expenses (Estimated for China)</h3>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Details</th>
+                            <th class="cost-table__amount">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cost-table__section-header">
+                            <td colspan="3">Flights</td>
+                        </tr>
+                        <tr>
+                            <td>Director Flight</td>
+                            <td>Business Class (required for flights over 6 hours)</td>
+                            <td class="cost-table__amount">$4,500</td>
+                        </tr>
+                        <tr class="cost-table__row--optional">
+                            <td>Assistant Flight <span class="optional-badge">If applicable</span></td>
+                            <td>Premium Economy</td>
+                            <td class="cost-table__amount">$3,000</td>
+                        </tr>
+                        <tr class="cost-table__section-header">
+                            <td colspan="3">Accommodation (14 nights)</td>
+                        </tr>
+                        <tr>
+                            <td>Hotel</td>
+                            <td>$250/night × 14 nights × 2 rooms</td>
+                            <td class="cost-table__amount">$7,000</td>
+                        </tr>
+                        <tr class="cost-table__section-header">
+                            <td colspan="3">Daily Expenses (14 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Meals Per Diem</td>
+                            <td>$75/day × 14 days × 2 people</td>
+                            <td class="cost-table__amount">$2,100</td>
+                        </tr>
+                        <tr>
+                            <td>Local Transport</td>
+                            <td>$25/day × 14 days × 2 people</td>
+                            <td class="cost-table__amount">$700</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="cost-table__subtotal">
+                            <td colspan="2">Travel Subtotal (with Assistant)</td>
+                            <td class="cost-table__amount">$17,300</td>
+                        </tr>
+                        <tr class="cost-table__subtotal-alt">
+                            <td colspan="2">Travel Subtotal (Director only)</td>
+                            <td class="cost-table__amount">$10,800</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- Total Summary -->
+            <div class="total-summary">
+                <h3 class="total-summary__title">Total Investment</h3>
+                <div class="total-summary__grid">
+                    <div class="total-summary__option">
+                        <div class="total-summary__label">Standard Package</div>
+                        <div class="total-summary__desc">Director + Executive Producer</div>
+                        <div class="total-summary__amount">$30,800</div>
+                        <div class="total-summary__breakdown">$20K fees + $10.8K travel</div>
+                    </div>
+                    <div class="total-summary__option total-summary__option--featured">
+                        <div class="total-summary__label">Full Team Package</div>
+                        <div class="total-summary__desc">+ Assistant Director</div>
+                        <div class="total-summary__amount">$42,300</div>
+                        <div class="total-summary__breakdown">$25K fees + $17.3K travel</div>
+                    </div>
+                </div>
+                <p class="total-summary__note">* Travel estimates based on international flights to China. Actual costs may vary based on booking timing and origin city.</p>
             </div>
         </div>
     </section>
@@ -617,15 +890,6 @@
                 </div>
             </div>
 
-            <!-- Optional Assistant -->
-            <div class="addon-section">
-                <div class="addon-section__badge" data-i18n="setup.addon.badge">Optional</div>
-                <div class="addon-section__content">
-                    <div class="addon-section__title" data-i18n="setup.addon.title">Assistant Director</div>
-                    <p class="addon-section__desc" data-i18n="setup.addon.desc">For complex venues or larger teams, an assistant can be added to support the Franchise Director. Travel expenses apply based on location.</p>
-                </div>
-                <div class="addon-section__price">+$5<span>K</span></div>
-            </div>
         </div>
     </section>
 
