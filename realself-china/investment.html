@@ -615,29 +615,25 @@
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
-                        <div class="scenario-card__value" id="scenario150Investment">$190K</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue (est.)</div>
+                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario150Weekly">$56,000</div>
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue</div>
-                        <div class="scenario-card__value scenario-card__value--muted" id="scenario150Weekly">$56,000</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyCosts">Weekly Costs (est.)</div>
+                        <div class="scenario-card__value scenario-card__value--muted" id="scenario150Costs">$18,000</div>
                     </div>
 
                     <div class="scenario-card__divider"></div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerMonthlyProfit">Partner Monthly Profit</div>
-                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario150Monthly">$104,000</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyProfit">Weekly Profit (est.)</div>
+                        <div class="scenario-card__value" id="scenario150Profit">$38,000</div>
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerAnnual">Partner Annual</div>
-                        <div class="scenario-card__value" id="scenario150Annual">$1.2M</div>
-                    </div>
-
-                    <div class="scenario-card__footer">
-                        <div class="scenario-card__breakeven"><span data-i18n="scenarios.metrics.breakeven">Breakeven</span>: <strong id="scenario150Breakeven">~2 months</strong></div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.monthlyProfit">Monthly Profit (est.)</div>
+                        <div class="scenario-card__value" id="scenario150Monthly">$152,000</div>
                     </div>
                 </div>
 
@@ -649,34 +645,30 @@
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerInvestment">Partner Investment</div>
-                        <div class="scenario-card__value" id="scenario350Investment">$250K</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue (est.)</div>
+                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario350Weekly">$131,000</div>
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyRevenue">Weekly Revenue</div>
-                        <div class="scenario-card__value scenario-card__value--muted" id="scenario350Weekly">$131,000</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyCosts">Weekly Costs (est.)</div>
+                        <div class="scenario-card__value scenario-card__value--muted" id="scenario350Costs">$32,000</div>
                     </div>
 
                     <div class="scenario-card__divider"></div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerMonthlyProfit">Partner Monthly Profit</div>
-                        <div class="scenario-card__value scenario-card__value--highlight" id="scenario350Monthly">$272,000</div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.weeklyProfit">Weekly Profit (est.)</div>
+                        <div class="scenario-card__value" id="scenario350Profit">$99,000</div>
                     </div>
 
                     <div class="scenario-card__metric">
-                        <div class="scenario-card__label" data-i18n="scenarios.metrics.partnerAnnual">Partner Annual</div>
-                        <div class="scenario-card__value" id="scenario350Annual">$3.3M</div>
-                    </div>
-
-                    <div class="scenario-card__footer">
-                        <div class="scenario-card__breakeven"><span data-i18n="scenarios.metrics.breakeven">Breakeven</span>: <strong id="scenario350Breakeven">~1 month</strong></div>
+                        <div class="scenario-card__label" data-i18n="scenarios.metrics.monthlyProfit">Monthly Profit (est.)</div>
+                        <div class="scenario-card__value" id="scenario350Monthly">$396,000</div>
                     </div>
                 </div>
             </div>
 
-            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="scenarios.excludesNote">Investment excludes technology, equipment & projectors (provided by partner)</p>
+            <p style="text-align: center; font-size: 0.75rem; color: var(--color-gray-500);" data-i18n="scenarios.projectedNote">All figures are estimates based on standard operating assumptions</p>
         </div>
     </section>
 
@@ -731,10 +723,10 @@
 
                     <div class="breakdown-row breakdown-row--slider">
                         <span class="breakdown-row__label" data-i18n="investment.revenue.ticketPrice">Ticket price</span>
-                        <span class="breakdown-row__value" id="ticketPriceDisplay">$32</span>
+                        <span class="breakdown-row__value" id="ticketPriceDisplay">$22</span>
                         <div class="breakdown-row__slider">
-                            <input type="range" id="ticketPriceSlider" min="25" max="50" value="32">
-                            <span class="breakdown-row__slider-label">$25-50</span>
+                            <input type="range" id="ticketPriceSlider" min="15" max="35" value="22">
+                            <span class="breakdown-row__slider-label">$15-35</span>
                         </div>
                     </div>
 
@@ -876,22 +868,18 @@
 
             <!-- Results Summary -->
             <div class="results-summary">
-                <div class="results-summary__grid">
+                <div class="results-summary__grid" style="grid-template-columns: repeat(3, 1fr);">
                     <div>
-                        <div class="results-summary__item-label" data-i18n="investment.results.weeklyProfit">Weekly Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.weeklyProfit">Weekly Profit (est.)</div>
                         <div class="results-summary__item-value" id="weeklyProfit">$67,879</div>
                     </div>
                     <div>
-                        <div class="results-summary__item-label" data-i18n="investment.results.monthlyProfit">Monthly Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.monthlyProfit">Monthly Profit (est.)</div>
                         <div class="results-summary__item-value" id="monthlyProfit">$271,516</div>
                     </div>
                     <div>
-                        <div class="results-summary__item-label" data-i18n="investment.results.annualProfit">Annual Profit</div>
+                        <div class="results-summary__item-label" data-i18n="investment.results.annualProfit">Annual Profit (est.)</div>
                         <div class="results-summary__item-value" id="annualProfit">$3.3M</div>
-                    </div>
-                    <div>
-                        <div class="results-summary__item-label" data-i18n="investment.results.breakeven">Breakeven</div>
-                        <div class="results-summary__item-value" id="breakevenPeriod">~2 mo</div>
                     </div>
                 </div>
             </div>
@@ -940,8 +928,8 @@
 
             <!-- CTA Section -->
             <div class="export-section">
-                <a href="investment-requirements.html" class="btn btn--primary btn--large" data-i18n="investment.cta">
-                    View Investment Requirements
+                <a href="setup.html" class="btn btn--primary btn--large" data-i18n="investment.cta">
+                    View Installation Costs
                 </a>
             </div>
         </div>
@@ -961,18 +949,12 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Investment data by capacity (excludes technology/equipment/projectors)
-        const investments = {
-            150: { value: 190000 },
-            350: { value: 250000 }
-        };
-
         // Current state
         let currentCapacity = 350;
         let daysPerWeek = 4;
         let showsPerDay = 3;
         let occupancy = 70;
-        let ticketPrice = 32;
+        let ticketPrice = 22;
         let replacementRate = 50;
 
         // DOM elements
@@ -1002,11 +984,6 @@
                 return '$' + (num / 1000000).toFixed(1) + 'M';
             }
             return '$' + num.toLocaleString();
-        }
-
-        // Format investment as shorthand (e.g., $185K)
-        function formatInvestment(num) {
-            return '$' + Math.round(num / 1000) + 'K';
         }
 
         // Revenue assumptions (based on comparable experiences)
@@ -1073,14 +1050,12 @@
 
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
-            const annualProfit = monthlyProfit * 12;
-            const breakeven = monthlyProfit > 0 ? Math.ceil(investments[capacity].value / monthlyProfit) : 99;
 
             return {
                 weeklyRevenue: totalRevenue,
-                monthlyProfit: monthlyProfit,
-                annualProfit: annualProfit,
-                breakeven: breakeven
+                weeklyCosts: totalCosts,
+                weeklyProfit: weeklyProfit,
+                monthlyProfit: monthlyProfit
             };
         }
 
@@ -1089,17 +1064,15 @@
             [150, 350].forEach(cap => {
                 const result = calculateForCapacity(cap);
 
-                const investmentEl = document.getElementById(`scenario${cap}Investment`);
                 const weeklyEl = document.getElementById(`scenario${cap}Weekly`);
+                const costsEl = document.getElementById(`scenario${cap}Costs`);
+                const profitEl = document.getElementById(`scenario${cap}Profit`);
                 const monthlyEl = document.getElementById(`scenario${cap}Monthly`);
-                const annualEl = document.getElementById(`scenario${cap}Annual`);
-                const breakevenEl = document.getElementById(`scenario${cap}Breakeven`);
 
-                if (investmentEl) investmentEl.textContent = formatInvestment(investments[cap].value);
                 if (weeklyEl) weeklyEl.textContent = formatCurrency(result.weeklyRevenue);
+                if (costsEl) costsEl.textContent = formatCurrency(result.weeklyCosts);
+                if (profitEl) profitEl.textContent = formatCurrency(result.weeklyProfit);
                 if (monthlyEl) monthlyEl.textContent = formatCurrency(result.monthlyProfit);
-                if (annualEl) annualEl.textContent = formatCurrency(result.annualProfit);
-                if (breakevenEl) breakevenEl.textContent = `~${result.breakeven} months`;
             });
         }
 
@@ -1107,7 +1080,6 @@
         function calculate() {
             // Calculate tickets based on variables
             const tickets = Math.round(currentCapacity * daysPerWeek * showsPerDay * (occupancy / 100));
-            const investment = investments[currentCapacity];
 
             // Ticket Revenue
             const ticketRev = tickets * ticketPrice;
@@ -1151,7 +1123,6 @@
             const weeklyProfit = totalRevenue - totalCosts;
             const monthlyProfit = weeklyProfit * 4;
             const annualProfit = monthlyProfit * 12;
-            const breakeven = monthlyProfit > 0 ? Math.ceil(investment.value / monthlyProfit) : 99;
 
             // Update display - Ticket Revenue
             document.getElementById('ticketsPerWeek').textContent = tickets.toLocaleString();
@@ -1193,7 +1164,6 @@
             document.getElementById('weeklyProfit').textContent = formatCurrency(weeklyProfit);
             document.getElementById('monthlyProfit').textContent = formatCurrency(monthlyProfit);
             document.getElementById('annualProfit').textContent = formatCurrency(annualProfit);
-            document.getElementById('breakevenPeriod').textContent = '~' + breakeven + ' mo';
 
             // Update variable displays
             document.getElementById('daysValue').textContent = daysPerWeek;

@@ -1,11 +1,8 @@
 {
   "nav": {
     "experience": "Experience",
-    "script": "Script",
     "specs": "Specs",
-    "techRider": "Tech Rider",
-    "scenarios": "Revenue",
-    "setup": "Setup",
+    "financials": "Financials",
     "partnership": "Partnership"
   },
   "home": {
@@ -289,8 +286,8 @@
       }
     },
     "cta": {
-      "subtitle": "Explore the financial scenarios for your venue",
-      "button": "View Scenarios"
+      "subtitle": "See the detailed technical requirements for installation",
+      "button": "View Technical Rider"
     }
   },
   "script": {
@@ -349,115 +346,108 @@
       }
     },
     "closing": "\"What would it be like to live like this?\"",
-    "cta": "Explore Venue Scenarios"
+    "cta": "View Financials"
   },
   "scenarios": {
     "title": "Venue Scenarios",
-    "subtitle": "Investment overview for two venue configurations",
-    "intro": "Each scenario represents a different venue capacity, with corresponding investment requirements and projected returns. All figures based on standard operating assumptions.",
-    "revenueSplit": "Revenue Split:",
-    "recommended": "RECOMMENDED",
+    "subtitle": "Projected revenue and costs by venue size",
+    "intro": "Each scenario represents a different venue capacity with projected revenue and operating costs. All figures are estimates based on standard operating assumptions.",
     "sizes": {
       "small": "Small Venue",
       "large": "Large Venue"
     },
     "people": "people",
     "metrics": {
-      "partnerInvestment": "Partner Investment",
-      "weeklyRevenue": "Weekly Revenue",
-      "partnerMonthlyProfit": "Partner Monthly Profit",
-      "partnerAnnual": "Partner Annual",
-      "breakeven": "Breakeven"
+      "weeklyRevenue": "Weekly Revenue (est.)",
+      "weeklyCosts": "Weekly Costs (est.)",
+      "weeklyProfit": "Weekly Profit (est.)",
+      "monthlyProfit": "Monthly Profit (est.)"
     },
-    "months": "months",
-    "assumptions": {
-      "title": "Base Assumptions",
-      "ticketPrice": "$32 ticket price",
-      "daysPerWeek": "4 days/week",
-      "showsPerDay": "3 shows/day",
-      "occupancy": "70% occupancy",
-      "allRevenue": "All revenue streams included"
-    },
-    "scale": {
-      "title": "Multi-Location Potential",
-      "subtitle": "Partner annual profit projections based on large venue (350 capacity) across multiple Tier 1 cities.",
-      "oneVenue": "1 Venue",
-      "threeVenues": "3 Venues",
-      "fiveVenues": "5 Venues",
-      "shanghai": "Shanghai",
-      "plusCities": "+ Beijing, Shenzhen",
-      "plusMoreCities": "+ Guangzhou, Chengdu"
-    },
-    "cta": "View Detailed Breakdown",
-    "excludesNote": "Investment excludes technology, equipment & projectors (provided by partner)"
+    "projectedNote": "All figures are estimates based on standard operating assumptions"
   },
   "setup": {
-    "title": "Setup & Implementation",
-    "subtitle": "How we bring Real Self to your venue",
-    "intro": "We travel to your location with the content, know-how, and expertise to transform your venue into a Real Self experience. Working alongside your local team, we supervise every detail from costume fabrication to projector calibration.",
+    "title": "Installation Costs",
+    "subtitle": "Expert supervision to ensure a perfect launch",
+    "intro": "Our Franchise Director travels to your location to provide comprehensive training, materials, manuals, and brand guidelines. Through expert supervision and quality audits, we ensure your team can deliver the Real Self experience to perfection.",
     "model": {
-      "title": "The Implementation Model",
-      "text": "We send 2-4 people with the digital content and know-how to coordinate the local fabrication of costumes, supervise AV installation, train your staff, and ensure the experience meets our quality standards."
-    },
-    "includes": {
-      "title": "What's Included",
-      "team": {
-        "title": "On-Site Team",
-        "desc": "2-4 experts travel to your venue for 20 days of setup, including directors, technical leads, and production coordinators"
-      },
-      "content": {
-        "title": "Digital Content",
-        "desc": "Complete projection content, audio design, and show control programming adapted for your venue dimensions"
-      },
-      "technical": {
-        "title": "Technical Supervision",
-        "desc": "Guidance for your AV team on projector mounting, calibration, sound setup, and show control integration"
-      },
-      "costumes": {
-        "title": "Costume Coordination",
-        "desc": "Patterns, specifications, and quality oversight for local fabrication of overalls, gloves, and masks"
-      },
-      "training": {
-        "title": "Staff Training",
-        "desc": "Comprehensive training program for guides, technicians, and management to deliver an authentic experience"
-      },
-      "brand": {
-        "title": "Brand & Marketing",
-        "desc": "Complete marketing toolkit with logos, photography, video assets, and brand guidelines for local campaigns"
-      }
+      "title": "The Franchise Model",
+      "text": "One expert Franchise Director travels to your venue with all materials, instructions, and guidelines needed to train your team. They supervise setup, audit quality, and ensure the experience meets our brand standards."
     },
     "investment": {
-      "title": "Upfront Investment",
-      "small": {
-        "size": "Small Venue",
-        "desc": "Production, content, training, and setup for 150-person capacity"
+      "title": "Investment",
+      "directorFee": "Director Fee",
+      "feeNote": "Includes all materials, manuals, guides, and training",
+      "travelTitle": "Travel Expenses (Additional)",
+      "flights": "Flights",
+      "flightsValue": "Based on origin",
+      "accommodation": "Accommodation",
+      "accommodationValue": "2 weeks",
+      "transport": "Local Transport",
+      "transportValue": "Included",
+      "meals": "Meals",
+      "mealsValue": "Per diem",
+      "businessClass": "Flights over 6 hours",
+      "businessClassValue": "Business class required"
+    },
+    "travel": {
+      "title": "Travel Requirements",
+      "text": "Travel expenses include round-trip flights, hotel accommodation for the on-site period, local transportation, and meals. For flights exceeding 6 hours, business class is required to ensure the director arrives ready to work."
+    },
+    "timeline": {
+      "title": "Support Timeline",
+      "subtitle": "6 weeks of dedicated support throughout your launch",
+      "before": {
+        "duration": "2 weeks",
+        "label": "Pre-Setup",
+        "desc": "Remote coordination, vendor selection guidance, and preparation of materials"
       },
-      "large": {
-        "size": "Large Venue",
-        "desc": "Production, content, training, and setup for 350-person capacity"
+      "during": {
+        "duration": "2 weeks",
+        "label": "On-Site",
+        "desc": "Director present at venue for training, supervision, and quality audits"
+      },
+      "after": {
+        "duration": "2 weeks",
+        "label": "Post-Launch",
+        "desc": "Remote support for adjustments, troubleshooting, and final refinements"
       }
     },
-    "breakdown": {
-      "title": "Investment Breakdown (Large Venue)",
-      "production": "Production & Direction",
-      "creative": "Creative & IP Adaptation",
-      "technical": "Technical Design & Programming",
-      "travel": "Travel, Setup & Initial Materials",
-      "legal": "Legal & Insurance",
-      "contingency": "Contingency (10%)",
-      "total": "Total Investment"
+    "scope": {
+      "title": "Scope of Service",
+      "included": {
+        "title": "What's Included",
+        "manuals": "Complete franchise manuals and brand guidelines",
+        "training": "Staff training and operational procedures",
+        "vendors": "Guidance on costume and lighting vendor selection",
+        "mastering": "Supervision of audio mastering configuration",
+        "audit": "Quality audit and brand compliance review",
+        "support": "Post-launch remote support and adjustments"
+      },
+      "excluded": {
+        "title": "Not Included",
+        "adaptation": "Experience adaptation to different dimensions",
+        "script": "Script modifications or custom content",
+        "mastering": "Audio mastering (supervision only included)",
+        "equipment": "Equipment and technology (provided by partner)",
+        "note": "Custom modifications to the experience are quoted separately."
+      }
+    },
+    "addon": {
+      "badge": "Optional",
+      "title": "Assistant Director",
+      "desc": "For complex venues or larger teams, an assistant can be added to support the Franchise Director. Travel expenses apply based on location."
     },
     "partner": {
       "title": "Provided by Partner",
-      "desc": "The following are not included in the investment and should be sourced locally by the partner:",
+      "desc": "All equipment and infrastructure is sourced locally by the partner. The Franchise Director provides guidance and specifications only.",
       "items": {
         "projectors": "Projectors & AV",
         "venue": "Venue & Space",
         "sound": "Sound System",
         "servers": "Media Servers",
         "lockers": "Lockers",
-        "costumes": "Local Costumes",
-        "masks": "Local Masks",
+        "costumes": "Costumes & Masks",
+        "staff": "Local Staff",
         "marketing": "Marketing"
       }
     },

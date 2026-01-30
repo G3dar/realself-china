@@ -1,11 +1,8 @@
 {
   "nav": {
     "experience": "体验",
-    "script": "剧本",
     "specs": "规格",
-    "techRider": "技术清单",
-    "scenarios": "收入",
-    "setup": "实施",
+    "financials": "财务",
     "partnership": "合作"
   },
   "home": {
@@ -289,8 +286,8 @@
       }
     },
     "cta": {
-      "subtitle": "探索您场地的财务方案",
-      "button": "查看场景方案"
+      "subtitle": "查看安装的详细技术要求",
+      "button": "查看技术清单"
     }
   },
   "script": {
@@ -349,115 +346,108 @@
       }
     },
     "closing": "\"如果这样生活，会是什么感觉？\"",
-    "cta": "探索场地方案"
+    "cta": "查看财务"
   },
   "scenarios": {
     "title": "场地方案",
-    "subtitle": "两种场地配置的投资概览",
-    "intro": "每个方案代表不同的场地容量，以及相应的投资需求和预期回报。所有数据均基于标准运营假设。",
-    "revenueSplit": "收益分成：",
-    "recommended": "推荐",
+    "subtitle": "按场地大小预测收入和成本",
+    "intro": "每个方案代表不同的场地容量，以及预测的收入和运营成本。所有数据均为基于标准运营假设的估计值。",
     "sizes": {
       "small": "小型场地",
       "large": "大型场地"
     },
     "people": "人",
     "metrics": {
-      "partnerInvestment": "合作方投资",
-      "weeklyRevenue": "每周收入",
-      "partnerMonthlyProfit": "合作方月利润",
-      "partnerAnnual": "合作方年收入",
-      "breakeven": "回本周期"
+      "weeklyRevenue": "每周收入（预估）",
+      "weeklyCosts": "每周成本（预估）",
+      "weeklyProfit": "每周利润（预估）",
+      "monthlyProfit": "每月利润（预估）"
     },
-    "months": "个月",
-    "assumptions": {
-      "title": "基础假设",
-      "ticketPrice": "$32票价",
-      "daysPerWeek": "每周4天",
-      "showsPerDay": "每天3场",
-      "occupancy": "70%上座率",
-      "allRevenue": "包含所有收入来源"
-    },
-    "scale": {
-      "title": "多地点扩展潜力",
-      "subtitle": "基于大型场地（350人容量）在多个一线城市的合作方年利润预测。",
-      "oneVenue": "1个场地",
-      "threeVenues": "3个场地",
-      "fiveVenues": "5个场地",
-      "shanghai": "上海",
-      "plusCities": "+ 北京、深圳",
-      "plusMoreCities": "+ 广州、成都"
-    },
-    "cta": "查看详细财务明细",
-    "excludesNote": "投资不包含技术、设备和投影仪（由合作方提供）"
+    "projectedNote": "所有数据均为基于标准运营假设的估计值"
   },
   "setup": {
-    "title": "实施与设置",
-    "subtitle": "我们如何将 Real Self 带到您的场地",
-    "intro": "我们带着内容、专业知识和专业技能前往您的地点，将您的场地转变为 Real Self 体验。与您的本地团队合作，我们监督从服装制作到投影仪校准的每一个细节。",
+    "title": "安装费用",
+    "subtitle": "专业监督确保完美启动",
+    "intro": "我们的特许经营总监将前往您的地点，提供全面的培训、材料、手册和品牌指南。通过专业监督和质量审核，我们确保您的团队能够完美呈现 Real Self 体验。",
     "model": {
-      "title": "实施模式",
-      "text": "我们派遣2-4人携带数字内容和专业知识，协调服装的本地制作、监督AV安装、培训您的员工，并确保体验符合我们的质量标准。"
-    },
-    "includes": {
-      "title": "包含内容",
-      "team": {
-        "title": "现场团队",
-        "desc": "2-4名专家前往您的场地进行20天的设置，包括导演、技术负责人和制作协调员"
-      },
-      "content": {
-        "title": "数字内容",
-        "desc": "完整的投影内容、音频设计和演出控制编程，根据您的场地尺寸进行调整"
-      },
-      "technical": {
-        "title": "技术监督",
-        "desc": "为您的AV团队提供投影仪安装、校准、音响设置和演出控制集成的指导"
-      },
-      "costumes": {
-        "title": "服装协调",
-        "desc": "连体服、手套和面具本地制作的图样、规格和质量监督"
-      },
-      "training": {
-        "title": "员工培训",
-        "desc": "为向导、技术人员和管理层提供全面的培训计划，以提供真实的体验"
-      },
-      "brand": {
-        "title": "品牌与营销",
-        "desc": "完整的营销工具包，包括标志、摄影、视频资产和本地活动的品牌指南"
-      }
+      "title": "特许经营模式",
+      "text": "一位专业的特许经营总监将携带所有材料、说明和指南前往您的场地，培训您的团队。他们监督设置、审核质量，并确保体验符合我们的品牌标准。"
     },
     "investment": {
-      "title": "前期投资",
-      "small": {
-        "size": "小型场地",
-        "desc": "150人容量的制作、内容、培训和设置"
+      "title": "投资",
+      "directorFee": "总监费用",
+      "feeNote": "包含所有材料、手册、指南和培训",
+      "travelTitle": "差旅费用（另计）",
+      "flights": "机票",
+      "flightsValue": "根据出发地",
+      "accommodation": "住宿",
+      "accommodationValue": "2周",
+      "transport": "当地交通",
+      "transportValue": "已包含",
+      "meals": "餐饮",
+      "mealsValue": "每日津贴",
+      "businessClass": "超过6小时的航班",
+      "businessClassValue": "需要商务舱"
+    },
+    "travel": {
+      "title": "差旅要求",
+      "text": "差旅费用包括往返机票、现场期间的酒店住宿、当地交通和餐饮。超过6小时的航班需要商务舱，以确保总监抵达时处于最佳工作状态。"
+    },
+    "timeline": {
+      "title": "支持时间线",
+      "subtitle": "在您启动期间提供6周的专属支持",
+      "before": {
+        "duration": "2周",
+        "label": "设置前",
+        "desc": "远程协调、供应商选择指导和材料准备"
       },
-      "large": {
-        "size": "大型场地",
-        "desc": "350人容量的制作、内容、培训和设置"
+      "during": {
+        "duration": "2周",
+        "label": "现场",
+        "desc": "总监在场地进行培训、监督和质量审核"
+      },
+      "after": {
+        "duration": "2周",
+        "label": "启动后",
+        "desc": "远程支持调整、故障排除和最终优化"
       }
     },
-    "breakdown": {
-      "title": "投资明细（大型场地）",
-      "production": "制作与导演",
-      "creative": "创意与知识产权适配",
-      "technical": "技术设计与编程",
-      "travel": "差旅、设置与初始材料",
-      "legal": "法务与保险",
-      "contingency": "应急储备（10%）",
-      "total": "总投资"
+    "scope": {
+      "title": "服务范围",
+      "included": {
+        "title": "包含内容",
+        "manuals": "完整的特许经营手册和品牌指南",
+        "training": "员工培训和运营程序",
+        "vendors": "服装和灯光供应商选择指导",
+        "mastering": "音频母带处理配置监督",
+        "audit": "质量审核和品牌合规审查",
+        "support": "启动后远程支持和调整"
+      },
+      "excluded": {
+        "title": "不包含",
+        "adaptation": "体验适配到不同尺寸",
+        "script": "剧本修改或定制内容",
+        "mastering": "音频母带处理（仅包含监督）",
+        "equipment": "设备和技术（由合作方提供）",
+        "note": "体验的定制修改将单独报价。"
+      }
+    },
+    "addon": {
+      "badge": "可选",
+      "title": "助理总监",
+      "desc": "对于复杂场地或较大团队，可增加助理支持特许经营总监。差旅费用根据地点而定。"
     },
     "partner": {
       "title": "合作方提供",
-      "desc": "以下不包含在投资中，应由合作方在本地采购：",
+      "desc": "所有设备和基础设施由合作方在当地采购。特许经营总监仅提供指导和规格。",
       "items": {
         "projectors": "投影仪与AV设备",
         "venue": "场地空间",
         "sound": "音响系统",
         "servers": "媒体服务器",
         "lockers": "储物柜",
-        "costumes": "本地服装",
-        "masks": "本地面具",
+        "costumes": "服装与面具",
+        "staff": "当地员工",
         "marketing": "营销"
       }
     },
