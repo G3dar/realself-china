@@ -48,7 +48,7 @@
         }
 
         .perspective-lines svg g {
-            animation: linesRotate 120s linear infinite;
+            animation: linesRotate 300s linear infinite;
             transform-origin: center;
         }
 
@@ -58,8 +58,8 @@
                 filter: blur(0px);
             }
             50% {
-                transform: translate(-50%, -50%) scale(1.08);
-                filter: blur(0.5px);
+                transform: translate(-50%, -50%) scale(1.05);
+                filter: blur(0.3px);
             }
         }
 
@@ -68,27 +68,60 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Light traveling along lines */
-        .light-sweep {
+        /* Light emissions - organic pulses */
+        .light-emission {
             position: absolute;
             top: 30%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .light-emission__pulse {
+            position: absolute;
+            top: 50%;
             left: 50%;
             width: 100%;
             height: 100%;
             transform: translate(-50%, -50%);
-            background: conic-gradient(
-                from 0deg at 50% 50%,
-                transparent 0deg,
-                rgba(255,255,255,0.06) 15deg,
-                transparent 30deg,
-                transparent 360deg
+            background: radial-gradient(
+                ellipse at center,
+                rgba(255,255,255,0.08) 0%,
+                rgba(255,255,255,0.02) 40%,
+                transparent 70%
             );
-            animation: lightSweep 8s linear infinite;
+            opacity: 0;
         }
 
-        @keyframes lightSweep {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        .light-emission__pulse--1 {
+            animation: pulseGrow 6s ease-in-out infinite;
+        }
+
+        .light-emission__pulse--2 {
+            animation: pulseGrow 6s ease-in-out infinite 2s;
+            transform: translate(-50%, -50%) rotate(60deg);
+        }
+
+        .light-emission__pulse--3 {
+            animation: pulseGrow 6s ease-in-out infinite 4s;
+            transform: translate(-50%, -50%) rotate(-60deg);
+        }
+
+        @keyframes pulseGrow {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1.8);
+            }
         }
 
         /* Horizontal perspective grid */
@@ -162,7 +195,7 @@
 
         @media (max-width: 768px) {
             .perspective-grid,
-            .light-sweep {
+            .light-emission {
                 display: none;
             }
             .perspective-lines svg {
@@ -622,8 +655,12 @@
                 </g>
             </svg>
         </div>
-        <!-- Light sweep effect -->
-        <div class="light-sweep"></div>
+        <!-- Light emission pulses -->
+        <div class="light-emission">
+            <div class="light-emission__pulse light-emission__pulse--1"></div>
+            <div class="light-emission__pulse light-emission__pulse--2"></div>
+            <div class="light-emission__pulse light-emission__pulse--3"></div>
+        </div>
         <!-- Glow at vanishing point -->
         <div class="vanishing-glow"></div>
         <!-- Perspective grid floor -->
