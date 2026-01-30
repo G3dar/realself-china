@@ -18,7 +18,7 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        /* ========== Animated Background ========== */
+        /* ========== Subtle Background ========== */
         .experience-bg {
             position: fixed;
             top: 0;
@@ -40,133 +40,107 @@
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 120px,
-                    rgba(255,255,255,0.015) 120px,
-                    rgba(255,255,255,0.015) 121px
+                    transparent 150px,
+                    rgba(255,255,255,0.01) 150px,
+                    rgba(255,255,255,0.01) 151px
                 ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
-                    transparent 120px,
-                    rgba(255,255,255,0.015) 120px,
-                    rgba(255,255,255,0.015) 121px
+                    transparent 150px,
+                    rgba(255,255,255,0.01) 150px,
+                    rgba(255,255,255,0.01) 151px
                 );
-            animation: gridDrift 60s linear infinite;
+            animation: gridDrift 90s linear infinite;
         }
 
         @keyframes gridDrift {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            100% { transform: translate(60px, 60px) rotate(1deg); }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(75px, 75px); }
         }
 
         .floating-shape {
             position: absolute;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.03);
             pointer-events: none;
         }
 
         .floating-shape--1 {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            right: 5%;
-            animation: floatRotate 25s ease-in-out infinite;
+            width: 250px;
+            height: 250px;
+            top: 15%;
+            right: 8%;
+            animation: floatRotate 40s ease-in-out infinite;
         }
 
         .floating-shape--2 {
-            width: 200px;
-            height: 200px;
-            top: 40%;
-            left: 3%;
-            animation: floatRotate 30s ease-in-out infinite reverse;
+            width: 180px;
+            height: 180px;
+            top: 50%;
+            left: 5%;
+            animation: floatRotate 50s ease-in-out infinite reverse;
         }
 
         .floating-shape--3 {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            right: 10%;
+            width: 120px;
+            height: 120px;
+            bottom: 25%;
+            right: 12%;
             border-radius: 50%;
-            animation: floatPulse 20s ease-in-out infinite;
+            animation: floatPulse 30s ease-in-out infinite;
         }
 
         @keyframes floatRotate {
-            0%, 100% { transform: rotate(0deg) translateY(0); opacity: 0.3; }
-            50% { transform: rotate(180deg) translateY(-30px); opacity: 0.6; }
+            0%, 100% { transform: rotate(0deg) translateY(0); opacity: 0.2; }
+            50% { transform: rotate(180deg) translateY(-20px); opacity: 0.4; }
         }
 
         @keyframes floatPulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.1); opacity: 0.4; }
+            0%, 100% { transform: scale(1); opacity: 0.15; }
+            50% { transform: scale(1.05); opacity: 0.3; }
         }
 
         /* ========== Hero Section ========== */
         .experience-hero {
-            min-height: 60vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .experience-hero::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to top, var(--color-black), transparent);
-            pointer-events: none;
-        }
-
-        .experience-hero__content {
-            position: relative;
-            z-index: 1;
+            padding-top: 140px;
+            padding-bottom: var(--spacing-2xl);
         }
 
         .experience-hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: var(--spacing-md);
-            animation: fadeSlideUp 1s ease-out;
+            margin-bottom: var(--spacing-sm);
+            animation: fadeSlideUp 0.8s ease-out;
         }
 
         .experience-hero__tagline {
-            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
             color: var(--color-gray-400);
             font-style: italic;
-            animation: fadeSlideUp 1s ease-out 0.2s both;
+            animation: fadeSlideUp 0.8s ease-out 0.15s both;
         }
 
         @keyframes fadeSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ========== Poetic Text Styles ========== */
         .poetic-section {
-            padding: var(--spacing-4xl) 0;
-            position: relative;
+            padding: var(--spacing-2xl) 0 var(--spacing-3xl);
         }
 
         .poetic-text {
-            max-width: 750px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
         .poetic-text p {
-            font-size: clamp(1.125rem, 2vw, 1.35rem);
-            line-height: 2;
+            font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+            line-height: 1.9;
             color: var(--color-gray-300);
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
             font-weight: 300;
         }
 
@@ -184,59 +158,24 @@
             font-weight: 500;
         }
 
-        /* Highlighted text with underline animation */
+        /* Highlighted text - inline, no underline animation */
         .text-highlight {
-            position: relative;
             color: var(--color-white);
             font-weight: 500;
-        }
-
-        .text-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, var(--color-white), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: underlineReveal 1s ease-out forwards;
-            animation-play-state: paused;
-        }
-
-        .text-highlight.visible::after {
-            animation-play-state: running;
-        }
-
-        @keyframes underlineReveal {
-            to { transform: scaleX(1); }
+            border-bottom: 1px solid rgba(255,255,255,0.3);
         }
 
         /* Callout box */
         .callout-box {
             background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
             border-left: 2px solid var(--color-white);
-            padding: var(--spacing-xl) var(--spacing-2xl);
-            margin: var(--spacing-2xl) 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .callout-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, transparent 50%);
-            pointer-events: none;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
         }
 
         .callout-box p {
             font-family: var(--font-display);
-            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             font-style: italic;
             color: var(--color-gray-200);
             line-height: 1.7;
@@ -246,11 +185,12 @@
         /* Pull quote */
         .pull-quote {
             font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.25rem, 2.5vw, 1.6rem);
             font-weight: 500;
             color: var(--color-white);
             text-align: center;
-            padding: var(--spacing-2xl) 0;
+            padding: var(--spacing-xl) 0;
+            margin: var(--spacing-lg) 0;
             position: relative;
         }
 
@@ -260,53 +200,49 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 1px;
-            background: var(--color-gray-600);
+            background: var(--color-gray-700);
         }
 
         .pull-quote::before { top: 0; }
         .pull-quote::after { bottom: 0; }
 
-        /* ========== Phase Sections ========== */
-        .phase-section {
-            padding: var(--spacing-4xl) 0;
-            border-top: 1px solid var(--color-gray-800);
-            position: relative;
+        /* ========== Section Divider (simple) ========== */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-gray-700), transparent);
+            margin: var(--spacing-xl) 0;
         }
 
-        .phase-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-gray-600), transparent);
+        /* ========== Phase Sections ========== */
+        .phase-section {
+            padding: var(--spacing-3xl) 0;
+            border-top: 1px solid var(--color-gray-800);
         }
 
         .phase-header {
             text-align: center;
-            margin-bottom: var(--spacing-3xl);
+            margin-bottom: var(--spacing-2xl);
         }
 
         .phase-number {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.25em;
             color: var(--color-gray-600);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
             display: inline-block;
-            padding: var(--spacing-xs) var(--spacing-lg);
+            padding: var(--spacing-xs) var(--spacing-md);
             border: 1px solid var(--color-gray-800);
         }
 
         .phase-title {
             font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
             font-weight: 700;
             color: var(--color-white);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
             position: relative;
             display: inline-block;
         }
@@ -314,25 +250,25 @@
         .phase-title::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
+            width: 35px;
             height: 2px;
             background: var(--color-white);
         }
 
         .phase-subtitle {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--color-gray-500);
             font-style: italic;
-            margin-top: var(--spacing-md);
+            margin-top: var(--spacing-sm);
         }
 
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-3xl);
+            gap: var(--spacing-2xl);
             align-items: center;
         }
 
@@ -356,7 +292,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.08);
             pointer-events: none;
             z-index: 1;
         }
@@ -365,33 +301,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(80%) contrast(1.1);
-            transition: all 0.6s ease;
+            filter: grayscale(70%) contrast(1.05);
+            transition: all 0.5s ease;
         }
 
         .experience-image:hover img {
-            filter: grayscale(40%) contrast(1.05);
-            transform: scale(1.03);
-        }
-
-        /* Scan line effect on images */
-        .experience-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(0,0,0,0.03) 2px,
-                rgba(0,0,0,0.03) 4px
-            );
-            pointer-events: none;
+            filter: grayscale(30%) contrast(1);
+            transform: scale(1.02);
         }
 
         /* ========== Blockquote ========== */
         .blockquote-section {
-            padding: var(--spacing-4xl) 0;
+            padding: var(--spacing-2xl) 0;
             position: relative;
             overflow: hidden;
         }
@@ -403,7 +324,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: var(--font-display);
-            font-size: 40rem;
+            font-size: 25rem;
             color: rgba(255,255,255,0.02);
             pointer-events: none;
             line-height: 1;
@@ -411,202 +332,106 @@
 
         .blockquote-large {
             font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
             font-weight: 400;
             font-style: italic;
             color: var(--color-gray-200);
             text-align: center;
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
-            padding: var(--spacing-3xl) var(--spacing-lg);
-            line-height: 1.5;
-            position: relative;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            line-height: 1.6;
         }
 
         /* ========== Why Section ========== */
         .why-section {
             background: var(--color-gray-900);
-            padding: var(--spacing-4xl) 0;
-            position: relative;
-        }
-
-        .why-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.02) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.02) 0%, transparent 50%);
-            pointer-events: none;
+            padding: var(--spacing-3xl) 0;
         }
 
         .why-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-2xl);
-            position: relative;
+            gap: var(--spacing-lg);
         }
 
         .why-item {
-            padding: var(--spacing-xl);
+            padding: var(--spacing-lg);
             border: 1px solid var(--color-gray-800);
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-        }
-
-        .why-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--color-white), transparent);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
         }
 
         .why-item:hover {
             border-color: var(--color-gray-600);
-            background: rgba(255,255,255,0.02);
-            transform: translateY(-4px);
-        }
-
-        .why-item:hover::before {
-            transform: scaleX(1);
+            background: rgba(255,255,255,0.01);
         }
 
         .why-item__number {
             font-family: var(--font-display);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.04);
             position: absolute;
-            top: var(--spacing-md);
-            right: var(--spacing-lg);
+            top: var(--spacing-sm);
+            right: var(--spacing-md);
             line-height: 1;
         }
 
         .why-item__title {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--color-white);
-            margin-bottom: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
         }
 
         .why-item__text {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--color-gray-400);
-            line-height: 1.7;
+            line-height: 1.65;
         }
 
         /* ========== Directors Note ========== */
         .directors-note {
             background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-900) 100%);
-            padding: var(--spacing-4xl) 0;
+            padding: var(--spacing-3xl) 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .directors-note::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            pointer-events: none;
         }
 
         .directors-note__label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
             color: var(--color-gray-500);
-            margin-bottom: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
         }
 
         .directors-note__text {
             font-family: var(--font-display);
-            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            font-size: clamp(1.15rem, 2vw, 1.5rem);
             font-style: italic;
             color: var(--color-gray-200);
-            max-width: 700px;
-            margin: 0 auto var(--spacing-xl);
+            max-width: 650px;
+            margin: 0 auto var(--spacing-lg);
             line-height: 1.7;
-            position: relative;
         }
 
         .directors-note__attribution {
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             color: var(--color-gray-500);
         }
 
-        /* ========== Animated Divider ========== */
-        .animated-divider {
-            height: 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .animated-divider__line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg,
-                transparent 0%,
-                var(--color-gray-700) 20%,
-                var(--color-white) 50%,
-                var(--color-gray-700) 80%,
-                transparent 100%
-            );
-            animation: lineGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes lineGlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
-        }
-
-        .animated-divider__dot {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            background: var(--color-white);
-            border-radius: 50%;
-            animation: dotPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes dotPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.5; }
-        }
-
-        /* ========== Gallery Enhancement ========== */
+        /* ========== Gallery ========== */
         .gallery {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
         }
 
         .gallery__item {
             aspect-ratio: 1;
             overflow: hidden;
-            position: relative;
         }
 
         .gallery__item img {
@@ -614,18 +439,19 @@
             height: 100%;
             object-fit: cover;
             filter: grayscale(100%);
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
         }
 
         .gallery__item:hover img {
             filter: grayscale(0%);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         /* ========== Responsive ========== */
         @media (max-width: 768px) {
             .two-column {
                 grid-template-columns: 1fr;
+                gap: var(--spacing-xl);
             }
 
             .two-column--reverse {
@@ -648,8 +474,8 @@
         /* ========== Scroll Animations ========== */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease-out;
+            transform: translateY(25px);
+            transition: all 0.6s ease-out;
         }
 
         .fade-in-up.visible {
@@ -659,8 +485,8 @@
 
         .fade-in-left {
             opacity: 0;
-            transform: translateX(-40px);
-            transition: all 0.8s ease-out;
+            transform: translateX(-25px);
+            transition: all 0.6s ease-out;
         }
 
         .fade-in-left.visible {
@@ -670,8 +496,8 @@
 
         .fade-in-right {
             opacity: 0;
-            transform: translateX(40px);
-            transition: all 0.8s ease-out;
+            transform: translateX(25px);
+            transition: all 0.6s ease-out;
         }
 
         .fade-in-right.visible {
@@ -693,12 +519,10 @@
     <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
-    <section class="experience-hero section" style="padding-top: 150px;">
+    <section class="experience-hero section">
         <div class="container">
-            <div class="experience-hero__content">
-                <h1 data-i18n="experience.title">The Experience</h1>
-                <p class="experience-hero__tagline" data-i18n="experience.subtitle">A journey to the unknown within</p>
-            </div>
+            <h1 data-i18n="experience.title">The Experience</h1>
+            <p class="experience-hero__tagline" data-i18n="experience.subtitle">A journey to the unknown within</p>
         </div>
     </section>
 
@@ -706,26 +530,19 @@
     <section class="poetic-section">
         <div class="container">
             <div class="poetic-text">
-                <p class="fade-in-up">
-                    The world <em>bombards</em> us with stimuli constantly. Every notification, every image, every demand for our attention <span class="text-highlight">pulls us further from ourselves</span>.
-                </p>
+                <p class="fade-in-up">The world <em>bombards</em> us with stimuli constantly. Every notification, every image, every demand for our attention pulls us further from ourselves.</p>
 
                 <div class="callout-box fade-in-up">
                     <p>Real Self brings you closer to connect with <strong>the one who perceives</strong> those stimuli. Not the roles you play, not the masks you wear in daily life, but the one who watches, who feels, who simply <em>is</em>.</p>
                 </div>
 
-                <p class="fade-in-up">
-                    The mind is like water that bubbles, constantly creating and emitting thoughts. This project is like <span class="text-highlight">a blank page</span> where you simply pour out the sensations you have and can see them with more clarity.
-                </p>
+                <p class="fade-in-up">The mind is like water that bubbles, constantly creating and emitting thoughts. This project is like <strong>a blank page</strong> where you simply pour out the sensations you have and can see them with more clarity.</p>
             </div>
         </div>
     </section>
 
-    <!-- Animated Divider -->
-    <div class="animated-divider">
-        <div class="animated-divider__line"></div>
-        <div class="animated-divider__dot"></div>
-    </div>
+    <!-- Simple divider -->
+    <div class="container"><div class="section-divider"></div></div>
 
     <!-- Phase 1: The Unknown -->
     <section class="phase-section">
@@ -738,12 +555,8 @@
 
             <div class="two-column">
                 <div class="poetic-text fade-in-left" style="max-width: none;">
-                    <p>
-                        From the moment you <strong>abstract yourself</strong> from who you are, you enter an unknown space, an <em>uncharted territory</em>.
-                    </p>
-                    <p>
-                        You don't know what's going to happen. <span class="text-highlight">The voice guides you</span> to places you don't usually visit. It feels like a journey to something unknown where you don't know what the voice will tell you next.
-                    </p>
+                    <p>From the moment you <strong>abstract yourself</strong> from who you are, you enter an unknown space, an <em>uncharted territory</em>.</p>
+                    <p>You don't know what's going to happen. <strong>The voice guides you</strong> to places you don't usually visit. It feels like a journey to something unknown where you don't know what the voice will tell you next.</p>
 
                     <div class="pull-quote">
                         Everyone wears the same.<br>Everyone is anonymous.<br><em>Something extraordinary becomes possible.</em>
@@ -771,9 +584,7 @@
                         <p>We live hiding, in the deepest corners, the part of us that we consider invalid. And we do not hide it because it is invalid — <strong>it is invalid because we hide it</strong>.</p>
                     </div>
 
-                    <p>
-                        The experience asks questions. <em>Real questions</em>. Questions that invite you to step forward, to acknowledge truths you've kept private. And in the anonymity of the masks, <span class="text-highlight">you find permission</span>.
-                    </p>
+                    <p>The experience asks questions. <em>Real questions.</em> Questions that invite you to step forward, to acknowledge truths you've kept private. And in the anonymity of the masks, you find permission.</p>
 
                     <div class="pull-quote">
                         Who wants to free themselves from shame?<br><em>The weight we carry. The permission to release it, together.</em>
@@ -806,12 +617,8 @@
 
             <div class="two-column">
                 <div class="poetic-text fade-in-left" style="max-width: none;">
-                    <p>
-                        A journey that rescues energy, and that energy then <strong>explodes</strong> in the moment of happiness, in the moment of the party, in the moment of <em>the revelation</em>.
-                    </p>
-                    <p>
-                        A journey that goes from <span class="text-highlight">the unknown</span> to a reconnection with oneself and then <span class="text-highlight">a reconnection with the other</span>.
-                    </p>
+                    <p>A journey that rescues energy, and that energy then <strong>explodes</strong> in the moment of happiness, in the moment of the party, in the moment of <em>the revelation</em>.</p>
+                    <p>A journey that goes from the unknown to a reconnection with oneself and then <strong>a reconnection with the other</strong>.</p>
 
                     <div class="callout-box">
                         <p>The masks come off. You see faces for the first time. And you realize you've shared something <strong>profound</strong> with strangers who are no longer strangers.</p>
@@ -823,12 +630,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Animated Divider -->
-    <div class="animated-divider">
-        <div class="animated-divider__line"></div>
-        <div class="animated-divider__dot"></div>
-    </div>
 
     <!-- Why People Come -->
     <section class="why-section">
@@ -929,10 +730,10 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
-        // Enhanced scroll animations
+        // Scroll animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.15,
+            rootMargin: '0px 0px -30px 0px'
         };
 
         const scrollObserver = new IntersectionObserver((entries) => {
@@ -943,14 +744,12 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .text-highlight').forEach(el => {
+        document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right').forEach(el => {
             scrollObserver.observe(el);
         });
 
-        // Stagger animation for why-items
         document.querySelectorAll('.why-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.1}s`;
+            item.style.transitionDelay = `${index * 0.08}s`;
         });
     </script>
 </body>
