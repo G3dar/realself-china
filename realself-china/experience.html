@@ -38,18 +38,57 @@
             width: 200vmax;
             height: 200vmax;
             transform: translate(-50%, -50%);
+            animation: linesBreath 12s ease-in-out infinite;
         }
 
         .perspective-lines svg {
             width: 100%;
             height: 100%;
-            opacity: 0.4;
-            animation: linePulse 8s ease-in-out infinite;
+            opacity: 0.5;
         }
 
-        @keyframes linePulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.5; }
+        .perspective-lines svg g {
+            animation: linesRotate 120s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes linesBreath {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                filter: blur(0px);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.08);
+                filter: blur(0.5px);
+            }
+        }
+
+        @keyframes linesRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Light traveling along lines */
+        .light-sweep {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            background: conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg,
+                rgba(255,255,255,0.06) 15deg,
+                transparent 30deg,
+                transparent 360deg
+            );
+            animation: lightSweep 8s linear infinite;
+        }
+
+        @keyframes lightSweep {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         /* Horizontal perspective grid */
@@ -60,7 +99,7 @@
             width: 100%;
             height: 70%;
             transform-style: preserve-3d;
-            perspective: 500px;
+            perspective: 400px;
         }
 
         .perspective-grid__inner {
@@ -69,31 +108,31 @@
             left: -50%;
             width: 200%;
             height: 100%;
-            transform: rotateX(75deg);
+            transform: rotateX(70deg);
             transform-origin: bottom center;
             background:
                 repeating-linear-gradient(
                     90deg,
                     transparent,
-                    transparent 80px,
-                    rgba(255,255,255,0.03) 80px,
-                    rgba(255,255,255,0.03) 81px
+                    transparent 60px,
+                    rgba(255,255,255,0.04) 60px,
+                    rgba(255,255,255,0.04) 61px
                 ),
                 repeating-linear-gradient(
                     0deg,
                     transparent,
-                    transparent 40px,
-                    rgba(255,255,255,0.02) 40px,
-                    rgba(255,255,255,0.02) 41px
+                    transparent 30px,
+                    rgba(255,255,255,0.025) 30px,
+                    rgba(255,255,255,0.025) 31px
                 );
-            animation: gridMove 20s linear infinite;
-            mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+            animation: gridMove 8s linear infinite;
+            mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 80%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 80%);
         }
 
         @keyframes gridMove {
-            0% { transform: rotateX(75deg) translateY(0); }
-            100% { transform: rotateX(75deg) translateY(40px); }
+            0% { transform: rotateX(70deg) translateY(0); }
+            100% { transform: rotateX(70deg) translateY(30px); }
         }
 
         /* Glow at vanishing point */
@@ -102,23 +141,35 @@
             top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            animation: glowPulse 6s ease-in-out infinite;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+            animation: glowPulse 5s ease-in-out infinite;
         }
 
         @keyframes glowPulse {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+            0%, 100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1);
+                filter: blur(0px);
+            }
+            50% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(1.2);
+                filter: blur(2px);
+            }
         }
 
         @media (max-width: 768px) {
-            .perspective-grid {
+            .perspective-grid,
+            .light-sweep {
                 display: none;
             }
             .perspective-lines svg {
-                opacity: 0.25;
+                opacity: 0.2;
+            }
+            .perspective-lines {
+                animation: none;
             }
         }
 
@@ -571,6 +622,8 @@
                 </g>
             </svg>
         </div>
+        <!-- Light sweep effect -->
+        <div class="light-sweep"></div>
         <!-- Glow at vanishing point -->
         <div class="vanishing-glow"></div>
         <!-- Perspective grid floor -->
