@@ -133,7 +133,7 @@
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Optimal 10-12 meters. Dark gray perimeter frame must be at least 6m high. Projectors mounted on trusses for 360° projection mapping."
+        "desc": "Optimal 10-12 meters. Dark gray perimeter frame must be at least 5m high. Projectors mounted on trusses for 360° projection mapping."
       },
       "blackout": {
         "title": "Full Blackout",
@@ -193,7 +193,7 @@
       "smallVenue": "Small (150)",
       "largeVenue": "Large (350)",
       "experience": "Experience Space",
-      "experienceReq": "Rectangular, no columns, total blackout, dark gray perimeter frame 6m+ high",
+      "experienceReq": "Rectangular, no columns, total blackout, dark gray perimeter frame 5m+ high",
       "changing": "Changing Room",
       "changingReq": "Connected to experience space, individual lockers for participants",
       "lobby": "Lobby",
@@ -238,7 +238,7 @@
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Minimum 6m, ideal 9m for optimal projection distance"
+        "desc": "Minimum 5m, ideal 9m for optimal projection distance"
       },
       "sound": {
         "title": "Sound System",
@@ -270,11 +270,11 @@
       },
       "q3": {
         "question": "Can I use my existing venue?",
-        "answer": "Possibly! The key requirements are: sufficient floor area, minimum 6m ceiling height, ability to achieve complete blackout, and strong climate control. Warehouses, event halls, and theater spaces often work well. We evaluate each venue individually."
+        "answer": "Possibly! The key requirements are: sufficient floor area, minimum 5m ceiling height, ability to achieve complete blackout, and strong climate control. Warehouses, event halls, and theater spaces often work well. We evaluate each venue individually."
       },
       "q4": {
-        "question": "What if my ceiling is less than 6m?",
-        "answer": "Ceiling height below 6m significantly limits projection coverage and the immersive quality. We may be able to adapt with different projector configurations, but this requires individual assessment. The ideal is 9m for optimal floor projection distance."
+        "question": "What if my ceiling is less than 5m?",
+        "answer": "Ceiling height below 5m significantly limits projection coverage and the immersive quality. We may be able to adapt with different projector configurations, but this requires individual assessment. The ideal is 9m for optimal floor projection distance."
       },
       "q5": {
         "question": "Who provides the equipment?",
