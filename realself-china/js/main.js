@@ -190,6 +190,7 @@ const headerComponent = {
                     <a href="home.html" class="logo">${logoImg}</a>
                     <nav class="nav">
                         <ul class="nav__list">
+                            <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
                             <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
                             <li><a href="specifications.html" class="nav__link" data-i18n="nav.specs">Specs</a></li>
                             <li><a href="investment.html" class="nav__link" data-i18n="nav.financials">Financials</a></li>
@@ -968,11 +969,13 @@ function initActiveNav() {
 function initPageTransitions() {
     // Remove transition class on page load (fixes back button blank screen)
     document.body.classList.remove('page-transitioning');
+    document.body.style.opacity = '';
 
     // Handle bfcache (back-forward cache) - page restored from cache
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
             document.body.classList.remove('page-transitioning');
+            document.body.style.opacity = '';
         }
     });
 
@@ -982,10 +985,12 @@ function initPageTransitions() {
             // Only apply transition to internal links (not external URLs)
             if (href && !href.startsWith('http') && !href.startsWith('//')) {
                 e.preventDefault();
-                document.body.classList.add('page-transitioning');
+                // Hide content instantly to prevent visible scroll
+                document.body.style.opacity = '0';
+                // Navigate after a brief moment
                 setTimeout(() => {
                     window.location.href = href;
-                }, 400);
+                }, 50);
             }
         });
     });
@@ -995,6 +1000,7 @@ function initPageTransitions() {
 const prefetcher = {
     pages: [
         'home.html',
+        'about.html',
         'experience.html',
         'script.html',
         'specifications.html',

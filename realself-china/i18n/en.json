@@ -1,5 +1,6 @@
 {
   "nav": {
+    "about": "About",
     "experience": "Experience",
     "specs": "Specifications",
     "financials": "Financials",
@@ -173,8 +174,8 @@
       }
     },
     "cta": {
-      "subtitle": "See the detailed technical requirements for installation",
-      "button": "View Technical Rider"
+      "subtitle": "Explore the financial scenarios for your venue",
+      "button": "View Financial Scenarios"
     }
   },
   "techRider": {
@@ -547,6 +548,82 @@
       "message": "We're excited about the possibility of bringing Real Self to China. Our team is ready to discuss how we can create an unforgettable experience together.",
       "contact": "For inquiries, please reach out to discuss partnership opportunities.",
       "tagline": "A Human Immersive Experience"
+    }
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "The First of Its Kind",
+      "titleSub": "A Fully Participatory Immersive Experience",
+      "subtitle": "There are no actors. No passive spectators. Every ticket holder becomes the protagonist. This is not immersive wall art. This is immersive engagement and transformation.",
+      "scroll": "Discover"
+    },
+    "manifesto": {
+      "label": "The Premise",
+      "heading": "The Audience Is the Show",
+      "p1": "Participants enter, suit up, and wear a full anonymity mask and coveralls. Identity drops. Status drops. Roles drop. What remains is pure experience.",
+      "p2": "Through a precisely designed environment of light, sound, 360-degree projection, music, and guided voice narrative, participants move through a structured emotional and sensory journey designed to reconnect them with their authentic self."
+    },
+    "contrast": {
+      "eyebrow": "What Makes It Different",
+      "title": "Real Self vs. Everything Else",
+      "others": "Most Immersive Shows",
+      "realself": "Real Self",
+      "othersLook": "Ask people to look",
+      "realselfParticipate": "Asks people to participate",
+      "othersVisuals": "Present visuals",
+      "realselfBreakthroughs": "Creates personal breakthroughs",
+      "othersConsumed": "Are consumed",
+      "realselfLived": "Is lived"
+    },
+    "video": {
+      "eyebrow": "See It In Action",
+      "title": "A Glimpse Inside",
+      "caption": "Watch how participants transform from strangers to connected souls"
+    },
+    "benefits": {
+      "eyebrow": "The Participant Experience",
+      "title": "What People Get From Real Self",
+      "anonymity": {
+        "title": "Total Anonymity & Freedom",
+        "text": "A rare chance to be no one. No labels, no roles, no social identity. Fully covered face and body. This creates psychological permission to open, move, and feel without self-consciousness."
+      },
+      "connection": {
+        "title": "Deep Human Connection",
+        "text": "Not digital. Not remote. Not passive. A fully engaged, collective human experience shared in real space. No cell phones. You cannot replicate this on a screen or at home."
+      },
+      "lasting": {
+        "title": "Emotional Impact That Lasts",
+        "text": "People forget movies. Concert buzz fades. Real Self becomes a long-term memory. Participants describe it as something they carry with them for years and want to revisit."
+      },
+      "discovery": {
+        "title": "Self-Discovery Journey",
+        "text": "Moments of insight people didn't expect. Truths they hadn't admitted. Inner realizations delivered through experience, not instruction."
+      },
+      "euphoria": {
+        "title": "Collective Euphoria & Release",
+        "text": "It is not only reflective and deep. It is also joyful, physical, and celebratory. Movement. Dance. Music. Shared emotional release. A rare combination of introspection and exhilaration."
+      }
+    },
+    "quote": "\"People are tired of pretty paintings on a wall. They want action. They want to feel something real.\"",
+    "differentiator": {
+      "label": "Globally Unique",
+      "title": "Nothing Else Combines",
+      "item1bold": "Full Anonymity",
+      "item1text": "— Complete freedom from social identity",
+      "item2bold": "Guided Emotional Journey",
+      "item2text": "— Structured narrative arc",
+      "item3bold": "Collective Participation",
+      "item3text": "— Shared human experience",
+      "item4bold": "Repeatable, Scalable Format",
+      "item4text": "— Proven across 3 cities, 80,000+ participants",
+      "item5bold": "Participants Leave Raving",
+      "item5text": "— Word-of-mouth driven success"
+    },
+    "cta": {
+      "title": "Ready to Transform Your Venue?",
+      "subtitle": "For venues looking to differentiate, Real Self is not just another immersive show. It's a category-defining experience that becomes the reason people return again and again.",
+      "buttonExperience": "Explore the Experience",
+      "buttonPartner": "Partner With Us"
     }
   },
   "footer": {
