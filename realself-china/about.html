@@ -88,11 +88,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--color-black);
         }
 
         .video-section__overlay {
@@ -306,53 +305,6 @@
             font-weight: 500;
         }
 
-        /* ========== What You Get - Editorial Style ========== */
-        .benefits-editorial {
-            padding: var(--spacing-4xl) 0;
-        }
-
-        .benefits-editorial__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-3xl) var(--spacing-4xl);
-            margin-top: var(--spacing-3xl);
-        }
-
-        .benefit-block {
-            max-width: 450px;
-        }
-
-        .benefit-block__title {
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-white);
-        }
-
-        .benefit-block__text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--color-gray-400);
-        }
-
-        .benefit-block--featured {
-            grid-column: span 2;
-            max-width: none;
-            padding: var(--spacing-2xl);
-            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 100%);
-            border: 1px solid var(--color-gray-800);
-        }
-
-        .benefit-block--featured .benefit-block__title {
-            font-size: 1.5rem;
-        }
-
-        .benefit-block--featured .benefit-block__text {
-            font-size: 1.1rem;
-            max-width: 800px;
-        }
-
         /* ========== Gallery Section ========== */
         .gallery-section {
             padding: var(--spacing-3xl) 0;
@@ -477,13 +429,6 @@
                 margin: 0 auto;
             }
 
-            .benefits-editorial__grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-block--featured {
-                grid-column: span 1;
-            }
         }
 
         @media (max-width: 768px) {
@@ -538,7 +483,7 @@
 
     <!-- Video Section - Full Width Immersive -->
     <section class="video-section">
-        <video id="aboutVideo" muted loop playsinline>
+        <video id="aboutVideo" loop playsinline>
             <source src="videos/about-video.mp4" type="video/mp4">
         </video>
         <div class="video-section__overlay"></div>
@@ -574,7 +519,7 @@
             </div>
             <div class="two-col__content reveal">
                 <p class="editorial__label">The Premise</p>
-                <h2 class="editorial__heading">The Audience Is the Show</h2>
+                <h2 class="editorial__heading">Everything Outside Awakens What's Inside</h2>
                 <div class="editorial__body">
                     <p>
                         Participants enter, suit up, and wear a full anonymity mask and coveralls. Identity drops. Status drops. Roles drop. <strong>What remains is pure experience.</strong>
@@ -632,46 +577,31 @@
     </section>
 
     <!-- What Participants Get - Editorial Style -->
-    <section class="benefits-editorial">
+    <section class="editorial editorial--large-padding">
         <div class="container">
             <div class="editorial__inner reveal">
                 <p class="editorial__label">The Participant Experience</p>
                 <h2 class="editorial__heading">What People Get From Real Self</h2>
-            </div>
 
-            <div class="benefits-editorial__grid">
-                <div class="benefit-block reveal">
-                    <h3 class="benefit-block__title">Total Anonymity and Freedom</h3>
-                    <p class="benefit-block__text">
-                        A rare chance to be no one, fully lost in a sea of anonymity. Hand, body, face covered. No labels, no roles, no social identity. This creates a psychological permission to open, move, and feel without self-consciousness.
+                <div class="editorial__body">
+                    <p>
+                        There is a rare kind of freedom that comes from being no one. In Real Self, participants enter fully covered—hand, body, face—lost in a sea of anonymity. No labels, no roles, no social identity to maintain. This total anonymity creates something unexpected: a psychological permission to truly open up, to move without self-consciousness, to feel without the weight of being watched or judged. It is a freedom most people have never experienced as adults.
                     </p>
-                </div>
 
-                <div class="benefit-block reveal">
-                    <h3 class="benefit-block__title">Deep Human Connection</h3>
-                    <p class="benefit-block__text">
-                        You cannot feel this type of connection at home on your sofa. This is not digital. Not remote. Not passive. This is full engagement, a collective human experience shared in real space that will leave a lasting impression on you.
+                    <p>
+                        You cannot feel this type of connection at home on your sofa, no matter how good your screen is. This is not digital. Not remote. Not passive. Real Self is full engagement—a collective human experience shared in real space with real bodies and real breath. The person next to you is a stranger, yet you are moving through something together. That shared vulnerability creates bonds that feel almost inexplicable afterward. People describe leaving with a sense of having truly connected with others, even without knowing their names or faces.
                     </p>
-                </div>
 
-                <div class="benefit-block reveal">
-                    <h3 class="benefit-block__title">Emotional Impact That Lasts</h3>
-                    <p class="benefit-block__text">
-                        Go to a movie and forget the plot. Go to a concert and the buzz leaves you in a few days. Real Self is the type of experience that stays with a person for years, a memory they want to revisit often. Three seasons in Buenos Aires proved this.
+                    <p>
+                        Go to a movie and you forget the plot within weeks. Go to a concert and the buzz leaves you in a few days. Real Self is different. It is the type of experience that stays with a person for years—a memory they want to revisit often, a night they bring up in conversation again and again. Three seasons in Buenos Aires proved this: people came back multiple times, brought their friends, their partners, their parents. The emotional impact doesn't fade because it touched something deeper than entertainment.
                     </p>
-                </div>
 
-                <div class="benefit-block reveal">
-                    <h3 class="benefit-block__title">Self-Discovery Journey</h3>
-                    <p class="benefit-block__text">
-                        The joy and revelation of realizing things about yourself you didn't know or wouldn't admit. Moments of insight people didn't expect. Truths they hadn't acknowledged. Inner realizations delivered through experience, not instruction.
+                    <p>
+                        There is also the joy and revelation of realizing things about yourself you didn't know or wouldn't admit. Moments of insight that catch you off guard. Truths you had been avoiding. These inner realizations arrive not through instruction or lecture, but through experience—through your own body responding to questions, through watching yourself step forward or hold back. The experience becomes a mirror, but one that reflects what's usually hidden.
                     </p>
-                </div>
 
-                <div class="benefit-block benefit-block--featured reveal">
-                    <h3 class="benefit-block__title">Collective Euphoria and Release</h3>
-                    <p class="benefit-block__text">
-                        It's not only self-reflective and deep. That inner opening allows an incredible euphoria and collective emotional release. But also dance and togetherness. Movement. Music. A rare combination of introspection and exhilaration that participants describe as unlike anything they've experienced before.
+                    <p>
+                        And it's not only self-reflective and deep. That inner opening allows something else to emerge: an incredible euphoria and collective emotional release. Dance and togetherness. Movement and music. The energy builds throughout the experience and then releases in ways that surprise even the most reserved participants. It is a rare combination of introspection and exhilaration—the kind of night that reminds you what it feels like to be fully alive, fully present, fully human among other humans.
                     </p>
                 </div>
             </div>
@@ -708,14 +638,6 @@
             <p class="final-statement__text reveal">
                 For a venue, this is not just another immersive show. It is a <em>category-defining experience</em> and a reenergizing of your space. The reason people come back, again and again. Participants leave raving about the show.
             </p>
-            <div class="cta-buttons reveal">
-                <a href="experience.html" class="btn btn--primary btn--large">
-                    Explore the Experience
-                </a>
-                <a href="partnership.html" class="btn btn--outline btn--large">
-                    Partner With Us
-                </a>
-            </div>
         </div>
     </section>
 
@@ -767,11 +689,6 @@
 
         document.querySelectorAll('.reveal').forEach(el => {
             scrollObserver.observe(el);
-        });
-
-        // Stagger benefit blocks
-        document.querySelectorAll('.benefit-block').forEach((block, index) => {
-            block.style.transitionDelay = `${index * 0.1}s`;
         });
 
         // Stagger contrast rows
