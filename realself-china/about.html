@@ -18,113 +18,54 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
 
     <style>
-        /* ========== Page-specific styles ========== */
-
-        /* Hero with Video */
+        /* ========== Hero Section ========== */
         .about-hero {
-            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
-        }
-
-        .about-hero__video-container {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-
-        .about-hero__video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-        }
-
-        .about-hero__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(0,0,0,0.4) 0%,
-                rgba(0,0,0,0.7) 50%,
-                rgba(0,0,0,0.95) 100%
-            );
-            z-index: 1;
+            position: relative;
+            padding: 120px var(--spacing-lg) var(--spacing-4xl);
         }
 
         .about-hero__content {
-            position: relative;
-            z-index: 2;
             text-align: center;
             max-width: 900px;
-            padding: var(--spacing-2xl);
         }
 
         .about-hero__eyebrow {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
-            color: var(--color-gray-400);
+            letter-spacing: 0.35em;
+            color: var(--color-gray-500);
             margin-bottom: var(--spacing-lg);
             animation: fadeSlideUp 0.8s ease-out;
         }
 
         .about-hero__title {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 9vw, 7rem);
             font-weight: 700;
             letter-spacing: -0.03em;
-            line-height: 1;
+            line-height: 0.95;
             margin-bottom: var(--spacing-xl);
             animation: fadeSlideUp 0.8s ease-out 0.1s both;
         }
 
-        .about-hero__title span {
-            display: block;
-            font-weight: 300;
-            font-size: 0.5em;
-            letter-spacing: 0.1em;
-            color: var(--color-gray-300);
-            margin-top: var(--spacing-sm);
-        }
-
         .about-hero__subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-size: clamp(1.15rem, 2.2vw, 1.5rem);
             color: var(--color-gray-300);
             line-height: 1.7;
-            max-width: 700px;
-            margin: 0 auto var(--spacing-2xl);
+            max-width: 750px;
+            margin: 0 auto;
             font-weight: 300;
             animation: fadeSlideUp 0.8s ease-out 0.2s both;
         }
 
-        .about-hero__scroll {
-            position: absolute;
-            bottom: var(--spacing-2xl);
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--spacing-sm);
-            color: var(--color-gray-500);
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            animation: fadeSlideUp 1s ease-out 0.5s both;
-            z-index: 2;
-        }
-
-        .about-hero__scroll svg {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(8px); }
+        .about-hero__subtitle em {
+            color: var(--color-white);
+            font-style: normal;
+            font-weight: 400;
         }
 
         @keyframes fadeSlideUp {
@@ -132,73 +73,186 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Manifesto Section */
-        .manifesto {
-            padding: var(--spacing-4xl) 0;
+        /* ========== Video Section - Full Width Immersive ========== */
+        .video-section {
             position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: var(--color-black);
         }
 
-        .manifesto__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-3xl);
-            align-items: center;
+        .video-section video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
         }
 
-        .manifesto__text {
-            max-width: 550px;
+        .video-section__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.3) 0%,
+                transparent 20%,
+                transparent 80%,
+                rgba(0,0,0,0.5) 100%
+            );
+            pointer-events: none;
         }
 
-        .manifesto__label {
+        .video-section__scroll-hint {
+            position: absolute;
+            bottom: var(--spacing-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
             font-size: 0.7rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--color-gray-500);
-            margin-bottom: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
         }
 
-        .manifesto__heading {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: var(--spacing-xl);
+        .video-section__scroll-hint svg {
+            animation: bounce 2s infinite;
         }
 
-        .manifesto__body {
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--color-gray-300);
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
         }
 
-        .manifesto__body p {
+        /* ========== Editorial Sections ========== */
+        .editorial {
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .editorial--large-padding {
+            padding: calc(var(--spacing-4xl) * 1.5) 0;
+        }
+
+        .editorial__inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .editorial__label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-gray-600);
             margin-bottom: var(--spacing-lg);
         }
 
-        .manifesto__body em {
+        .editorial__heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: var(--spacing-xl);
+            letter-spacing: -0.02em;
+        }
+
+        .editorial__heading--center {
+            text-align: center;
+        }
+
+        .editorial__body {
+            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+            line-height: 1.9;
+            color: var(--color-gray-300);
+        }
+
+        .editorial__body p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .editorial__body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .editorial__body em {
             color: var(--color-white);
             font-style: italic;
         }
 
-        .manifesto__image {
+        .editorial__body strong {
+            color: var(--color-white);
+            font-weight: 500;
+        }
+
+        .editorial__lead {
+            font-size: clamp(1.2rem, 2vw, 1.45rem);
+            line-height: 1.75;
+            color: var(--color-gray-200);
+            margin-bottom: var(--spacing-xl);
+            font-weight: 300;
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: var(--spacing-3xl) 0;
+            padding: var(--spacing-2xl) 0;
+            border-top: 1px solid var(--color-gray-800);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .pull-quote__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            font-weight: 400;
+            font-style: italic;
+            color: var(--color-white);
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* ========== Two Column Layout ========== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl);
+            align-items: start;
+            padding: var(--spacing-4xl) 0;
+        }
+
+        .two-col--reverse {
+            direction: rtl;
+        }
+
+        .two-col--reverse > * {
+            direction: ltr;
+        }
+
+        .two-col__image {
             position: relative;
             aspect-ratio: 4/5;
             overflow: hidden;
         }
 
-        .manifesto__image img {
+        .two-col__image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(60%) contrast(1.1);
+            filter: grayscale(50%) contrast(1.05);
             transition: filter 0.5s ease;
         }
 
-        .manifesto__image:hover img {
+        .two-col__image:hover img {
             filter: grayscale(20%) contrast(1);
         }
 
-        .manifesto__image::after {
+        .two-col__image::after {
             content: '';
             position: absolute;
             inset: 0;
@@ -206,233 +260,131 @@
             pointer-events: none;
         }
 
-        /* Contrast Section */
+        .two-col__content {
+            padding-top: var(--spacing-xl);
+        }
+
+        /* ========== Contrast Section ========== */
         .contrast-section {
             padding: var(--spacing-4xl) 0;
             background: var(--color-gray-900);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contrast-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--color-gray-700), transparent);
         }
 
         .contrast-grid {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contrast-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-3xl);
-            position: relative;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            padding: var(--spacing-lg) 0;
+            border-bottom: 1px solid var(--color-gray-800);
         }
 
-        .contrast-item {
-            padding: var(--spacing-xl) 0;
+        .contrast-row:last-child {
+            border-bottom: none;
         }
 
-        .contrast-item--left {
+        .contrast-row__left {
             text-align: right;
-            padding-right: var(--spacing-3xl);
-        }
-
-        .contrast-item--right {
-            padding-left: var(--spacing-3xl);
-        }
-
-        .contrast-item__label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--color-gray-600);
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .contrast-item__text {
-            font-family: var(--font-display);
-            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-            line-height: 1.5;
-        }
-
-        .contrast-item--left .contrast-item__text {
             color: var(--color-gray-500);
+            font-size: 1.1rem;
         }
 
-        .contrast-item--right .contrast-item__text {
+        .contrast-row__divider {
+            width: 40px;
+            height: 1px;
+            background: var(--color-gray-700);
+        }
+
+        .contrast-row__right {
             color: var(--color-white);
+            font-size: 1.1rem;
             font-weight: 500;
         }
 
-        /* Video Section */
-        .video-section {
-            padding: var(--spacing-4xl) 0;
-            background: var(--color-black);
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            aspect-ratio: 16/9;
-            background: var(--color-gray-900);
-            overflow: hidden;
-        }
-
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .video-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 1px solid rgba(255,255,255,0.1);
-            pointer-events: none;
-        }
-
-        .video-caption {
-            text-align: center;
-            margin-top: var(--spacing-lg);
-            font-size: 0.85rem;
-            color: var(--color-gray-500);
-            font-style: italic;
-        }
-
-        /* Benefits Grid */
-        .benefits-section {
+        /* ========== What You Get - Editorial Style ========== */
+        .benefits-editorial {
             padding: var(--spacing-4xl) 0;
         }
 
-        .benefits-header {
-            text-align: center;
-            margin-bottom: var(--spacing-3xl);
-        }
-
-        .benefits-header__eyebrow {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--color-gray-500);
-            margin-bottom: var(--spacing-md);
-        }
-
-        .benefits-header__title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-        }
-
-        .benefits-grid {
+        .benefits-editorial__grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--spacing-xl);
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-3xl) var(--spacing-4xl);
+            margin-top: var(--spacing-3xl);
         }
 
-        .benefit-card {
-            position: relative;
-            padding: var(--spacing-2xl);
-            border: 1px solid var(--color-gray-800);
-            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, transparent 100%);
-            transition: all 0.4s ease;
+        .benefit-block {
+            max-width: 450px;
         }
 
-        .benefit-card:hover {
-            border-color: var(--color-gray-600);
-            transform: translateY(-4px);
-        }
-
-        .benefit-card__number {
-            position: absolute;
-            top: var(--spacing-lg);
-            right: var(--spacing-lg);
+        .benefit-block__title {
             font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(255,255,255,0.04);
-            line-height: 1;
-        }
-
-        .benefit-card__icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: var(--spacing-lg);
-            color: var(--color-white);
-            opacity: 0.8;
-        }
-
-        .benefit-card__title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: var(--spacing-md);
+            color: var(--color-white);
         }
 
-        .benefit-card__text {
-            font-size: 0.95rem;
+        .benefit-block__text {
+            font-size: 1rem;
+            line-height: 1.8;
             color: var(--color-gray-400);
-            line-height: 1.7;
         }
 
-        /* Quote Section */
-        .quote-section {
-            padding: var(--spacing-4xl) 0;
-            background: var(--color-gray-900);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        .benefit-block--featured {
+            grid-column: span 2;
+            max-width: none;
+            padding: var(--spacing-2xl);
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            border: 1px solid var(--color-gray-800);
         }
 
-        .quote-section::before {
-            content: '"';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--font-display);
-            font-size: 30rem;
-            color: rgba(255,255,255,0.015);
-            line-height: 1;
-            pointer-events: none;
+        .benefit-block--featured .benefit-block__title {
+            font-size: 1.5rem;
         }
 
-        .quote-large {
-            position: relative;
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            font-weight: 400;
-            font-style: italic;
-            color: var(--color-gray-200);
+        .benefit-block--featured .benefit-block__text {
+            font-size: 1.1rem;
             max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
         }
 
-        /* Image Gallery */
+        /* ========== Gallery Section ========== */
         .gallery-section {
             padding: var(--spacing-3xl) 0;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+        .gallery-strip {
+            display: flex;
             gap: var(--spacing-sm);
+            overflow-x: auto;
+            padding: 0 var(--spacing-lg);
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .gallery-item {
+        .gallery-strip::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-strip__item {
+            flex: 0 0 auto;
+            width: 300px;
             aspect-ratio: 1;
             overflow: hidden;
-            position: relative;
+            scroll-snap-align: start;
         }
 
-        .gallery-item img {
+        .gallery-strip__item--wide {
+            width: 450px;
+            aspect-ratio: 3/2;
+        }
+
+        .gallery-strip__item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -440,79 +392,36 @@
             transition: all 0.4s ease;
         }
 
-        .gallery-item:hover img {
+        .gallery-strip__item:hover img {
             filter: grayscale(0%);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        .gallery-item--wide {
-            grid-column: span 2;
-            aspect-ratio: 2/1;
-        }
-
-        /* Differentiator Section */
-        .differentiator {
-            padding: var(--spacing-4xl) 0;
-            position: relative;
-        }
-
-        .differentiator__content {
-            max-width: 750px;
-            margin: 0 auto;
-        }
-
-        .differentiator__label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--color-gray-500);
-            margin-bottom: var(--spacing-lg);
+        /* ========== Final Statement ========== */
+        .final-statement {
+            padding: calc(var(--spacing-4xl) * 1.5) 0;
             text-align: center;
         }
 
-        .differentiator__list {
-            list-style: none;
-            margin: var(--spacing-2xl) 0;
+        .final-statement__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--color-gray-200);
+            max-width: 900px;
+            margin: 0 auto var(--spacing-3xl);
         }
 
-        .differentiator__item {
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-lg);
-            padding: var(--spacing-lg) 0;
-            border-bottom: 1px solid var(--color-gray-800);
-        }
-
-        .differentiator__item:last-child {
-            border-bottom: none;
-        }
-
-        .differentiator__icon {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--color-gray-600);
+        .final-statement__text em {
             color: var(--color-white);
+            font-style: italic;
         }
 
-        .differentiator__text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: var(--color-gray-300);
-        }
-
-        .differentiator__text strong {
-            color: var(--color-white);
-            font-weight: 500;
-        }
-
-        /* CTA Section */
+        /* ========== CTA Section ========== */
         .cta-section {
             padding: var(--spacing-4xl) 0;
-            background: linear-gradient(to bottom, var(--color-black), var(--color-gray-900));
+            background: var(--color-gray-900);
             text-align: center;
         }
 
@@ -530,6 +439,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .cta-buttons {
@@ -539,7 +449,7 @@
             flex-wrap: wrap;
         }
 
-        /* Scroll animations */
+        /* ========== Scroll Animations ========== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -551,90 +461,62 @@
             transform: translateY(0);
         }
 
-        .reveal-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .reveal-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Responsive */
+        /* ========== Responsive ========== */
         @media (max-width: 1024px) {
-            .manifesto__grid {
+            .two-col {
                 grid-template-columns: 1fr;
                 gap: var(--spacing-2xl);
             }
 
-            .manifesto__text {
-                max-width: none;
+            .two-col--reverse {
+                direction: ltr;
             }
 
-            .manifesto__image {
+            .two-col__image {
                 max-width: 500px;
                 margin: 0 auto;
             }
 
-            .benefits-grid {
+            .benefits-editorial__grid {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .gallery-item--wide {
-                grid-column: span 2;
+            .benefit-block--featured {
+                grid-column: span 1;
             }
         }
 
         @media (max-width: 768px) {
-            .contrast-section::before {
+            .contrast-row {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+                text-align: left;
+            }
+
+            .contrast-row__left {
+                text-align: left;
+                font-size: 0.9rem;
+            }
+
+            .contrast-row__divider {
                 display: none;
             }
 
-            .contrast-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
+            .contrast-row__right {
+                font-size: 1rem;
             }
 
-            .contrast-item--left,
-            .contrast-item--right {
-                text-align: left;
-                padding: var(--spacing-md) 0;
-                border-bottom: 1px solid var(--color-gray-800);
+            .video-section {
+                height: 70vh;
+                min-height: 400px;
             }
 
-            .contrast-item--left {
-                padding-right: 0;
+            .gallery-strip__item {
+                width: 250px;
             }
 
-            .contrast-item--right {
-                padding-left: 0;
-                border-bottom: none;
-            }
-
-            .gallery-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery-item--wide {
-                grid-column: span 1;
-                aspect-ratio: 1;
+            .gallery-strip__item--wide {
+                width: 350px;
             }
         }
     </style>
@@ -643,286 +525,194 @@
     <!-- Header -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section with Video Background -->
+    <!-- Hero Section -->
     <section class="about-hero">
-        <div class="about-hero__video-container">
-            <video class="about-hero__video" autoplay muted loop playsinline>
-                <source src="videos/about-video.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="about-hero__overlay"></div>
-
         <div class="about-hero__content">
-            <p class="about-hero__eyebrow" data-i18n="about.hero.eyebrow">The First of Its Kind</p>
-            <h1 class="about-hero__title">
-                What Is Real Self
-                <span data-i18n="about.hero.titleSub">A Fully Participatory Immersive Experience</span>
-            </h1>
-            <p class="about-hero__subtitle" data-i18n="about.hero.subtitle">
-                There are no actors. No passive spectators. Every ticket holder becomes the protagonist. This is not immersive wall art. This is immersive engagement and transformation.
+            <p class="about-hero__eyebrow">The First of Its Kind</p>
+            <h1 class="about-hero__title">What Is Real Self</h1>
+            <p class="about-hero__subtitle">
+                The world's first fully participatory immersive experience. There are no actors. No passive spectators. <em>The ticket holders are the show.</em>
             </p>
         </div>
+    </section>
 
-        <div class="about-hero__scroll">
-            <span data-i18n="about.hero.scroll">Discover</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <!-- Video Section - Full Width Immersive -->
+    <section class="video-section">
+        <video id="aboutVideo" muted loop playsinline>
+            <source src="videos/about-video.mp4" type="video/mp4">
+        </video>
+        <div class="video-section__overlay"></div>
+        <div class="video-section__scroll-hint">
+            <span>Continue</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 5v14M19 12l-7 7-7-7"/>
             </svg>
         </div>
     </section>
 
-    <!-- Manifesto Section -->
-    <section class="manifesto">
+    <!-- Editorial Introduction -->
+    <section class="editorial editorial--large-padding">
         <div class="container">
-            <div class="manifesto__grid">
-                <div class="manifesto__text reveal-left">
-                    <p class="manifesto__label" data-i18n="about.manifesto.label">The Premise</p>
-                    <h2 class="manifesto__heading" data-i18n="about.manifesto.heading">The Audience Is the Show</h2>
-                    <div class="manifesto__body">
-                        <p data-i18n="about.manifesto.p1">
-                            Participants enter, suit up, and wear a full anonymity mask and coveralls. Identity drops. Status drops. Roles drop. <em>What remains is pure experience.</em>
-                        </p>
-                        <p data-i18n="about.manifesto.p2">
-                            Through a precisely designed environment of light, sound, 360-degree projection, music, and guided voice narrative, participants move through a structured emotional and sensory journey designed to reconnect them with their authentic self.
-                        </p>
-                    </div>
-                </div>
-                <div class="manifesto__image reveal-right">
-                    <img src="images/script/02-mask-portrait.jpg" alt="Participant wearing the Real Self mask">
+            <div class="editorial__inner reveal">
+                <p class="editorial__lead">
+                    Their personal journey through putting on a suit and mask transports them to a new experience of reality. The light show and voice-over guide them on a journey to find their real self.
+                </p>
+                <div class="editorial__body">
+                    <p>
+                        There is nothing in the world like this. Your venue will be offering something new and unique. This is a chance to set your immersive space apart from others. <em>We are tired of pretty paintings on a wall.</em> People want action. They want to feel something.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contrast Section: What Makes It Different -->
+    <!-- Two Column: The Premise -->
+    <section class="container">
+        <div class="two-col">
+            <div class="two-col__image reveal">
+                <img src="images/script/02-mask-portrait.jpg" alt="Participant wearing the Real Self mask">
+            </div>
+            <div class="two-col__content reveal">
+                <p class="editorial__label">The Premise</p>
+                <h2 class="editorial__heading">The Audience Is the Show</h2>
+                <div class="editorial__body">
+                    <p>
+                        Participants enter, suit up, and wear a full anonymity mask and coveralls. Identity drops. Status drops. Roles drop. <strong>What remains is pure experience.</strong>
+                    </p>
+                    <p>
+                        Through a precisely designed environment of light, sound, 360-degree projection, music, and guided voice narrative, participants move through a structured emotional and sensory journey designed to reconnect them with their authentic self.
+                    </p>
+                    <p>
+                        This is not immersive wall art. <em>This is immersive engagement and transformation.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contrast Section -->
     <section class="contrast-section">
         <div class="container">
-            <div class="benefits-header reveal">
-                <p class="benefits-header__eyebrow" data-i18n="about.contrast.eyebrow">What Makes It Different</p>
-                <h2 class="benefits-header__title" data-i18n="about.contrast.title">Real Self vs. Everything Else</h2>
+            <div class="editorial__inner reveal" style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                <p class="editorial__label">What Makes It Different</p>
+                <h2 class="editorial__heading editorial__heading--center">Real Self vs. Everything Else</h2>
             </div>
 
-            <div class="contrast-grid">
-                <div class="contrast-item contrast-item--left reveal-left">
-                    <p class="contrast-item__label" data-i18n="about.contrast.others">Most Immersive Shows</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.othersLook">Ask people to look</p>
+            <div class="contrast-grid reveal">
+                <div class="contrast-row">
+                    <div class="contrast-row__left">Most immersive shows ask people to look</div>
+                    <div class="contrast-row__divider"></div>
+                    <div class="contrast-row__right">Real Self asks people to participate</div>
                 </div>
-                <div class="contrast-item contrast-item--right reveal-right">
-                    <p class="contrast-item__label" data-i18n="about.contrast.realself">Real Self</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.realselfParticipate">Asks people to participate</p>
+                <div class="contrast-row">
+                    <div class="contrast-row__left">Most immersive spaces present visuals</div>
+                    <div class="contrast-row__divider"></div>
+                    <div class="contrast-row__right">Real Self creates personal breakthroughs</div>
                 </div>
-
-                <div class="contrast-item contrast-item--left reveal-left">
-                    <p class="contrast-item__label" data-i18n="about.contrast.others">Most Immersive Spaces</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.othersVisuals">Present visuals</p>
-                </div>
-                <div class="contrast-item contrast-item--right reveal-right">
-                    <p class="contrast-item__label" data-i18n="about.contrast.realself">Real Self</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.realselfBreakthroughs">Creates personal breakthroughs</p>
-                </div>
-
-                <div class="contrast-item contrast-item--left reveal-left">
-                    <p class="contrast-item__label" data-i18n="about.contrast.others">Most Experiences</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.othersConsumed">Are consumed</p>
-                </div>
-                <div class="contrast-item contrast-item--right reveal-right">
-                    <p class="contrast-item__label" data-i18n="about.contrast.realself">Real Self</p>
-                    <p class="contrast-item__text" data-i18n="about.contrast.realselfLived">Is lived</p>
+                <div class="contrast-row">
+                    <div class="contrast-row__left">Most experiences are consumed</div>
+                    <div class="contrast-row__divider"></div>
+                    <div class="contrast-row__right">Real Self is lived</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="video-section">
+    <!-- Pull Quote -->
+    <section class="editorial">
         <div class="container">
-            <div class="benefits-header reveal">
-                <p class="benefits-header__eyebrow" data-i18n="about.video.eyebrow">See It In Action</p>
-                <h2 class="benefits-header__title" data-i18n="about.video.title">A Glimpse Inside</h2>
+            <div class="editorial__inner">
+                <div class="pull-quote reveal">
+                    <p class="pull-quote__text">
+                        "There is nothing else globally that combines full anonymity, a guided emotional journey, collective participation, and a repeatable, scalable format."
+                    </p>
+                </div>
             </div>
-            <div class="video-wrapper reveal">
-                <video controls playsinline poster="images/hero-poster.jpg">
-                    <source src="videos/about-video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <p class="video-caption reveal" data-i18n="about.video.caption">Watch how participants transform from strangers to connected souls</p>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section">
+    <!-- What Participants Get - Editorial Style -->
+    <section class="benefits-editorial">
         <div class="container">
-            <div class="benefits-header reveal">
-                <p class="benefits-header__eyebrow" data-i18n="about.benefits.eyebrow">The Participant Experience</p>
-                <h2 class="benefits-header__title" data-i18n="about.benefits.title">What People Get From Real Self</h2>
+            <div class="editorial__inner reveal">
+                <p class="editorial__label">The Participant Experience</p>
+                <h2 class="editorial__heading">What People Get From Real Self</h2>
             </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card reveal">
-                    <span class="benefit-card__number">01</span>
-                    <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 6v6l4 2"/>
-                    </svg>
-                    <h3 class="benefit-card__title" data-i18n="about.benefits.anonymity.title">Total Anonymity & Freedom</h3>
-                    <p class="benefit-card__text" data-i18n="about.benefits.anonymity.text">
-                        A rare chance to be no one. No labels, no roles, no social identity. Fully covered face and body. This creates psychological permission to open, move, and feel without self-consciousness.
+            <div class="benefits-editorial__grid">
+                <div class="benefit-block reveal">
+                    <h3 class="benefit-block__title">Total Anonymity and Freedom</h3>
+                    <p class="benefit-block__text">
+                        A rare chance to be no one, fully lost in a sea of anonymity. Hand, body, face covered. No labels, no roles, no social identity. This creates a psychological permission to open, move, and feel without self-consciousness.
                     </p>
                 </div>
 
-                <div class="benefit-card reveal">
-                    <span class="benefit-card__number">02</span>
-                    <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                    <h3 class="benefit-card__title" data-i18n="about.benefits.connection.title">Deep Human Connection</h3>
-                    <p class="benefit-card__text" data-i18n="about.benefits.connection.text">
-                        Not digital. Not remote. Not passive. A fully engaged, collective human experience shared in real space. No cell phones. You cannot replicate this on a screen or at home.
+                <div class="benefit-block reveal">
+                    <h3 class="benefit-block__title">Deep Human Connection</h3>
+                    <p class="benefit-block__text">
+                        You cannot feel this type of connection at home on your sofa. This is not digital. Not remote. Not passive. This is full engagement, a collective human experience shared in real space that will leave a lasting impression on you.
                     </p>
                 </div>
 
-                <div class="benefit-card reveal">
-                    <span class="benefit-card__number">03</span>
-                    <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                    <h3 class="benefit-card__title" data-i18n="about.benefits.lasting.title">Emotional Impact That Lasts</h3>
-                    <p class="benefit-card__text" data-i18n="about.benefits.lasting.text">
-                        People forget movies. Concert buzz fades. Real Self becomes a long-term memory. Participants describe it as something they carry with them for years and want to revisit.
+                <div class="benefit-block reveal">
+                    <h3 class="benefit-block__title">Emotional Impact That Lasts</h3>
+                    <p class="benefit-block__text">
+                        Go to a movie and forget the plot. Go to a concert and the buzz leaves you in a few days. Real Self is the type of experience that stays with a person for years, a memory they want to revisit often. Three seasons in Buenos Aires proved this.
                     </p>
                 </div>
 
-                <div class="benefit-card reveal">
-                    <span class="benefit-card__number">04</span>
-                    <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                        <path d="M2 17l10 5 10-5"/>
-                        <path d="M2 12l10 5 10-5"/>
-                    </svg>
-                    <h3 class="benefit-card__title" data-i18n="about.benefits.discovery.title">Self-Discovery Journey</h3>
-                    <p class="benefit-card__text" data-i18n="about.benefits.discovery.text">
-                        Moments of insight people didn't expect. Truths they hadn't admitted. Inner realizations delivered through experience, not instruction.
+                <div class="benefit-block reveal">
+                    <h3 class="benefit-block__title">Self-Discovery Journey</h3>
+                    <p class="benefit-block__text">
+                        The joy and revelation of realizing things about yourself you didn't know or wouldn't admit. Moments of insight people didn't expect. Truths they hadn't acknowledged. Inner realizations delivered through experience, not instruction.
                     </p>
                 </div>
 
-                <div class="benefit-card reveal" style="grid-column: span 2;">
-                    <span class="benefit-card__number">05</span>
-                    <svg class="benefit-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                    </svg>
-                    <h3 class="benefit-card__title" data-i18n="about.benefits.euphoria.title">Collective Euphoria & Release</h3>
-                    <p class="benefit-card__text" data-i18n="about.benefits.euphoria.text">
-                        It is not only reflective and deep. It is also joyful, physical, and celebratory. Movement. Dance. Music. Shared emotional release. A rare combination of introspection and exhilaration.
+                <div class="benefit-block benefit-block--featured reveal">
+                    <h3 class="benefit-block__title">Collective Euphoria and Release</h3>
+                    <p class="benefit-block__text">
+                        It's not only self-reflective and deep. That inner opening allows an incredible euphoria and collective emotional release. But also dance and togetherness. Movement. Music. A rare combination of introspection and exhilaration that participants describe as unlike anything they've experienced before.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="quote-section">
-        <div class="container">
-            <blockquote class="quote-large reveal" data-i18n="about.quote">
-                "People are tired of pretty paintings on a wall. They want action. They want to feel something real."
-            </blockquote>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
+    <!-- Gallery Strip -->
     <section class="gallery-section">
-        <div class="container">
-            <div class="gallery-grid">
-                <div class="gallery-item reveal">
-                    <img src="images/script/01-silhouettes-lines.jpg" alt="Silhouettes in projection light">
-                </div>
-                <div class="gallery-item gallery-item--wide reveal">
-                    <img src="images/script/07-group-waves.jpg" alt="Group experiencing wave projections">
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="images/script/05-two-faces.jpg" alt="Two masked participants">
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="images/script/03-circle-huddle.jpg" alt="Circle formation">
-                </div>
-                <div class="gallery-item reveal">
-                    <img src="images/script/08-masks-boxes.jpg" alt="Masks and costumes">
-                </div>
-                <div class="gallery-item gallery-item--wide reveal">
-                    <img src="images/script/06-crowd-line.jpg" alt="Crowd in formation">
-                </div>
+        <div class="gallery-strip">
+            <div class="gallery-strip__item">
+                <img src="images/script/01-silhouettes-lines.jpg" alt="Silhouettes in projection light">
+            </div>
+            <div class="gallery-strip__item gallery-strip__item--wide">
+                <img src="images/script/07-group-waves.jpg" alt="Group experiencing wave projections">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/05-two-faces.jpg" alt="Two masked participants">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/03-circle-huddle.jpg" alt="Circle formation">
+            </div>
+            <div class="gallery-strip__item gallery-strip__item--wide">
+                <img src="images/script/06-crowd-line.jpg" alt="Crowd in formation">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/08-masks-boxes.jpg" alt="Masks and costumes">
             </div>
         </div>
     </section>
 
-    <!-- Differentiator Section -->
-    <section class="differentiator">
+    <!-- Final Statement -->
+    <section class="final-statement">
         <div class="container">
-            <div class="differentiator__content">
-                <p class="differentiator__label reveal" data-i18n="about.differentiator.label">Globally Unique</p>
-                <h2 class="benefits-header__title text-center reveal" data-i18n="about.differentiator.title">Nothing Else Combines</h2>
-
-                <ul class="differentiator__list">
-                    <li class="differentiator__item reveal">
-                        <span class="differentiator__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </span>
-                        <p class="differentiator__text"><strong data-i18n="about.differentiator.item1bold">Full Anonymity</strong> <span data-i18n="about.differentiator.item1text">— Complete freedom from social identity</span></p>
-                    </li>
-                    <li class="differentiator__item reveal">
-                        <span class="differentiator__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </span>
-                        <p class="differentiator__text"><strong data-i18n="about.differentiator.item2bold">Guided Emotional Journey</strong> <span data-i18n="about.differentiator.item2text">— Structured narrative arc</span></p>
-                    </li>
-                    <li class="differentiator__item reveal">
-                        <span class="differentiator__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </span>
-                        <p class="differentiator__text"><strong data-i18n="about.differentiator.item3bold">Collective Participation</strong> <span data-i18n="about.differentiator.item3text">— Shared human experience</span></p>
-                    </li>
-                    <li class="differentiator__item reveal">
-                        <span class="differentiator__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </span>
-                        <p class="differentiator__text"><strong data-i18n="about.differentiator.item4bold">Repeatable, Scalable Format</strong> <span data-i18n="about.differentiator.item4text">— Proven across 3 cities, 80,000+ participants</span></p>
-                    </li>
-                    <li class="differentiator__item reveal">
-                        <span class="differentiator__icon">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </span>
-                        <p class="differentiator__text"><strong data-i18n="about.differentiator.item5bold">Participants Leave Raving</strong> <span data-i18n="about.differentiator.item5text">— Word-of-mouth driven success</span></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="cta-section__title reveal" data-i18n="about.cta.title">Ready to Transform Your Venue?</h2>
-            <p class="cta-section__subtitle reveal" data-i18n="about.cta.subtitle">
-                For venues looking to differentiate, Real Self is not just another immersive show. It's a category-defining experience that becomes the reason people return again and again.
+            <p class="final-statement__text reveal">
+                For a venue, this is not just another immersive show. It is a <em>category-defining experience</em> and a reenergizing of your space. The reason people come back, again and again. Participants leave raving about the show.
             </p>
             <div class="cta-buttons reveal">
-                <a href="experience.html" class="btn btn--primary btn--large" data-i18n="about.cta.buttonExperience">
+                <a href="experience.html" class="btn btn--primary btn--large">
                     Explore the Experience
                 </a>
-                <a href="partnership.html" class="btn btn--outline btn--large" data-i18n="about.cta.buttonPartner">
+                <a href="partnership.html" class="btn btn--outline btn--large">
                     Partner With Us
                 </a>
             </div>
@@ -943,9 +733,27 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script>
+        // Video autoplay on scroll
+        const video = document.getElementById('aboutVideo');
+        const videoSection = document.querySelector('.video-section');
+
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: [0.3, 0.5, 0.7]
+        });
+
+        videoObserver.observe(videoSection);
+
         // Scroll reveal animations
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
@@ -957,23 +765,18 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+        document.querySelectorAll('.reveal').forEach(el => {
             scrollObserver.observe(el);
         });
 
-        // Stagger benefit cards
-        document.querySelectorAll('.benefit-card').forEach((card, index) => {
-            card.style.transitionDelay = `${index * 0.1}s`;
+        // Stagger benefit blocks
+        document.querySelectorAll('.benefit-block').forEach((block, index) => {
+            block.style.transitionDelay = `${index * 0.1}s`;
         });
 
-        // Stagger differentiator items
-        document.querySelectorAll('.differentiator__item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.08}s`;
-        });
-
-        // Stagger gallery items
-        document.querySelectorAll('.gallery-item').forEach((item, index) => {
-            item.style.transitionDelay = `${index * 0.05}s`;
+        // Stagger contrast rows
+        document.querySelectorAll('.contrast-row').forEach((row, index) => {
+            row.style.transitionDelay = `${index * 0.1}s`;
         });
     </script>
 </body>

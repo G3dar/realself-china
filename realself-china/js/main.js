@@ -190,11 +190,11 @@ const headerComponent = {
                     <a href="home.html" class="logo">${logoImg}</a>
                     <nav class="nav">
                         <ul class="nav__list">
-                            <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
                             <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
                             <li><a href="specifications.html" class="nav__link" data-i18n="nav.specs">Specs</a></li>
                             <li><a href="investment.html" class="nav__link" data-i18n="nav.financials">Financials</a></li>
                             <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
+                            <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
                         </ul>
                         <div class="lang-toggle">
                             <button class="lang-toggle__btn active" data-lang="en">EN</button>
