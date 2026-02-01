@@ -668,12 +668,12 @@
         const videoSection = document.querySelector('.video-section');
 
         // Start video from second 1
-        video.currentTime = 1;
+        video.currentTime = 2;
 
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                    if (video.currentTime < 1) video.currentTime = 1;
+                    if (video.currentTime < 1) video.currentTime = 2;
                     video.play();
                 } else {
                     video.pause();
