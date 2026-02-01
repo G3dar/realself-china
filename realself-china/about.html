@@ -517,7 +517,7 @@
 
     <!-- Video Section - Full Width Immersive -->
     <section class="video-section">
-        <video id="aboutVideo" loop playsinline>
+        <video id="aboutVideo" loop playsinline muted autoplay>
             <source src="videos/about-video.mp4" type="video/mp4">
         </video>
         <div class="video-section__overlay"></div>
@@ -673,8 +673,8 @@
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                    if (video.currentTime < 1) video.currentTime = 2;
-                    video.play();
+                    if (video.currentTime < 2) video.currentTime = 2;
+                    video.play().catch(() => {});
                 } else {
                     video.pause();
                 }
@@ -684,6 +684,11 @@
         });
 
         videoObserver.observe(videoSection);
+
+        // Ensure video starts at correct time when loaded
+        video.addEventListener('loadedmetadata', () => {
+            video.currentTime = 2;
+        });
 
         // Scroll reveal animations
         const observerOptions = {
