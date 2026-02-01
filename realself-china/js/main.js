@@ -18,14 +18,16 @@ const VENUE_SPECS = {
         subLows: 3,
         serverOutputs: 18,
         airRenewal: 'Air renewal: 2500 m³/min (costumes)',
+        pinSpots: 11,
+        spotLeds: 24,
         // SVG text values
         changingRoomSvg: '250 m²',
         lockersSvg: '150 lockers',
         experienceSpaceSvg: '20m x 14m',
         ceilingHeightSvg: '8-10m ceiling',
         floorPlanSubtitle: 'Small venue configuration (150 capacity)',
-        projectorLegend: '18 Projectors (6,500-12,000 lumens)',
-        speakerLegend: '13 Speakers (10 tripod + 3 VOG)',
+        projectorLegend: '~18 Projectors (subject to ceiling height & lens availability)',
+        speakerLegend: '13 Speakers (10 tripod + 3 VOG optional)',
         changingReqText: 'Connected to experience space, individual lockers for 150 people'
     },
     large: {
@@ -34,21 +36,23 @@ const VENUE_SPECS = {
         ceilingHeight: '10-12m',
         changingRoom: '350 m²',
         lockers: 350,
-        projectors: 36,
-        projectorGrid: { rows: 6, cols: 6 },
+        projectors: 26,
+        projectorGrid: { rows: 4, cols: 6 },  // Visual grid ~24, actual count varies with venue
         tripodSpeakers: 12,
         vogSpeakers: 4,
         subLows: 4,
-        serverOutputs: 36,
+        serverOutputs: 26,
         airRenewal: 'Air renewal: 4000 m³/min (costumes)',
+        pinSpots: 22,
+        spotLeds: 48,
         // SVG text values
         changingRoomSvg: '350 m²',
         lockersSvg: '350 lockers',
         experienceSpaceSvg: '26m x 18m',
         ceilingHeightSvg: '10-12m ceiling',
         floorPlanSubtitle: 'Large venue configuration (350 capacity)',
-        projectorLegend: '36 Projectors (6,500-12,000 lumens)',
-        speakerLegend: '16 Speakers (12 tripod + 4 VOG)',
+        projectorLegend: '~26 Projectors (subject to ceiling height & lens availability)',
+        speakerLegend: '16 Speakers (12 tripod + 4 VOG optional)',
         changingReqText: 'Connected to experience space, individual lockers for 350 people'
     }
 };
@@ -117,7 +121,7 @@ const venueToggle = {
         const startX = 270;
         const startY = 60;
         const spacingX = 60;
-        const spacingY = this.currentVenue === 'small' ? 120 : 64;
+        const spacingY = this.currentVenue === 'small' ? 120 : 100;  // Adjusted for 4-row grid
 
         for (let row = 0; row < grid.rows; row++) {
             for (let col = 0; col < grid.cols; col++) {
@@ -150,7 +154,7 @@ const venueToggle = {
         const startX = 270;
         const startY = 60;
         const spacingX = 60;
-        const spacingY = this.currentVenue === 'small' ? 120 : 64;
+        const spacingY = this.currentVenue === 'small' ? 120 : 100;  // Adjusted for 4-row grid
         const coverageRadius = 35;
 
         for (let row = 0; row < grid.rows; row++) {
