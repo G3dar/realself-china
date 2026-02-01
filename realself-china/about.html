@@ -73,6 +73,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Scroll Arrow */
+        .about-hero__scroll {
+            position: absolute;
+            bottom: var(--spacing-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s ease;
+            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+        }
+
+        .about-hero__scroll:hover {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .about-hero__scroll svg {
+            animation: bounceArrow 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
         /* ========== Video Section - Full Width Immersive ========== */
         .video-section {
             position: relative;
@@ -479,6 +508,11 @@
                 There are no actors. No passive spectators. Every ticket holder becomes the protagonist. This is not immersive wall art. This is immersive engagement and transformation.
             </p>
         </div>
+        <div class="about-hero__scroll" id="scrollToVideo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
     </section>
 
     <!-- Video Section - Full Width Immersive -->
@@ -675,6 +709,11 @@
         // Stagger contrast rows
         document.querySelectorAll('.contrast-row').forEach((row, index) => {
             row.style.transitionDelay = `${index * 0.1}s`;
+        });
+
+        // Scroll to video on arrow click
+        document.getElementById('scrollToVideo').addEventListener('click', () => {
+            videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     </script>
 </body>
