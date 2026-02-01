@@ -715,6 +715,25 @@
         document.getElementById('scrollToVideo').addEventListener('click', () => {
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
+
+        // Auto-scroll to video when scrolling down from hero (only once)
+        let heroScrollTriggered = false;
+        let isScrolling = false;
+
+        window.addEventListener('wheel', (e) => {
+            // Only trigger if: scrolling down, at top of page, and hasn't been triggered yet
+            if (e.deltaY > 0 && window.scrollY < 100 && !heroScrollTriggered && !isScrolling) {
+                e.preventDefault();
+                heroScrollTriggered = true;
+                isScrolling = true;
+                videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Reset isScrolling after animation completes
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1000);
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
