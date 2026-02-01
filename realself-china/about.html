@@ -668,12 +668,12 @@
         const videoSection = document.querySelector('.video-section');
 
         // Start video from second 1
-        video.currentTime = 2;
+        video.currentTime = 1;
 
         const videoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                    if (video.currentTime < 2) video.currentTime = 2;
+                    if (video.currentTime < 1) video.currentTime = 1;
                     video.play().catch(() => {});
                 } else {
                     video.pause();
@@ -687,7 +687,7 @@
 
         // Ensure video starts at correct time when loaded
         video.addEventListener('loadedmetadata', () => {
-            video.currentTime = 2;
+            video.currentTime = 1;
         });
 
         // Scroll reveal animations
