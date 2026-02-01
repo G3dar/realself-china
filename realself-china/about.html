@@ -713,9 +713,15 @@
             row.style.transitionDelay = `${index * 0.1}s`;
         });
 
-        // Scroll to video on arrow click
+        // Scroll to video on arrow click and enable sound
         document.getElementById('scrollToVideo').addEventListener('click', () => {
             videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            video.muted = false;
+        });
+
+        // Enable sound on video click
+        video.addEventListener('click', () => {
+            video.muted = !video.muted;
         });
 
         // Auto-scroll to video when scrolling down from hero (only once)
@@ -729,6 +735,7 @@
                 heroScrollTriggered = true;
                 isScrolling = true;
                 videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                video.muted = false;
 
                 // Reset isScrolling after animation completes
                 setTimeout(() => {
