@@ -289,6 +289,50 @@
     "cta": {
       "subtitle": "查看安装的详细技术要求",
       "button": "查看技术清单"
+    },
+    "venueTitle": "场地要求",
+    "audio": {
+      "title": "音响系统",
+      "subtitle": "10输出多声道系统，实现360°沉浸式音效",
+      "experience": "体验空间",
+      "control": "控制室",
+      "changing": "更衣室",
+      "lobby": "前厅"
+    },
+    "video": {
+      "title": "视频系统",
+      "subtitle": "四面墙壁和地面360°投影映射。目标：深灰色表面每平方米100 ANSI流明。",
+      "experience": "体验空间",
+      "changing": "更衣室",
+      "note": "投影仪功率和镜头的选择取决于场地条件。我们将与您的团队合作，审查本地设备方案，确保最佳体验效果。"
+    },
+    "lighting": {
+      "title": "灯光系统",
+      "experience": "体验空间",
+      "changing": "更衣室"
+    },
+    "cctv": {
+      "title": "监控与通讯",
+      "subtitle": "安全和监控必备。所有区域必须可视可听。",
+      "cameras": "摄像系统",
+      "radios": "对讲机",
+      "internet": "网络",
+      "power": "电力质量"
+    },
+    "rigging": {
+      "title": "吊装要求",
+      "experience": "体验空间",
+      "changing": "更衣室"
+    },
+    "staff": {
+      "title": "人员与时间表",
+      "rsTeam": "Real Self团队",
+      "loadIn": "装台与设置（首演前1周）",
+      "training": "培训（首演及首周）",
+      "localTeam": "本地团队需求",
+      "showStaff": "演出人员",
+      "timeline": "时间周期",
+      "schedule": "日程安排"
     }
   },
   "script": {
@@ -319,7 +363,7 @@
       },
       "03": {
         "text": "\"我们把自认为无效的那部分自己，藏在最后的阁楼里。我们不是因为它无效才隐藏它，而是因为我们隐藏它，它才变得无效。\"",
-        "context": "核心洞见。我们压抑的东西不会消失——它在等待。"
+        "context": "核心洞见。我们压抑的东西不会消失，它在等待。"
       },
       "04": {
         "text": "\"如果你曾感受过对死亡的恐惧，请跨过白线。\"",
@@ -327,7 +371,7 @@
       },
       "05": {
         "text": "\"你今天真的愿意坠入爱河吗？\"",
-        "context": "不仅仅是浪漫的爱——而是向另一个人敞开的脆弱。"
+        "context": "不仅仅是浪漫的爱，而是向另一个人敞开的脆弱。"
       },
       "06": {
         "text": "\"谁想要从羞耻中解脱？\"",
@@ -348,6 +392,71 @@
     },
     "closing": "\"如果这样生活，会是什么感觉？\"",
     "cta": "查看财务"
+  },
+  "investment": {
+    "title": "收入与成本",
+    "subtitle": "详细成本与收入预测",
+    "adjustVariables": "调整变量",
+    "variables": {
+      "daysPerWeek": "每周天数",
+      "days": "天",
+      "showsPerDay": "每天场次",
+      "shows": "场",
+      "occupancy": "预计上座率"
+    },
+    "revenue": {
+      "ticketTitle": "门票收入",
+      "ticketsPerWeek": "每周票数",
+      "ticketPrice": "票价",
+      "ticketRevenue": "门票销售",
+      "vipUpgrades": "VIP升级（10%）",
+      "ticketSubtotal": "门票小计",
+      "otherTitle": "其他收入",
+      "merchandise": "周边商品",
+      "merchandiseNote": "迷你面具、艺术印刷品、服装、配饰",
+      "foodDrinks": "餐饮",
+      "foodDrinksNote": "欢迎饮品、小食、演后酒吧",
+      "photobooth": "照相亭",
+      "photoboothNote": "数码+冲印照片、相框",
+      "otherSubtotal": "其他小计",
+      "weeklyTotal": "每周总计"
+    },
+    "costs": {
+      "title": "每周成本",
+      "masksCostumes": "面具与服装",
+      "floorStaff": "现场员工（每场）",
+      "roles": {
+        "guides": "体验向导",
+        "changing": "更衣室",
+        "reception": "前厅/接待",
+        "technician": "演出技术员",
+        "venueManager": "场地经理",
+        "techLead": "技术主管"
+      },
+      "perShowTotal": "每场合计",
+      "showsWeek": "场/周",
+      "management": "管理层（每天）",
+      "daysWeek": "天/周",
+      "staffTotal": "员工与管理",
+      "insurance": "保险与杂项",
+      "weeklyTotal": "每周总计",
+      "marketingNote": "注：不包含营销成本。合作方负责所有推广和票务销售。"
+    },
+    "results": {
+      "weeklyProfit": "每周利润（预估）",
+      "monthlyProfit": "每月利润（预估）",
+      "annualProfit": "年利润（预估）"
+    },
+    "references": {
+      "title": "基于同类体验的收入假设",
+      "teamlab": "TeamLab：全球每年1500万+访客，票价$30-40",
+      "meowwolf": "Meow Wolf：每个场地每年100万+访客，票价$40-50",
+      "vangogh": "梵高沉浸展：累计500万+访客，票价$30-45",
+      "ourAssumptions": "我们的假设",
+      "realself": "保守估计60-70%上座率，基础票价$35",
+      "note": "收入假设基于主要城市的同类沉浸式体验。实际结果可能因当地市场条件、营销效果和运营效率而有所不同。"
+    },
+    "cta": "查看安装费用"
   },
   "scenarios": {
     "title": "场地方案",
@@ -496,7 +605,7 @@
       "food": {
         "label": "餐饮",
         "badge": "合作方优势",
-        "desc2": "合作方保留所有餐饮收入 — 欢迎饮品、小食、演后酒吧"
+        "desc2": "合作方保留所有餐饮收入：欢迎饮品、小食、演后酒吧"
       },
       "merch": {
         "label": "周边商品",
@@ -585,7 +694,7 @@
       "title": "人们从 Real Self 获得什么",
       "anonymity": {
         "title": "完全匿名与自由",
-        "text": "一个罕见的成为"无人"的机会。没有标签，没有角色，没有社会身份。面部和身体完全遮盖。这创造了心理许可，让你可以毫无自我意识地敞开、移动和感受。"
+        "text": "一个罕见的成为「无人」的机会。没有标签，没有角色，没有社会身份。面部和身体完全遮盖。这创造了心理许可，让你可以毫无自我意识地敞开、移动和感受。"
       },
       "connection": {
         "title": "深度人际连接",
@@ -609,15 +718,15 @@
       "label": "全球独一无二",
       "title": "没有其他体验能结合",
       "item1bold": "完全匿名",
-      "item1text": "— 完全摆脱社会身份",
+      "item1text": "完全摆脱社会身份",
       "item2bold": "引导式情感旅程",
-      "item2text": "— 结构化的叙事弧线",
+      "item2text": "结构化的叙事弧线",
       "item3bold": "集体参与",
-      "item3text": "— 共享的人类体验",
+      "item3text": "共享的人类体验",
       "item4bold": "可重复、可扩展的形式",
-      "item4text": "— 在3个城市、8万+参与者中得到验证",
+      "item4text": "在3个城市、8万+参与者中得到验证",
       "item5bold": "参与者赞不绝口",
-      "item5text": "— 口碑驱动的成功"
+      "item5text": "口碑驱动的成功"
     },
     "cta": {
       "title": "准备好转变您的场地了吗？",
@@ -625,6 +734,126 @@
       "buttonExperience": "探索体验",
       "buttonPartner": "与我们合作"
     }
+  },
+  "investmentRequirements": {
+    "title": "前期投资",
+    "subtitle": "制作成本、授权费及设置费用",
+    "scaleNote": "成本随场地规模调整：准备时间、储物柜和服装相应变化",
+    "breakdownNote": "展示大型场地（350人容量）明细",
+    "summaryNote": "大型场地（350人）明细",
+    "included": "已包含",
+    "sizes": {
+      "small": "小型（150人）",
+      "large": "大型（350人）"
+    },
+    "sections": {
+      "production": {
+        "title": "制作",
+        "items": {
+          "direction": {
+            "name": "制作与导演",
+            "detail": "20天现场指导与适配监督"
+          },
+          "executive": {
+            "name": "执行制作",
+            "detail": "项目监督与协调"
+          }
+        }
+      },
+      "creative": {
+        "title": "创意与IP适配",
+        "items": {
+          "design": {
+            "name": "体验设计与适配",
+            "detail": "本地化和文化适配"
+          },
+          "sound": {
+            "name": "声音设计更新",
+            "detail": "音频适配和混音"
+          },
+          "rehearsals": {
+            "name": "彩排与演出指导",
+            "detail": "员工培训和指导（20天）"
+          },
+          "marketing": {
+            "name": "包含：营销资产与本地化",
+            "detail": "所有营销材料、推广内容和本地化均已包含"
+          }
+        }
+      },
+      "technical": {
+        "title": "技术设计",
+        "items": {
+          "projection": {
+            "name": "投影映射设计",
+            "detail": "定制场地映射和内容适配（20天）"
+          },
+          "showControl": {
+            "name": "演出控制编程",
+            "detail": "自动化和同步系统"
+          },
+          "testing": {
+            "name": "系统测试与校准",
+            "detail": "技术彩排和微调"
+          }
+        }
+      },
+      "travel": {
+        "title": "差旅与设置",
+        "items": {
+          "team": {
+            "name": "团队差旅与住宿",
+            "detail": "4人，20天设置期"
+          },
+          "lockers": {
+            "name": "储物柜",
+            "detail": "350个参与者储物单元"
+          },
+          "costumes": {
+            "name": "服装",
+            "detail": "初始服装库存"
+          }
+        }
+      },
+      "legal": {
+        "title": "法律与保险",
+        "items": {
+          "contracts": {
+            "name": "法律合同与授权",
+            "detail": "IP授权和合作协议"
+          },
+          "insurance": {
+            "name": "设置保险",
+            "detail": "安装期间工作人员保险"
+          }
+        }
+      }
+    },
+    "summary": {
+      "subtotal": "小计",
+      "contingency": "应急储备（10%）",
+      "total": "总投资"
+    },
+    "partnerProvides": {
+      "title": "合作方提供",
+      "note": "以下设备和运营成本不包含在上述投资明细中。假设场地已有专业级灯光和音响系统，或由合作方提供。",
+      "migration": "提供场地迁移支持。",
+      "items": {
+        "projectors": "投影仪与AV设备",
+        "venue": "场地与空间",
+        "lighting": "灯光系统",
+        "sound": "音响系统",
+        "servers": "媒体服务器",
+        "production": "本地制作团队",
+        "marketing": "营销活动",
+        "lockers": "储物柜（提供设计方案）",
+        "costumes": "服装（本地供应商）",
+        "masks": "面具（本地制造商）",
+        "branding": "品牌与标识",
+        "conditioning": "场地调节"
+      }
+    },
+    "cta": "查看合作模式"
   },
   "footer": {
     "copyright": "Real Self Experience。保留所有权利。"

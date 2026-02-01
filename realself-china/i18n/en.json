@@ -289,6 +289,50 @@
     "cta": {
       "subtitle": "See the detailed technical requirements for installation",
       "button": "View Technical Rider"
+    },
+    "venueTitle": "Venue Requirements",
+    "audio": {
+      "title": "Audio System",
+      "subtitle": "Multichannel system with 10 outputs for immersive 360° sound",
+      "experience": "Experience Room",
+      "control": "Control Room",
+      "changing": "Changing Room",
+      "lobby": "Lobby"
+    },
+    "video": {
+      "title": "Video System",
+      "subtitle": "360° projection mapping on all 4 walls and floor. Target: 100 ANSI lumens per m² on dark gray surface.",
+      "experience": "Experience Room",
+      "changing": "Changing Room",
+      "note": "The choice of projector power and lenses depends on venue conditions. We will work with your team to review your local equipment proposal and ensure the best possible experience."
+    },
+    "lighting": {
+      "title": "Lighting System",
+      "experience": "Experience Room",
+      "changing": "Changing Room"
+    },
+    "cctv": {
+      "title": "CCTV & Communications",
+      "subtitle": "Essential for security and monitoring. Must see and hear in all areas.",
+      "cameras": "Camera System",
+      "radios": "Two-Way Radios",
+      "internet": "Internet",
+      "power": "Power Quality"
+    },
+    "rigging": {
+      "title": "Rigging Requirements",
+      "experience": "Experience Room",
+      "changing": "Changing Room"
+    },
+    "staff": {
+      "title": "Staff & Timeline",
+      "rsTeam": "Real Self Team",
+      "loadIn": "Load-in & Setup (1 week before premiere)",
+      "training": "Training (premiere + first week)",
+      "localTeam": "Local Team Required",
+      "showStaff": "Show Staff",
+      "timeline": "Timeline",
+      "schedule": "Schedule"
     }
   },
   "script": {
@@ -348,6 +392,71 @@
     },
     "closing": "\"What would it be like to live like this?\"",
     "cta": "View Financials"
+  },
+  "investment": {
+    "title": "Revenue and Cost",
+    "subtitle": "Detailed costs and revenue projections",
+    "adjustVariables": "Adjust Variables",
+    "variables": {
+      "daysPerWeek": "Days per Week",
+      "days": "days",
+      "showsPerDay": "Shows per Day",
+      "shows": "shows",
+      "occupancy": "Projected Occupancy"
+    },
+    "revenue": {
+      "ticketTitle": "Ticket Revenue",
+      "ticketsPerWeek": "Tickets per week",
+      "ticketPrice": "Ticket price",
+      "ticketRevenue": "Ticket sales",
+      "vipUpgrades": "VIP upgrades (10%)",
+      "ticketSubtotal": "Ticket Subtotal",
+      "otherTitle": "Other Revenue",
+      "merchandise": "Merchandise",
+      "merchandiseNote": "Mini masks, art prints, apparel, accessories",
+      "foodDrinks": "Food & Drinks",
+      "foodDrinksNote": "Welcome drinks, snacks, post-show bar",
+      "photobooth": "Photobooth",
+      "photoboothNote": "Digital + printed photos, frames",
+      "otherSubtotal": "Other Subtotal",
+      "weeklyTotal": "Weekly Total"
+    },
+    "costs": {
+      "title": "Weekly Costs",
+      "masksCostumes": "Masks & Costumes",
+      "floorStaff": "Floor Staff (per show)",
+      "roles": {
+        "guides": "Experience Guides",
+        "changing": "Changing Room",
+        "reception": "Foyer/Reception",
+        "technician": "Show Technician",
+        "venueManager": "Venue Manager",
+        "techLead": "Technical Lead"
+      },
+      "perShowTotal": "Per show total",
+      "showsWeek": "shows/week",
+      "management": "Management (per day)",
+      "daysWeek": "days/week",
+      "staffTotal": "Staff & Management",
+      "insurance": "Insurance & Misc",
+      "weeklyTotal": "Weekly Total",
+      "marketingNote": "Note: Marketing costs not included. Partner handles all promotion and ticket sales."
+    },
+    "results": {
+      "weeklyProfit": "Weekly Profit (est.)",
+      "monthlyProfit": "Monthly Profit (est.)",
+      "annualProfit": "Annual Profit (est.)"
+    },
+    "references": {
+      "title": "Revenue Assumptions Based on Comparable Experiences",
+      "teamlab": "TeamLab: 15M+ visitors/year globally, $30-40 tickets",
+      "meowwolf": "Meow Wolf: 1M+ visitors/year per location, $40-50 tickets",
+      "vangogh": "Van Gogh Immersive: 5M+ total visitors, $30-45 tickets",
+      "ourAssumptions": "Our Assumptions",
+      "realself": "Conservative 60-70% occupancy, $35 base ticket",
+      "note": "Revenue assumptions are based on comparable immersive experiences in major cities. Actual results may vary based on local market conditions, marketing effectiveness, and operational efficiency."
+    },
+    "cta": "View Installation Costs"
   },
   "scenarios": {
     "title": "Venue Scenarios",
@@ -609,15 +718,15 @@
       "label": "Globally Unique",
       "title": "Nothing Else Combines",
       "item1bold": "Full Anonymity",
-      "item1text": "— Complete freedom from social identity",
+      "item1text": "Complete freedom from social identity",
       "item2bold": "Guided Emotional Journey",
-      "item2text": "— Structured narrative arc",
+      "item2text": "Structured narrative arc",
       "item3bold": "Collective Participation",
-      "item3text": "— Shared human experience",
+      "item3text": "Shared human experience",
       "item4bold": "Repeatable, Scalable Format",
-      "item4text": "— Proven across 3 cities, 80,000+ participants",
+      "item4text": "Proven across 3 cities, 80,000+ participants",
       "item5bold": "Participants Leave Raving",
-      "item5text": "— Word-of-mouth driven success"
+      "item5text": "Word-of-mouth driven success"
     },
     "cta": {
       "title": "Ready to Transform Your Venue?",
@@ -625,6 +734,126 @@
       "buttonExperience": "Explore the Experience",
       "buttonPartner": "Partner With Us"
     }
+  },
+  "investmentRequirements": {
+    "title": "Upfront Investment",
+    "subtitle": "Production costs, licensing & setup fees",
+    "scaleNote": "Costs scale with venue size: prep time, lockers, and costumes adjust accordingly",
+    "breakdownNote": "Breakdown shown for Large venue (350 capacity)",
+    "summaryNote": "Large venue (350) breakdown",
+    "included": "Included",
+    "sizes": {
+      "small": "Small (150)",
+      "large": "Large (350)"
+    },
+    "sections": {
+      "production": {
+        "title": "Production",
+        "items": {
+          "direction": {
+            "name": "Production & Direction",
+            "detail": "20 days on-site direction & adaptation oversight"
+          },
+          "executive": {
+            "name": "Executive Producing",
+            "detail": "Project oversight & coordination"
+          }
+        }
+      },
+      "creative": {
+        "title": "Creative & IP Adaptation",
+        "items": {
+          "design": {
+            "name": "Experience Design & Adaptation",
+            "detail": "Localization and cultural adaptation"
+          },
+          "sound": {
+            "name": "Sound Design Updates",
+            "detail": "Audio adaptation and mixing"
+          },
+          "rehearsals": {
+            "name": "Rehearsals & Show Direction",
+            "detail": "Staff training and direction (20 days)"
+          },
+          "marketing": {
+            "name": "Includes: Marketing Assets & Localization",
+            "detail": "All marketing materials, promotional content, and localization included"
+          }
+        }
+      },
+      "technical": {
+        "title": "Technical Design",
+        "items": {
+          "projection": {
+            "name": "Projection Mapping Design",
+            "detail": "Custom venue mapping and content adaptation (20 days)"
+          },
+          "showControl": {
+            "name": "Show Control Programming",
+            "detail": "Automation and synchronization systems"
+          },
+          "testing": {
+            "name": "System Testing & Calibration",
+            "detail": "Technical rehearsals and fine-tuning"
+          }
+        }
+      },
+      "travel": {
+        "title": "Travel & Setup",
+        "items": {
+          "team": {
+            "name": "Team Travel & Accommodation",
+            "detail": "4 people, 20 days setup period"
+          },
+          "lockers": {
+            "name": "Lockers",
+            "detail": "350 units for participant storage"
+          },
+          "costumes": {
+            "name": "Costumes",
+            "detail": "Initial costume inventory"
+          }
+        }
+      },
+      "legal": {
+        "title": "Legal & Insurance",
+        "items": {
+          "contracts": {
+            "name": "Legal Contracts & Licensing",
+            "detail": "IP licensing and partnership agreements"
+          },
+          "insurance": {
+            "name": "Setup Insurance",
+            "detail": "Coverage for setup crew during installation"
+          }
+        }
+      }
+    },
+    "summary": {
+      "subtotal": "Subtotal",
+      "contingency": "Contingency Reserve (10%)",
+      "total": "Total Investment"
+    },
+    "partnerProvides": {
+      "title": "Provided by Partner",
+      "note": "The following equipment and operational costs are not included in the investment breakdown above. It is assumed that the venue has professional-grade lighting and sound systems in place, or that the partner will provide these.",
+      "migration": "Migration support provided for venue relocations.",
+      "items": {
+        "projectors": "Projectors & AV Equipment",
+        "venue": "Venue & Space",
+        "lighting": "Light System",
+        "sound": "Sound System",
+        "servers": "Media Servers",
+        "production": "Local Production Team",
+        "marketing": "Marketing Campaign",
+        "lockers": "Lockers (plans provided)",
+        "costumes": "Costumes (local suppliers)",
+        "masks": "Masks (local manufacturer)",
+        "branding": "Branding & Signage",
+        "conditioning": "Venue Conditioning"
+      }
+    },
+    "cta": "View Partnership Model"
   },
   "footer": {
     "copyright": "Real Self Experience. All rights reserved."
