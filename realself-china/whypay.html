@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Do People Pay? | Real Self</title>
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-gray-100: #f5f5f5;
+            --color-gray-200: #e5e5e5;
+            --color-gray-300: #d4d4d4;
+            --color-gray-400: #a3a3a3;
+            --color-gray-500: #737373;
+            --color-gray-600: #525252;
+            --color-gray-700: #404040;
+            --color-gray-800: #262626;
+            --color-gray-900: #171717;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Space Grotesk', var(--font-primary);
+        }
+
+        html[lang="zh-CN"] {
+            --font-primary: 'Noto Sans SC', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .reveal {
+            font-family: var(--font-primary);
+            font-size: 22px;
+            color: var(--color-white);
+        }
+
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            text-transform: none;
+            letter-spacing: -0.01em;
+            color: var(--color-white);
+        }
+
+        .reveal h1 {
+            font-size: 3em;
+            line-height: 1.2;
+        }
+
+        .reveal h2 {
+            font-size: 1.8em;
+            margin-bottom: 0.6em;
+        }
+
+        .reveal h3 {
+            font-size: 1.2em;
+            color: var(--color-gray-300);
+            font-weight: 500;
+        }
+
+        .reveal p {
+            color: var(--color-gray-300);
+            line-height: 1.6;
+            margin-bottom: 0.8em;
+        }
+
+        .reveal .slide-background {
+            background-color: var(--color-black);
+        }
+
+        /* Language toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            background: rgba(0,0,0,0.7);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--color-gray-700);
+        }
+
+        .lang-toggle__btn {
+            background: transparent;
+            border: 1px solid var(--color-gray-600);
+            color: var(--color-gray-400);
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-primary);
+        }
+
+        .lang-toggle__btn:hover {
+            border-color: var(--color-gray-400);
+            color: var(--color-white);
+        }
+
+        .lang-toggle__btn.active {
+            background: var(--color-white);
+            color: var(--color-black);
+            border-color: var(--color-white);
+        }
+
+        /* Back to site link */
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            color: var(--color-gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,0,0,0.7);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--color-gray-700);
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--color-white);
+            border-color: var(--color-gray-500);
+        }
+
+        /* Title slide */
+        .title-slide {
+            text-align: center !important;
+        }
+
+        .title-slide h1 {
+            margin-bottom: 0.3em;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.1em;
+            color: var(--color-gray-400);
+            font-weight: 300;
+        }
+
+        .title-slide .logo {
+            margin-top: 2em;
+        }
+
+        .title-slide .logo img {
+            max-width: 200px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.2em;
+            border: 1px solid var(--color-gray-800);
+            background: var(--color-gray-900);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+            margin-top: 0.5em;
+        }
+
+        /* Section divider */
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--color-white);
+            margin: 0.8em 0;
+        }
+
+        /* Case cards grid */
+        .case-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+            margin-top: 1.2em;
+        }
+
+        .case-cards.two-cols {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .case-card {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: 1em;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .case-card .who {
+            font-size: 0.75em;
+            color: var(--color-gray-400);
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .case-card .thinks {
+            font-size: 0.9em;
+            color: var(--color-white);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .case-card .why-rs {
+            font-size: 0.75em;
+            color: var(--color-gray-300);
+            border-top: 1px solid var(--color-gray-800);
+            padding-top: 0.5em;
+            margin-top: auto;
+        }
+
+        /* Category header */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            margin-bottom: 0.3em;
+        }
+
+        .category-icon {
+            font-size: 1.5em;
+        }
+
+        .category-title {
+            font-size: 1.6em;
+            color: var(--color-white);
+        }
+
+        /* Hook text */
+        .hook {
+            font-size: 1.3em;
+            color: var(--color-gray-200);
+            font-weight: 500;
+            margin-bottom: 0.8em;
+            border-left: 3px solid var(--color-white);
+            padding-left: 0.8em;
+        }
+
+        /* Eyebrow */
+        .eyebrow {
+            font-size: 0.6em;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-gray-500);
+            margin-bottom: 0.3em;
+        }
+
+        /* Centered */
+        .centered {
+            text-align: center !important;
+        }
+
+        .centered .section-divider {
+            margin: 0.8em auto;
+        }
+
+        /* Highlight */
+        .highlight {
+            color: var(--color-white);
+            font-weight: 600;
+        }
+
+        /* Key differentiator slide */
+        .differentiator-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+
+        .diff-column {
+            padding: 1.5em;
+            border: 1px solid var(--color-gray-800);
+        }
+
+        .diff-column.highlight-col {
+            border-color: var(--color-white);
+            background: rgba(255,255,255,0.03);
+        }
+
+        .diff-column h3 {
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1em;
+        }
+
+        .diff-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .diff-column li {
+            padding: 0.5em 0;
+            color: var(--color-gray-400);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .diff-column.highlight-col li {
+            color: var(--color-white);
+        }
+
+        /* Revenue grid */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .revenue-item {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-800);
+            padding: 1em;
+            text-align: center;
+        }
+
+        .revenue-label {
+            font-size: 0.65em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray-500);
+        }
+
+        .revenue-value {
+            font-family: var(--font-display);
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--color-white);
+        }
+
+        /* CTA slide */
+        .cta-slide {
+            text-align: center !important;
+        }
+
+        .cta-slide h2 {
+            font-size: 1.8em;
+            margin-bottom: 0.8em;
+        }
+
+        /* Single case slide */
+        .single-case {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            align-items: center;
+        }
+
+        .single-case-content {
+            padding-right: 1em;
+        }
+
+        .single-case-visual {
+            background: var(--color-gray-900);
+            border: 1px solid var(--color-gray-700);
+            padding: 1.5em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+
+        .persona-quote {
+            font-size: 1.3em;
+            font-style: italic;
+            color: var(--color-white);
+            border-left: 3px solid var(--color-white);
+            padding-left: 1em;
+            margin: 1em 0;
+        }
+
+        .value-points {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .value-points li {
+            padding: 0.5em 0;
+            padding-left: 1.5em;
+            position: relative;
+            color: var(--color-gray-300);
+        }
+
+        .value-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-white);
+        }
+
+        /* Fragment animations */
+        .reveal .fragment.fade-up {
+            transform: translateY(15px);
+        }
+
+        .reveal .fragment.fade-up.visible {
+            transform: translateY(0);
+        }
+
+        /* Perspective background */
+        .perspective-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.25;
+        }
+
+        .perspective-bg svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Image in case */
+        .case-image {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            filter: grayscale(60%) contrast(1.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Hide content until language is set */
+        .lang-en, .lang-zh { display: none; }
+        html[lang="en"] .lang-en { display: block; }
+        html[lang="zh-CN"] .lang-zh { display: block; }
+        html[lang="en"] .lang-zh { display: none !important; }
+        html[lang="zh-CN"] .lang-en { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- Back to site -->
+    <a href="home.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span class="lang-en">Back to Site</span>
+        <span class="lang-zh">返回网站</span>
+    </a>
+
+    <!-- Language toggle -->
+    <div class="lang-toggle">
+        <button class="lang-toggle__btn" data-lang="en">EN</button>
+        <button class="lang-toggle__btn" data-lang="zh">中文</button>
+    </div>
+
+    <!-- Subtle perspective background -->
+    <div class="perspective-bg">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <g stroke="rgba(255,255,255,0.04)" stroke-width="0.5" fill="none">
+                <line x1="500" y1="300" x2="0" y2="0"/>
+                <line x1="500" y1="300" x2="250" y2="0"/>
+                <line x1="500" y1="300" x2="500" y2="0"/>
+                <line x1="500" y1="300" x2="750" y2="0"/>
+                <line x1="500" y1="300" x2="1000" y2="0"/>
+                <line x1="500" y1="300" x2="1000" y2="500"/>
+                <line x1="500" y1="300" x2="1000" y2="1000"/>
+                <line x1="500" y1="300" x2="500" y2="1000"/>
+                <line x1="500" y1="300" x2="0" y2="1000"/>
+                <line x1="500" y1="300" x2="0" y2="500"/>
+            </g>
+        </svg>
+    </div>
+
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- SLIDE 1: Title -->
+            <section class="title-slide">
+                <h1>
+                    <span class="lang-en">Why Do People Pay?</span>
+                    <span class="lang-zh">为什么人们愿意付费？</span>
+                </h1>
+                <p class="subtitle">
+                    <span class="lang-en">20 Specific Cases: Who Comes & Why</span>
+                    <span class="lang-zh">20个具体案例：谁来、为什么来</span>
+                </p>
+                <div class="logo">
+                    <img src="images/logo-white.jpg" alt="Real Self">
+                </div>
+                <p style="color: var(--color-gray-600); font-size: 0.7em; margin-top: 2em;">
+                    <span class="lang-en">Real Self - Human Immersive Experience</span>
+                    <span class="lang-zh">Real Self - 人类沉浸式体验</span>
+                </p>
+            </section>
+
+            <!-- SLIDE 2: Key Differentiator -->
+            <section>
+                <p class="eyebrow">
+                    <span class="lang-en">Core Difference</span>
+                    <span class="lang-zh">核心差异</span>
+                </p>
+                <h2>
+                    <span class="lang-en">Key Distinction: Participate vs Watch</span>
+                    <span class="lang-zh">关键区别：参与 vs 观看</span>
+                </h2>
+                <div class="section-divider"></div>
+
+                <div class="differentiator-box">
+                    <div class="diff-column">
+                        <h3 style="color: var(--color-gray-500);">
+                            <span class="lang-en">Other Immersive Experiences</span>
+                            <span class="lang-zh">其他沉浸式体验</span>
+                        </h3>
+                        <ul>
+                            <li><span class="lang-en">You just watch</span><span class="lang-zh">你只是在看</span></li>
+                            <li><span class="lang-en">Take photos, check in</span><span class="lang-zh">拍照打卡</span></li>
+                            <li><span class="lang-en">Done in 15 minutes</span><span class="lang-zh">15分钟就逛完</span></li>
+                            <li><span class="lang-en">Forgotten quickly</span><span class="lang-zh">看完就忘</span></li>
+                        </ul>
+                    </div>
+                    <div class="diff-column highlight-col">
+                        <h3 style="color: var(--color-white);">Real Self</h3>
+                        <ul>
+                            <li><span class="lang-en">You are the protagonist, you participate</span><span class="lang-zh">你是主角，你在参与</span></li>
+                            <li><span class="lang-en">75-minute immersive journey</span><span class="lang-zh">75分钟沉浸旅程</span></li>
+                            <li><span class="lang-en">Wear a mask, no social pressure</span><span class="lang-zh">戴面具，无社交压力</span></li>
+                            <li><span class="lang-en">A lifetime memory</span><span class="lang-zh">记一辈子的经历</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5em; font-size: 1.1em;" class="fragment fade-up">
+                    <span class="highlight">
+                        <span class="lang-en">TeamLab is watching lights, Real Self is living an experience</span>
+                        <span class="lang-zh">TeamLab是看灯光，Real Self是活一次</span>
+                    </span>
+                </p>
+            </section>
+
+            <!-- SLIDE 3: Content for Social Media -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">📱</span>
+                    <span class="category-title">
+                        <span class="lang-en">Social Media Content</span>
+                        <span class="lang-zh">社交媒体内容</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"The most post-worthy place in the city"</span>
+                    <span class="lang-zh">"全城最值得发的地方"</span>
+                </p>
+
+                <div class="case-cards">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Aesthetic Seeker</span><span class="lang-zh">美学追求者</span></div>
+                        <div class="thinks"><span class="lang-en">"I want unique photos"</span><span class="lang-zh">"我想要独特的照片"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Stunning visuals, truly different</span><span class="lang-zh">视觉冲击力极强，与众不同</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Content Creator</span><span class="lang-zh">小红书创作者</span></div>
+                        <div class="thinks"><span class="lang-en">"Need content that stands out"</span><span class="lang-zh">"需要脱颖而出的内容"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Exclusive material = viral potential</span><span class="lang-zh">别人没有的素材 = 爆款</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">KOL / Influencer</span><span class="lang-zh">KOL/网红</span></div>
+                        <div class="thinks"><span class="lang-en">"Show followers something different"</span><span class="lang-zh">"给粉丝看点不一样的"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Exclusive experience = guaranteed engagement</span><span class="lang-zh">独家体验 = 流量保证</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.2em; color: var(--color-gray-400); font-size: 0.85em;">
+                    <span class="lang-en">TikTok · Instagram · WeChat → Best content destination</span>
+                    <span class="lang-zh">小红书 · 抖音 · 微信朋友圈 → 最佳内容产地</span>
+                </p>
+            </section>
+
+            <!-- SLIDE 4: FOMO -->
+            <section>
+                <div class="single-case">
+                    <div class="single-case-content">
+                        <div class="category-header">
+                            <span class="category-icon">🔥</span>
+                            <span class="category-title">
+                                <span class="lang-en">FOMO Effect</span>
+                                <span class="lang-zh">FOMO效应</span>
+                            </span>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <p class="persona-quote">
+                            <span class="lang-en">"All my classmates went, I have to go too"</span>
+                            <span class="lang-zh">"同学都去了，我也要去"</span>
+                        </p>
+
+                        <p style="color: var(--color-gray-300);">
+                            <strong style="color: var(--color-white);"><span class="lang-en">Who:</span><span class="lang-zh">谁：</span></strong>
+                            <span class="lang-en">Students who saw friends' posts</span>
+                            <span class="lang-zh">看到朋友发图的学生</span>
+                        </p>
+
+                        <ul class="value-points">
+                            <li><span class="lang-en">Feed is flooded with it</span><span class="lang-zh">朋友圈刷屏</span></li>
+                            <li><span class="lang-en">Everyone's talking about it</span><span class="lang-zh">群里都在讨论</span></li>
+                            <li><span class="lang-en">Photos look so cool, must experience it</span><span class="lang-zh">照片太酷了，必须亲自体验</span></li>
+                            <li><span class="lang-en">Don't want to be left out</span><span class="lang-zh">不去就out了</span></li>
+                        </ul>
+                    </div>
+                    <div class="single-case-visual fragment fade-up">
+                        <img src="images/script/07-group-waves.jpg" alt="Group experience" class="case-image">
+                        <p style="font-size: 0.85em; color: var(--color-gray-400); text-align: center;">
+                            <span class="lang-en">Viral spread in schools and universities</span>
+                            <span class="lang-zh">学校里、大学里的病毒式传播</span><br>
+                            <strong style="color: var(--color-white);">
+                                <span class="lang-en">One person goes → Entire class wants to go</span>
+                                <span class="lang-zh">一个人去 → 整个班级都想去</span>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 5: Saw on TikTok -->
+            <section>
+                <div class="single-case">
+                    <div class="single-case-content">
+                        <div class="category-header">
+                            <span class="category-icon">📺</span>
+                            <span class="category-title">
+                                <span class="lang-en">"Saw It on TikTok"</span>
+                                <span class="lang-zh">"抖音上看到的"</span>
+                            </span>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <p class="persona-quote">
+                            <span class="lang-en">"The video was amazing, I need to experience it myself"</span>
+                            <span class="lang-zh">"视频太震撼，我要亲自体验"</span>
+                        </p>
+
+                        <p style="color: var(--color-gray-300);">
+                            <strong style="color: var(--color-white);"><span class="lang-en">Who:</span><span class="lang-zh">谁：</span></strong>
+                            <span class="lang-en">Users who scrolled past Real Self videos</span>
+                            <span class="lang-zh">刷到Real Self视频的用户</span>
+                        </p>
+
+                        <ul class="value-points">
+                            <li><span class="lang-en">From viewer to participant</span><span class="lang-zh">从观众变成参与者</span></li>
+                            <li><span class="lang-en">Watching 100 times isn't like going once</span><span class="lang-zh">视频看100遍不如去一次</span></li>
+                            <li><span class="lang-en">Curiosity-driven: What is this exactly?</span><span class="lang-zh">好奇心驱动：这到底是什么？</span></li>
+                            <li><span class="lang-en">The impact video can't convey</span><span class="lang-zh">视频传达不了的震撼感</span></li>
+                        </ul>
+                    </div>
+                    <div class="single-case-visual fragment fade-up">
+                        <img src="images/script/01-silhouettes-lines.jpg" alt="Visual experience" class="case-image">
+                        <p style="font-size: 0.85em; color: var(--color-gray-400); text-align: center;">
+                            <span class="lang-en">Short video traffic → Curiosity conversion</span>
+                            <span class="lang-zh">短视频引流 → 好奇心转化</span><br>
+                            <strong style="color: var(--color-white);">
+                                <span class="lang-en">Watch video → Want to go → Buy ticket</span>
+                                <span class="lang-zh">看视频 → 想去 → 买票</span>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 6: Corporate Team Building -->
+            <section>
+                <div class="single-case">
+                    <div class="single-case-content">
+                        <div class="category-header">
+                            <span class="category-icon">🏢</span>
+                            <span class="category-title">
+                                <span class="lang-en">Corporate Team Building</span>
+                                <span class="lang-zh">企业团建</span>
+                            </span>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <p class="persona-quote">
+                            <span class="lang-en">"Truly connect the team"</span>
+                            <span class="lang-zh">"让团队真正连接起来"</span>
+                        </p>
+
+                        <p style="color: var(--color-gray-300);">
+                            <strong style="color: var(--color-white);"><span class="lang-en">Who:</span><span class="lang-zh">谁：</span></strong>
+                            <span class="lang-en">HR Managers / Department Heads</span>
+                            <span class="lang-zh">HR负责人 / 部门经理</span>
+                        </p>
+
+                        <ul class="value-points">
+                            <li><span class="lang-en">Put on masks, no hierarchy</span><span class="lang-zh">戴上面具，没有职级</span></li>
+                            <li><span class="lang-en">Boss and employees participate equally</span><span class="lang-zh">老板和员工一样参与</span></li>
+                            <li><span class="lang-en">Break down workplace barriers</span><span class="lang-zh">打破日常工作的隔阂</span></li>
+                            <li><span class="lang-en">Real team cohesion</span><span class="lang-zh">真正的团队凝聚力</span></li>
+                        </ul>
+                    </div>
+                    <div class="single-case-visual fragment fade-up">
+                        <img src="images/script/03-circle-huddle.jpg" alt="Team huddle" class="case-image">
+                        <p style="font-size: 0.85em; color: var(--color-gray-400); text-align: center;">
+                            <span class="lang-en">Not dinner and karaoke, real connection</span>
+                            <span class="lang-zh">不是吃饭KTV，是真正的连接</span><br>
+                            <strong style="color: var(--color-white);">
+                                <span class="lang-en">ROI: A tighter team</span>
+                                <span class="lang-zh">ROI：更紧密的团队</span>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 7: Burnout Relief -->
+            <section>
+                <div class="single-case">
+                    <div class="single-case-content">
+                        <div class="category-header">
+                            <span class="category-icon">💼</span>
+                            <span class="category-title">
+                                <span class="lang-en">Burnout Relief</span>
+                                <span class="lang-zh">996解压</span>
+                            </span>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <p class="persona-quote">
+                            <span class="lang-en">"I need to completely unplug"</span>
+                            <span class="lang-zh">"需要彻底放空自己"</span>
+                        </p>
+
+                        <p style="color: var(--color-gray-300);">
+                            <strong style="color: var(--color-white);"><span class="lang-en">Who:</span><span class="lang-zh">谁：</span></strong>
+                            <span class="lang-en">Overworked professionals</span>
+                            <span class="lang-zh">互联网/金融 打工人</span>
+                        </p>
+
+                        <ul class="value-points">
+                            <li><span class="lang-en">75 minutes, no phone</span><span class="lang-zh">75分钟，没有手机</span></li>
+                            <li><span class="lang-en">No work, no roles</span><span class="lang-zh">没有工作，没有角色</span></li>
+                            <li><span class="lang-en">Forced digital detox</span><span class="lang-zh">强制数字排毒</span></li>
+                            <li><span class="lang-en">Emotional release and catharsis</span><span class="lang-zh">情绪释放和宣泄</span></li>
+                        </ul>
+                    </div>
+                    <div class="single-case-visual fragment fade-up">
+                        <img src="images/script/02-mask-portrait.jpg" alt="Masked freedom" class="case-image">
+                        <p style="font-size: 0.85em; color: var(--color-gray-400); text-align: center;">
+                            <span class="lang-en">Put down your phone, put down your identity</span>
+                            <span class="lang-zh">放下手机，放下身份</span><br>
+                            <strong style="color: var(--color-white);">
+                                <span class="lang-en">Complete liberation</span>
+                                <span class="lang-zh">一场彻底的解放</span>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 8: Graduation -->
+            <section>
+                <div class="single-case">
+                    <div class="single-case-content">
+                        <div class="category-header">
+                            <span class="category-icon">🎓</span>
+                            <span class="category-title">
+                                <span class="lang-en">Graduation Memories</span>
+                                <span class="lang-zh">毕业纪念</span>
+                            </span>
+                        </div>
+                        <div class="section-divider"></div>
+
+                        <p class="persona-quote">
+                            <span class="lang-en">"Say goodbye to youth in the coolest way"</span>
+                            <span class="lang-zh">"用最酷的方式告别青春"</span>
+                        </p>
+
+                        <p style="color: var(--color-gray-300);">
+                            <strong style="color: var(--color-white);"><span class="lang-en">Who:</span><span class="lang-zh">谁：</span></strong>
+                            <span class="lang-en">High school / College graduates</span>
+                            <span class="lang-zh">高三 / 大四毕业生</span>
+                        </p>
+
+                        <ul class="value-points">
+                            <li><span class="lang-en">Shared experience = lifelong memories</span><span class="lang-zh">一起经历 = 一辈子的回忆</span></li>
+                            <li><span class="lang-en">More special than a graduation trip</span><span class="lang-zh">比毕业旅行更特别</span></li>
+                            <li><span class="lang-en">Unique group photos</span><span class="lang-zh">独特的合影纪念</span></li>
+                            <li><span class="lang-en">Ceremony for a life milestone</span><span class="lang-zh">人生节点的仪式感</span></li>
+                        </ul>
+                    </div>
+                    <div class="single-case-visual fragment fade-up">
+                        <img src="images/script/05-two-faces.jpg" alt="Together" class="case-image">
+                        <p style="font-size: 0.85em; color: var(--color-gray-400); text-align: center;">
+                            <span class="lang-en">Must-visit during graduation season</span>
+                            <span class="lang-zh">毕业季必去打卡</span><br>
+                            <strong style="color: var(--color-white);">
+                                <span class="lang-en">Shared memories, forever connected</span>
+                                <span class="lang-zh">共同的记忆，永远的连接</span>
+                            </strong>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 9: Group Outings -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">👥</span>
+                    <span class="category-title">
+                        <span class="lang-en">Friend Outings</span>
+                        <span class="lang-zh">朋友出游</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"Blow your friends' minds"</span>
+                    <span class="lang-zh">"让你的朋友们惊呆"</span>
+                </p>
+
+                <div class="case-cards">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Social Organizer</span><span class="lang-zh">社交组织者</span></div>
+                        <div class="thinks"><span class="lang-en">"Want to take friends somewhere special"</span><span class="lang-zh">"想带朋友去个特别的地方"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Nobody knows this place, everyone's impressed</span><span class="lang-zh">没人知道这个，去了都说牛</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">High School Group</span><span class="lang-zh">高中生团</span></div>
+                        <div class="thinks"><span class="lang-en">"Want to do something different"</span><span class="lang-zh">"想玩点不一样的"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Not movies, not karaoke, real excitement</span><span class="lang-zh">不是电影院，不是KTV，是真正疯狂</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Girls' Squad</span><span class="lang-zh">闺蜜团</span></div>
+                        <div class="thinks"><span class="lang-en">"Photos + fun with the girls"</span><span class="lang-zh">"姐妹们一起拍照+玩"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Shared experience + perfect content</span><span class="lang-zh">共同体验 + 绝佳素材</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.2em; color: var(--color-gray-400); font-size: 0.85em;">
+                    <span class="lang-en">Ultimate hangout spot: Whoever organizes it wins</span>
+                    <span class="lang-zh">组局神器：谁组的局谁最牛</span>
+                </p>
+            </section>
+
+            <!-- SLIDE 10: Celebrations -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">🎉</span>
+                    <span class="category-title">
+                        <span class="lang-en">Special Celebrations</span>
+                        <span class="lang-zh">特殊庆祝</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"No more karaoke birthdays"</span>
+                    <span class="lang-zh">"不要再唱KTV了"</span>
+                </p>
+
+                <div class="case-cards two-cols">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Birthday Person</span><span class="lang-zh">过生日的人</span></div>
+                        <div class="thinks"><span class="lang-en">"Don't want the same old places"</span><span class="lang-zh">"不想再去老地方"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">One-of-a-kind birthday experience</span><span class="lang-zh">独一无二的生日体验</span><br>✓ <span class="lang-en">Friends will remember this day</span><span class="lang-zh">朋友们都会记住这一天</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Bachelor/Bachelorette Party</span><span class="lang-zh">单身派对</span></div>
+                        <div class="thinks"><span class="lang-en">"Last hurrah before marriage"</span><span class="lang-zh">"婚前最后的疯狂"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Not the typical bar/club routine</span><span class="lang-zh">不是酒吧夜店套路</span><br>✓ <span class="lang-en">Truly unforgettable send-off</span><span class="lang-zh">真正难忘的告别单身</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5em; font-size: 1.1em;" class="fragment fade-up">
+                    <span class="highlight">
+                        <span class="lang-en">Life's important moments deserve special experiences</span>
+                        <span class="lang-zh">人生重要时刻，值得特别经历</span>
+                    </span>
+                </p>
+            </section>
+
+            <!-- SLIDE 11: Couples & Family -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">💑</span>
+                    <span class="category-title">
+                        <span class="lang-en">Couples & Family</span>
+                        <span class="lang-zh">情侣 & 家庭</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"Tired of dinner and movies"</span>
+                    <span class="lang-zh">"不想再吃饭看电影了"</span>
+                </p>
+
+                <div class="case-cards two-cols">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Young Couples</span><span class="lang-zh">年轻情侣</span></div>
+                        <div class="thinks"><span class="lang-en">"Dates need something new"</span><span class="lang-zh">"约会需要新花样"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Romantic and unique shared memory</span><span class="lang-zh">浪漫又特别的共同记忆</span><br>✓ <span class="lang-en">More memorable than any restaurant</span><span class="lang-zh">比任何餐厅都难忘</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Parents Wanting to Connect</span><span class="lang-zh">想和孩子连接的父母</span></div>
+                        <div class="thinks"><span class="lang-en">"Want to do something together with my kid"</span><span class="lang-zh">"想和孩子做点一起的事"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">No phones, real quality time</span><span class="lang-zh">没有手机，真正的陪伴</span><br>✓ <span class="lang-en">Cross-generational shared experience</span><span class="lang-zh">跨代际的共同体验</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5em; font-size: 1.1em;" class="fragment fade-up">
+                    <span class="highlight">
+                        <span class="lang-en">Relationships need shared experiences to grow</span>
+                        <span class="lang-zh">关系需要共同经历来升温</span>
+                    </span>
+                </p>
+            </section>
+
+            <!-- SLIDE 12: Tourism & Gifts -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">🧳</span>
+                    <span class="category-title">
+                        <span class="lang-en">Tourism & Gifting</span>
+                        <span class="lang-zh">旅游 & 送礼</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"The must-do experience in this city"</span>
+                    <span class="lang-zh">"这座城市的必去体验"</span>
+                </p>
+
+                <div class="case-cards two-cols">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Tourists</span><span class="lang-zh">外地游客</span></div>
+                        <div class="thinks"><span class="lang-en">"Must experience this while visiting"</span><span class="lang-zh">"来这个城市必须体验的"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">New cultural landmark</span><span class="lang-zh">城市文化新地标</span><br>✓ <span class="lang-en">Must-write in travel blogs</span><span class="lang-zh">游记必写的打卡点</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Gift Givers</span><span class="lang-zh">想送礼的人</span></div>
+                        <div class="thinks"><span class="lang-en">"Want to gift an experience, not a thing"</span><span class="lang-zh">"不想送东西，想送体验"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Experience > Material goods</span><span class="lang-zh">体验 > 物质</span><br>✓ <span class="lang-en">Unique and meaningful gift</span><span class="lang-zh">独特又有意义的礼物</span></div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 1.5em; font-size: 1.1em;" class="fragment fade-up">
+                    <span class="highlight">
+                        <span class="lang-en">Experience Economy: Gift memories, not objects</span>
+                        <span class="lang-zh">体验经济：送经历不送东西</span>
+                    </span>
+                </p>
+            </section>
+
+            <!-- SLIDE 13: Others -->
+            <section>
+                <div class="category-header">
+                    <span class="category-icon">🔄</span>
+                    <span class="category-title">
+                        <span class="lang-en">Other Scenarios</span>
+                        <span class="lang-zh">其他场景</span>
+                    </span>
+                </div>
+                <div class="section-divider"></div>
+                <p class="hook">
+                    <span class="lang-en">"Been to TeamLab? This is completely different"</span>
+                    <span class="lang-zh">"体验过TeamLab？这个完全不同"</span>
+                </p>
+
+                <div class="case-cards">
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">TeamLab Visitors</span><span class="lang-zh">TeamLab体验者</span></div>
+                        <div class="thinks"><span class="lang-en">"Light shows are pretty but you just watch"</span><span class="lang-zh">"灯光秀好看但只是看看"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">This time you're not the audience, you participate</span><span class="lang-zh">这次你不是观众，你是参与者</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Repeat Visitors</span><span class="lang-zh">回头客</span></div>
+                        <div class="thinks"><span class="lang-en">"Want to bring other friends"</span><span class="lang-zh">"想带其他朋友来"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Different people = Different experience</span><span class="lang-zh">不同的人 = 不同的体验</span></div>
+                    </div>
+                    <div class="case-card fragment fade-up">
+                        <div class="who">👤 <span class="lang-en">Experience Collectors</span><span class="lang-zh">体验收集者</span></div>
+                        <div class="thinks"><span class="lang-en">"I try everything new"</span><span class="lang-zh">"新鲜的我都要试"</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">This is the hottest experience right now</span><span class="lang-zh">这是现在最潮的体验</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 14: Social Proof -->
+            <section class="centered">
+                <p class="eyebrow">
+                    <span class="lang-en">Proven Success</span>
+                    <span class="lang-zh">已验证的成功</span>
+                </p>
+                <h2>
+                    <span class="lang-en">The Numbers</span>
+                    <span class="lang-zh">数据证明</span>
+                </h2>
+                <div class="section-divider"></div>
+
+                <div class="stats-grid" style="margin-top: 1.5em;">
+                    <div class="stat-item fragment fade-up">
+                        <div class="stat-number">80,000+</div>
+                        <div class="stat-label">
+                            <span class="lang-en">Participants</span>
+                            <span class="lang-zh">参与者</span>
+                        </div>
+                    </div>
+                    <div class="stat-item fragment fade-up">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">
+                            <span class="lang-en">Cities Operating</span>
+                            <span class="lang-zh">城市运营中</span>
+                        </div>
+                    </div>
+                    <div class="stat-item fragment fade-up">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">
+                            <span class="lang-en">Satisfaction Rate</span>
+                            <span class="lang-zh">满意度</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="fragment fade-up" style="margin-top: 1.5em; color: var(--color-gray-400);">
+                    Buenos Aires | Barcelona | Santiago
+                </p>
+
+                <p class="fragment fade-up" style="margin-top: 1em; font-size: 1.1em;">
+                    <span class="highlight">
+                        <span class="lang-en">4 years of operations, proven model</span>
+                        <span class="lang-zh">4年运营经验，模式已验证</span>
+                    </span>
+                </p>
+            </section>
+
+            <!-- SLIDE 15: The Product -->
+            <section>
+                <p class="eyebrow">
+                    <span class="lang-en">Business Model</span>
+                    <span class="lang-zh">商业模式</span>
+                </p>
+                <h2>
+                    <span class="lang-en">Product Overview</span>
+                    <span class="lang-zh">产品概览</span>
+                </h2>
+                <div class="section-divider"></div>
+
+                <div class="revenue-grid">
+                    <div class="revenue-item fragment fade-up">
+                        <div class="revenue-label">
+                            <span class="lang-en">Capacity per Show</span>
+                            <span class="lang-zh">每场容量</span>
+                        </div>
+                        <div class="revenue-value">150-350</div>
+                    </div>
+                    <div class="revenue-item fragment fade-up">
+                        <div class="revenue-label">
+                            <span class="lang-en">Shows per Day</span>
+                            <span class="lang-zh">每日场次</span>
+                        </div>
+                        <div class="revenue-value">
+                            <span class="lang-en">Up to 6</span>
+                            <span class="lang-zh">最多6场</span>
+                        </div>
+                    </div>
+                    <div class="revenue-item fragment fade-up">
+                        <div class="revenue-label">
+                            <span class="lang-en">Base Ticket Price</span>
+                            <span class="lang-zh">基础票价</span>
+                        </div>
+                        <div class="revenue-value">$35+</div>
+                    </div>
+                    <div class="revenue-item fragment fade-up">
+                        <div class="revenue-label">
+                            <span class="lang-en">Other Revenue</span>
+                            <span class="lang-zh">其他收入</span>
+                        </div>
+                        <div class="revenue-value">
+                            <span class="lang-en">F&B / Merch</span>
+                            <span class="lang-zh">餐饮/周边</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: 1.5em;">
+                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
+                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
+                            <span class="lang-en">Revenue Stream</span>
+                            <span class="lang-zh">收入来源</span>
+                        </p>
+                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
+                            <span class="lang-en">Tickets + F&B</span>
+                            <span class="lang-zh">门票 + 餐饮</span>
+                        </p>
+                    </div>
+                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
+                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
+                            <span class="lang-en">Revenue Stream</span>
+                            <span class="lang-zh">收入来源</span>
+                        </p>
+                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
+                            <span class="lang-en">Merchandise</span>
+                            <span class="lang-zh">周边商品</span>
+                        </p>
+                    </div>
+                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
+                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
+                            <span class="lang-en">Revenue Stream</span>
+                            <span class="lang-zh">收入来源</span>
+                        </p>
+                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
+                            <span class="lang-en">Pro Photos</span>
+                            <span class="lang-zh">专业照片</span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SLIDE 16: Closing CTA -->
+            <section class="cta-slide">
+                <h2>
+                    <span class="lang-en">20 Types of People, One Answer</span>
+                    <span class="lang-zh">20种人，同一个答案</span>
+                </h2>
+                <div class="section-divider" style="margin: 0.8em auto;"></div>
+
+                <p style="font-size: 1.2em; color: var(--color-gray-300); max-width: 700px; margin: 1em auto;">
+                    <span class="lang-en">Whether it's influencers wanting content, or burned-out workers seeking escape,<br>whether it's HR planning team building, or couples looking for a date...</span>
+                    <span class="lang-zh">无论是想发朋友圈的网红，还是想逃离996的打工人，<br>无论是想团建的HR，还是想约会的情侣...</span>
+                </p>
+
+                <p style="font-size: 1.4em; margin: 1.5em 0;" class="fragment fade-up">
+                    <span class="highlight">
+                        <span class="lang-en">They're all searching for an authentic experience.</span>
+                        <span class="lang-zh">他们都在寻找一种真实的体验。</span>
+                    </span>
+                </p>
+
+                <p style="font-size: 1.1em; color: var(--color-gray-400); font-style: italic;" class="fragment fade-up">
+                    <span class="lang-en">"What would it feel like to live like this?"</span>
+                    <span class="lang-zh">"如果这样生活，会是什么感觉？"</span>
+                </p>
+
+                <div class="logo fragment fade-up" style="margin-top: 2em;">
+                    <img src="images/logo-white.jpg" alt="Real Self" style="max-width: 180px; filter: brightness(0) invert(1);">
+                    <p style="font-size: 0.75em; color: var(--color-gray-500); margin-top: 0.8em;">
+                        <span class="lang-en">Real Self - Human Immersive Experience</span>
+                        <span class="lang-zh">Real Self - 人类沉浸式体验</span>
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Reveal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script>
+        // Language management
+        const langManager = {
+            currentLang: 'en',
+
+            init() {
+                // Check URL parameter first
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                if (urlLang && ['en', 'zh'].includes(urlLang)) {
+                    this.currentLang = urlLang;
+                } else {
+                    // Fall back to localStorage (shared with main site)
+                    const savedLang = localStorage.getItem('realself-lang');
+                    if (savedLang && ['en', 'zh'].includes(savedLang)) {
+                        this.currentLang = savedLang;
+                    }
+                }
+
+                this.setLanguage(this.currentLang);
+                this.setupToggleListeners();
+            },
+
+            setLanguage(lang) {
+                if (!['en', 'zh'].includes(lang)) return;
+
+                this.currentLang = lang;
+                localStorage.setItem('realself-lang', lang);
+
+                // Update HTML lang attribute
+                document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+                // Update title
+                document.title = lang === 'zh'
+                    ? '为什么人们愿意付费？ | Real Self'
+                    : 'Why Do People Pay? | Real Self';
+
+                // Update toggle buttons
+                document.querySelectorAll('.lang-toggle__btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+
+                // Update URL without reload
+                const url = new URL(window.location);
+                url.searchParams.set('lang', lang);
+                window.history.replaceState({}, '', url);
+            },
+
+            setupToggleListeners() {
+                document.querySelectorAll('.lang-toggle__btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.setLanguage(btn.dataset.lang);
+                    });
+                });
+            }
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            langManager.init();
+
+            Reveal.initialize({
+                hash: true,
+                slideNumber: true,
+                transition: 'fade',
+                transitionSpeed: 'slow',
+                backgroundTransition: 'fade',
+                center: false,
+                width: 1280,
+                height: 720,
+                margin: 0.1,
+                controls: true,
+                progress: true,
+                history: true,
+                keyboard: true,
+                overview: true,
+                touch: true,
+                loop: false,
+                rtl: false,
+                shuffle: false,
+                fragments: true,
+                fragmentInURL: false,
+                embedded: false,
+                help: true,
+                showNotes: false,
+                autoPlayMedia: null,
+                autoSlide: 0,
+                mouseWheel: false,
+                hideAddressBar: true,
+                previewLinks: false,
+                viewDistance: 3,
+                display: 'block'
+            });
+        });
+    </script>
+</body>
+</html>
