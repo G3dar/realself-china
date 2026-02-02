@@ -587,6 +587,54 @@
             margin-top: var(--spacing-xs);
         }
 
+        /* Mobile responsive fixes for < 480px */
+        @media (max-width: 480px) {
+            /* Results Summary - stack to 1 column, reduce font */
+            .results-summary__grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-md);
+            }
+
+            .results-summary__item-value {
+                font-size: 1.25rem;
+            }
+
+            /* Scenario card values - reduce font */
+            .scenario-card__value {
+                font-size: 1.125rem;
+            }
+
+            .scenario-card__value--highlight {
+                font-size: 1.5rem;
+            }
+
+            /* Variable controls - reduce font */
+            .variable-control__value {
+                font-size: 1.75rem;
+            }
+
+            /* Breakdown values - remove min-width */
+            .breakdown-row__value {
+                min-width: auto;
+                font-size: 0.875rem;
+            }
+
+            .breakdown-row--total .breakdown-row__value {
+                font-size: 1rem;
+            }
+
+            /* Staff breakdown - adjust grid */
+            .staff-breakdown__row {
+                grid-template-columns: 1fr 25px 50px 60px;
+                font-size: 0.75rem;
+            }
+
+            /* References section - smaller text */
+            .reference-item {
+                font-size: 0.75rem;
+            }
+        }
+
     </style>
 </head>
 <body>
