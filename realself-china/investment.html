@@ -842,54 +842,48 @@
                     <div class="staff-breakdown">
                         <div class="staff-breakdown__header" data-i18n="investment.costs.floorStaff">Floor Staff (per show)</div>
                         <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.guides">Experience Guides</span>
-                            <span class="staff-breakdown__count" id="guidesCount">15</span>
+                            <span class="staff-breakdown__role">Staff</span>
+                            <span class="staff-breakdown__count" id="staffCount">14</span>
                             <span class="staff-breakdown__rate">× $60</span>
-                            <span class="staff-breakdown__cost" id="guidesCost">$900</span>
+                            <span class="staff-breakdown__cost" id="staffCostPerShow">$840</span>
                         </div>
                         <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.changing">Changing Room</span>
-                            <span class="staff-breakdown__count" id="changingCount">3</span>
-                            <span class="staff-breakdown__rate">× $40</span>
-                            <span class="staff-breakdown__cost" id="changingCost">$120</span>
-                        </div>
-                        <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.reception">Foyer/Reception</span>
-                            <span class="staff-breakdown__count" id="receptionCount">2</span>
-                            <span class="staff-breakdown__rate">× $40</span>
-                            <span class="staff-breakdown__cost" id="receptionCost">$80</span>
-                        </div>
-                        <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.technician">Show Technician</span>
+                            <span class="staff-breakdown__role">Coordinator</span>
                             <span class="staff-breakdown__count">1</span>
                             <span class="staff-breakdown__rate">× $80</span>
                             <span class="staff-breakdown__cost">$80</span>
                         </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.technician">Technician</span>
+                            <span class="staff-breakdown__count">1</span>
+                            <span class="staff-breakdown__rate">× $80</span>
+                            <span class="staff-breakdown__cost">$80</span>
+                        </div>
+                        <div class="staff-breakdown__row">
+                            <span class="staff-breakdown__role">Technical Assistant</span>
+                            <span class="staff-breakdown__count">1</span>
+                            <span class="staff-breakdown__rate">× $60</span>
+                            <span class="staff-breakdown__cost">$60</span>
+                        </div>
                         <div class="staff-breakdown__subtotal">
                             <span data-i18n="investment.costs.perShowTotal">Per show total</span>
-                            <span id="perShowStaffCost">$1,880</span>
+                            <span id="perShowStaffCost">$1,060</span>
                         </div>
                         <div class="staff-breakdown__weekly">
                             <span>× <span id="totalShows">12</span> <span data-i18n="investment.costs.showsWeek">shows/week</span></span>
-                            <span id="floorStaffWeekly">$22,560</span>
+                            <span id="floorStaffWeekly">$12,720</span>
                         </div>
 
                         <div class="staff-breakdown__header" style="margin-top: var(--spacing-md);" data-i18n="investment.costs.management">Management (per day)</div>
                         <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.venueManager">Venue Manager</span>
+                            <span class="staff-breakdown__role">Producer</span>
                             <span class="staff-breakdown__count">1</span>
                             <span class="staff-breakdown__rate">× $250</span>
                             <span class="staff-breakdown__cost">$250</span>
                         </div>
-                        <div class="staff-breakdown__row">
-                            <span class="staff-breakdown__role" data-i18n="investment.costs.roles.techLead">Technical Lead</span>
-                            <span class="staff-breakdown__count">1</span>
-                            <span class="staff-breakdown__rate">× $200</span>
-                            <span class="staff-breakdown__cost">$200</span>
-                        </div>
                         <div class="staff-breakdown__weekly">
                             <span>× <span id="totalDays">4</span> <span data-i18n="investment.costs.daysWeek">days/week</span></span>
-                            <span id="managementWeekly">$1,800</span>
+                            <span id="managementWeekly">$1,000</span>
                         </div>
                     </div>
 
@@ -1049,22 +1043,23 @@
         // Staff configuration by venue size
         const staffConfig = {
             150: {
-                guides: 9,
-                changing: 2,
-                reception: 1
+                staff: 6,
+                coordinator: 1,
+                technician: 1,
+                techAssistant: 1
             },
             350: {
-                guides: 15,
-                changing: 3,
-                reception: 2
+                staff: 14,
+                coordinator: 1,
+                technician: 1,
+                techAssistant: 1
             },
             rates: {
-                guides: 60,       // per show
-                changing: 40,     // per show
-                reception: 40,    // per show
-                technician: 80,   // per show (1 per show always)
-                venueManager: 250, // per day
-                techLead: 200     // per day
+                staff: 60,          // per show per person
+                coordinator: 80,    // per show
+                technician: 80,     // per show
+                techAssistant: 60,  // per show
+                producer: 250       // per day
             }
         };
 
@@ -1083,12 +1078,12 @@
             const rates = staffConfig.rates;
             const totalShows = daysPerWeek * showsPerDay;
 
-            const perShowCost = (staff.guides * rates.guides) +
-                               (staff.changing * rates.changing) +
-                               (staff.reception * rates.reception) +
-                               rates.technician;
+            const perShowCost = (staff.staff * rates.staff) +
+                               (staff.coordinator * rates.coordinator) +
+                               (staff.technician * rates.technician) +
+                               (staff.techAssistant * rates.techAssistant);
             const floorStaffWeekly = perShowCost * totalShows;
-            const managementWeekly = (rates.venueManager + rates.techLead) * daysPerWeek;
+            const managementWeekly = rates.producer * daysPerWeek;
             const staffCost = floorStaffWeekly + managementWeekly;
 
             const maskCostumeCost = tickets * (replacementRate / 100) * 6;
@@ -1151,15 +1146,15 @@
             const totalShows = daysPerWeek * showsPerDay;
 
             // Floor staff (per show)
-            const guidesCost = staff.guides * rates.guides;
-            const changingCost = staff.changing * rates.changing;
-            const receptionCost = staff.reception * rates.reception;
-            const technicianCost = rates.technician;
-            const perShowCost = guidesCost + changingCost + receptionCost + technicianCost;
+            const staffCostPerShow = staff.staff * rates.staff;
+            const coordinatorCost = staff.coordinator * rates.coordinator;
+            const technicianCost = staff.technician * rates.technician;
+            const techAssistantCost = staff.techAssistant * rates.techAssistant;
+            const perShowCost = staffCostPerShow + coordinatorCost + technicianCost + techAssistantCost;
             const floorStaffWeekly = perShowCost * totalShows;
 
             // Management (per day)
-            const managementPerDay = rates.venueManager + rates.techLead;
+            const managementPerDay = rates.producer;
             const managementWeekly = managementPerDay * daysPerWeek;
 
             const staffCost = floorStaffWeekly + managementWeekly;
@@ -1193,12 +1188,8 @@
             document.getElementById('replacementDisplay').textContent = replacementRate + '%';
 
             // Update staff breakdown display
-            document.getElementById('guidesCount').textContent = staff.guides;
-            document.getElementById('guidesCost').textContent = formatCurrency(guidesCost);
-            document.getElementById('changingCount').textContent = staff.changing;
-            document.getElementById('changingCost').textContent = formatCurrency(changingCost);
-            document.getElementById('receptionCount').textContent = staff.reception;
-            document.getElementById('receptionCost').textContent = formatCurrency(receptionCost);
+            document.getElementById('staffCount').textContent = staff.staff;
+            document.getElementById('staffCostPerShow').textContent = formatCurrency(staffCostPerShow);
             document.getElementById('perShowStaffCost').textContent = formatCurrency(perShowCost);
             document.getElementById('totalShows').textContent = totalShows;
             document.getElementById('floorStaffWeekly').textContent = formatCurrency(floorStaffWeekly);

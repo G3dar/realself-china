@@ -20,6 +20,13 @@ const VENUE_SPECS = {
         airRenewal: 'Air renewal: 2500 m³/min (costumes)',
         pinSpots: 11,
         spotLeds: 24,
+        // Staff configuration
+        showStaff: 6,
+        coordinator: 1,
+        technician: 1,
+        techAssistant: 1,
+        showStaffText: '6 staff + 1 coordinator',
+        techStaffText: '1 technician + 1 technical assistant',
         // SVG text values
         changingRoomSvg: '250 m²',
         lockersSvg: '150 lockers',
@@ -45,6 +52,13 @@ const VENUE_SPECS = {
         airRenewal: 'Air renewal: 4000 m³/min (costumes)',
         pinSpots: 22,
         spotLeds: 48,
+        // Staff configuration
+        showStaff: 14,
+        coordinator: 1,
+        technician: 1,
+        techAssistant: 1,
+        showStaffText: '14 staff + 1 coordinator',
+        techStaffText: '1 technician + 1 technical assistant',
         // SVG text values
         changingRoomSvg: '350 m²',
         lockersSvg: '350 lockers',
