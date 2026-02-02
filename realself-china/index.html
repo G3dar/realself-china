@@ -292,10 +292,10 @@
         const error = document.getElementById('errorMsg');
         const landing = document.getElementById('landing');
 
-        // Password check - accepts "realself"
+        // Password check - accepts "realself" or "thankyou" (case-insensitive, with or without space)
         function isValidPassword(input) {
             const normalized = input.toLowerCase().replace(/\s+/g, '');
-            return normalized === 'realself';
+            return normalized === 'realself' || normalized === 'thankyou';
         }
 
         form.addEventListener('submit', function(e) {
