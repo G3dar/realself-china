@@ -631,6 +631,62 @@
             .partner-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* Cost table mobile fixes */
+            .cost-breakdown {
+                padding: var(--spacing-lg);
+                margin-left: calc(var(--spacing-md) * -1);
+                margin-right: calc(var(--spacing-md) * -1);
+                border-left: none;
+                border-right: none;
+            }
+
+            .cost-table th,
+            .cost-table td {
+                padding: var(--spacing-sm) var(--spacing-xs);
+                font-size: 0.8125rem;
+            }
+
+            .cost-table th {
+                font-size: 0.625rem;
+            }
+
+            /* Hide description column on mobile */
+            .cost-table th:nth-child(2),
+            .cost-table td:nth-child(2) {
+                display: none;
+            }
+
+            .cost-table__amount {
+                font-size: 0.875rem;
+            }
+
+            .cost-table__subtotal td {
+                padding: var(--spacing-sm) var(--spacing-xs);
+                font-size: 0.875rem;
+            }
+
+            .cost-table__section-header td {
+                padding: var(--spacing-xs) var(--spacing-xs);
+                font-size: 0.625rem;
+            }
+
+            /* Total summary mobile */
+            .total-summary {
+                padding: var(--spacing-lg);
+            }
+
+            .total-summary__title {
+                font-size: 1rem;
+            }
+
+            .total-summary__option {
+                padding: var(--spacing-md);
+            }
+
+            .total-summary__amount {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
