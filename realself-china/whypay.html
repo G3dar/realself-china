@@ -462,6 +462,27 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Restart button */
+        .restart-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid var(--color-gray-600);
+            color: var(--color-gray-400);
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font-primary);
+            margin-top: 1.5em;
+        }
+
+        .restart-btn:hover {
+            border-color: var(--color-white);
+            color: var(--color-white);
+        }
+
         /* Hide content until language is set */
         .lang-en, .lang-zh { display: none; }
         html[lang="en"] .lang-en { display: block; }
@@ -509,103 +530,29 @@
 
             <!-- SLIDE 1: Title -->
             <section class="title-slide">
+                <div class="logo" style="margin-top: 0; margin-bottom: 1.5em;">
+                    <img src="images/logo-white.jpg" alt="Real Self">
+                </div>
                 <h1>
                     <span class="lang-en">Why Do People Pay?</span>
                     <span class="lang-zh">为什么人们愿意付费？</span>
                 </h1>
-                <p class="subtitle">
-                    <span class="lang-en">20 Specific Cases: Who Comes & Why</span>
-                    <span class="lang-zh">20个具体案例：谁来、为什么来</span>
-                </p>
-                <div class="logo">
-                    <img src="images/logo-white.jpg" alt="Real Self">
-                </div>
-                <p style="color: var(--color-gray-600); font-size: 0.7em; margin-top: 2em;">
-                    <span class="lang-en">Real Self - Human Immersive Experience</span>
-                    <span class="lang-zh">Real Self - 人类沉浸式体验</span>
+                <p style="color: var(--color-gray-300); font-size: 1.05em; max-width: 700px; margin: 1.2em auto 0; line-height: 1.7;">
+                    <span class="lang-en">150 to 350 people enter a dark space wearing identical costumes and masks. No phones. No names. No roles. For 75 minutes, they move through light, sound, and each other. What happens inside is different every time.</span>
+                    <span class="lang-zh">150到350人穿着相同的服装、戴着面具进入一个黑暗的空间。没有手机。没有名字。没有身份。在75分钟里，他们在光、声音和彼此之间穿行。每一次发生的事情都不一样。</span>
                 </p>
             </section>
 
-            <!-- SLIDE 2: Key Differentiator -->
-            <section>
-                <p class="eyebrow">
-                    <span class="lang-en">Core Difference</span>
-                    <span class="lang-zh">核心差异</span>
-                </p>
+            <!-- SLIDE 2: Who comes and why -->
+            <section class="centered">
                 <h2>
-                    <span class="lang-en">Key Distinction: Participate vs Watch</span>
-                    <span class="lang-zh">关键区别：参与 vs 观看</span>
+                    <span class="lang-en">Who comes and why</span>
+                    <span class="lang-zh">谁来，为什么来</span>
                 </h2>
                 <div class="section-divider"></div>
-
-                <div class="differentiator-box">
-                    <div class="diff-column">
-                        <h3 style="color: var(--color-gray-500);">
-                            <span class="lang-en">Other Immersive Experiences</span>
-                            <span class="lang-zh">其他沉浸式体验</span>
-                        </h3>
-                        <ul>
-                            <li><span class="lang-en">You just watch</span><span class="lang-zh">你只是在看</span></li>
-                            <li><span class="lang-en">Take photos, check in</span><span class="lang-zh">拍照打卡</span></li>
-                            <li><span class="lang-en">Done in 15 minutes</span><span class="lang-zh">15分钟就逛完</span></li>
-                            <li><span class="lang-en">Forgotten quickly</span><span class="lang-zh">看完就忘</span></li>
-                        </ul>
-                    </div>
-                    <div class="diff-column highlight-col">
-                        <h3 style="color: var(--color-white);">Real Self</h3>
-                        <ul>
-                            <li><span class="lang-en">You are the protagonist, you participate</span><span class="lang-zh">你是主角，你在参与</span></li>
-                            <li><span class="lang-en">75-minute immersive journey</span><span class="lang-zh">75分钟沉浸旅程</span></li>
-                            <li><span class="lang-en">Wear a mask, no social pressure</span><span class="lang-zh">戴面具，无社交压力</span></li>
-                            <li><span class="lang-en">A lifetime memory</span><span class="lang-zh">记一辈子的经历</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <p style="text-align: center; margin-top: 1.5em; font-size: 1.1em;" class="fragment fade-up">
-                    <span class="highlight">
-                        <span class="lang-en">TeamLab is watching lights, Real Self is living an experience</span>
-                        <span class="lang-zh">TeamLab是看灯光，Real Self是活一次</span>
-                    </span>
-                </p>
-            </section>
-
-            <!-- SLIDE 3: Content for Social Media -->
-            <section>
-                <div class="category-header">
-                    <span class="category-icon">📱</span>
-                    <span class="category-title">
-                        <span class="lang-en">Social Media Content</span>
-                        <span class="lang-zh">社交媒体内容</span>
-                    </span>
-                </div>
-                <div class="section-divider"></div>
-                <p class="hook">
-                    <span class="lang-en">"The most post-worthy place in the city"</span>
-                    <span class="lang-zh">"全城最值得发的地方"</span>
-                </p>
-
-                <div class="case-cards">
-                    <div class="case-card fragment fade-up">
-                        <div class="who">👤 <span class="lang-en">Aesthetic Seeker</span><span class="lang-zh">美学追求者</span></div>
-                        <div class="thinks"><span class="lang-en">"I want unique photos"</span><span class="lang-zh">"我想要独特的照片"</span></div>
-                        <div class="why-rs">✓ <span class="lang-en">Stunning visuals, truly different</span><span class="lang-zh">视觉冲击力极强，与众不同</span></div>
-                    </div>
-                    <div class="case-card fragment fade-up">
-                        <div class="who">👤 <span class="lang-en">Content Creator</span><span class="lang-zh">小红书创作者</span></div>
-                        <div class="thinks"><span class="lang-en">"Need content that stands out"</span><span class="lang-zh">"需要脱颖而出的内容"</span></div>
-                        <div class="why-rs">✓ <span class="lang-en">Exclusive material = viral potential</span><span class="lang-zh">别人没有的素材 = 爆款</span></div>
-                    </div>
-                    <div class="case-card fragment fade-up">
-                        <div class="who">👤 <span class="lang-en">KOL / Influencer</span><span class="lang-zh">KOL/网红</span></div>
-                        <div class="thinks"><span class="lang-en">"Show followers something different"</span><span class="lang-zh">"给粉丝看点不一样的"</span></div>
-                        <div class="why-rs">✓ <span class="lang-en">Exclusive experience = guaranteed engagement</span><span class="lang-zh">独家体验 = 流量保证</span></div>
-                    </div>
-                </div>
-
-                <p style="text-align: center; margin-top: 1.2em; color: var(--color-gray-400); font-size: 0.85em;">
-                    <span class="lang-en">TikTok · Instagram · WeChat → Best content destination</span>
-                    <span class="lang-zh">小红书 · 抖音 · 微信朋友圈 → 最佳内容产地</span>
+                <p style="color: var(--color-gray-300); font-size: 1.05em; max-width: 750px; margin: 1em auto; line-height: 1.7;">
+                    <span class="lang-en">Over 80,000 people have been through Real Self across Buenos Aires, Barcelona, and Santiago. They come for very different reasons. Here are the real ones.</span>
+                    <span class="lang-zh">超过80,000人在布宜诺斯艾利斯、巴塞罗那和圣地亚哥体验过Real Self。他们因为各种不同的原因而来。以下是真实的理由。</span>
                 </p>
             </section>
 
@@ -981,26 +928,26 @@
                 </p>
             </section>
 
-            <!-- SLIDE 13: Others -->
+            <!-- Others -->
             <section>
                 <div class="category-header">
                     <span class="category-icon">🔄</span>
                     <span class="category-title">
-                        <span class="lang-en">Other Scenarios</span>
-                        <span class="lang-zh">其他场景</span>
+                        <span class="lang-en">And More</span>
+                        <span class="lang-zh">还有更多</span>
                     </span>
                 </div>
                 <div class="section-divider"></div>
                 <p class="hook">
-                    <span class="lang-en">"Been to TeamLab? This is completely different"</span>
-                    <span class="lang-zh">"体验过TeamLab？这个完全不同"</span>
+                    <span class="lang-en">"I've done immersive things before. This is nothing like that."</span>
+                    <span class="lang-zh">"我以前参加过沉浸式体验。这完全不是那回事。"</span>
                 </p>
 
                 <div class="case-cards">
                     <div class="case-card fragment fade-up">
-                        <div class="who">👤 <span class="lang-en">TeamLab Visitors</span><span class="lang-zh">TeamLab体验者</span></div>
+                        <div class="who">👤 <span class="lang-en">Immersive Art Fans</span><span class="lang-zh">沉浸式艺术爱好者</span></div>
                         <div class="thinks"><span class="lang-en">"Light shows are pretty but you just watch"</span><span class="lang-zh">"灯光秀好看但只是看看"</span></div>
-                        <div class="why-rs">✓ <span class="lang-en">This time you're not the audience, you participate</span><span class="lang-zh">这次你不是观众，你是参与者</span></div>
+                        <div class="why-rs">✓ <span class="lang-en">Here you're not the audience, you participate</span><span class="lang-zh">在这里你不是观众，你是参与者</span></div>
                     </div>
                     <div class="case-card fragment fade-up">
                         <div class="who">👤 <span class="lang-en">Repeat Visitors</span><span class="lang-zh">回头客</span></div>
@@ -1015,155 +962,20 @@
                 </div>
             </section>
 
-            <!-- SLIDE 14: Social Proof -->
-            <section class="centered">
-                <p class="eyebrow">
-                    <span class="lang-en">Proven Success</span>
-                    <span class="lang-zh">已验证的成功</span>
-                </p>
-                <h2>
-                    <span class="lang-en">The Numbers</span>
-                    <span class="lang-zh">数据证明</span>
-                </h2>
-                <div class="section-divider"></div>
-
-                <div class="stats-grid" style="margin-top: 1.5em;">
-                    <div class="stat-item fragment fade-up">
-                        <div class="stat-number">80,000+</div>
-                        <div class="stat-label">
-                            <span class="lang-en">Participants</span>
-                            <span class="lang-zh">参与者</span>
-                        </div>
-                    </div>
-                    <div class="stat-item fragment fade-up">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">
-                            <span class="lang-en">Cities Operating</span>
-                            <span class="lang-zh">城市运营中</span>
-                        </div>
-                    </div>
-                    <div class="stat-item fragment fade-up">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">
-                            <span class="lang-en">Satisfaction Rate</span>
-                            <span class="lang-zh">满意度</span>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="fragment fade-up" style="margin-top: 1.5em; color: var(--color-gray-400);">
-                    Buenos Aires | Barcelona | Santiago
-                </p>
-
-                <p class="fragment fade-up" style="margin-top: 1em; font-size: 1.1em;">
-                    <span class="highlight">
-                        <span class="lang-en">4 years of operations, proven model</span>
-                        <span class="lang-zh">4年运营经验，模式已验证</span>
-                    </span>
-                </p>
-            </section>
-
-            <!-- SLIDE 15: The Product -->
+            <!-- Real Stories Intro -->
             <section>
-                <p class="eyebrow">
-                    <span class="lang-en">Business Model</span>
-                    <span class="lang-zh">商业模式</span>
-                </p>
-                <h2>
-                    <span class="lang-en">Product Overview</span>
-                    <span class="lang-zh">产品概览</span>
-                </h2>
-                <div class="section-divider"></div>
-
-                <div class="revenue-grid">
-                    <div class="revenue-item fragment fade-up">
-                        <div class="revenue-label">
-                            <span class="lang-en">Capacity per Show</span>
-                            <span class="lang-zh">每场容量</span>
-                        </div>
-                        <div class="revenue-value">150-350</div>
-                    </div>
-                    <div class="revenue-item fragment fade-up">
-                        <div class="revenue-label">
-                            <span class="lang-en">Shows per Day</span>
-                            <span class="lang-zh">每日场次</span>
-                        </div>
-                        <div class="revenue-value">
-                            <span class="lang-en">Up to 6</span>
-                            <span class="lang-zh">最多6场</span>
-                        </div>
-                    </div>
-                    <div class="revenue-item fragment fade-up">
-                        <div class="revenue-label">
-                            <span class="lang-en">Base Ticket Price</span>
-                            <span class="lang-zh">基础票价</span>
-                        </div>
-                        <div class="revenue-value">$35+</div>
-                    </div>
-                    <div class="revenue-item fragment fade-up">
-                        <div class="revenue-label">
-                            <span class="lang-en">Other Revenue</span>
-                            <span class="lang-zh">其他收入</span>
-                        </div>
-                        <div class="revenue-value">
-                            <span class="lang-en">F&B / Merch</span>
-                            <span class="lang-zh">餐饮/周边</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: 1.5em;">
-                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
-                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
-                            <span class="lang-en">Revenue Stream</span>
-                            <span class="lang-zh">收入来源</span>
-                        </p>
-                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
-                            <span class="lang-en">Tickets + F&B</span>
-                            <span class="lang-zh">门票 + 餐饮</span>
-                        </p>
-                    </div>
-                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
-                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
-                            <span class="lang-en">Revenue Stream</span>
-                            <span class="lang-zh">收入来源</span>
-                        </p>
-                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
-                            <span class="lang-en">Merchandise</span>
-                            <span class="lang-zh">周边商品</span>
-                        </p>
-                    </div>
-                    <div style="text-align: center; padding: 1em; border: 1px solid var(--color-gray-800);" class="fragment fade-up">
-                        <p style="color: var(--color-gray-500); font-size: 0.75em; margin: 0;">
-                            <span class="lang-en">Revenue Stream</span>
-                            <span class="lang-zh">收入来源</span>
-                        </p>
-                        <p style="color: var(--color-white); margin: 0.3em 0 0 0;">
-                            <span class="lang-en">Pro Photos</span>
-                            <span class="lang-zh">专业照片</span>
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SLIDE 16: Real Stories Intro -->
-            <section class="centered">
-                <p class="eyebrow">
-                    <span class="lang-en">Testimonials</span>
-                    <span class="lang-zh">真实故事</span>
-                </p>
-                <h2>
+                <h2 style="margin-bottom: 0.5em;">
                     <span class="lang-en">Real Stories from Real Self</span>
                     <span class="lang-zh">来自Real Self的真实故事</span>
                 </h2>
                 <div class="section-divider"></div>
-                <p style="font-size: 1.2em; color: var(--color-gray-300); max-width: 700px; margin: 1.5em auto;">
-                    <span class="lang-en">These are real experiences shared by people who attended Real Self. Names have been changed, but the stories are true.</span>
-                    <span class="lang-zh">这些是参加过Real Self的人分享的真实经历。名字已更改，但故事是真实的。</span>
+                <p style="color: var(--color-gray-300); font-size: 1.05em; max-width: 800px; line-height: 1.8; margin-top: 1em;">
+                    <span class="lang-en">Everything you're about to read actually happened. These are not testimonials written for marketing. They are things that took place inside Real Self, told to us by the people who lived them, or witnessed firsthand by our team. Names have been changed, but nothing else.</span>
+                    <span class="lang-zh">你即将读到的一切都是真实发生的。这不是为了营销而写的用户评价。这些事情真实地发生在Real Self内部，由亲历者讲述给我们，或由我们的团队亲眼见证。名字做了修改，但仅此而已。</span>
                 </p>
-                <p style="font-size: 1.1em; color: var(--color-gray-400); font-style: italic;" class="fragment fade-up">
-                    <span class="lang-en">"What happens in Real Self stays with you forever."</span>
-                    <span class="lang-zh">"在Real Self发生的一切，会永远留在你心中。"</span>
+                <p style="color: var(--color-gray-200); font-size: 1.05em; max-width: 800px; line-height: 1.8; margin-top: 0.8em;">
+                    <span class="lang-en">This is what makes an experience like this fundamentally different from going to see something. When you remove people's identities and put them in a space where anything can happen, they don't just watch. They act, they feel, they connect in ways that surprise even themselves. The experience becomes a mirror. And what people find in that mirror is unpredictable, sometimes uncomfortable, and always real.</span>
+                    <span class="lang-zh">这正是这种体验与"去看某个东西"根本性的不同。当你去掉人们的身份，把他们放在一个任何事都可能发生的空间里，他们不会只是旁观。他们行动、他们感受、他们以连自己都意想不到的方式建立连接。体验变成了一面镜子。人们在镜子里找到的东西是不可预测的，有时令人不安，但永远是真实的。</span>
                 </p>
             </section>
 
@@ -1423,29 +1235,24 @@
                 </div>
             </section>
 
-            <!-- SLIDE 25: Closing CTA -->
+            <!-- Closing -->
             <section class="cta-slide">
                 <h2>
-                    <span class="lang-en">20 Types of People, One Answer</span>
-                    <span class="lang-zh">20种人，同一个答案</span>
+                    <span class="lang-en">Different people, same answer</span>
+                    <span class="lang-zh">不同的人，同一个答案</span>
                 </h2>
                 <div class="section-divider" style="margin: 0.8em auto;"></div>
 
-                <p style="font-size: 1.2em; color: var(--color-gray-300); max-width: 700px; margin: 1em auto;">
-                    <span class="lang-en">Whether it's influencers wanting content, or burned-out workers seeking escape,<br>whether it's HR planning team building, or couples looking for a date...</span>
-                    <span class="lang-zh">无论是想发朋友圈的网红，还是想逃离996的打工人，<br>无论是想团建的HR，还是想约会的情侣...</span>
+                <p style="font-size: 1.2em; color: var(--color-gray-300); max-width: 700px; margin: 1em auto; line-height: 1.7;">
+                    <span class="lang-en">They all come for different reasons. But they all leave with the same thing: something they didn't expect, and can't quite explain.</span>
+                    <span class="lang-zh">他们因不同的原因而来。但他们离开时都带着同样的东西：一些他们没有预料到的、无法用语言表达的东西。</span>
                 </p>
 
                 <p style="font-size: 1.4em; margin: 1.5em 0;" class="fragment fade-up">
                     <span class="highlight">
-                        <span class="lang-en">They're all searching for an authentic experience.</span>
-                        <span class="lang-zh">他们都在寻找一种真实的体验。</span>
+                        <span class="lang-en">That's what makes people pay.</span>
+                        <span class="lang-zh">这就是人们愿意付费的原因。</span>
                     </span>
-                </p>
-
-                <p style="font-size: 1.1em; color: var(--color-gray-400); font-style: italic;" class="fragment fade-up">
-                    <span class="lang-en">"What would it feel like to live like this?"</span>
-                    <span class="lang-zh">"如果这样生活，会是什么感觉？"</span>
                 </p>
 
                 <div class="logo fragment fade-up" style="margin-top: 2em;">
@@ -1455,6 +1262,15 @@
                         <span class="lang-zh">Real Self - 人类沉浸式体验</span>
                     </p>
                 </div>
+
+                <button class="restart-btn fragment fade-up" onclick="Reveal.slide(0)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 4v6h6M23 20v-6h-6"/>
+                        <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                    </svg>
+                    <span class="lang-en">Start over</span>
+                    <span class="lang-zh">重新开始</span>
+                </button>
             </section>
 
         </div>
