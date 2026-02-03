@@ -462,6 +462,24 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* Bigger navigation arrows */
+        .reveal .controls {
+            bottom: 24px;
+        }
+
+        .reveal .controls .controls-arrow {
+            color: var(--color-white);
+        }
+
+        .reveal .controls button {
+            transform: scale(1.6);
+            opacity: 0.7;
+        }
+
+        .reveal .controls button:hover {
+            opacity: 1;
+        }
+
         /* Restart button */
         .restart-btn {
             display: inline-flex;
@@ -538,8 +556,8 @@
                     <span class="lang-zh">为什么人们愿意付费？</span>
                 </h1>
                 <p style="color: var(--color-gray-300); font-size: 1.05em; max-width: 700px; margin: 1.2em auto 0; line-height: 1.7;">
-                    <span class="lang-en">150 to 350 people enter a dark space wearing identical costumes and masks. No phones. No names. No roles. For 75 minutes, they move through light, sound, and each other. What happens inside is different every time.</span>
-                    <span class="lang-zh">150到350人穿着相同的服装、戴着面具进入一个黑暗的空间。没有手机。没有名字。没有身份。在75分钟里，他们在光、声音和彼此之间穿行。每一次发生的事情都不一样。</span>
+                    <span class="lang-en">Hundreds of people enter a dark space wearing identical costumes and masks. No phones. No names. No roles. For 75 minutes, they move through light, sound, and each other. What happens inside is different every time.</span>
+                    <span class="lang-zh">几百人穿着相同的服装、戴着面具进入一个黑暗的空间。没有手机。没有名字。没有身份。在75分钟里，他们在光、声音和彼此之间穿行。每一次发生的事情都不一样。</span>
                 </p>
             </section>
 
@@ -750,8 +768,8 @@
                         <div class="section-divider"></div>
 
                         <p class="persona-quote">
-                            <span class="lang-en">"Say goodbye to youth in the coolest way"</span>
-                            <span class="lang-zh">"用最酷的方式告别青春"</span>
+                            <span class="lang-en">"One last thing we'll never forget, together"</span>
+                            <span class="lang-zh">"一起做一件永远不会忘记的事"</span>
                         </p>
 
                         <p style="color: var(--color-gray-300);">
@@ -843,7 +861,7 @@
                     </div>
                     <div class="case-card fragment fade-up">
                         <div class="who">👤 <span class="lang-en">Bachelor/Bachelorette Party</span><span class="lang-zh">单身派对</span></div>
-                        <div class="thinks"><span class="lang-en">"Last hurrah before marriage"</span><span class="lang-zh">"婚前最后的疯狂"</span></div>
+                        <div class="thinks"><span class="lang-en">"Something unforgettable before everything changes"</span><span class="lang-zh">"在一切改变之前，做一件难忘的事"</span></div>
                         <div class="why-rs">✓ <span class="lang-en">Not the typical bar/club routine</span><span class="lang-zh">不是酒吧夜店套路</span><br>✓ <span class="lang-en">Truly unforgettable send-off</span><span class="lang-zh">真正难忘的告别单身</span></div>
                     </div>
                 </div>
@@ -960,6 +978,18 @@
                         <div class="why-rs">✓ <span class="lang-en">This is the hottest experience right now</span><span class="lang-zh">这是现在最潮的体验</span></div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Transition: Why people want to go -->
+            <section>
+                <p style="color: var(--color-gray-200); font-size: 1.25em; max-width: 800px; line-height: 1.8; margin-top: 0.5em;">
+                    <span class="lang-en">This is simply different. And because it's so different, it generates a kind of curiosity that goes beyond the usual. Not curiosity about what you'll see, but about what will happen to you. About what you'll feel. About who you'll become when your identity is stripped away.</span>
+                    <span class="lang-zh">这就是不一样。正因为如此不同，它激发的是一种超越寻常的好奇心。不是对你会看到什么的好奇，而是对你会经历什么的好奇。对你会有什么感受的好奇。对当你的身份被剥离后，你会变成谁的好奇。</span>
+                </p>
+                <p style="color: var(--color-gray-300); font-size: 1.15em; max-width: 800px; line-height: 1.8; margin-top: 1em;">
+                    <span class="lang-en">That's the real reason people want to go. It's a journey into the unknown. It's crossing a boundary you've never crossed before. Not an experience you observe — an experience you live. And you can't know what it is until you're inside.</span>
+                    <span class="lang-zh">这才是人们想去的真正原因。这是一场通往未知的旅程。是跨越一个你从未跨越过的边界。不是一种你观看的体验——而是一种你亲身经历的体验。在你进入之前，你无法知道它是什么。</span>
+                </p>
             </section>
 
             <!-- Real Stories Intro -->
@@ -1339,6 +1369,13 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             langManager.init();
+
+            // Click anywhere to advance slide
+            document.addEventListener('click', (e) => {
+                // Don't advance if clicking controls, buttons, or links
+                if (e.target.closest('.controls, .lang-toggle, .back-link, .restart-btn, button, a')) return;
+                Reveal.next();
+            });
 
             Reveal.initialize({
                 hash: true,
