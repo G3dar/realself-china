@@ -19,6 +19,10 @@ const clientProfiles = {
         },
         extraNav: [
             { href: 'aboutus.html', label: 'About Us' }
+        ],
+        languages: [
+            { code: 'en', label: 'EN' },
+            { code: 'ja', label: '日本語' }
         ]
     }
 };
@@ -268,6 +272,12 @@ const headerComponent = {
 
         const navLinksHtml = visibleItems.join('\n                            ');
 
+        const defaultLangs = [{ code: 'en', label: 'EN' }, { code: 'zh', label: '中文' }];
+        const languages = profile.languages || defaultLangs;
+        const langButtonsHtml = languages.map((lang, i) =>
+            `<button class="lang-toggle__btn${i === 0 ? ' active' : ''}" data-lang="${lang.code}">${lang.label}</button>`
+        ).join('\n                            ');
+
         placeholder.outerHTML = `
         <header class="header">
             <div class="container">
@@ -278,8 +288,7 @@ const headerComponent = {
                             ${navLinksHtml}
                         </ul>
                         <div class="lang-toggle">
-                            <button class="lang-toggle__btn active" data-lang="en">EN</button>
-                            <button class="lang-toggle__btn" data-lang="zh">中文</button>
+                            ${langButtonsHtml}
                         </div>
                         <button class="menu-toggle" aria-label="Toggle menu">
                             <span></span>
@@ -301,13 +310,16 @@ const i18n = {
     async init() {
         // Check localStorage for saved language preference
         const savedLang = localStorage.getItem('realself-lang');
-        if (savedLang && ['en', 'zh'].includes(savedLang)) {
+        const profile = getActiveProfile();
+        const validLangs = (profile.languages || [{ code: 'en' }, { code: 'zh' }]).map(l => l.code);
+        if (savedLang && validLangs.includes(savedLang)) {
             this.currentLang = savedLang;
         }
 
-        // Load translations
-        await this.loadTranslations('en');
-        await this.loadTranslations('zh');
+        // Load translations for active profile's languages
+        for (const lang of validLangs) {
+            await this.loadTranslations(lang);
+        }
 
         // Update UI
         this.updateLanguageToggle();
@@ -336,7 +348,7 @@ const i18n = {
     },
 
     setLanguage(lang) {
-        if (!['en', 'zh'].includes(lang)) return;
+        if (!this.translations[lang]) return;
 
         this.currentLang = lang;
         localStorage.setItem('realself-lang', lang);
