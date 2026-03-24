@@ -15,8 +15,11 @@ const clientProfiles = {
         hiddenNav: ['investment.html', 'partnership.html'],
         blockedPages: ['investment.html', 'investment-requirements.html', 'partnership.html'],
         navOverrides: {
-            'about.html': { href: 'aboutus.html', label: 'The Journey' }
-        }
+            'about.html': { label: 'The Journey' }
+        },
+        extraNav: [
+            { href: 'aboutus.html', label: 'About Us' }
+        ]
     }
 };
 
@@ -245,18 +248,25 @@ const headerComponent = {
         ];
 
         const navOverrides = profile.navOverrides || {};
+        const extraNav = profile.extraNav || [];
 
-        const navLinksHtml = navItems
+        const visibleItems = navItems
             .filter(item => !hiddenNav.includes(item.href))
             .map(item => {
                 const override = navOverrides[item.href];
-                const href = override ? override.href : item.href;
-                const label = override ? override.label : item.label;
+                const href = override?.href || item.href;
+                const label = override?.label || item.label;
                 const i18nKey = override ? (override.i18nKey || '') : item.i18nKey;
                 const i18nAttr = i18nKey ? ` data-i18n="${i18nKey}"` : '';
                 return `<li><a href="${href}" class="nav__link"${i18nAttr}>${label}</a></li>`;
-            })
-            .join('\n                            ');
+            });
+
+        extraNav.forEach(item => {
+            const i18nAttr = item.i18nKey ? ` data-i18n="${item.i18nKey}"` : '';
+            visibleItems.push(`<li><a href="${item.href}" class="nav__link"${i18nAttr}>${item.label}</a></li>`);
+        });
+
+        const navLinksHtml = visibleItems.join('\n                            ');
 
         placeholder.outerHTML = `
         <header class="header">
