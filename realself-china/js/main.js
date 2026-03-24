@@ -3,6 +3,35 @@
  * Main JavaScript - i18n, Calculator, Charts
  */
 
+// ========== Client Profiles (Multi-Tenant) ==========
+const clientProfiles = {
+    default: {
+        passwords: ['thankyou', 'realself'],
+        hiddenNav: [],
+        blockedPages: [],
+    },
+    koei: {
+        passwords: ['koei'],
+        hiddenNav: ['investment.html', 'partnership.html'],
+        blockedPages: ['investment.html', 'investment-requirements.html', 'partnership.html'],
+    }
+};
+
+function resolveClientProfile(password) {
+    const normalized = password.toLowerCase().replace(/\s+/g, '');
+    for (const [profileId, profile] of Object.entries(clientProfiles)) {
+        if (profile.passwords.includes(normalized)) {
+            return profileId;
+        }
+    }
+    return null;
+}
+
+function getActiveProfile() {
+    const clientId = sessionStorage.getItem('rsClient') || 'default';
+    return clientProfiles[clientId] || clientProfiles['default'];
+}
+
 // ========== Venue Specifications ==========
 const VENUE_SPECS = {
     small: {
@@ -201,6 +230,22 @@ const headerComponent = {
             ? '<img src="images/logo-black.jpg" alt="Real Self" class="logo__img" style="height: 28px;">'
             : '<img src="images/logo-rs-icon.png" alt="Real Self" class="logo__img">';
 
+        const profile = getActiveProfile();
+        const hiddenNav = profile.hiddenNav || [];
+
+        const navItems = [
+            { href: 'experience.html', i18nKey: 'nav.experience', label: 'Experience' },
+            { href: 'specifications.html', i18nKey: 'nav.specs', label: 'Specs' },
+            { href: 'investment.html', i18nKey: 'nav.financials', label: 'Financials' },
+            { href: 'partnership.html', i18nKey: 'nav.partnership', label: 'Partnership' },
+            { href: 'about.html', i18nKey: 'nav.about', label: 'About' },
+        ];
+
+        const navLinksHtml = navItems
+            .filter(item => !hiddenNav.includes(item.href))
+            .map(item => `<li><a href="${item.href}" class="nav__link" data-i18n="${item.i18nKey}">${item.label}</a></li>`)
+            .join('\n                            ');
+
         placeholder.outerHTML = `
         <header class="header">
             <div class="container">
@@ -208,11 +253,7 @@ const headerComponent = {
                     <a href="home.html" class="logo">${logoImg}</a>
                     <nav class="nav">
                         <ul class="nav__list">
-                            <li><a href="experience.html" class="nav__link" data-i18n="nav.experience">Experience</a></li>
-                            <li><a href="specifications.html" class="nav__link" data-i18n="nav.specs">Specs</a></li>
-                            <li><a href="investment.html" class="nav__link" data-i18n="nav.financials">Financials</a></li>
-                            <li><a href="partnership.html" class="nav__link" data-i18n="nav.partnership">Partnership</a></li>
-                            <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+                            ${navLinksHtml}
                         </ul>
                         <div class="lang-toggle">
                             <button class="lang-toggle__btn active" data-lang="en">EN</button>
@@ -1031,9 +1072,10 @@ const prefetcher = {
 
     prefetchAll() {
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const blocked = getActiveProfile().blockedPages || [];
 
         this.pages.forEach(page => {
-            if (page !== currentPage && !this.prefetched.has(page)) {
+            if (page !== currentPage && !this.prefetched.has(page) && !blocked.includes(page)) {
                 this.prefetchPage(page);
             }
         });
@@ -1056,6 +1098,14 @@ window.prefetcher = prefetcher;
 
 // ========== Initialize ==========
 document.addEventListener('DOMContentLoaded', async () => {
+    // Page access guard — redirect blocked pages to home
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const activeProfile = getActiveProfile();
+    if (activeProfile.blockedPages.includes(currentPage)) {
+        window.location.href = 'home.html';
+        return;
+    }
+
     // Render header component if placeholder exists
     headerComponent.render();
 
@@ -1067,6 +1117,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     initMobileMenu();
     initActiveNav();
     initAnimations();
+
+    // Hide CTA links pointing to blocked pages
+    (activeProfile.blockedPages || []).forEach(page => {
+        document.querySelectorAll(`a[href="${page}"]:not(.nav__link)`).forEach(el => {
+            const section = el.closest('section') || el.closest('.script-closing');
+            if (section) {
+                section.style.display = 'none';
+            } else {
+                el.style.display = 'none';
+            }
+        });
+    });
+
     initContactForm();
     initPdfExport();
     initPageTransitions();
@@ -1092,3 +1155,5 @@ window.i18n = i18n;
 window.calculator = calculator;
 window.venueToggle = venueToggle;
 window.VENUE_SPECS = VENUE_SPECS;
+window.clientProfiles = clientProfiles;
+window.resolveClientProfile = resolveClientProfile;

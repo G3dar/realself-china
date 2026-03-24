@@ -286,38 +286,38 @@
         </div>
     </div>
 
+    <script src="js/main.js"></script>
     <script>
         const form = document.getElementById('accessForm');
         const input = document.getElementById('accessCode');
         const error = document.getElementById('errorMsg');
         const landing = document.getElementById('landing');
 
-        // Password check - accepts "realself" or "thankyou" (case-insensitive, with or without space)
-        function isValidPassword(input) {
-            const normalized = input.toLowerCase().replace(/\s+/g, '');
-            return normalized === 'realself' || normalized === 'thankyou';
-        }
-
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
             const entered = input.value.trim();
+            const profileId = resolveClientProfile(entered);
 
-            if (isValidPassword(entered)) {
+            if (profileId) {
                 // Success - redirect to home
                 landing.classList.add('landing--success');
 
-                // Store session
+                // Store session and client profile
                 sessionStorage.setItem('rsAccess', 'granted');
+                sessionStorage.setItem('rsClient', profileId);
 
-                // Start prefetching other pages during the transition
-                ['home.html', 'about.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html'].forEach(page => {
-                    const link = document.createElement('link');
-                    link.rel = 'prefetch';
-                    link.href = page;
-                    link.as = 'document';
-                    document.head.appendChild(link);
-                });
+                // Prefetch pages (skip blocked ones for this profile)
+                const blocked = clientProfiles[profileId].blockedPages || [];
+                ['home.html', 'about.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html']
+                    .filter(page => !blocked.includes(page))
+                    .forEach(page => {
+                        const link = document.createElement('link');
+                        link.rel = 'prefetch';
+                        link.href = page;
+                        link.as = 'document';
+                        document.head.appendChild(link);
+                    });
 
                 setTimeout(() => {
                     window.location.href = 'home.html';
