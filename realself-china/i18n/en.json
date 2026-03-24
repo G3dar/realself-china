@@ -320,7 +320,7 @@
       "power": "Power Quality"
     },
     "rigging": {
-      "title": "Rigging Requirements",
+      "title": "Rigging Recommendations (subject to venue's dimensions)",
       "experience": "Experience Room",
       "changing": "Changing Room"
     },
@@ -858,6 +858,88 @@
       }
     },
     "cta": "View Partnership Model"
+  },
+  "aboutus": {
+    "hero": {
+      "eyebrow": "The Creators",
+      "title": "The Team",
+      "subtitle": "Two decades of merging art, technology, and human emotion into experiences that redefine what's possible."
+    },
+    "intro": {
+      "label": "Origin",
+      "heading": "Where Art Meets Breakthrough Technology",
+      "p1": "Real Self was born from the conviction that immersive experiences should not be something you watch — they should be something you become.",
+      "p2": "Backed by over twenty years of pioneering work in VR, mixed reality, and animation, the team behind Real Self brings together award-winning storytelling, deep technical expertise, and a relentless drive to create human experiences that leave a lasting mark."
+    },
+    "team": {
+      "label": "The Team",
+      "heading": "Built by Visionaries",
+      "javier": {
+        "role": "Creator & Producer",
+        "bio1": "Creator and producer of Real Self. With a multidisciplinary background spanning electronics, architecture, and theatrical production, Drucaroff is a pioneer in blending technology with participatory human experiences.",
+        "bio2": "His vision for Real Self — an experience where projection mapping, surround sound, and guided narrative dissolve the boundary between spectator and performer — has been partnered with Sony and toured internationally.",
+        "stat1": "Participants",
+        "stat2": "Cities",
+        "stat3": "Partner"
+      },
+      "german": {
+        "role": "CEO",
+        "bio1": "Emmy-nominated director and CEO of 3DAR and Eggscape Entertainment. Buenos Aires-born, Heller founded 3DAR in 2004 at age 23, building it into one of Latin America's most innovative studios.",
+        "bio2": "His projects — including Paper Birds with Edward Norton, Gloomy Eyes narrated by Colin Farrell, and the Venice Prize-winning Eggscape — have screened at Sundance, Venice, Tribeca, and beyond.",
+        "stat1": "Awards",
+        "stat2": "Years",
+        "stat3": "Nominated"
+      }
+    },
+    "quote": "\"3DAR brings a mixture of Pixar-style panache and clever storytelling to the worlds of AR and VR.\"",
+    "projects": {
+      "label": "Selected Work",
+      "heading": "Proven at the Highest Level",
+      "eggscape": {
+        "award": "Venice Immersive Special Jury Prize",
+        "title": "Eggscape",
+        "meta": "Mixed reality game transforming physical spaces into playgrounds. 2024 Game Changers Award winner."
+      },
+      "paperbirds": {
+        "award": "Emmy Nominated",
+        "title": "Paper Birds",
+        "meta": "Interactive VR film starring Edward Norton and Joss Stone. First narrative VR experience with hand tracking."
+      },
+      "gloomyeyes": {
+        "award": "Annecy Cristal Award",
+        "title": "Gloomy Eyes",
+        "meta": "VR animated trilogy narrated by Colin Farrell. Premiered at Sundance. SXSW Best Storytelling."
+      },
+      "realself": {
+        "award": "80,000+ Participants",
+        "title": "Real Self",
+        "meta": "A fully participatory immersive experience. Toured 3 cities. Partnered with Sony. Category-defining."
+      },
+      "badbunny": {
+        "award": "Bad Bunny Collaboration",
+        "title": "Un Verano Sin Ti",
+        "meta": "Immersive 360° VR experience for Bad Bunny's record-breaking album launch. A virtual beach paradise."
+      },
+      "uncannyvalley": {
+        "award": "30+ International Awards",
+        "title": "Uncanny Valley",
+        "meta": "Sci-fi short exploring VR addiction in a dystopian future. Went viral globally. Feature film in development."
+      },
+      "venice": {
+        "award": "La Biennale di Venezia 2022",
+        "title": "Venice Award",
+        "meta": "Eggscape wins the Special Jury Prize at Venice Immersive, cementing 3DAR's place among the world's best."
+      }
+    },
+    "studio": {
+      "description": "Founded in Buenos Aires in 2004, 3DAR has grown into one of Latin America's most innovative studios — pioneering immersive storytelling in VR, AR, mixed reality, and animation. Recognized by Fast Company and celebrated at the world's top festivals.",
+      "link": "Visit 3dar.com"
+    },
+    "closing": {
+      "title": "A Human Immersive Experience",
+      "subtitle": "Built by people who believe technology should bring us closer together, not further apart.",
+      "tagline": "A Human Immersive Experience"
+    }
   },
   "footer": {
     "copyright": "Real Self Experience. All rights reserved."
