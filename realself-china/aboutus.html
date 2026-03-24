@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Journey - Meet the creators behind Real Self, a human immersive experience.">
+    <title>The Journey | Real Self</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23000' width='100' height='100'/><text y='.9em' font-size='90' fill='%23fff'>R</text></svg>">
+
+    <style>
+        /* ========== Hero ========== */
+        .journey-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 120px var(--spacing-lg) var(--spacing-4xl);
+            overflow: hidden;
+        }
+
+        .journey-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .journey-hero__content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-hero__eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.35em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-lg);
+            animation: fadeSlideUp 0.8s ease-out;
+        }
+
+        .journey-hero__title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 9vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: var(--spacing-xl);
+            animation: fadeSlideUp 0.8s ease-out 0.1s both;
+        }
+
+        .journey-hero__subtitle {
+            font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+            color: var(--color-gray-300);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+            animation: fadeSlideUp 0.8s ease-out 0.2s both;
+        }
+
+        .journey-hero__scroll {
+            position: absolute;
+            bottom: var(--spacing-2xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            color: rgba(255,255,255,0.5);
+            transition: color 0.3s ease;
+            animation: fadeSlideUp 0.8s ease-out 0.4s both;
+        }
+
+        .journey-hero__scroll:hover { color: rgba(255,255,255,0.9); }
+
+        .journey-hero__scroll svg {
+            animation: bounceArrow 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* ========== Editorial (reused from about) ========== */
+        .editorial { padding: var(--spacing-4xl) 0; }
+        .editorial--large-padding { padding: calc(var(--spacing-4xl) * 1.5) 0; }
+
+        .editorial__inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .editorial__label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .editorial__heading {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: var(--spacing-xl);
+            letter-spacing: -0.02em;
+        }
+
+        .editorial__body {
+            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+            line-height: 1.9;
+            color: var(--color-gray-300);
+        }
+
+        .editorial__body p { margin-bottom: var(--spacing-lg); }
+        .editorial__body p:last-child { margin-bottom: 0; }
+        .editorial__body strong { color: var(--color-white); font-weight: 500; }
+        .editorial__body em { color: var(--color-white); font-style: italic; }
+
+        /* ========== Team Section ========== */
+        .team-section {
+            padding: var(--spacing-4xl) 0;
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4xl);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-member__portrait {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .team-member__portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(60%) contrast(1.05);
+            transition: filter 0.6s ease, transform 0.6s ease;
+        }
+
+        .team-member:hover .team-member__portrait img {
+            filter: grayscale(20%) contrast(1.05);
+            transform: scale(1.03);
+        }
+
+        .team-member__role {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--color-gray-500);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .team-member__name {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .team-member__bio {
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+            line-height: 1.8;
+            color: var(--color-gray-400);
+        }
+
+        .team-member__bio strong {
+            color: var(--color-gray-200);
+            font-weight: 500;
+        }
+
+        .team-member__stats {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .team-stat__number {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-white);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-stat__label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-gray-600);
+        }
+
+        /* ========== Projects Grid ========== */
+        .projects-section {
+            padding: calc(var(--spacing-4xl) * 1.5) 0;
+            background: var(--color-gray-900);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            border: 1px solid rgba(255,255,255,0.06);
+            cursor: default;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .project-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--spacing-xl);
+            transition: background 0.5s ease;
+        }
+
+        .project-card:hover .project-card__overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        }
+
+        .project-card__award {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .project-card__title {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.35rem;
+        }
+
+        .project-card__meta {
+            font-size: 0.8rem;
+            color: var(--color-gray-400);
+            line-height: 1.5;
+        }
+
+        /* ========== Pull Quote ========== */
+        .pull-quote {
+            margin: var(--spacing-3xl) 0;
+            padding: var(--spacing-2xl) 0;
+            border-top: 1px solid var(--color-gray-800);
+            border-bottom: 1px solid var(--color-gray-800);
+        }
+
+        .pull-quote__text {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.8vw, 2rem);
+            line-height: 1.55;
+            font-style: italic;
+            text-align: center;
+            color: var(--color-gray-200);
+            font-weight: 400;
+        }
+
+        /* ========== Studio Section ========== */
+        .studio-section {
+            padding: calc(var(--spacing-4xl) * 1.5) 0;
+            text-align: center;
+            border-top: 1px solid var(--color-gray-800);
+        }
+
+        .studio-logo {
+            display: inline-block;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .studio-logo svg {
+            width: 160px;
+            height: auto;
+            fill: var(--color-white);
+            transition: opacity 0.3s ease;
+        }
+
+        .studio-logo:hover svg {
+            opacity: 0.7;
+        }
+
+        .studio-description {
+            max-width: 650px;
+            margin: 0 auto var(--spacing-2xl);
+            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+            line-height: 1.9;
+            color: var(--color-gray-400);
+        }
+
+        .studio-description strong {
+            color: var(--color-gray-200);
+            font-weight: 500;
+        }
+
+        .studio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--color-white);
+            text-decoration: none;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .studio-link:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.4);
+        }
+
+        .studio-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .studio-link:hover svg {
+            transform: translateX(3px);
+        }
+
+        /* ========== Gallery Strip ========== */
+        .gallery-strip {
+            display: flex;
+            gap: var(--spacing-sm);
+            overflow-x: auto;
+            scroll-snap-type: x proximity;
+            padding: 0 var(--spacing-lg);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .gallery-strip::-webkit-scrollbar { display: none; }
+
+        .gallery-strip__item {
+            flex: 0 0 300px;
+            height: 300px;
+            scroll-snap-align: start;
+            overflow: hidden;
+        }
+
+        .gallery-strip__item--wide {
+            flex: 0 0 450px;
+        }
+
+        .gallery-strip__item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-strip__item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.03);
+        }
+
+        /* ========== Animations ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 1024px) {
+            .team-grid {
+                gap: var(--spacing-2xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-3xl);
+            }
+
+            .team-member__portrait {
+                aspect-ratio: 4/3;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-strip__item {
+                flex: 0 0 250px;
+                height: 250px;
+            }
+
+            .gallery-strip__item--wide {
+                flex: 0 0 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="journey-hero">
+        <div class="journey-hero__content">
+            <p class="journey-hero__eyebrow">The Creators</p>
+            <h1 class="journey-hero__title">The Journey</h1>
+            <p class="journey-hero__subtitle">
+                Two decades of merging art, technology, and human emotion into experiences that redefine what's possible.
+            </p>
+        </div>
+        <div class="journey-hero__scroll" id="scrollToTeam">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Intro Editorial -->
+    <section class="editorial editorial--large-padding">
+        <div class="container">
+            <div class="editorial__inner reveal">
+                <p class="editorial__label">Origin</p>
+                <h2 class="editorial__heading">Where Art Meets Breakthrough Technology</h2>
+                <div class="editorial__body">
+                    <p>
+                        Real Self was born from the conviction that immersive experiences should not be something you watch &mdash; they should be something you <em>become</em>.
+                    </p>
+                    <p>
+                        Backed by over twenty years of pioneering work in VR, mixed reality, and animation, the team behind Real Self brings together award-winning storytelling, deep technical expertise, and a relentless drive to create human experiences that leave a lasting mark.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="editorial__inner" style="margin-bottom: var(--spacing-4xl);">
+                <p class="editorial__label reveal">The Team</p>
+                <h2 class="editorial__heading reveal">Built by Visionaries</h2>
+            </div>
+
+            <div class="team-grid">
+                <!-- German Heller -->
+                <div class="team-member reveal">
+                    <div class="team-member__portrait">
+                        <img src="images/german-heller.jpg" alt="German Heller" loading="lazy">
+                    </div>
+                    <p class="team-member__role">Director & CEO</p>
+                    <h3 class="team-member__name">German Heller</h3>
+                    <div class="team-member__bio">
+                        <p>
+                            Emmy-nominated director and CEO of <strong>3DAR</strong> and <strong>Eggscape Entertainment</strong>. Buenos Aires-born, Heller founded 3DAR in 2004 at age 23, building it into one of Latin America's most innovative studios.
+                        </p>
+                        <p style="margin-top: var(--spacing-md);">
+                            His projects &mdash; including <strong>Paper Birds</strong> with Edward Norton, <strong>Gloomy Eyes</strong> narrated by Colin Farrell, and the Venice Prize-winning <strong>Eggscape</strong> &mdash; have screened at Sundance, Venice, Tribeca, and beyond.
+                        </p>
+                    </div>
+                    <div class="team-member__stats">
+                        <div>
+                            <span class="team-stat__number">60+</span>
+                            <span class="team-stat__label">Awards</span>
+                        </div>
+                        <div>
+                            <span class="team-stat__number">20+</span>
+                            <span class="team-stat__label">Years</span>
+                        </div>
+                        <div>
+                            <span class="team-stat__number">Emmy</span>
+                            <span class="team-stat__label">Nominated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Javier Drucaroff -->
+                <div class="team-member reveal">
+                    <div class="team-member__portrait">
+                        <img src="images/javier-drucaroff.jpg" alt="Javier Drucaroff" loading="lazy">
+                    </div>
+                    <p class="team-member__role">Creator & Producer</p>
+                    <h3 class="team-member__name">Javier Drucaroff</h3>
+                    <div class="team-member__bio">
+                        <p>
+                            Creator and producer of <strong>Real Self</strong>. With a multidisciplinary background spanning electronics, architecture, and theatrical production, Drucaroff is a pioneer in blending technology with participatory human experiences.
+                        </p>
+                        <p style="margin-top: var(--spacing-md);">
+                            His vision for Real Self &mdash; an experience where projection mapping, surround sound, and guided narrative dissolve the boundary between spectator and performer &mdash; has been partnered with Sony and toured internationally.
+                        </p>
+                    </div>
+                    <div class="team-member__stats">
+                        <div>
+                            <span class="team-stat__number">80K+</span>
+                            <span class="team-stat__label">Participants</span>
+                        </div>
+                        <div>
+                            <span class="team-stat__number">3</span>
+                            <span class="team-stat__label">Cities</span>
+                        </div>
+                        <div>
+                            <span class="team-stat__number">Sony</span>
+                            <span class="team-stat__label">Partner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="editorial">
+        <div class="container">
+            <div class="editorial__inner">
+                <div class="pull-quote reveal">
+                    <p class="pull-quote__text">
+                        "3DAR brings a mixture of Pixar-style panache and clever storytelling to the worlds of AR and VR."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="editorial__inner" style="margin-bottom: var(--spacing-3xl);">
+                <p class="editorial__label reveal">Selected Work</p>
+                <h2 class="editorial__heading reveal">Proven at the Highest Level</h2>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal">
+                    <img src="images/projects/eggscape.webp" alt="Eggscape" loading="lazy">
+                    <div class="project-card__overlay">
+                        <p class="project-card__award">Venice Immersive Special Jury Prize</p>
+                        <h3 class="project-card__title">Eggscape</h3>
+                        <p class="project-card__meta">Mixed reality game transforming physical spaces into playgrounds. 2024 Game Changers Award winner.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="images/projects/paper-birds.webp" alt="Paper Birds" loading="lazy">
+                    <div class="project-card__overlay">
+                        <p class="project-card__award">Emmy Nominated</p>
+                        <h3 class="project-card__title">Paper Birds</h3>
+                        <p class="project-card__meta">Interactive VR film starring Edward Norton and Joss Stone. First narrative VR experience with hand tracking.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="images/projects/gloomy-eyes.webp" alt="Gloomy Eyes" loading="lazy">
+                    <div class="project-card__overlay">
+                        <p class="project-card__award">Annecy Cristal Award</p>
+                        <h3 class="project-card__title">Gloomy Eyes</h3>
+                        <p class="project-card__meta">VR animated trilogy narrated by Colin Farrell. Premiered at Sundance. SXSW Best Storytelling.</p>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <img src="images/hero-poster.jpg" alt="Real Self" loading="lazy">
+                    <div class="project-card__overlay">
+                        <p class="project-card__award">80,000+ Participants</p>
+                        <h3 class="project-card__title">Real Self</h3>
+                        <p class="project-card__meta">A fully participatory immersive experience. Toured 3 cities. Partnered with Sony. Category-defining.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Strip -->
+    <section class="gallery-section" style="padding: var(--spacing-3xl) 0;">
+        <div class="gallery-strip">
+            <div class="gallery-strip__item">
+                <img src="images/script/01-silhouettes-lines.jpg" alt="Silhouettes in projection light">
+            </div>
+            <div class="gallery-strip__item gallery-strip__item--wide">
+                <img src="images/script/07-group-waves.jpg" alt="Group experiencing wave projections">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/05-two-faces.jpg" alt="Two masked participants">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/03-circle-huddle.jpg" alt="Circle formation">
+            </div>
+            <div class="gallery-strip__item gallery-strip__item--wide">
+                <img src="images/script/06-crowd-line.jpg" alt="Crowd in formation">
+            </div>
+            <div class="gallery-strip__item">
+                <img src="images/script/08-masks-boxes.jpg" alt="Masks and costumes">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3DAR Studio Section -->
+    <section class="studio-section">
+        <div class="container">
+            <a href="https://www.3dar.com" target="_blank" rel="noopener" class="studio-logo reveal">
+                <svg viewBox="5 28 110 46" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M112.5,39.5c-2-0.8-4.1-1.3-6.3-1.3c-2.2,0-4.3,0.4-6.3,1.3c-1.9,0.8-3.7,2-5.1,3.5 c-0.3,0.3-0.5,0.5-0.7,0.8c-0.1-0.1-0.2-0.3-0.4-0.4c-0.8-0.8-1.7-1.5-2.6-2.1c-0.9-0.6-1.9-1.2-3-1.6c-1.1-0.4-2.2-0.8-3.3-1 c-2.3-0.5-4.8-0.5-7.1,0c-1.1,0.2-2.2,0.6-3.3,1c-1,0.4-2,1-3,1.6c-0.9,0.6-1.8,1.3-2.6,2.1c-0.4,0.4-0.8,0.8-1.2,1.3v-1.1v0l0-5.3 h0v-9.6h-9.5v9.6l-8,0c-1.2,0-2.4,0.1-3.5,0.4c-1.1,0.2-2.2,0.6-3.3,1c-1,0.4-2,1-3,1.6c-0.9,0.6-1.8,1.3-2.6,2.1 c-0.5,0.5-1,1.1-1.4,1.6c0-0.1-0.1-0.1-0.1-0.2c-0.2-0.3-0.5-0.7-0.7-1c-0.2-0.3-0.5-0.6-0.8-0.9c-0.3-0.3-0.5-0.6-0.8-0.8 c-0.3-0.3-0.6-0.5-0.9-0.8c-0.3-0.2-0.6-0.5-0.9-0.7c-0.3-0.2-0.7-0.4-1-0.6c-0.3-0.2-0.7-0.4-1-0.5l0.4-0.7l0.4-0.7l0.4-0.7 l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7l0.4-0.7h-1.4h-1.4h-1.4h-1.4 h-1.4h-1.4h-1.4h-1.4h-1.4h-1.4H21h-1.4h-1.4h-1.4h-1.4h-1.4v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6v0.6h0.3 h0.4h0.3h0.4h0.3h0.4h0.3h0.3h0.4h0.3h0.3h0.3h0.3H19h0.3h0.3l-0.3,0.6L19,39.5l-0.3,0.6l-0.3,0.6l-0.3,0.6l-0.3,0.6l-0.3,0.6 l-0.3,0.6l-0.3,0.6l-0.3,0.6l-0.3,0.6l-0.3,0.6L15.2,46l-0.3,0.6l-0.3,0.6l-0.3,0.6h0.6h0.6H16h0.6h0.6h0.6h0.6H19h0.6h0.6h0.6h0.6 H22h0.6h0.6h0.6c0.3,0,0.6,0,0.9,0.1c0.3,0,0.5,0.1,0.8,0.2c0.2,0.1,0.5,0.2,0.7,0.3c0.2,0.1,0.4,0.2,0.6,0.4s0.4,0.3,0.6,0.4 c0.2,0.2,0.3,0.3,0.5,0.5c0.2,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.3,0.4,0.4,0.6c0.1,0.2,0.2,0.4,0.3,0.7c0.1,0.2,0.2,0.4,0.3,0.7 c0.1,0.2,0.1,0.5,0.2,0.7c0.1,0.2,0.1,0.5,0.2,0.7c0,0.2,0.1,0.5,0.1,0.7c0,0.2,0.1,0.5,0.1,0.7c0,0.2,0,0.4,0.1,0.6 c0,0.2,0,0.4,0,0.6c0,0.3,0,0.5,0,0.8c0,0.3-0.1,0.5-0.1,0.8c-0.1,0.3-0.1,0.5-0.2,0.7c-0.1,0.2-0.2,0.5-0.3,0.7 c-0.1,0.2-0.2,0.5-0.3,0.7c-0.1,0.2-0.3,0.4-0.4,0.6c-0.1,0.2-0.3,0.4-0.4,0.6c-0.2,0.2-0.3,0.4-0.5,0.6c-0.2,0.2-0.4,0.3-0.6,0.5 c-0.2,0.2-0.4,0.3-0.6,0.4c-0.2,0.1-0.4,0.3-0.6,0.4s-0.4,0.2-0.7,0.3c-0.2,0.1-0.5,0.2-0.7,0.3c-0.2,0.1-0.5,0.1-0.7,0.2 c-0.3,0.1-0.5,0.1-0.8,0.1c-0.3,0-0.5,0-0.8,0c-0.3,0-0.5,0-0.8,0c-0.3,0-0.5-0.1-0.8-0.1c-0.3-0.1-0.5-0.1-0.7-0.2 c-0.2-0.1-0.5-0.2-0.7-0.3c-0.2-0.1-0.5-0.2-0.7-0.3c-0.2-0.1-0.4-0.2-0.6-0.4c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.4-0.3-0.6-0.5 c-0.2-0.2-0.3-0.4-0.5-0.6c-0.2-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.3-0.4-0.4-0.6c-0.1-0.2-0.2-0.4-0.3-0.7c-0.1-0.2-0.2-0.5-0.3-0.7 c-0.1-0.2-0.1-0.5-0.2-0.7c-0.1-0.3-0.1-0.5-0.1-0.8l-8.8,4.4c0.1,0.4,0.3,0.9,0.5,1.3s0.4,0.8,0.6,1.3c0.2,0.4,0.4,0.8,0.7,1.2 c0.2,0.4,0.5,0.8,0.7,1.1c0.3,0.4,0.5,0.7,0.8,1.1c0.3,0.3,0.6,0.7,0.9,1c0.3,0.3,0.6,0.6,1,0.9c0.3,0.3,0.7,0.6,1.1,0.9 c0.4,0.3,0.7,0.5,1.1,0.8c0.4,0.2,0.8,0.5,1.2,0.7c0.4,0.2,0.8,0.4,1.2,0.6c0.4,0.2,0.9,0.3,1.3,0.5s0.9,0.3,1.3,0.4 c0.5,0.1,0.9,0.2,1.4,0.3c0.5,0.1,0.9,0.1,1.4,0.2c0.5,0,1,0.1,1.4,0.1c0.6,0,1.2,0,1.8-0.1c0.6-0.1,1.2-0.1,1.7-0.3 c0.6-0.1,1.1-0.3,1.7-0.4c0.5-0.2,1.1-0.4,1.6-0.6c0.5-0.2,1-0.5,1.5-0.7c0.5-0.3,1-0.6,1.4-0.9c0.5-0.3,0.9-0.6,1.3-1 s0.8-0.7,1.2-1.1c0.4-0.4,0.8-0.8,1.1-1.2c0.2-0.3,0.4-0.6,0.7-0.8c0.5,0.7,1.1,1.3,1.7,1.9c0.8,0.8,1.7,1.5,2.6,2.1 c0.9,0.6,1.9,1.2,3,1.6c1.1,0.4,2.2,0.8,3.3,1c1.2,0.2,2.3,0.4,3.5,0.4c1.2,0,2.4-0.1,3.5-0.4h0l0,0c1.1-0.2,2.2-0.6,3.3-1 c1-0.4,2-1,3-1.6c0.9-0.6,1.8-1.3,2.6-2.1c0.8-0.8,1.5-1.7,2.1-2.6c0.4-0.5,0.7-1.1,1-1.7c0.3,0.6,0.6,1.1,1,1.6 c0.6,0.9,1.3,1.8,2.1,2.6c0.8,0.8,1.7,1.5,2.6,2.1c0.9,0.6,1.9,1.2,3,1.6c1.1,0.4,2.2,0.8,3.3,1c1.2,0.2,2.3,0.4,3.5,0.4h8.1v0h0.7 h9.6v-19c0-0.9,0.2-1.8,0.5-2.6c0.3-0.8,0.8-1.5,1.4-2.1c0.6-0.6,1.3-1.1,2.1-1.4c0.8-0.3,1.7-0.5,2.6-0.5s1.8,0.2,2.6,0.5 c0.3,0.1,0.6,0.3,0.9,0.5l4.8-8.3C113.9,40.2,113.2,39.8,112.5,39.5z M58.2,56.1c0,0.4-0.1,0.8-0.1,1.3l0,0.1 c-0.1,0.5-0.3,1-0.5,1.5c-0.2,0.5-0.5,0.9-0.7,1.4c-0.3,0.4-0.6,0.8-1,1.2c-0.4,0.4-0.8,0.7-1.2,1c-0.4,0.3-0.9,0.5-1.4,0.7 c-0.5,0.2-1,0.4-1.5,0.5c-0.5,0.1-1.1,0.2-1.6,0.2c-0.5,0-1.1-0.1-1.6-0.2c-0.5-0.1-1-0.3-1.5-0.5c-0.5-0.2-0.9-0.4-1.4-0.7 c-0.4-0.3-0.8-0.6-1.2-1c-0.4-0.4-0.7-0.8-1-1.2c-0.3-0.4-0.5-0.9-0.7-1.4c-0.2-0.5-0.4-1-0.5-1.5c-0.2-1.1-0.2-2.2,0-3.2 c0.1-0.5,0.3-1,0.5-1.5c0.2-0.5,0.5-0.9,0.7-1.4c0.3-0.4,0.6-0.8,1-1.2c0.4-0.4,0.8-0.7,1.2-1c0.4-0.3,0.9-0.5,1.4-0.7 c0.5-0.2,1-0.4,1.5-0.5c0.5-0.1,1.1-0.2,1.6-0.2l8,0V56.1z M81.3,63.9c-0.5,0-1.1-0.1-1.6-0.2l0,0c-0.5-0.1-1-0.3-1.5-0.5 c-0.5-0.2-0.9-0.5-1.4-0.7c-0.4-0.3-0.8-0.6-1.2-1c-0.4-0.4-0.7-0.8-1-1.2c-0.3-0.4-0.5-0.9-0.7-1.4c-0.2-0.5-0.4-1-0.5-1.5 c-0.1-0.5-0.2-1.1-0.2-1.6c0-0.5,0.1-1.1,0.2-1.6c0.1-0.5,0.3-1,0.5-1.5c0.2-0.5,0.4-0.9,0.7-1.4c0.3-0.4,0.6-0.8,1-1.2 c0.4-0.4,0.8-0.7,1.2-1c0.4-0.3,0.9-0.5,1.4-0.7c0.5-0.2,1-0.4,1.5-0.5c0.5-0.1,1.1-0.2,1.6-0.2c0.5,0,1.1,0.1,1.6,0.2 c0.5,0.1,1,0.3,1.5,0.5c0.5,0.2,0.9,0.5,1.4,0.7c0.4,0.3,0.8,0.6,1.2,1c0.4,0.4,0.7,0.8,1,1.2c0.3,0.4,0.5,0.9,0.7,1.4 c0.2,0.5,0.4,1,0.5,1.5c0.1,0.5,0.2,1.1,0.2,1.6l0,8H81.3z"/>
+                    <polygon points="107.4,69.6 107.4,70.3 108.6,70.3 108.6,73.3 109.3,73.3 109.3,70.3 110.5,70.3 110.5,69.6"/>
+                    <path d="M110.9,69.6v3.7h0.7v-2.5c0-0.1,0-0.2,0-0.3c0-0.1,0-0.2,0-0.3l0.7,3.1h0.8l0.7-3.1 c0,0.1,0,0.2,0,0.3c0,0.1,0,0.2,0,0.3v2.5h0.7v-3.7h-1.1l-0.7,2.9l-0.7-2.9H110.9z"/>
+                </svg>
+            </a>
+            <p class="studio-description reveal">
+                Founded in Buenos Aires in 2004, <strong>3DAR</strong> has grown into one of Latin America's most innovative studios &mdash; pioneering immersive storytelling in VR, AR, mixed reality, and animation. Recognized by Fast Company and celebrated at the world's top festivals.
+            </p>
+            <a href="https://www.3dar.com" target="_blank" rel="noopener" class="studio-link reveal">
+                Visit 3dar.com
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Thank You Section -->
+    <section class="section" style="padding: var(--spacing-4xl) 0; background: linear-gradient(180deg, var(--color-black) 0%, var(--color-gray-900) 100%);">
+        <div class="container text-center">
+            <div style="margin-bottom: var(--spacing-2xl);">
+                <img src="images/logo-black.jpg" alt="Real Self" style="max-width: 300px; width: 100%; filter: brightness(0) invert(1);">
+            </div>
+            <h2 class="mb-lg" style="font-size: clamp(2rem, 4vw, 3rem);">A Human Immersive Experience</h2>
+            <p style="font-size: 1.25rem; color: var(--color-gray-300); max-width: 600px; margin: 0 auto var(--spacing-xl);">
+                Built by people who believe technology should bring us closer together, not further apart.
+            </p>
+            <div style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-2xl); border-top: 1px solid var(--color-gray-800);">
+                <p style="font-size: 0.875rem; color: var(--color-gray-500); letter-spacing: 0.1em; text-transform: uppercase;">
+                    A Human Immersive Experience
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <p class="footer__text">
+                    &copy; 2026 <span data-i18n="footer.copyright">Real Self Experience. All rights reserved.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Scroll to team on arrow click
+        document.getElementById('scrollToTeam')?.addEventListener('click', () => {
+            document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

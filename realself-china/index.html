@@ -309,7 +309,7 @@
 
                 // Prefetch pages (skip blocked ones for this profile)
                 const blocked = clientProfiles[profileId].blockedPages || [];
-                ['home.html', 'about.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html']
+                ['home.html', 'about.html', 'aboutus.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html']
                     .filter(page => !blocked.includes(page))
                     .forEach(page => {
                         const link = document.createElement('link');

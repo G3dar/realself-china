@@ -14,6 +14,9 @@ const clientProfiles = {
         passwords: ['koei'],
         hiddenNav: ['investment.html', 'partnership.html'],
         blockedPages: ['investment.html', 'investment-requirements.html', 'partnership.html'],
+        navOverrides: {
+            'about.html': { href: 'aboutus.html', label: 'The Journey' }
+        }
     }
 };
 
@@ -241,9 +244,18 @@ const headerComponent = {
             { href: 'about.html', i18nKey: 'nav.about', label: 'About' },
         ];
 
+        const navOverrides = profile.navOverrides || {};
+
         const navLinksHtml = navItems
             .filter(item => !hiddenNav.includes(item.href))
-            .map(item => `<li><a href="${item.href}" class="nav__link" data-i18n="${item.i18nKey}">${item.label}</a></li>`)
+            .map(item => {
+                const override = navOverrides[item.href];
+                const href = override ? override.href : item.href;
+                const label = override ? override.label : item.label;
+                const i18nKey = override ? (override.i18nKey || '') : item.i18nKey;
+                const i18nAttr = i18nKey ? ` data-i18n="${i18nKey}"` : '';
+                return `<li><a href="${href}" class="nav__link"${i18nAttr}>${label}</a></li>`;
+            })
             .join('\n                            ');
 
         placeholder.outerHTML = `
@@ -1066,7 +1078,8 @@ const prefetcher = {
         'tech-rider.html',
         'investment.html',
         'setup.html',
-        'partnership.html'
+        'partnership.html',
+        'aboutus.html'
     ],
     prefetched: new Set(),
 
