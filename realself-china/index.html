@@ -307,6 +307,9 @@
                 sessionStorage.setItem('rsAccess', 'granted');
                 sessionStorage.setItem('rsClient', profileId);
 
+                // Reset language to English on login
+                localStorage.setItem('realself-lang', 'en');
+
                 // Prefetch pages (skip blocked ones for this profile)
                 const blocked = clientProfiles[profileId].blockedPages || [];
                 ['home.html', 'about.html', 'aboutus.html', 'experience.html', 'script.html', 'specifications.html', 'tech-rider.html', 'investment.html', 'setup.html', 'partnership.html']
