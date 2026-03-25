@@ -11,7 +11,7 @@ const clientProfiles = {
         blockedPages: [],
     },
     koei: {
-        passwords: ['koei'],
+        passwords: ['whitestone'],
         hiddenNav: ['investment.html', 'partnership.html'],
         blockedPages: ['investment.html', 'investment-requirements.html', 'partnership.html'],
         navOverrides: {
