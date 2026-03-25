@@ -4,7 +4,9 @@
     "experience": "Experience",
     "specs": "Specifications",
     "financials": "Financials",
-    "partnership": "Partnership"
+    "partnership": "Partnership",
+    "theJourney": "The Journey",
+    "aboutUs": "About Us"
   },
   "home": {
     "creatorStatement": {
@@ -175,7 +177,8 @@
     },
     "cta": {
       "subtitle": "See the detailed technical requirements for installation",
-      "button": "View Technical Rider"
+      "button": "View Technical Rider",
+      "buttonJourney": "Discover The Journey"
     }
   },
   "techRider": {
@@ -666,6 +669,7 @@
   "about": {
     "hero": {
       "eyebrow": "The First of Its Kind",
+      "title": "What Is Real Self",
       "titleSub": "A Fully Participatory Immersive Experience",
       "subtitle": "There are no actors. No passive spectators. Every ticket holder becomes the protagonist. This is not immersive wall art. This is immersive engagement and transformation.",
       "scroll": "Discover"

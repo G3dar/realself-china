@@ -15,10 +15,10 @@ const clientProfiles = {
         hiddenNav: ['investment.html', 'partnership.html'],
         blockedPages: ['investment.html', 'investment-requirements.html', 'partnership.html'],
         navOverrides: {
-            'about.html': { label: 'The Journey' }
+            'about.html': { label: 'The Journey', i18nKey: 'nav.theJourney' }
         },
         extraNav: [
-            { href: 'aboutus.html', label: 'About Us' }
+            { href: 'aboutus.html', label: 'About Us', i18nKey: 'nav.aboutUs' }
         ],
         languages: [
             { code: 'en', label: 'EN' },

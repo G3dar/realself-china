@@ -4,7 +4,9 @@
     "experience": "体験",
     "specs": "仕様",
     "financials": "収支",
-    "partnership": "パートナーシップ"
+    "partnership": "パートナーシップ",
+    "theJourney": "ザ・ジャーニー",
+    "aboutUs": "私たちについて"
   },
   "home": {
     "creatorStatement": {
@@ -175,7 +177,8 @@
     },
     "cta": {
       "subtitle": "設置に関する詳細な技術要件をご覧ください",
-      "button": "テクニカルライダーを見る"
+      "button": "テクニカルライダーを見る",
+      "buttonJourney": "ザ・ジャーニーを発見する"
     }
   },
   "techRider": {
@@ -666,6 +669,7 @@
   "about": {
     "hero": {
       "eyebrow": "唯一無二の存在",
+      "title": "Real Selfとは",
       "titleSub": "完全参加型没入体験",
       "subtitle": "俳優はいません。受動的な観客もいません。すべてのチケット保持者が主人公になります。これは没入型ウォールアートではありません。これは没入型のエンゲージメントとトランスフォーメーションです。",
       "scroll": "発見する"
