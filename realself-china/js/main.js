@@ -79,7 +79,7 @@ const VENUE_SPECS = {
     large: {
         capacity: 350,
         experienceSpace: '26m x 18m',
-        ceilingHeight: '10-12m',
+        ceilingHeight: '8-12m',
         changingRoom: '350 m²',
         lockers: 350,
         projectors: 26,
@@ -102,7 +102,7 @@ const VENUE_SPECS = {
         changingRoomSvg: '350 m²',
         lockersSvg: '350 lockers',
         experienceSpaceSvg: '26m x 18m',
-        ceilingHeightSvg: '10-12m ceiling',
+        ceilingHeightSvg: '8-12m ceiling',
         floorPlanSubtitle: 'Large venue configuration (350 capacity)',
         projectorLegend: '~26 Projectors (subject to ceiling height & lens availability)',
         speakerLegend: '16 Speakers (12 tripod + 4 VOG optional)',
@@ -374,7 +374,7 @@ const i18n = {
             const key = el.dataset.i18n;
             const value = this.getNestedValue(t, key);
             if (value) {
-                el.textContent = value;
+                el.innerHTML = value;
             }
         });
 

@@ -18,7 +18,7 @@
     },
     "scroll": "Scroll",
     "context": {
-      "intro": "Real Self has captivated over 80,000 participants across Buenos Aires, Barcelona, and Santiago. Now we're seeking partners to bring this transformative experience to China.",
+      "intro": "Real Self has captivated over 80,000 participants across Buenos Aires, Barcelona, and Santiago de Chile. Now we're seeking partners to bring this transformative experience to Asia.",
       "participants": "Participants",
       "cities": "Cities",
       "satisfaction": "Satisfaction",
@@ -134,7 +134,7 @@
       },
       "ceiling": {
         "title": "Ceiling Height",
-        "desc": "Optimal 10-12 meters. Dark gray perimeter frame must be at least 5m high. Projectors mounted on trusses for 360° projection mapping."
+        "desc": "Optimal 8-12 meters. Dark gray perimeter frame must be at least 6m high. Projectors mounted on trusses for 360° projection mapping."
       },
       "blackout": {
         "title": "Full Blackout",
@@ -150,12 +150,12 @@
       "foyer": {
         "time": "0-30 min",
         "title": "Foyer & Check-in",
-        "desc": "Welcome drinks, storing belongings in lockers, playful interactions"
+        "desc": "Welcome drinks, playful interactions"
       },
       "changing": {
         "time": "30-45 min",
         "title": "Transformation",
-        "desc": "Participants change into identical white overalls, gloves, and masks"
+        "desc": "Storing belongings in lockers. Participants change into identical white overalls, gloves, and masks"
       },
       "experience": {
         "time": "45-120 min",
@@ -213,8 +213,8 @@
       "durationDesc": "Audience standing for entire experience",
       "ceiling": "Ceiling Height",
       "ceilingOptimal": "Optimal height.",
-      "ceilingMin": "Minimum 5m required",
-      "ceilingDesc": "Optimal height, minimum 5m required",
+      "ceilingMin": "Minimum 6m required",
+      "ceilingDesc": "Optimal height, minimum 6m required",
       "blackout": "Blackout",
       "blackoutDesc": "Complete darkness required, black velour drapes",
       "floor": "Floor",
@@ -626,7 +626,7 @@
         },
         "creative": {
           "title": "Creative Content",
-          "desc": "Full projection content, audio design, and narrative adapted for Chinese audience with cultural consultation."
+          "desc": "Full projection content, audio design, and narrative adapted for local audience with cultural consultation."
         },
         "qa": {
           "title": "Quality Assurance",
@@ -654,7 +654,7 @@
     },
     "thankyou": {
       "title": "Thank You for Your Interest",
-      "message": "We're excited about the possibility of bringing Real Self to China. Our team is ready to discuss how we can create an unforgettable experience together.",
+      "message": "We're excited about the possibility of bringing Real Self to Asia. Our team is ready to discuss how we can create an unforgettable experience together.",
       "contact": "For inquiries, please reach out to discuss partnership opportunities.",
       "tagline": "A Human Immersive Experience"
     },
